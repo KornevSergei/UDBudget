@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="28.0" layoutY="220.0" mnemonicParsing="false" text="Войти" />
+      <Button layoutX="28.0" layoutY="220.0" mnemonicParsing="false" text="Войти" onAction="#logina"/>
       <Button layoutX="96.0" layoutY="220.0" mnemonicParsing="false" text="Зарегистрироваться" />
       <PasswordField layoutX="51.0" layoutY="137.0" />
       <TextField layoutX="51.0" layoutY="84.0" />
