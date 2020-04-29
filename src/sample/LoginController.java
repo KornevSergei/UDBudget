@@ -35,26 +35,36 @@ public class LoginController {
     }
 
     public void login(ActionEvent actionEvent) throws Exception {
-        System.out.println("ТЕСТ!");
+        String user = loginUser.getText();
+        System.out.println("ТЕСТ!" + user);
+
+
+
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProject.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
+        Parent root = (Parent) fxmlLoader.load();
+
+        Stage stage = (Stage) loginSignUpButton.getScene().getWindow();
+        stage.close();
+
+
+//        Stage stage = new Stage();
+//        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("УД Бюджет");
-        stage.setScene(new Scene(root1));
+        stage.setScene(new Scene(root));
         stage.show();
+
     }
 
     public void registration(ActionEvent actionEvent) throws Exception {
-        
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registration.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
+        Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        stage.initModality(Modality.NONE);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("УД Бюджет");
-        stage.setScene(new Scene(root1));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 }
