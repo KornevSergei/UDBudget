@@ -39,15 +39,11 @@ public class LoginController {
         System.out.println("ТЕСТ!" + user);
 
 
-
-
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProject.fxml"));
         Parent root = (Parent) fxmlLoader.load();
 
         Stage stage = (Stage) loginSignUpButton.getScene().getWindow();
         stage.close();
-
 
 //        Stage stage = new Stage();
 //        stage.initModality(Modality.APPLICATION_MODAL);
