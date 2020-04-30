@@ -10,7 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CreateProjectController {
+public class StartProjectController {
 
     @FXML
     private ResourceBundle resources;
@@ -23,9 +23,11 @@ public class CreateProjectController {
 
     }
 
-    public void createProject(ActionEvent actionEvent) throws Exception {
+    public void startEditProject(ActionEvent actionEvent) throws Exception {
+        
+        System.out.println("ЗАПУСТИЛИ РЕДАКТОР!");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StartProject.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject.fxml"));
         Parent root = (Parent) fxmlLoader.load();
 
 //        Stage stage = (Stage) createProject().getScene().getWindow();
@@ -39,3 +41,4 @@ public class CreateProjectController {
         stage.show();
     }
 }
+
