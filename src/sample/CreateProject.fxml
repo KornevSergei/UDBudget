@@ -5,18 +5,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreateProjectController">
    <children>
-      <Button layoutX="81.0" layoutY="128.0" mnemonicParsing="false" text="+Создать проект" onAction="#createProject" fx:id="createProject">
+      <Button fx:id="createProject" layoutX="81.0" layoutY="128.0" mnemonicParsing="false" onAction="#createProject" text="+Создать проект">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Text layoutX="288.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите проект :">
+      <Text layoutX="249.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите проект :">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
+      <Button layoutX="361.0" layoutY="116.0" mnemonicParsing="false" text="Проект №1" />
+      <Button layoutX="361.0" layoutY="153.0" mnemonicParsing="false" text="Проект №2" />
+      <Button layoutX="361.0" layoutY="226.0" mnemonicParsing="false" text="Проект №3" />
+      <Button layoutX="361.0" layoutY="187.0" mnemonicParsing="false" text="Проект №4" />
+      <Button layoutX="361.0" layoutY="264.0" mnemonicParsing="false" text="Проект №5" />
    </children>
 </AnchorPane>
