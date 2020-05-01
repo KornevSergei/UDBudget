@@ -24,7 +24,7 @@ public class StartProjectController {
     }
 
     public void startEditProject(ActionEvent actionEvent) throws Exception {
-        
+
         System.out.println("ЗАПУСТИЛИ РЕДАКТОР!");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject.fxml"));

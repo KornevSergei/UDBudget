@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegistrationController">
    <children>
       <Text layoutX="173.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Заполняем данные">
          <font>
@@ -17,6 +17,6 @@
       <TextField layoutX="225.0" layoutY="96.0" />
       <PasswordField layoutX="225.0" layoutY="134.0" />
       <PasswordField layoutX="226.0" layoutY="175.0" />
-      <Button layoutX="275.0" layoutY="229.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="registrationButton" layoutX="242.0" layoutY="228.0" mnemonicParsing="false" onAction="#registration" text="Зарегистрировать" />
    </children>
 </AnchorPane>
