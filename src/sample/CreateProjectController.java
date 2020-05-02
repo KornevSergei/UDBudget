@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class CreateProjectController {
@@ -17,6 +18,9 @@ public class CreateProjectController {
 
     @FXML
     private URL location;
+
+    @FXML
+    private Button createProject;
 
     @FXML
     void initialize() {
@@ -31,11 +35,14 @@ public class CreateProjectController {
 //        Stage stage = (Stage) createProject().getScene().getWindow();
 //        stage.close();
 
-
+//        createProject.setText("");//меняем навание кнопки
 
         Stage stage = new Stage();
         stage.setTitle("УД Бюджет");
         stage.setScene(new Scene(root));
         stage.show();
+
+
+
     }
 }

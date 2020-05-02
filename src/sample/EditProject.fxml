@@ -5,7 +5,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
    <children>
       <MenuBar layoutY="2.0">
@@ -14,64 +13,62 @@
             <items>
               <MenuItem mnemonicParsing="false" text="Сохранить" />
                   <MenuItem mnemonicParsing="false" text="Закрыть" />
+                  <MenuItem mnemonicParsing="false" text="Итог" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="ДП">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Добавить" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Строители">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Добавить" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Смежники">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="АК">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Материалы">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Стены" />
-                  <MenuItem mnemonicParsing="false" text="Пол" />
-                  <MenuItem mnemonicParsing="false" text="Потолок" />
-                  <MenuItem mnemonicParsing="false" text="Другое" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Сантехника">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Мебель">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Свет">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Техника">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Декор">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Статистика">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                </items>
             </Menu>
         </menus>
