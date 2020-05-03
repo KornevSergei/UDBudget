@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -17,6 +18,8 @@ import javafx.stage.Stage;
 public class LoginController {
 
     public TextField loginUser;
+    public PasswordField passwordField;
+
     @FXML
     private ResourceBundle resources;
 
@@ -35,8 +38,17 @@ public class LoginController {
     }
 
     public void login(ActionEvent actionEvent) throws Exception {
-        String user = loginUser.getText();
-        System.out.println("ТЕСТ!" + user);
+//        String user = loginUser.getText();
+//        System.out.println("ТЕСТ!" + user);
+
+
+        String loginText = loginUser.getText().trim();
+        String loginPassword = passwordField.getText().trim();
+
+        if (!loginText.equals("") && !loginPassword.equals(""))
+            loginUser(loginText, loginPassword);
+        else
+            System.out.println("Нужно ввести данные!");
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProject.fxml"));
@@ -53,7 +65,12 @@ public class LoginController {
 
     }
 
-    public void registration(ActionEvent actionEvent) throws Exception {
+    private void loginUser(String loginText, String loginPassword) {
+    }
+
+    public void startRegistration(ActionEvent actionEvent) throws Exception {
+
+        System.out.println("Открыли окно регистрации!");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registration.fxml"));
         Parent root = (Parent) fxmlLoader.load();
