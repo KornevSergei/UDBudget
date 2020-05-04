@@ -42,13 +42,13 @@ public class LoginController {
 //        System.out.println("ТЕСТ!" + user);
 
 
-        String loginText = loginUser.getText().trim();
-        String loginPassword = passwordField.getText().trim();
-
-        if (!loginText.equals("") && !loginPassword.equals(""))
-            loginUser(loginText, loginPassword);
-        else
-            System.out.println("Нужно ввести данные!");
+//        String loginText = loginUser.getText().trim();
+//        String loginPassword = passwordField.getText().trim();
+//
+//        if (!loginText.equals("") && !loginPassword.equals(""))
+//            loginUser(loginText, loginPassword);
+//        else
+//            System.out.println("Нужно ввести данные!");
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProject.fxml"));

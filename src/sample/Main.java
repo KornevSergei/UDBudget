@@ -17,6 +17,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(login, 250, 300));
         primaryStage.show();
 
+
 //        //делаем во весь экран
 //        primaryStage.setScene(new Scene(login));
 //        primaryStage.setMaximized(true);
