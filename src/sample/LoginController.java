@@ -38,8 +38,8 @@ public class LoginController {
     }
 
     public void login(ActionEvent actionEvent) throws Exception {
-//        String user = loginUser.getText();
-//        System.out.println("ТЕСТ!" + user);
+        String user = loginUser.getText();
+        System.out.println("ТЕСТ!" + user);
 
 
 //        String loginText = loginUser.getText().trim();
