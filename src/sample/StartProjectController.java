@@ -39,6 +39,7 @@ public class StartProjectController {
         stage.setTitle("УД Бюджет");
         stage.setScene(new Scene(root));
         stage.show();
+
     }
 }
 

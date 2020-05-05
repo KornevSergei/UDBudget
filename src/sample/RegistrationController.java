@@ -19,12 +19,6 @@ public class RegistrationController {
     public TextField signUpLogin;
     public TextField signUpPassword;
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
 
     @FXML
     Button registrationButton;
