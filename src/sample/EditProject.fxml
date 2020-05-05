@@ -7,83 +7,102 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
-   <children>
-      <MenuBar layoutY="2.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="Проект">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Сохранить" />
-                  <MenuItem mnemonicParsing="false" text="Закрыть" />
-                  <MenuItem mnemonicParsing="false" text="Итог" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="ДП">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Добавить" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Строители">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Добавить" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Смежники">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="АК">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Материалы">
-               <items>
-                  <MenuItem fx:id="addButton" mnemonicParsing="false" text="Добавить" onAction="#addMaterial" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Сантехника">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Мебель">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Свет">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Техника">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Декор">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Статистика">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить" />
-               </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-      <TableView layoutY="75.0" prefHeight="500.0" prefWidth="800.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="№" />
-          <TableColumn prefWidth="75.0" text="Материал" />
-            <TableColumn prefWidth="75.0" text="Ед.Изм." />
-            <TableColumn prefWidth="75.0" text="Кол-во" />
-            <TableColumn prefWidth="104.79998779296875" text="Срок поставки" />
-            <TableColumn prefWidth="91.20001220703125" text="Цена" />
-        </columns>
-      </TableView>
-   </children>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.EditProjectController">
+    <children>
+        <MenuBar layoutY="2.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Проект">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Сохранить"/>
+                        <MenuItem mnemonicParsing="false" text="Закрыть"/>
+                        <MenuItem mnemonicParsing="false" text="Итог"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="ДП">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Строители">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Смежники">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="АК">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Материалы">
+                    <items>
+                        <MenuItem fx:id="addButton" mnemonicParsing="false" text="Добавить" onAction="#addMaterial"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Сантехника">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Мебель">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Свет">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Техника">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Декор">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Статистика">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Добавить"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TableView layoutY="75.0" prefHeight="500.0" prefWidth="800.0" fx:id="resultTable">
+            <columns>
+                <TableColumn prefWidth="75.0" text="№">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nr"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="Материал">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="mt"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="Ед.Изм."/>
+                <TableColumn prefWidth="75.0" text="Кол-во">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="qn"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="104.79998779296875" text="Срок поставки"/>
+                <TableColumn prefWidth="91.20001220703125" text="Цена">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pr"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>

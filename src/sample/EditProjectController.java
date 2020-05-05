@@ -7,14 +7,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-
-
 
 
 public class EditProjectController {
 
-    private class Result{
+
+
+    private class Result {
         private SimpleIntegerProperty nr = new SimpleIntegerProperty();
         private SimpleStringProperty mt = new SimpleStringProperty();
         private SimpleIntegerProperty qn = new SimpleIntegerProperty();
