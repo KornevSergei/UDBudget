@@ -37,34 +37,19 @@ public class LoginController {
     }
 
     public void login(ActionEvent actionEvent) throws Exception {
-        String user = loginUser.getText();
-        System.out.println("ТЕСТ!" + user);
 
-
-//        String loginText = loginUser.getText().trim();
-//        String loginPassword = passwordField.getText().trim();
-//
-//        if (!loginText.equals("") && !loginPassword.equals(""))
-//            loginUser(loginText, loginPassword);
-//        else
-//            System.out.println("Нужно ввести данные!");
-
+        System.out.println("Запустили редактор!");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject.fxml"));
         Parent root = (Parent) fxmlLoader.load();
-
-        Stage stage = (Stage) loginSignUpButton.getScene().getWindow();
-        stage.close();
-
-//        Stage stage = new Stage();
-//        stage.initModality(Modality.APPLICATION_MODAL);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("УД Бюджет");
         stage.setScene(new Scene(root));
         stage.show();
 
-    }
+        loginUser.getScene().getWindow().hide();//после клика закрываекм окно
 
-    private void loginUser(String loginText, String loginPassword) {
     }
 
     public void startRegistration(ActionEvent actionEvent) throws Exception {
