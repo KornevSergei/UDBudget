@@ -1,6 +1,5 @@
 package sample;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -51,7 +50,7 @@ public class LoginController {
 //            System.out.println("Нужно ввести данные!");
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProject.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject.fxml"));
         Parent root = (Parent) fxmlLoader.load();
 
         Stage stage = (Stage) loginSignUpButton.getScene().getWindow();
