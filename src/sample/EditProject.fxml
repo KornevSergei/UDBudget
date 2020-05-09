@@ -5,27 +5,18 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
    <children>
       <MenuBar layoutY="1.0">
         <menus>
           <Menu mnemonicParsing="false" text="Проект">
             <items>
-              <MenuItem mnemonicParsing="false" text="Создать" onAction="#createNameProject" />
+              <MenuItem mnemonicParsing="false" onAction="#createNameProject" text="Создать" />
+                  <MenuItem mnemonicParsing="false" text="Загрузить" />
                   <MenuItem mnemonicParsing="false" text="Сохранить" />
                   <MenuItem mnemonicParsing="false" text="Закрыть" />
-                  <MenuItem mnemonicParsing="false" text="Добавить помещение" onAction="#createNameRoom" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Добавить">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Материалы" />
-                  <MenuItem mnemonicParsing="false" text="Сантехника" />
-                  <MenuItem mnemonicParsing="false" text="Свет" />
-                  <MenuItem mnemonicParsing="false" text="Техника" />
-                  <MenuItem mnemonicParsing="false" text="Декор" />
-               </items>
-            </Menu>
             <Menu mnemonicParsing="false" text="Итоговая">
                <items>
                   <MenuItem mnemonicParsing="false" text="Показать" />
@@ -51,9 +42,44 @@
                   <MenuItem mnemonicParsing="false" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Материалы">
+               <items>
+                  <MenuItem mnemonicParsing="false" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Сантехника" >
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Добавить помещение" onAction="#createRoom"  />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Мебель">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Добавить помещение" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Свет">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Добавить помещение" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Техника">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Добавить помещение" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Декор">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Добавить помещение" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Статистика">
+               <items>
+                  <MenuItem mnemonicParsing="false" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Диограммы">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Показать" />
+                  <MenuItem mnemonicParsing="false" />
                </items>
             </Menu>
         </menus>
