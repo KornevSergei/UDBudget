@@ -1,13 +1,17 @@
 package sample;
 
+import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Plumbing {
-    private SimpleStringProperty name = new SimpleStringProperty();
-    private SimpleIntegerProperty quantity = new SimpleIntegerProperty();
+    private SimpleStringProperty name;
+    private SimpleIntegerProperty quantity;
 
-
+    public Plumbing(String name, int quantity) {
+        this.name = new SimpleStringProperty(name);
+        this.quantity = new SimpleIntegerProperty(quantity);
+    }
 
     public String getName() {
         return name.get();
@@ -18,7 +22,7 @@ public class Plumbing {
     }
 
     public void setName(String name) {
-        this.name.set(name);
+        this.name = new SimpleStringProperty(name);
     }
 
     public int getQuantity() {
@@ -30,7 +34,7 @@ public class Plumbing {
     }
 
     public void setQuantity(int quantity) {
-        this.quantity.set(quantity);
+        this.quantity = new SimpleIntegerProperty(quantity);
     }
 }
 

@@ -11,11 +11,11 @@
    <content>
     <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
-            <TableView fx:id="tableViewPlumbing" layoutX="-2.0" AnchorPane.topAnchor="100.0">
+            <TableView fx:id="plumbingTable" layoutX="-2.0" AnchorPane.topAnchor="100.0">
               <columns>
-                <TableColumn fx:id="name" prefWidth="95.0" text="Наименование" />
+                <TableColumn fx:id="colName" prefWidth="95.0" text="Наименование" />
                 <TableColumn prefWidth="56.800048828125" text="Ед. изм." />
-                  <TableColumn fx:id="quantity" prefWidth="51.20001220703125" text="Кол-во" />
+                  <TableColumn fx:id="colQuantity" prefWidth="51.20001220703125" text="Кол-во" />
                   <TableColumn prefWidth="99.20001220703125" text="Цена порядковая за ед." />
                   <TableColumn prefWidth="75.0" text="Цена по КП за ед." />
                   <TableColumn prefWidth="75.0" text="Цена по КП под ключ" />
@@ -40,7 +40,7 @@
             <Button layoutX="173.0" layoutY="14.0" mnemonicParsing="false" text="Сохранить" />
             <TextField layoutY="74.0" prefHeight="26.0" prefWidth="94.0" />
             <TextField layoutX="151.0" layoutY="74.0" prefHeight="26.0" prefWidth="53.0" />
-            <Button layoutY="49.0" mnemonicParsing="false" onAction="#addElement" text="Добавить" />
+            <Button layoutY="49.0" mnemonicParsing="false" text="Добавить" />
             <Button layoutX="69.0" layoutY="49.0" mnemonicParsing="false" text="Удалить" />
          </children></AnchorPane>
   </content>
