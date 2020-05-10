@@ -13,7 +13,7 @@
          <children>
             <TableView fx:id="plumbingTable" layoutX="-2.0" AnchorPane.topAnchor="100.0">
               <columns>
-                <TableColumn fx:id="colName" prefWidth="95.0" text="Наименование" />
+                <TableColumn fx:id="colName" onEditCommit="#onEditChanged" prefWidth="95.0" text="Наименование" />
                 <TableColumn prefWidth="56.800048828125" text="Ед. изм." />
                   <TableColumn fx:id="colQuantity" prefWidth="51.20001220703125" text="Кол-во" />
                   <TableColumn prefWidth="99.20001220703125" text="Цена порядковая за ед." />
@@ -36,7 +36,7 @@
                   <TableColumn prefWidth="75.0" text="Характеристики" />
               </columns>
             </TableView>
-            <TextField layoutX="14.0" layoutY="14.0" />
+            <TextField fx:id="nameRoom" layoutX="14.0" layoutY="14.0" />
             <Button layoutX="173.0" layoutY="14.0" mnemonicParsing="false" onAction="#saveRoom" text="Сохранить" />
             <TextField fx:id="textFieldName" layoutY="74.0" prefHeight="26.0" prefWidth="94.0" />
             <TextField fx:id="textFieldQuantity" layoutX="151.0" layoutY="74.0" prefHeight="26.0" prefWidth="53.0" />

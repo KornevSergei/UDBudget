@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.ResourceBundle;
 
 public class PlumbingController implements Initializable {
 
+    public TextField nameRoom;
 
     public TextField textFieldQuantity;
     public TextField textFieldName;
@@ -32,6 +34,10 @@ public class PlumbingController implements Initializable {
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
         plumbingTable.setItems(observableList);
+
+        //даём возможность редактировать в строчке
+        plumbingTable.setEditable(true);
+        colName.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     ObservableList<Plumbing> observableList = FXCollections.observableArrayList(
@@ -66,10 +72,14 @@ public class PlumbingController implements Initializable {
     }
         //удаляем элементы
     public void deleteElement(ActionEvent actionEvent) {
-
         ObservableList<Plumbing> allPlumbing, singlePlumbing;
         allPlumbing = plumbingTable.getItems();
         singlePlumbing = plumbingTable.getSelectionModel().getSelectedItems();
         singlePlumbing.forEach(allPlumbing::remove);
+    }
+
+    public void onEditChanged(TableColumn.CellEditEvent<Plumbing, String> plumbingStringCellEditEvent) {
+        Plumbing plumbing = plumbingTable.getSelectionModel().getSelectedItem();
+        plumbing.setName(plumbingStringCellEditEvent.getNewValue());
     }
 }
