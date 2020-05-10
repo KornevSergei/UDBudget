@@ -7,6 +7,8 @@ public class Plumbing {
     private SimpleStringProperty name = new SimpleStringProperty();
     private SimpleIntegerProperty quantity = new SimpleIntegerProperty();
 
+
+
     public String getName() {
         return name.get();
     }
