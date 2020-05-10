@@ -41,7 +41,7 @@
             <TextField fx:id="textFieldName" layoutY="74.0" prefHeight="26.0" prefWidth="94.0" />
             <TextField fx:id="textFieldQuantity" layoutX="151.0" layoutY="74.0" prefHeight="26.0" prefWidth="53.0" />
             <Button layoutY="49.0" mnemonicParsing="false" onAction="#addElement" text="Добавить" />
-            <Button layoutX="69.0" layoutY="49.0" mnemonicParsing="false" text="Удалить" />
+            <Button layoutX="69.0" layoutY="49.0" mnemonicParsing="false" onAction="#deleteElement" text="Удалить" />
          </children></AnchorPane>
   </content>
 </ScrollPane>

@@ -40,7 +40,7 @@ public class PlumbingController implements Initializable {
     );
 
     public void addElement(ActionEvent actionEvent) {
-        Plumbing plumbing = new Plumbing(textFieldName.getText(),Integer.parseInt(textFieldQuantity.getText()));
+        Plumbing plumbing = new Plumbing(textFieldName.getText(), Integer.parseInt(textFieldQuantity.getText()));
         plumbingTable.getItems().add(plumbing);
 
     }
@@ -50,18 +50,26 @@ public class PlumbingController implements Initializable {
         Plumbing plumbing = new Plumbing();
 
         List<List<String>> arrList = new ArrayList<>();
-        for (int i = 0; i <plumbingTable.getItems().size() ; i++) {
+        for (int i = 0; i < plumbingTable.getItems().size(); i++) {
             plumbing = plumbingTable.getItems().get(i);
             arrList.add(new ArrayList<>());
             arrList.get(i).add(plumbing.name.get());
-            arrList.get(i).add(""+plumbing.quantity.get());//потому что инт значение в Plumbing
+            arrList.get(i).add("" + plumbing.quantity.get());//потому что инт значение в Plumbing приводим к Строке
         }
 
-        for (int i = 0; i <arrList.size() ; i++) {
+        for (int i = 0; i < arrList.size(); i++) {
             for (int j = 0; j < arrList.get(i).size(); j++) {
                 System.out.println(arrList.get(i).get(j));
             }
         }
 
+    }
+        //удаляем элементы
+    public void deleteElement(ActionEvent actionEvent) {
+
+        ObservableList<Plumbing> allPlumbing, singlePlumbing;
+        allPlumbing = plumbingTable.getItems();
+        singlePlumbing = plumbingTable.getSelectionModel().getSelectedItems();
+        singlePlumbing.forEach(allPlumbing::remove);
     }
 }
