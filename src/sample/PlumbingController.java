@@ -16,7 +16,7 @@ public class PlumbingController {
     public int tryCount = 0;
 
 
-    public void go(ActionEvent actionEvent) {
+    public void go(ActionEvent actionEvent) throws Exception {
         Plumbing plumbing = new Plumbing();
         String s = userG.getText();
         plumbing.setName(s);

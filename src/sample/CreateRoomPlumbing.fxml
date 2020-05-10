@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+  <content>
+    <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <TableView fx:id="tableViewPlumbing" layoutX="-2.0" AnchorPane.topAnchor="100.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Наименование" />
+                <TableColumn prefWidth="75.0" text="Ед. изм." />
+                  <TableColumn prefWidth="75.0" text="Кол-во" />
+                  <TableColumn prefWidth="75.0" text="Цена порядковая за ед." />
+                  <TableColumn prefWidth="75.0" text="Цена по КП за ед." />
+                  <TableColumn prefWidth="75.0" text="Цена по КП под ключ" />
+                  <TableColumn prefWidth="75.0" text="Стоимость по КП за ед." />
+                  <TableColumn prefWidth="75.0" text="Порядок цен" />
+                  <TableColumn prefWidth="75.0" text="Стоимость по КП" />
+                  <TableColumn prefWidth="75.0" text="Срок изготовления/ поставки" />
+                  <TableColumn prefWidth="75.0" text="Стоимость фактическая" />
+                  <TableColumn prefWidth="75.0" text="Разница фактическая" />
+                  <TableColumn prefWidth="75.0" text="Оплачено" />
+                  <TableColumn prefWidth="75.0" text="Остаток" />
+                  <TableColumn prefWidth="75.0" text="Дата поставки" />
+                  <TableColumn prefWidth="75.0" text="КП плановое" />
+                  <TableColumn prefWidth="75.0" text="КП фактическое" />
+                  <TableColumn prefWidth="75.0" text="Счет" />
+                  <TableColumn prefWidth="75.0" text="Контакты" />
+                  <TableColumn prefWidth="75.0" text="Примечания" />
+                  <TableColumn prefWidth="75.0" text="Характеристики" />
+              </columns>
+            </TableView>
+            <TextField layoutX="38.0" layoutY="41.0" />
+            <Button layoutX="218.0" layoutY="41.0" mnemonicParsing="false" text="Сохранить" />
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
