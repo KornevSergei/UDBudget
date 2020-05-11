@@ -47,22 +47,22 @@
                   <MenuItem mnemonicParsing="false" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Сантехника" >
+            <Menu mnemonicParsing="false" text="Сантехника">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить помещение" onAction="#createRoom"  />
+                  <MenuItem mnemonicParsing="false" onAction="#createRoom" text="Добавить" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Мебель">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Добавить помещение" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Свет">
+            <Menu disable="true" mnemonicParsing="false" text="Мебель">
                <items>
                   <MenuItem mnemonicParsing="false" text="Добавить помещение" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Техника">
+            <Menu disable="true" mnemonicParsing="false" text="Свет">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Добавить помещение" />
+               </items>
+            </Menu>
+            <Menu disable="true" mnemonicParsing="false" text="Техника">
                <items>
                   <MenuItem mnemonicParsing="false" text="Добавить помещение" />
                </items>
@@ -77,7 +77,7 @@
                   <MenuItem mnemonicParsing="false" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Диограммы">
+            <Menu mnemonicParsing="false" text="Диараммы">
                <items>
                   <MenuItem mnemonicParsing="false" />
                </items>

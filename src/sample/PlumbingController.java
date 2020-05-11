@@ -59,7 +59,7 @@ public class PlumbingController implements Initializable {
     public void saveRoom(ActionEvent actionEvent) {
         Plumbing plumbing = new Plumbing();
 
-        System.out.println("Проект - " + nameRoom.getText());
+//        System.out.println("Проект - " + nameRoom.getText());
         List<List<String>> arrList = new ArrayList<>();
         for (int i = 0; i < plumbingTable.getItems().size(); i++) {
             plumbing = plumbingTable.getItems().get(i);
