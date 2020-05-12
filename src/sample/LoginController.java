@@ -37,8 +37,7 @@ public class LoginController {
 
     public void login(ActionEvent actionEvent) throws Exception {
 
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NameProject.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("УД Бюджет");
