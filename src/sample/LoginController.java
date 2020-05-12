@@ -37,20 +37,8 @@ public class LoginController {
 
     public void login(ActionEvent actionEvent) throws Exception {
 
-//        System.out.println("Запустили редактор!");
-//
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject.fxml"));
-//        Parent root = (Parent) fxmlLoader.load();
-//        Stage stage = new Stage();
-//        stage.setTitle("УД Бюджет");
-//        stage.setScene(new Scene(root));
-//        stage.show();
-//
-//        loginUser.getScene().getWindow().hide();//после клика закрываекм окно
 
-
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SelectProject.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("УД Бюджет");

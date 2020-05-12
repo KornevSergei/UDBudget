@@ -12,7 +12,7 @@ public class NameProjectController {
     public Button createProjectButton;
 
     public void createProject(ActionEvent actionEvent) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject1.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("УД Бюджет");
