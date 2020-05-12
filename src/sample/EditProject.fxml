@@ -11,7 +11,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Проект">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#createNameProject" text="Создать" />
+              <MenuItem mnemonicParsing="false"  text="Создать" />
                   <MenuItem mnemonicParsing="false" text="Загрузить" />
                   <MenuItem mnemonicParsing="false" text="Сохранить" />
                   <MenuItem mnemonicParsing="false" text="Закрыть" />
@@ -52,17 +52,17 @@
                   <MenuItem mnemonicParsing="false" onAction="#createRoom" text="Добавить" />
                </items>
             </Menu>
-            <Menu disable="true" mnemonicParsing="false" text="Мебель">
+            <Menu mnemonicParsing="false" text="Мебель">
                <items>
                   <MenuItem mnemonicParsing="false" text="Добавить помещение" />
                </items>
             </Menu>
-            <Menu disable="true" mnemonicParsing="false" text="Свет">
+            <Menu mnemonicParsing="false" text="Свет">
                <items>
                   <MenuItem mnemonicParsing="false" text="Добавить помещение" />
                </items>
             </Menu>
-            <Menu disable="true" mnemonicParsing="false" text="Техника">
+            <Menu mnemonicParsing="false" text="Техника">
                <items>
                   <MenuItem mnemonicParsing="false" text="Добавить помещение" />
                </items>

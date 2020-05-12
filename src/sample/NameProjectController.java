@@ -7,20 +7,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class SelectProjectController {
+public class NameProjectController {
 
-
-    public Button create;
+    public Button createProjectButton;
 
     public void createProject(ActionEvent actionEvent) throws Exception {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NameProject.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProject1.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("УД Бюджет");
         stage.setScene(new Scene(root));
         stage.show();
-
-        create.getScene().getWindow().hide();//после клика закрываекм окно
+        createProjectButton.getScene().getWindow().hide();
     }
 }
