@@ -8,7 +8,8 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class NameProjectController {
-
+    public Button addRoomButton;
+    public Button addPaymentButton;
     public Button createProjectButton;
 
     public void createProject(ActionEvent actionEvent) throws Exception {
@@ -19,5 +20,11 @@ public class NameProjectController {
         stage.setScene(new Scene(root));
         stage.show();
         createProjectButton.getScene().getWindow().hide();
+    }
+
+    public void addRoom(ActionEvent actionEvent) {
+    }
+
+    public void addPayment(ActionEvent actionEvent) {
     }
 }

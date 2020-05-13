@@ -6,18 +6,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NameProjectController">
-   <children>
-      <TextField layoutX="38.0" layoutY="40.0" prefHeight="26.0" prefWidth="261.0" promptText="Название проекта" />
-      <TextField layoutX="38.0" layoutY="89.0" prefHeight="26.0" prefWidth="261.0" promptText="Общая площадь" />
-      <TextField layoutX="38.0" layoutY="173.0" prefHeight="26.0" prefWidth="262.0" promptText="Стоимость ДП за кв.м" />
-      <TextField layoutX="38.0" layoutY="215.0" prefHeight="26.0" prefWidth="262.0" promptText="Скидка за ДП %" />
-      <Button layoutX="37.0" layoutY="132.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="262.0" text="+ Добавить помещение" />
-      <Button layoutX="37.0" layoutY="255.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="262.0" text="+ Добавить этап оплаты" />
-      <ToggleButton layoutX="227.0" layoutY="300.0" mnemonicParsing="false" text="Р" />
-      <ToggleButton layoutX="251.0" layoutY="300.0" mnemonicParsing="false" text="\$" />
-      <ToggleButton layoutX="275.0" layoutY="300.0" mnemonicParsing="false" text="Э" />
-      <Text layoutX="153.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Валюта :" />
-      <Button fx:id="createProjectButton" layoutX="40.0" layoutY="339.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="262.0" text="Сформировать" onAction="#createProject" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0"
+            prefWidth="336.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.NameProjectController">
+    <children>
+        <TextField layoutX="38.0" layoutY="40.0" prefHeight="26.0" prefWidth="261.0" promptText="Название проекта"/>
+        <TextField layoutX="38.0" layoutY="89.0" prefHeight="26.0" prefWidth="261.0" promptText="Общая площадь"/>
+        <TextField layoutX="38.0" layoutY="173.0" prefHeight="26.0" prefWidth="262.0"
+                   promptText="Стоимость ДП за кв.м"/>
+        <TextField layoutX="38.0" layoutY="215.0" prefHeight="26.0" prefWidth="262.0" promptText="Скидка за ДП %"/>
+        <Button fx:id="addRoomButton" layoutX="37.0" layoutY="132.0" mnemonicParsing="false" prefHeight="26.0"
+                onAction="#addRoom" prefWidth="262.0" text="+ Добавить помещение"/>
+        <Button fx:id="addPaymentButton" onAction="#addPayment" layoutX="37.0" layoutY="255.0" mnemonicParsing="false"
+                prefHeight="26.0" prefWidth="262.0" text="+ Добавить этап оплаты"/>
+        <ToggleButton layoutX="227.0" layoutY="300.0" mnemonicParsing="false" text="Р"/>
+        <ToggleButton layoutX="251.0" layoutY="300.0" mnemonicParsing="false" text="\$"/>
+        <ToggleButton layoutX="275.0" layoutY="300.0" mnemonicParsing="false" text="Э"/>
+        <Text layoutX="153.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Валюта :"/>
+        <Button fx:id="createProjectButton" layoutX="40.0" layoutY="339.0" mnemonicParsing="false" prefHeight="26.0"
+                prefWidth="262.0" text="Сформировать" onAction="#createProject"/>
+    </children>
 </AnchorPane>

@@ -49,14 +49,14 @@ public class PlumbingController implements Initializable {
             new Plumbing("Клей", 2, 36.8)
     );
 
-    public void addElement(ActionEvent actionEvent) {
+    public void addElementPlumping(ActionEvent actionEvent) {
         Plumbing plumbing = new Plumbing(textFieldName.getText(), Integer.parseInt(textFieldQuantity.getText()), Double.parseDouble(textFieldPrice.getText()));
         plumbingTable.getItems().add(plumbing);
 
     }
 
     //сохраняем элементы и выводим результат
-    public void saveRoom(ActionEvent actionEvent) {
+    public void saveElementPlumping(ActionEvent actionEvent) {
         Plumbing plumbing = new Plumbing();
 
         System.out.println("Проект - " + nameRoom.getText());
@@ -78,7 +78,7 @@ public class PlumbingController implements Initializable {
     }
 
     //удаляем элементы
-    public void deleteElement(ActionEvent actionEvent) {
+    public void deleteElementPlumping(ActionEvent actionEvent) {
         ObservableList<Plumbing> allPlumbing, singlePlumbing;
         allPlumbing = plumbingTable.getItems();
         singlePlumbing = plumbingTable.getSelectionModel().getSelectedItems();
