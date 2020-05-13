@@ -7,7 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class EditProjectController  {
+
+public class EditProjectController {
 
 
     public Button createProjectButton;
@@ -28,7 +29,6 @@ public class EditProjectController  {
         stage.setTitle("УД Бюджет");
         stage.setScene(new Scene(root));
         stage.show();
-        createProjectButton.getScene().getWindow().hide();
-    
+
     }
 }
