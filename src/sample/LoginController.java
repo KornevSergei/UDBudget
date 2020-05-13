@@ -37,5 +37,7 @@ public class LoginController {
         stage.setTitle("УД Бюджет");
         stage.setScene(new Scene(root));
         stage.show();
+
+        root.visibleProperty();
     }
 }
