@@ -8,8 +8,8 @@ public class Room {
     protected SimpleStringProperty nameRoom;
     protected SimpleDoubleProperty yardageRoom;
 
-    public Room() {
-    }
+//    public Room() {
+//    }
 
     public Room(String nameRoom, double yardageRoom) {
         this.nameRoom = new SimpleStringProperty(nameRoom);

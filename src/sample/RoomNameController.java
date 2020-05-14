@@ -27,19 +27,19 @@ public class RoomNameController implements Initializable {
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("name"));
         colYardageRoom.setCellValueFactory(new PropertyValueFactory<>("yardage"));
 
-
-        ObservableList<Room> observableList = FXCollections.observableArrayList(
-                new Room("Санузел", 10.6),
-                new Room("Зал", 36.8)
-        );
-
         roomTableView.setItems(observableList);
-        //даём возможность редактировать в строчке
+
+    }
+
+    ObservableList<Room> observableList = FXCollections.observableArrayList(
+            new Room("Санузел", 10.6),
+            new Room("Зал", 36.8)
+    );
+
+//    даём возможность редактировать в строчке
 //        roomTableView.setEditable(true);
 //        colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
 
-
-    }
 
 //    public void addRoom(ActionEvent actionEvent) {
 //    }
