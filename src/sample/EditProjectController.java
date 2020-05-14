@@ -15,6 +15,7 @@ public class EditProjectController {
 
 
     public Button createProjectButton;
+    public Button createRoomButton;
 
     public void addElementPlumping(ActionEvent actionEvent) {
     }
@@ -42,7 +43,13 @@ public class EditProjectController {
 
     }
 
-    public void addRoom(ActionEvent actionEvent) {
+    public void addRoom(ActionEvent actionEvent) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NameRoom.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("УД Бюджет");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void addPayment(ActionEvent actionEvent) {
