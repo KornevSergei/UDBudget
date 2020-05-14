@@ -8,16 +8,20 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
-   <children>
-      <Button layoutX="35.0" layoutY="220.0" mnemonicParsing="false" text="Войти" onAction="#login" fx:id="loginSignUpButton"/>
-      <Button layoutX="120.0" layoutY="220.0" mnemonicParsing="false" text="Регистрация" onAction="#startRegistration" fx:id="registrationSignUpButton"  />
-      <TextField layoutX="51.0" layoutY="84.0" fx:id="loginUser" />
-      <PasswordField layoutX="51.0" layoutY="137.0" fx:id="passwordUser" />
-      <Text layoutX="35.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Авторизация">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0"
+            prefWidth="250.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.LoginController">
+    <children>
+        <Button layoutX="35.0" layoutY="220.0" mnemonicParsing="false" text="Войти" onAction="#login"
+                fx:id="loginSignUpButton"/>
+        <Button layoutX="120.0" layoutY="220.0" mnemonicParsing="false" text="Регистрация" onAction="#startRegistration"
+                fx:id="registrationSignUpButton"/>
+        <TextField layoutX="51.0" layoutY="84.0" fx:id="loginUser"/>
+        <PasswordField layoutX="51.0" layoutY="137.0" fx:id="passwordUser"/>
+        <Text layoutX="35.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Авторизация">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Text>
+    </children>
 </AnchorPane>
