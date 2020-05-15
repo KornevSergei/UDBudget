@@ -21,32 +21,19 @@ public class RoomNameController implements Initializable {
 
     public TableColumn<Room, String> colNameRoom;
     public TableColumn<Room, Double> colYardageRoom;
+    public TableColumn<Room, Integer> colBathroom;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        colNameRoom.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colYardageRoom.setCellValueFactory(new PropertyValueFactory<>("yardage"));
-
+        colNameRoom.setCellValueFactory(new PropertyValueFactory<>("NameRoom"));
+        colYardageRoom.setCellValueFactory(new PropertyValueFactory<>("YardageRoom"));
+        colBathroom.setCellValueFactory(new PropertyValueFactory<>("BathroomRoom"));
         roomTableView.setItems(observableList);
-
     }
 
-    ObservableList<Room> observableList = FXCollections.observableArrayList(
-            new Room("Санузел", 10.6),
-            new Room("Зал", 36.8)
+    ObservableList <Room> observableList = FXCollections.observableArrayList(
+            new Room("dkonvwebvoi",25.6, 253),
+            new Room("dkonvwei",36.6, 1)
     );
-
-//    даём возможность редактировать в строчке
-//        roomTableView.setEditable(true);
-//        colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
-//    public void addRoom(ActionEvent actionEvent) {
-//    }
-//
-//    public void deleteRoom(ActionEvent actionEvent) {
-//    }
-//
-//    public void saveRoom(ActionEvent actionEvent) {
-//    }
 }

@@ -7,13 +7,12 @@ import javafx.beans.property.SimpleStringProperty;
 public class Room {
     protected SimpleStringProperty nameRoom;
     protected SimpleDoubleProperty yardageRoom;
+    protected SimpleIntegerProperty bathroomRoom;
 
-//    public Room() {
-//    }
-
-    public Room(String nameRoom, double yardageRoom) {
+    public Room(String nameRoom, double yardageRoom, int bathroomRoom) {
         this.nameRoom = new SimpleStringProperty(nameRoom);
         this.yardageRoom = new SimpleDoubleProperty(yardageRoom);
+        this.bathroomRoom = new SimpleIntegerProperty(bathroomRoom);
     }
 
     public String getNameRoom() {
@@ -38,5 +37,17 @@ public class Room {
 
     public void setYardageRoom(double yardageRoom) {
         this.yardageRoom = new SimpleDoubleProperty(yardageRoom);
+    }
+
+    public int getBathroomRoom() {
+        return bathroomRoom.get();
+    }
+
+    public SimpleIntegerProperty bathroomRoomProperty() {
+        return bathroomRoom;
+    }
+
+    public void setBathroomRoom(int bathroomRoom) {
+        this.bathroomRoom = new SimpleIntegerProperty(bathroomRoom);
     }
 }

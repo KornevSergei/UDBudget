@@ -14,8 +14,9 @@
         <Button layoutX="169.0" layoutY="295.0" mnemonicParsing="false" text="Сохранить"/>
         <TableView fx:id="roomTableView" layoutX="27.0" layoutY="73.0" prefHeight="200.0" prefWidth="358.0">
             <columns>
-                <TableColumn fx:id="colNameRoom" prefWidth="173.59997177124023" text="Помещение"/>
-                <TableColumn fx:id="colYardageRoom" prefWidth="100.80000305175781" text="Площадь"/>
+                <TableColumn fx:id="colNameRoom" prefWidth="184.79998397827148" text="Помещение"/>
+                <TableColumn fx:id="colYardageRoom" prefWidth="99.19996643066406" text="Площадь"/>
+                <TableColumn fx:id="colBathroom" prefWidth="71.20001220703125" text="Санузел"/>
             </columns>
         </TableView>
     </children>
