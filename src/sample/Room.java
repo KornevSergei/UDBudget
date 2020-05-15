@@ -9,6 +9,10 @@ public class Room {
     protected SimpleDoubleProperty yardageRoom;
     protected SimpleIntegerProperty bathroomRoom;
 
+    public Room() {
+    }
+
+
     public Room(String nameRoom, double yardageRoom, int bathroomRoom) {
         this.nameRoom = new SimpleStringProperty(nameRoom);
         this.yardageRoom = new SimpleDoubleProperty(yardageRoom);
