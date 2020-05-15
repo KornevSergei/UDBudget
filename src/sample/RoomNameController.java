@@ -30,6 +30,10 @@ public class RoomNameController implements Initializable {
         colYardageRoom.setCellValueFactory(new PropertyValueFactory<>("YardageRoom"));
         colBathroom.setCellValueFactory(new PropertyValueFactory<>("BathroomRoom"));
         roomTableView.setItems(observableList);
+
+
+        roomTableView.setEditable(true);
+        colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     ObservableList<Room> observableList = FXCollections.observableArrayList(
@@ -44,7 +48,7 @@ public class RoomNameController implements Initializable {
     }
 
     //выводим результат в консоль
-    public void saveElement(ActionEvent actionEvent) {
+    public void saveRoomElement(ActionEvent actionEvent) {
         Room room = new Room();
 
         List<List<String>> arrList = new ArrayList<>();
@@ -63,5 +67,18 @@ public class RoomNameController implements Initializable {
             }
 
         }
+    }
+
+    //удаляем элементы
+    public void deleteRoomElement(ActionEvent actionEvent) {
+        ObservableList<Room> allRoom, singleRoom;
+        allRoom = roomTableView.getItems();
+        singleRoom = roomTableView.getSelectionModel().getSelectedItems();
+        singleRoom.forEach(allRoom::remove);
+    }
+
+    public void onEditChanged(TableColumn.CellEditEvent<Room, String> roomStringCellEditEvent) {
+        Room room = roomTableView.getSelectionModel().getSelectedItem();
+        room.setNameRoom(roomStringCellEditEvent.getNewValue());
     }
 }
