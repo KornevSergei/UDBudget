@@ -40,8 +40,8 @@ public class RoomNameController implements Initializable {
     }
 
     ObservableList<Room> observableList = FXCollections.observableArrayList(
-            new Room("dkonvwebvoi", 25.6, 253),
-            new Room("dkonvwei", 36.6, 1)
+            new Room("Помещение 1", 25.6, 2),
+            new Room("Помещение 2", 36.6, 1)
     );
 
     //Добавляем
