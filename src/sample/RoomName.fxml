@@ -9,7 +9,7 @@
     <children>
         <Button layoutX="116.0" layoutY="31.0" mnemonicParsing="false" onAction="#addRoomName" text="Добавить" />
         <Button layoutX="227.0" layoutY="31.0" mnemonicParsing="false" onAction="#deleteRoomElement" text="Удалить" />
-        <Button layoutX="169.0" layoutY="295.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" />
+        <Button fx:id="saveRoom" layoutX="169.0" layoutY="295.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" />
         <TableView fx:id="roomTableView" layoutX="27.0" layoutY="73.0" prefHeight="200.0" prefWidth="358.0">
             <columns>
                 <TableColumn fx:id="colNameRoom" onEditCommit="#onEditChanged" prefWidth="184.79998397827148" text="Помещение" />

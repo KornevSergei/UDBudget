@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,6 +23,8 @@ public class RoomNameController implements Initializable {
     public TableColumn<Room, String> colNameRoom;
     public TableColumn<Room, Double> colYardageRoom;
     public TableColumn<Room, Integer> colBathroom;
+
+    public Button saveRoom;
 
 
     @Override
@@ -67,6 +70,8 @@ public class RoomNameController implements Initializable {
             }
 
         }
+
+        saveRoom.getScene().getWindow().hide();//после клика закрываекм окно
     }
 
     //удаляем элементы
