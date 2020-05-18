@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class RoomNameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("NameRoom"));
         colYardageRoom.setCellValueFactory(new PropertyValueFactory<>("YardageRoom"));
         colBathroom.setCellValueFactory(new PropertyValueFactory<>("BathroomRoom"));
