@@ -17,15 +17,7 @@ public class RegistrationController {
     public TextField signUpLogin;
     public TextField signUpPassword;
 
-
-    @FXML
-    Button registrationButton;
-
-
-    @FXML
-    void initialize() {
-
-    }
+    public Button registrationButton;
 
     public void registration(ActionEvent actionEvent) throws Exception  {
 
