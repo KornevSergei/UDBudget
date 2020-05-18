@@ -16,12 +16,8 @@ public class Main extends Application {
         primaryStage.setTitle("УД Бюджет");
         primaryStage.setScene(new Scene(login, 250, 300));
         primaryStage.show();
-
-
-//        //делаем во весь экран
-//        primaryStage.setScene(new Scene(login));
-//        primaryStage.setMaximized(true);
-        primaryStage.setResizable(false);//запрещаем менять размер окна
+        //запрещаем менять размер окна
+        primaryStage.setResizable(false);
     }
 
 
