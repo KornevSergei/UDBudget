@@ -73,7 +73,7 @@ public class RoomNameController implements Initializable {
 
         }
 
-        saveRoom.getScene().getWindow().hide();//после клика закрываекм окно
+//        saveRoom.getScene().getWindow().hide();//после клика закрываекм окно
     }
 
     //удаляем элементы
