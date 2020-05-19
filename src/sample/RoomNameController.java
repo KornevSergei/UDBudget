@@ -21,6 +21,7 @@ public class RoomNameController implements Initializable {
 
     public TableView<Room> roomTableView;
 
+
     public TableColumn<Room, String> colNameRoom;
     public TableColumn<Room, Double> colYardageRoom;
 //    public TableColumn<Room, Integer> colBathroom;
@@ -47,6 +48,7 @@ public class RoomNameController implements Initializable {
     ObservableList<Room> observableList = FXCollections.observableArrayList(
             new Room("Помещение 1", 25.6),
             new Room("Помещение 2", 36.6)
+
     );
 
     //Добавляем
@@ -91,4 +93,5 @@ public class RoomNameController implements Initializable {
         Room room = roomTableView.getSelectionModel().getSelectedItem();
         room.setNameRoom(roomStringCellEditEvent.getNewValue());
     }
+
 }

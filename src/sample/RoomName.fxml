@@ -14,7 +14,7 @@
             <columns>
                 <TableColumn fx:id="colNameRoom" onEditCommit="#onEditChanged" prefWidth="184.79998397827148" text="Помещение" />
                 <TableColumn fx:id="colYardageRoom" prefWidth="99.19996643066406" text="Площадь" />
-                <TableColumn fx:id="colBathroom" prefWidth="71.20001220703125" text="Санузел" />
+                <TableColumn fx:id="colBathroom"  prefWidth="71.20001220703125" text="Санузел" />
             </columns>
         </TableView>
     </children>

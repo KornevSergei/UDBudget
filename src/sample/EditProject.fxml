@@ -14,7 +14,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+         prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1"
+         xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
     <tabs>
         <Tab text="Проект">
             <content>
@@ -22,23 +24,31 @@
                     <children>
                         <MenuButton layoutX="309.0" layoutY="23.0" mnemonicParsing="false" text="Выбрать проект">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
+                                <MenuItem mnemonicParsing="false" text="Action 1"/>
+                                <MenuItem mnemonicParsing="false" text="Action 1"/>
+                                <MenuItem mnemonicParsing="false" text="Action 1"/>
+                                <MenuItem mnemonicParsing="false" text="Action 1"/>
                             </items>
                         </MenuButton>
-                        <TextField layoutX="14.0" layoutY="23.0" prefHeight="26.0" prefWidth="261.0" promptText="Название проекта" />
-                        <TextField layoutX="14.0" layoutY="61.0" prefHeight="26.0" prefWidth="261.0" promptText="Общая площадь" />
-                        <TextField layoutX="13.0" layoutY="136.0" prefHeight="26.0" prefWidth="262.0" promptText="Стоимость ДП за кв.м" />
-                        <TextField layoutX="13.0" layoutY="171.0" prefHeight="26.0" prefWidth="262.0" promptText="Скидка за ДП %" />
-                        <Button fx:id="createRoomButton" layoutX="13.0" layoutY="99.0" mnemonicParsing="false" onAction="#addRoom" prefHeight="26.0" prefWidth="262.0" text="+ Добавить помещение" />
-                        <Button fx:id="addPaymentButton" layoutX="13.0" layoutY="208.0" mnemonicParsing="false" onAction="#addPayment" prefHeight="26.0" prefWidth="262.0" text="+ Добавить этап оплаты" />
-                        <ToggleButton layoutX="200.0" layoutY="245.0" mnemonicParsing="false" text="Р" />
-                        <ToggleButton layoutX="224.0" layoutY="245.0" mnemonicParsing="false" text="\$" />
-                        <ToggleButton layoutX="248.0" layoutY="245.0" mnemonicParsing="false" text="Э" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Валюта :" />
-                        <Button fx:id="createButton" layoutX="13.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="262.0" text="Сформировать" />
+                        <TextField layoutX="14.0" layoutY="23.0" prefHeight="26.0" prefWidth="261.0"
+                                   promptText="Название проекта"/>
+                        <TextField layoutX="14.0" layoutY="61.0" prefHeight="26.0" prefWidth="261.0"
+                                   promptText="Общая площадь"/>
+                        <TextField layoutX="13.0" layoutY="136.0" prefHeight="26.0" prefWidth="262.0"
+                                   promptText="Стоимость ДП за кв.м"/>
+                        <TextField layoutX="13.0" layoutY="171.0" prefHeight="26.0" prefWidth="262.0"
+                                   promptText="Скидка за ДП %"/>
+                        <Button fx:id="createRoomButton" layoutX="13.0" layoutY="99.0" mnemonicParsing="false"
+                                onAction="#addRoom" prefHeight="26.0" prefWidth="262.0" text="+ Добавить помещение"/>
+                        <Button fx:id="addPaymentButton" layoutX="13.0" layoutY="208.0" mnemonicParsing="false"
+                                onAction="#addPayment" prefHeight="26.0" prefWidth="262.0"
+                                text="+ Добавить этап оплаты"/>
+                        <ToggleButton layoutX="200.0" layoutY="245.0" mnemonicParsing="false" text="Р"/>
+                        <ToggleButton layoutX="224.0" layoutY="245.0" mnemonicParsing="false" text="\$"/>
+                        <ToggleButton layoutX="248.0" layoutY="245.0" mnemonicParsing="false" text="Э"/>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Валюта :"/>
+                        <Button fx:id="createButton" layoutX="13.0" layoutY="278.0" mnemonicParsing="false"
+                                prefHeight="26.0" prefWidth="262.0" text="Сформировать"/>
                     </children>
                 </AnchorPane>
             </content>
@@ -49,13 +59,13 @@
                     <children>
                         <TableView layoutX="54.0" layoutY="50.0" prefHeight="261.0" prefWidth="582.0">
                             <columns>
-                                <TableColumn prefWidth="150.4000244140625" text="Наименование категории" />
-                                <TableColumn minWidth="0.0" prefWidth="35.20001220703125" text="Порядок цен, руб." />
-                                <TableColumn prefWidth="41.5999755859375" text="Стоимость плановая, руб." />
-                                <TableColumn prefWidth="75.0" text="Стоимость фактическая, руб." />
-                                <TableColumn prefWidth="75.0" text="Разница, руб." />
-                                <TableColumn prefWidth="75.0" text="Оплачено, руб." />
-                                <TableColumn prefWidth="75.0" text="Остаток, руб." />
+                                <TableColumn prefWidth="150.4000244140625" text="Наименование категории"/>
+                                <TableColumn minWidth="0.0" prefWidth="35.20001220703125" text="Порядок цен, руб."/>
+                                <TableColumn prefWidth="41.5999755859375" text="Стоимость плановая, руб."/>
+                                <TableColumn prefWidth="75.0" text="Стоимость фактическая, руб."/>
+                                <TableColumn prefWidth="75.0" text="Разница, руб."/>
+                                <TableColumn prefWidth="75.0" text="Оплачено, руб."/>
+                                <TableColumn prefWidth="75.0" text="Остаток, руб."/>
                             </columns>
                         </TableView>
                     </children>
@@ -65,313 +75,332 @@
         <Tab text="ДП">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView layoutX="14.0" layoutY="25.0" prefHeight="53.0" prefWidth="687.0">
-                    <columns>
-                      <TableColumn prefWidth="161.0" text="Площадь помещения" />
-                      <TableColumn prefWidth="89.0" text="Ставка" />
-                        <TableColumn prefWidth="198.0" text="Стоимость проекта" />
-                        <TableColumn text="Скидка, %" />
-                        <TableColumn prefWidth="158.0" text="Стоимость со скидкой" />
-                    </columns>
-                  </TableView>
-                  <TableView layoutX="14.0" layoutY="100.0" prefHeight="154.0" prefWidth="738.0">
-                     <columns>
-                        <TableColumn prefWidth="159.0" text="Этап проекта" />
-                        <TableColumn prefWidth="123.0" text="\% от общей суммы" />
-                        <TableColumn prefWidth="98.0" text="Дата" />
-                        <TableColumn prefWidth="170.0" text="Стоимость плановая" />
-                        <TableColumn prefWidth="111.0" text="Оплачено" />
-                        <TableColumn prefWidth="77.0" text="Остаток" />
-                     </columns>
-                  </TableView>
-                  <TableView layoutX="14.0" layoutY="268.0" prefHeight="154.0" prefWidth="738.0">
-                     <columns>
-                        <TableColumn prefWidth="159.0" text="Доп. соглашения" />
-                        <TableColumn prefWidth="123.0" />
-                        <TableColumn prefWidth="98.0" />
-                        <TableColumn prefWidth="170.0" />
-                        <TableColumn prefWidth="111.0" />
-                        <TableColumn prefWidth="77.0" />
-                     </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView layoutX="14.0" layoutY="25.0" prefHeight="53.0" prefWidth="687.0">
+                            <columns>
+                                <TableColumn prefWidth="161.0" text="Площадь помещения"/>
+                                <TableColumn prefWidth="89.0" text="Ставка"/>
+                                <TableColumn prefWidth="198.0" text="Стоимость проекта"/>
+                                <TableColumn text="Скидка, %"/>
+                                <TableColumn prefWidth="158.0" text="Стоимость со скидкой"/>
+                            </columns>
+                        </TableView>
+                        <TableView layoutX="14.0" layoutY="100.0" prefHeight="154.0" prefWidth="738.0">
+                            <columns>
+                                <TableColumn prefWidth="159.0" text="Этап проекта"/>
+                                <TableColumn prefWidth="123.0" text="\% от общей суммы"/>
+                                <TableColumn prefWidth="98.0" text="Дата"/>
+                                <TableColumn prefWidth="170.0" text="Стоимость плановая"/>
+                                <TableColumn prefWidth="111.0" text="Оплачено"/>
+                                <TableColumn prefWidth="77.0" text="Остаток"/>
+                            </columns>
+                        </TableView>
+                        <TableView layoutX="14.0" layoutY="268.0" prefHeight="154.0" prefWidth="738.0">
+                            <columns>
+                                <TableColumn prefWidth="159.0" text="Доп. соглашения"/>
+                                <TableColumn prefWidth="123.0"/>
+                                <TableColumn prefWidth="98.0"/>
+                                <TableColumn prefWidth="170.0"/>
+                                <TableColumn prefWidth="111.0"/>
+                                <TableColumn prefWidth="77.0"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Строители">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="74.0" prefWidth="360.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Категория" />
-                      <TableColumn prefWidth="144.0" text="Строительные работы" />
-                        <TableColumn minWidth="9.0" prefWidth="140.0" text="Черновые материалы" />
-                    </columns>
-                  </TableView>
-                  <TableView layoutX="14.0" layoutY="110.0" prefHeight="74.0" prefWidth="574.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="Дата" />
-                        <TableColumn prefWidth="144.0" text="Оплата работы, руб." />
-                        <TableColumn minWidth="9.0" prefWidth="219.0" text="Оплата черновых материалов, руб." />
-                        <TableColumn minWidth="9.0" prefWidth="135.0" text="Примечание" />
-                     </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="74.0" prefWidth="360.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="Категория"/>
+                                <TableColumn prefWidth="144.0" text="Строительные работы"/>
+                                <TableColumn minWidth="9.0" prefWidth="140.0" text="Черновые материалы"/>
+                            </columns>
+                        </TableView>
+                        <TableView layoutX="14.0" layoutY="110.0" prefHeight="74.0" prefWidth="574.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="Дата"/>
+                                <TableColumn prefWidth="144.0" text="Оплата работы, руб."/>
+                                <TableColumn minWidth="9.0" prefWidth="219.0" text="Оплата черновых материалов, руб."/>
+                                <TableColumn minWidth="9.0" prefWidth="135.0" text="Примечание"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Смежники">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="1272.0">
-                    <columns>
-                      <TableColumn prefWidth="157.0" text="Наименование категории" />
-                      <TableColumn prefWidth="98.0" text="Стоимость плановая" />
-                        <TableColumn prefWidth="43.0" text="Стоимость по КП" />
-                        <TableColumn prefWidth="32.0" text="Стоимость фактическая" />
-                        <TableColumn prefWidth="69.0" text="Разничца фактическая" />
-                        <TableColumn prefWidth="71.0" text="Оплачено" />
-                        <TableColumn prefWidth="55.0" text="Остаток" />
-                        <TableColumn prefWidth="109.0" text="КП плановое" />
-                        <TableColumn prefWidth="115.0" text="КП фактическое" />
-                        <TableColumn prefWidth="40.0" text="Счет" />
-                        <TableColumn prefWidth="123.0" text="Контакты" />
-                        <TableColumn prefWidth="91.0" text="Примечания" />
-                        <TableColumn prefWidth="191.0" text="Характеристики" />
-                    </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="1272.0">
+                            <columns>
+                                <TableColumn prefWidth="157.0" text="Наименование категории"/>
+                                <TableColumn prefWidth="98.0" text="Стоимость плановая"/>
+                                <TableColumn prefWidth="43.0" text="Стоимость по КП"/>
+                                <TableColumn prefWidth="32.0" text="Стоимость фактическая"/>
+                                <TableColumn prefWidth="69.0" text="Разничца фактическая"/>
+                                <TableColumn prefWidth="71.0" text="Оплачено"/>
+                                <TableColumn prefWidth="55.0" text="Остаток"/>
+                                <TableColumn prefWidth="109.0" text="КП плановое"/>
+                                <TableColumn prefWidth="115.0" text="КП фактическое"/>
+                                <TableColumn prefWidth="40.0" text="Счет"/>
+                                <TableColumn prefWidth="123.0" text="Контакты"/>
+                                <TableColumn prefWidth="91.0" text="Примечания"/>
+                                <TableColumn prefWidth="191.0" text="Характеристики"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="АК">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView layoutX="26.0" layoutY="129.0" prefHeight="302.0" prefWidth="150.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Дата" />
-                      <TableColumn prefWidth="75.0" text="Оплачено" />
-                    </columns>
-                  </TableView>
-                  <TableView layoutX="26.0" layoutY="25.0" prefHeight="62.0" prefWidth="391.0">
-                    <columns>
-                      <TableColumn prefWidth="110.0" text="Ставка за месяц" />
-                      <TableColumn prefWidth="145.0" text="Плановый срок(мес.)" />
-                        <TableColumn prefWidth="135.0" text="Стоимость плановая" />
-                    </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView layoutX="26.0" layoutY="129.0" prefHeight="302.0" prefWidth="150.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="Дата"/>
+                                <TableColumn prefWidth="75.0" text="Оплачено"/>
+                            </columns>
+                        </TableView>
+                        <TableView layoutX="26.0" layoutY="25.0" prefHeight="62.0" prefWidth="391.0">
+                            <columns>
+                                <TableColumn prefWidth="110.0" text="Ставка за месяц"/>
+                                <TableColumn prefWidth="145.0" text="Плановый срок(мес.)"/>
+                                <TableColumn prefWidth="135.0" text="Стоимость плановая"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Материалы">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Accordion layoutX="14.0" layoutY="22.0" prefHeight="306.0" prefWidth="1442.0">
-                    <panes>
-                      <TitledPane animated="false" text="Стены">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </TitledPane>
-                      <TitledPane animated="false" text="Пол">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </TitledPane>
-                      <TitledPane animated="false" text="Потолок">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </TitledPane>
-                        <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Другое">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                           </content>
-                        </TitledPane>
-                        <TitledPane animated="false" layoutX="10.0" layoutY="266.0" text="Нежданчик">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                           </content>
-                        </TitledPane>
-                    </panes>
-                  </Accordion>
-               </children></AnchorPane>
+                    <children>
+                        <Accordion layoutX="14.0" layoutY="22.0" prefHeight="306.0" prefWidth="1442.0">
+                            <panes>
+                                <TitledPane animated="false" text="Стены">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="Пол">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="Потолок">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Другое">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" layoutX="10.0" layoutY="266.0" text="Нежданчик">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                            </panes>
+                        </Accordion>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Сантехника">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="1445.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
-               </children>
+                    <children>
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="1445.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="C1"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                            </columns>
+                        </TableView>
+                    </children>
                 </AnchorPane>
             </content>
         </Tab>
         <Tab text="Мебель">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView prefHeight="200.0" prefWidth="2000.0">
-                    <columns>
-                      <TableColumn prefWidth="108.0" text="Наименование" />
-                      <TableColumn prefWidth="25.0" text="П" />
-                        <TableColumn prefWidth="25.0" text="С" />
-                        <TableColumn prefWidth="58.0" text="Ед.изм." />
-                        <TableColumn prefWidth="63.0" text="Кол-во" />
-                        <TableColumn prefWidth="165.0" text="Цена порядковая за ед." />
-                        <TableColumn prefWidth="100.0" text="Цена по КП за ед." />
-                        <TableColumn prefWidth="100.0" text="Цена по КП под ключ" />
-                        <TableColumn prefWidth="100.0" text="Стоимость по КП за ед." />
-                        <TableColumn prefWidth="100.0" text="Порядок цен" />
-                        <TableColumn prefWidth="85.0" text="Стоимость по КП" />
-                        <TableColumn prefWidth="85.0" text="Срок изготовления" />
-                        <TableColumn prefWidth="85.0" text="Стоимость фактическая" />
-                        <TableColumn prefWidth="85.0" text="Разница фактическая" />
-                        <TableColumn prefWidth="85.0" text="Оплачено" />
-                        <TableColumn prefWidth="85.0" text="Остаток" />
-                        <TableColumn prefWidth="85.0" text="Дата поставки" />
-                        <TableColumn prefWidth="85.0" text="КП плановое" />
-                        <TableColumn prefWidth="85.0" text="КП фактическое" />
-                        <TableColumn prefWidth="55.0" text="Счет" />
-                        <TableColumn prefWidth="85.0" text="Контакты" />
-                        <TableColumn prefWidth="85.0" text="Примечания" />
-                        <TableColumn prefWidth="85.0" text="Характеристики" />
-                    </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView fx:id="furnitureTableView" prefHeight="200.0" prefWidth="2000.0">
+                            <columns>
+                                <TableColumn fx:id="colNameFurniture" prefWidth="108.0" text="Наименование"/>
+                                <TableColumn prefWidth="25.0" text="П"/>
+                                <TableColumn prefWidth="25.0" text="С"/>
+                                <TableColumn fx:id="colUnitFurniture" prefWidth="58.0" text="Ед.изм."/>
+                                <TableColumn fx:id="colQuantityFurniture" prefWidth="63.0" text="Кол-во"/>
+                                <TableColumn prefWidth="165.0" text="Цена порядковая за ед."/>
+                                <TableColumn prefWidth="100.0" text="Цена по КП за ед."/>
+                                <TableColumn prefWidth="100.0" text="Цена по КП под ключ"/>
+                                <TableColumn prefWidth="100.0" text="Стоимость по КП за ед."/>
+                                <TableColumn prefWidth="100.0" text="Порядок цен"/>
+                                <TableColumn prefWidth="85.0" text="Стоимость по КП"/>
+                                <TableColumn prefWidth="85.0" text="Срок изготовления"/>
+                                <TableColumn prefWidth="85.0" text="Стоимость фактическая"/>
+                                <TableColumn prefWidth="85.0" text="Разница фактическая"/>
+                                <TableColumn prefWidth="85.0" text="Оплачено"/>
+                                <TableColumn prefWidth="85.0" text="Остаток"/>
+                                <TableColumn prefWidth="85.0" text="Дата поставки"/>
+                                <TableColumn prefWidth="85.0" text="КП плановое"/>
+                                <TableColumn prefWidth="85.0" text="КП фактическое"/>
+                                <TableColumn prefWidth="55.0" text="Счет"/>
+                                <TableColumn prefWidth="85.0" text="Контакты"/>
+                                <TableColumn prefWidth="85.0" text="Примечания"/>
+                                <TableColumn prefWidth="85.0" text="Характеристики"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Свет">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView prefHeight="200.0" prefWidth="1316.0">
-                     <columns>
-                        <TableColumn prefWidth="108.0" text="Наименование" />
-                        <TableColumn prefWidth="29.0" text="П" />
-                        <TableColumn prefWidth="27.0" text="С" />
-                        <TableColumn prefWidth="58.0" text="Ед.изм." />
-                        <TableColumn prefWidth="63.0" text="Кол-во" />
-                        <TableColumn prefWidth="165.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                     </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView prefHeight="200.0" prefWidth="1316.0">
+                            <columns>
+                                <TableColumn prefWidth="108.0" text="Наименование"/>
+                                <TableColumn prefWidth="29.0" text="П"/>
+                                <TableColumn prefWidth="27.0" text="С"/>
+                                <TableColumn prefWidth="58.0" text="Ед.изм."/>
+                                <TableColumn prefWidth="63.0" text="Кол-во"/>
+                                <TableColumn prefWidth="165.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Техника">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Accordion layoutX="14.0" layoutY="14.0" prefHeight="281.0" prefWidth="1439.0">
-                    <panes>
-                      <TitledPane animated="false" text="Кухонная техника">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </TitledPane>
-                      <TitledPane animated="false" text="Другая техника">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </TitledPane>
-                      <TitledPane animated="false" text="Доставка/сборка">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </TitledPane>
-                        <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Нежданчик">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                           </content>
-                        </TitledPane>
-                    </panes>
-                  </Accordion>
-               </children></AnchorPane>
+                    <children>
+                        <Accordion layoutX="14.0" layoutY="14.0" prefHeight="281.0" prefWidth="1439.0">
+                            <panes>
+                                <TitledPane animated="false" text="Кухонная техника">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="Другая техника">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="Доставка/сборка">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Нежданчик">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </TitledPane>
+                            </panes>
+                        </Accordion>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Декор">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView prefHeight="200.0" prefWidth="1316.0">
-                     <columns>
-                        <TableColumn prefWidth="108.0" text="Наименование" />
-                        <TableColumn prefWidth="29.0" text="П" />
-                        <TableColumn prefWidth="27.0" text="С" />
-                        <TableColumn prefWidth="58.0" text="Ед.изм." />
-                        <TableColumn prefWidth="63.0" text="Кол-во" />
-                        <TableColumn prefWidth="165.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                     </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView prefHeight="200.0" prefWidth="1316.0">
+                            <columns>
+                                <TableColumn prefWidth="108.0" text="Наименование"/>
+                                <TableColumn prefWidth="29.0" text="П"/>
+                                <TableColumn prefWidth="27.0" text="С"/>
+                                <TableColumn prefWidth="58.0" text="Ед.изм."/>
+                                <TableColumn prefWidth="63.0" text="Кол-во"/>
+                                <TableColumn prefWidth="165.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Статистика">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView layoutX="30.0" layoutY="86.0" prefHeight="200.0" prefWidth="536.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView layoutX="30.0" layoutY="86.0" prefHeight="200.0" prefWidth="536.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="C1"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                                <TableColumn prefWidth="75.0" text="C2"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab text="Диаграммы">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
             </content>
         </Tab>
     </tabs>
