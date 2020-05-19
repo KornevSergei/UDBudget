@@ -239,24 +239,31 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView prefHeight="200.0" prefWidth="1316.0">
+                  <TableView prefHeight="200.0" prefWidth="2000.0">
                     <columns>
                       <TableColumn prefWidth="108.0" text="Наименование" />
-                      <TableColumn prefWidth="29.0" text="П" />
-                        <TableColumn prefWidth="27.0" text="С" />
+                      <TableColumn prefWidth="25.0" text="П" />
+                        <TableColumn prefWidth="25.0" text="С" />
                         <TableColumn prefWidth="58.0" text="Ед.изм." />
                         <TableColumn prefWidth="63.0" text="Кол-во" />
-                        <TableColumn prefWidth="165.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                        <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn prefWidth="165.0" text="Цена порядковая за ед." />
+                        <TableColumn prefWidth="100.0" text="Цена по КП за ед." />
+                        <TableColumn prefWidth="100.0" text="Цена по КП под ключ" />
+                        <TableColumn prefWidth="100.0" text="Стоимость по КП за ед." />
+                        <TableColumn prefWidth="100.0" text="Порядок цен" />
+                        <TableColumn prefWidth="85.0" text="Стоимость по КП" />
+                        <TableColumn prefWidth="85.0" text="Срок изготовления" />
+                        <TableColumn prefWidth="85.0" text="Стоимость фактическая" />
+                        <TableColumn prefWidth="85.0" text="Разница фактическая" />
+                        <TableColumn prefWidth="85.0" text="Оплачено" />
+                        <TableColumn prefWidth="85.0" text="Остаток" />
+                        <TableColumn prefWidth="85.0" text="Дата поставки" />
+                        <TableColumn prefWidth="85.0" text="КП плановое" />
+                        <TableColumn prefWidth="85.0" text="КП фактическое" />
+                        <TableColumn prefWidth="55.0" text="Счет" />
+                        <TableColumn prefWidth="85.0" text="Контакты" />
+                        <TableColumn prefWidth="85.0" text="Примечания" />
+                        <TableColumn prefWidth="85.0" text="Характеристики" />
                     </columns>
                   </TableView>
                </children></AnchorPane>

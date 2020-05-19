@@ -23,7 +23,7 @@ public class RoomNameController implements Initializable {
 
     public TableColumn<Room, String> colNameRoom;
     public TableColumn<Room, Double> colYardageRoom;
-    public TableColumn<Room, Integer> colBathroom;
+//    public TableColumn<Room, Integer> colBathroom;
 
     public Button saveRoom;
 
@@ -33,22 +33,25 @@ public class RoomNameController implements Initializable {
 
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("NameRoom"));
         colYardageRoom.setCellValueFactory(new PropertyValueFactory<>("YardageRoom"));
-        colBathroom.setCellValueFactory(new PropertyValueFactory<>("BathroomRoom"));
+//        colBathroom.setCellValueFactory(new PropertyValueFactory<>("BathroomRoom"));
         roomTableView.setItems(observableList);
+
 
 
         roomTableView.setEditable(true);
         colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
+
     }
 
+
     ObservableList<Room> observableList = FXCollections.observableArrayList(
-            new Room("Помещение 1", 25.6, 2),
-            new Room("Помещение 2", 36.6, 1)
+            new Room("Помещение 1", 25.6),
+            new Room("Помещение 2", 36.6)
     );
 
     //Добавляем
     public void addRoomName(ActionEvent actionEvent) {
-        Room room = new Room("", 0, 0);//либо данные из тексфилд
+        Room room = new Room("", 0);//либо данные из тексфилд
         roomTableView.getItems().add(room);
     }
 
@@ -64,7 +67,7 @@ public class RoomNameController implements Initializable {
             arrList.add(new ArrayList<>());
             arrList.get(i).add(room.nameRoom.get());
             arrList.get(i).add("" + room.yardageRoom.get());
-            arrList.get(i).add("" + room.bathroomRoom.get());
+//            arrList.get(i).add("" + room.bathroomRoom.get());
         }
         for (int i = 0; i < arrList.size(); i++) {
             for (int j = 0; j < arrList.size(); j++) {
