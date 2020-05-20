@@ -31,64 +31,35 @@ public class EditProjectController implements Initializable {
     public TableColumn<Furniture, String> colUnitFurniture;
     public TableColumn<Furniture, String> colQuantityFurniture;
 
-    private ObservableList<Furniture> furnitureList = FXCollections.observableArrayList();
-
 
     public Button createRoomButton;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        furnitureTableView.setItems(furnitureList);
-//        Callback<TableColumn<Furniture, String>, TableCell<Furniture, String>> cellFactoryInteger =
-//                new Callback<TableColumn<Furniture, String>, TableCell<Furniture, String>>() {
-//                    public TableCell call(TableColumn p) {
-//                        return new EditingCellTextBox("\\d");
-//                    }
-//                };
-
-
-    }
-
-    private void initTable() {
-        initCols();
-    }
-
-    private void initCols() {
         colNameFurniture.setCellValueFactory(new PropertyValueFactory<>("nameFurniture"));
         colUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("unitFurniture"));
         colQuantityFurniture.setCellValueFactory(new PropertyValueFactory<>("quantityFurniture"));
 
-        editableCols();
-    }
 
-    private void editableCols() {
-        colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        colNameFurniture.setOnEditCommit(e -> {
-            e.getTableView().getItems().get(e.getTablePosition().getRow()).setNameFurniture(e.getNewValue());
-        });
 
-        colUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
+        furnitureTableView.setItems(observableList);
 
-        colUnitFurniture.setOnEditCommit(e -> {
-            e.getTableView().getItems().get(e.getTablePosition().getRow()).setUnitFurniture(e.getNewValue());
-        });
-
-        colQuantityFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        colQuantityFurniture.setOnEditCommit(e -> {
-            e.getTableView().getItems().get(e.getTablePosition().getRow()).setQuantityFurniture(e.getNewValue());
-        });
 
         furnitureTableView.setEditable(true);
-
+        colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
+        colQuantityFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
-    private void loadData(){
-        ObservableList <Furniture> furnitureObservableList = FXCollections.observableArrayList();
+    ObservableList<Furniture> observableList = FXCollections.observableArrayList(
+            new Furniture("Ведро", "шт", "2"),
+            new Furniture("Лопата", "шт", "5"),
+            new Furniture("", "", "")
 
-    }
+    );
 
 
     public void addElementFurniture(ActionEvent actionEvent) {

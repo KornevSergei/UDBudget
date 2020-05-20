@@ -24,7 +24,6 @@ public class RoomNameController implements Initializable {
 
     public TableColumn<Room, String> colNameRoom;
     public TableColumn<Room, Double> colYardageRoom;
-//    public TableColumn<Room, Integer> colBathroom;
 
     public Button saveRoom;
 
@@ -34,7 +33,6 @@ public class RoomNameController implements Initializable {
 
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("NameRoom"));
         colYardageRoom.setCellValueFactory(new PropertyValueFactory<>("YardageRoom"));
-//        colBathroom.setCellValueFactory(new PropertyValueFactory<>("BathroomRoom"));
         roomTableView.setItems(observableList);
 
 
@@ -69,7 +67,6 @@ public class RoomNameController implements Initializable {
             arrList.add(new ArrayList<>());
             arrList.get(i).add(room.nameRoom.get());
             arrList.get(i).add("" + room.yardageRoom.get());
-//            arrList.get(i).add("" + room.bathroomRoom.get());
         }
         for (int i = 0; i < arrList.size(); i++) {
             for (int j = 0; j < arrList.size(); j++) {
