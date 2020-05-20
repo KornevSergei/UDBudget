@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 
 public class EditProjectController implements Initializable {
 
-    public AnchorPane anchorPane;
     public TableView<Furniture> furnitureTableView;
     public TableColumn<Furniture, String> colNameFurniture;
     public TableColumn<Furniture, Boolean> tabcolActiveP;
@@ -107,8 +106,9 @@ public class EditProjectController implements Initializable {
     ObservableList<Furniture> observableList = FXCollections.observableArrayList(
 //            new Furniture("Ведро", "шт", "2"),
 //            new Furniture("Лопата", "шт", "5"),
+            new Furniture(),
+            new Furniture(),
             new Furniture()
-
     );
 
 
@@ -116,6 +116,10 @@ public class EditProjectController implements Initializable {
     }
 
     public void deleteElementFurniture(ActionEvent actionEvent) {
+        ObservableList<Furniture> allFurniture, singleFurniture;
+        allFurniture = furnitureTableView.getItems();
+        singleFurniture = furnitureTableView.getSelectionModel().getSelectedItems();
+        singleFurniture.forEach(allFurniture::remove);
     }
 
     public void saveElementFurniture(ActionEvent actionEvent) {
