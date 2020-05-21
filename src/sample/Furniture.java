@@ -6,10 +6,10 @@ public class Furniture {
     protected SimpleStringProperty nameFurniture;
     protected SimpleStringProperty unitFurniture;
     protected SimpleStringProperty quantityFurniture;
-    protected SimpleStringProperty ordinalPricePerUnitFurniture;
-    protected SimpleStringProperty priceCPPerUnitFurniture;
-    protected SimpleStringProperty priceCPPerKeyFurniture;
-    protected SimpleStringProperty costCPPerUnitFurniture;
+    protected SimpleStringProperty ordinalPriceUnitFurniture;
+    protected SimpleStringProperty priceCPUnitFurniture;
+    protected SimpleStringProperty priceCPKeyFurniture;
+    protected SimpleStringProperty costCPUnitFurniture;
     protected SimpleStringProperty priceOrderFurniture;
     protected SimpleStringProperty costCPFurniture;
     protected SimpleStringProperty productionTimeFurniture;
@@ -37,10 +37,10 @@ public class Furniture {
         this.nameFurniture = new SimpleStringProperty(nameFurniture);
         this.unitFurniture = new SimpleStringProperty(unitFurniture);
         this.quantityFurniture = new SimpleStringProperty(quantityFurniture);
-        this.ordinalPricePerUnitFurniture = new SimpleStringProperty(ordinalPricePerUnitFurniture);
-        this.priceCPPerUnitFurniture = new SimpleStringProperty(priceCPPerUnitFurniture);
-        this.priceCPPerKeyFurniture = new SimpleStringProperty(priceCPPerKeyFurniture);
-        this.costCPPerUnitFurniture = new SimpleStringProperty(costCPPerUnitFurniture);
+        this.ordinalPriceUnitFurniture = new SimpleStringProperty(ordinalPricePerUnitFurniture);
+        this.priceCPUnitFurniture = new SimpleStringProperty(priceCPPerUnitFurniture);
+        this.priceCPKeyFurniture = new SimpleStringProperty(priceCPPerKeyFurniture);
+        this.costCPUnitFurniture = new SimpleStringProperty(costCPPerUnitFurniture);
         this.priceOrderFurniture = new SimpleStringProperty(priceOrderFurniture);
         this.costCPFurniture = new SimpleStringProperty(costCPFurniture);
         this.productionTimeFurniture = new SimpleStringProperty(productionTimeFurniture);
@@ -78,7 +78,7 @@ public class Furniture {
     }
 
     public void setUnitFurniture(String unitFurniture) {
-        this.unitFurniture.set(unitFurniture);
+        this.unitFurniture = new SimpleStringProperty(unitFurniture);
     }
 
     public String getQuantityFurniture() {
@@ -90,55 +90,55 @@ public class Furniture {
     }
 
     public void setQuantityFurniture(String quantityFurniture) {
-        this.quantityFurniture.set(quantityFurniture);
+        this.quantityFurniture = new SimpleStringProperty(quantityFurniture);
     }
 
-    public String getOrdinalPricePerUnitFurniture() {
-        return ordinalPricePerUnitFurniture.get();
+    public String getOrdinalPriceUnitFurniture() {
+        return ordinalPriceUnitFurniture.get();
     }
 
-    public SimpleStringProperty ordinalPricePerUnitFurnitureProperty() {
-        return ordinalPricePerUnitFurniture;
+    public SimpleStringProperty ordinalPriceUnitFurnitureProperty() {
+        return ordinalPriceUnitFurniture;
     }
 
-    public void setOrdinalPricePerUnitFurniture(String ordinalPricePerUnitFurniture) {
-        this.ordinalPricePerUnitFurniture.set(ordinalPricePerUnitFurniture);
+    public void setOrdinalPriceUnitFurniture(String ordinalPriceUnitFurniture) {
+        this.ordinalPriceUnitFurniture = new SimpleStringProperty(ordinalPriceUnitFurniture);
     }
 
-    public String getPriceCPPerUnitFurniture() {
-        return priceCPPerUnitFurniture.get();
+    public String getPriceCPUnitFurniture() {
+        return priceCPUnitFurniture.get();
     }
 
-    public SimpleStringProperty priceCPPerUnitFurnitureProperty() {
-        return priceCPPerUnitFurniture;
+    public SimpleStringProperty priceCPUnitFurnitureProperty() {
+        return priceCPUnitFurniture;
     }
 
-    public void setPriceCPPerUnitFurniture(String priceCPPerUnitFurniture) {
-        this.priceCPPerUnitFurniture.set(priceCPPerUnitFurniture);
+    public void setPriceCPUnitFurniture(String priceCPUnitFurniture) {
+        this.priceCPUnitFurniture = new SimpleStringProperty(priceCPUnitFurniture);
     }
 
-    public String getPriceCPPerKeyFurniture() {
-        return priceCPPerKeyFurniture.get();
+    public String getPriceCPKeyFurniture() {
+        return priceCPKeyFurniture.get();
     }
 
-    public SimpleStringProperty priceCPPerKeyFurnitureProperty() {
-        return priceCPPerKeyFurniture;
+    public SimpleStringProperty priceCPKeyFurnitureProperty() {
+        return priceCPKeyFurniture;
     }
 
-    public void setPriceCPPerKeyFurniture(String priceCPPerKeyFurniture) {
-        this.priceCPPerKeyFurniture.set(priceCPPerKeyFurniture);
+    public void setPriceCPKeyFurniture(String priceCPKeyFurniture) {
+        this.priceCPKeyFurniture = new SimpleStringProperty(priceCPKeyFurniture);
     }
 
-    public String getCostCPPerUnitFurniture() {
-        return costCPPerUnitFurniture.get();
+    public String getCostCPUnitFurniture() {
+        return costCPUnitFurniture.get();
     }
 
-    public SimpleStringProperty costCPPerUnitFurnitureProperty() {
-        return costCPPerUnitFurniture;
+    public SimpleStringProperty costCPUnitFurnitureProperty() {
+        return costCPUnitFurniture;
     }
 
-    public void setCostCPPerUnitFurniture(String costCPPerUnitFurniture) {
-        this.costCPPerUnitFurniture.set(costCPPerUnitFurniture);
+    public void setCostCPUnitFurniture(String costCPUnitFurniture) {
+        this.costCPUnitFurniture = new SimpleStringProperty(costCPUnitFurniture);
     }
 
     public String getPriceOrderFurniture() {
@@ -150,7 +150,7 @@ public class Furniture {
     }
 
     public void setPriceOrderFurniture(String priceOrderFurniture) {
-        this.priceOrderFurniture.set(priceOrderFurniture);
+        this.priceOrderFurniture = new SimpleStringProperty(priceOrderFurniture);
     }
 
     public String getCostCPFurniture() {
@@ -162,7 +162,7 @@ public class Furniture {
     }
 
     public void setCostCPFurniture(String costCPFurniture) {
-        this.costCPFurniture.set(costCPFurniture);
+        this.costCPFurniture = new SimpleStringProperty(costCPFurniture);
     }
 
     public String getProductionTimeFurniture() {
@@ -174,7 +174,7 @@ public class Furniture {
     }
 
     public void setProductionTimeFurniture(String productionTimeFurniture) {
-        this.productionTimeFurniture.set(productionTimeFurniture);
+        this.productionTimeFurniture = new SimpleStringProperty(productionTimeFurniture);
     }
 
     public String getActualCostFurniture() {
@@ -186,7 +186,7 @@ public class Furniture {
     }
 
     public void setActualCostFurniture(String actualCostFurniture) {
-        this.actualCostFurniture.set(actualCostFurniture);
+        this.actualCostFurniture = new SimpleStringProperty(actualCostFurniture);
     }
 
     public String getActualDifferenceFurniture() {
@@ -198,7 +198,7 @@ public class Furniture {
     }
 
     public void setActualDifferenceFurniture(String actualDifferenceFurniture) {
-        this.actualDifferenceFurniture.set(actualDifferenceFurniture);
+        this.actualDifferenceFurniture = new SimpleStringProperty(actualDifferenceFurniture);
     }
 
     public String getPaidFurniture() {
@@ -210,7 +210,7 @@ public class Furniture {
     }
 
     public void setPaidFurniture(String paidFurniture) {
-        this.paidFurniture.set(paidFurniture);
+        this.paidFurniture = new SimpleStringProperty(paidFurniture);
     }
 
     public String getResidueFurniture() {
@@ -222,7 +222,7 @@ public class Furniture {
     }
 
     public void setResidueFurniture(String residueFurniture) {
-        this.residueFurniture.set(residueFurniture);
+        this.residueFurniture = new SimpleStringProperty(residueFurniture);
     }
 
     public String getDateOfDeliveryFurniture() {
@@ -234,7 +234,7 @@ public class Furniture {
     }
 
     public void setDateOfDeliveryFurniture(String dateOfDeliveryFurniture) {
-        this.dateOfDeliveryFurniture.set(dateOfDeliveryFurniture);
+        this.dateOfDeliveryFurniture = new SimpleStringProperty(dateOfDeliveryFurniture);
     }
 
     public String getPlannedCPFurniture() {
@@ -246,7 +246,7 @@ public class Furniture {
     }
 
     public void setPlannedCPFurniture(String plannedCPFurniture) {
-        this.plannedCPFurniture.set(plannedCPFurniture);
+        this.plannedCPFurniture = new SimpleStringProperty(plannedCPFurniture);
     }
 
     public String getActualCPFurniture() {
@@ -258,7 +258,7 @@ public class Furniture {
     }
 
     public void setActualCPFurniture(String actualCPFurniture) {
-        this.actualCPFurniture.set(actualCPFurniture);
+        this.actualCPFurniture = new SimpleStringProperty(actualCPFurniture);
     }
 
     public String getAccountFurniture() {
@@ -270,7 +270,7 @@ public class Furniture {
     }
 
     public void setAccountFurniture(String accountFurniture) {
-        this.accountFurniture.set(accountFurniture);
+        this.accountFurniture = new SimpleStringProperty(accountFurniture);
     }
 
     public String getContactsFurniture() {
@@ -282,7 +282,7 @@ public class Furniture {
     }
 
     public void setContactsFurniture(String contactsFurniture) {
-        this.contactsFurniture.set(contactsFurniture);
+        this.contactsFurniture = new SimpleStringProperty(contactsFurniture);
     }
 
     public String getNotesFurniture() {
@@ -294,7 +294,7 @@ public class Furniture {
     }
 
     public void setNotesFurniture(String notesFurniture) {
-        this.notesFurniture.set(notesFurniture);
+        this.notesFurniture = new SimpleStringProperty(notesFurniture);
     }
 
     public String getCharacteristicsFurniture() {
@@ -306,6 +306,6 @@ public class Furniture {
     }
 
     public void setCharacteristicsFurniture(String characteristicsFurniture) {
-        this.characteristicsFurniture.set(characteristicsFurniture);
+        this.characteristicsFurniture = new SimpleStringProperty(characteristicsFurniture);
     }
 }

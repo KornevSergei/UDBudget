@@ -8,14 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,14 +22,14 @@ public class EditProjectController implements Initializable {
 
     public TableView<Furniture> furnitureTableView;
     public TableColumn<Furniture, String> colNameFurniture;
-    public TableColumn<Furniture, Boolean> tabcolActiveP;
-    public TableColumn<Furniture, Boolean> tabcolActiveC;
+    public TableColumn<Furniture, Boolean> tabcolActivePFurniture;
+    public TableColumn<Furniture, Boolean> tabcolActiveCFurniture;
     public TableColumn<Furniture, String> colUnitFurniture;
     public TableColumn<Furniture, String> colQuantityFurniture;
-    public TableColumn<Furniture, String> colOrdinalPricePerUnitFurniture;
-    public TableColumn<Furniture, String> colPriceCPPerUnitFurniture;
-    public TableColumn<Furniture, String> colPriceCPPerKeyFurniture;
-    public TableColumn<Furniture, String> colCostCPPerUnitFurniture;
+    public TableColumn<Furniture, String> colOrdinalPriceUnitFurniture;
+    public TableColumn<Furniture, String> colPriceCPUnitFurniture;
+    public TableColumn<Furniture, String> colPriceCPKeyFurniture;
+    public TableColumn<Furniture, String> colCostCPUnitFurniture;
     public TableColumn<Furniture, String> colPriceOrderFurniture;
     public TableColumn<Furniture, String> colCostCPFurniture;
     public TableColumn<Furniture, String> colProductionTimeFurniture;
@@ -49,6 +46,33 @@ public class EditProjectController implements Initializable {
     public TableColumn<Furniture, String> colCharacteristicsFurniture;
 
 
+
+    public TableView<Material> materialTableView;
+    public TableColumn<Material, String> colNameMaterial;
+    public TableColumn<Material, Boolean> tabcolActivePMaterial;
+    public TableColumn<Material, Boolean> tabcolActiveCMaterial;
+    public TableColumn<Material, String> colUnitMaterial;
+    public TableColumn<Material, String> colQuantityMaterial;
+    public TableColumn<Material, String> colOrdinalPriceUnitMaterial;
+    public TableColumn<Material, String> colPriceCPUnitMaterial;
+    public TableColumn<Material, String> colPriceCPKeyMaterial;
+    public TableColumn<Material, String> colCostCPUnitMaterial;
+    public TableColumn<Material, String> colPriceOrderMaterial;
+    public TableColumn<Material, String> colCostCPMaterial;
+    public TableColumn<Material, String> colProductionTimeMaterial;
+    public TableColumn<Material, String> colActualCostMaterial;
+    public TableColumn<Material, String> colActualDifferenceMaterial;
+    public TableColumn<Material, String> colPaidMaterial;
+    public TableColumn<Material, String> colResidueMaterial;
+    public TableColumn<Material, String> colDateOfDeliveryMaterial;
+    public TableColumn<Material, String> colPlannedCPMaterial;
+    public TableColumn<Material, String> colActualCPMaterial;
+    public TableColumn<Material, String> colAccountMaterial;
+    public TableColumn<Material, String> colContactsMaterial;
+    public TableColumn<Material, String> colNotesMaterial;
+    public TableColumn<Material, String> colCharacteristicsMaterial;
+
+
     public Button createRoomButton;
 
 
@@ -58,10 +82,10 @@ public class EditProjectController implements Initializable {
         colNameFurniture.setCellValueFactory(new PropertyValueFactory<>("nameFurniture"));
         colUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("unitFurniture"));
         colQuantityFurniture.setCellValueFactory(new PropertyValueFactory<>("quantityFurniture"));
-        colOrdinalPricePerUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("ordinalPricePerUnitFurniture"));
-        colPriceCPPerUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("priceCPPerUnitFurniture"));
-        colPriceCPPerKeyFurniture.setCellValueFactory(new PropertyValueFactory<>("priceCPPerKeyFurniture"));
-        colCostCPPerUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("costCPPerUnitFurniture"));
+        colOrdinalPriceUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitFurniture"));
+        colPriceCPUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitFurniture"));
+        colPriceCPKeyFurniture.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyFurniture"));
+        colCostCPUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("costCPUnitFurniture"));
         colPriceOrderFurniture.setCellValueFactory(new PropertyValueFactory<>("priceOrderFurniture"));
         colCostCPFurniture.setCellValueFactory(new PropertyValueFactory<>("costCPFurniture"));
         colProductionTimeFurniture.setCellValueFactory(new PropertyValueFactory<>("productionTimeFurniture"));
@@ -77,16 +101,43 @@ public class EditProjectController implements Initializable {
         colNotesFurniture.setCellValueFactory(new PropertyValueFactory<>("notesFurniture"));
         colCharacteristicsFurniture.setCellValueFactory(new PropertyValueFactory<>("characteristicsFurniture"));
 
-        furnitureTableView.setItems(observableList);
+        colNameMaterial.setCellValueFactory(new PropertyValueFactory<>("nameMaterial"));
+        colUnitMaterial.setCellValueFactory(new PropertyValueFactory<>("unitMaterial"));
+        colQuantityMaterial.setCellValueFactory(new PropertyValueFactory<>("quantityMaterial"));
+        colOrdinalPriceUnitMaterial.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterial"));
+        colPriceCPUnitMaterial.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterial"));
+        colPriceCPKeyMaterial.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterial"));
+        colCostCPUnitMaterial.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterial"));
+        colPriceOrderMaterial.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterial"));
+        colCostCPMaterial.setCellValueFactory(new PropertyValueFactory<>("costCPMaterial"));
+        colProductionTimeMaterial.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterial"));
+        colActualCostMaterial.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterial"));
+        colActualDifferenceMaterial.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterial"));
+        colPaidMaterial.setCellValueFactory(new PropertyValueFactory<>("paidMaterial"));
+        colResidueMaterial.setCellValueFactory(new PropertyValueFactory<>("residueMaterial"));
+        colDateOfDeliveryMaterial.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterial"));
+        colPlannedCPMaterial.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterial"));
+        colActualCPMaterial.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterial"));
+        colAccountMaterial.setCellValueFactory(new PropertyValueFactory<>("accountMaterial"));
+        colContactsMaterial.setCellValueFactory(new PropertyValueFactory<>("contactsMaterial"));
+        colNotesMaterial.setCellValueFactory(new PropertyValueFactory<>("notesMaterial"));
+        colCharacteristicsMaterial.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterial"));
+
+
+        materialTableView.setItems(observableListMaterial);
+        materialTableView.setEditable(true);
+
+        furnitureTableView.setItems(observableListFurniture);
         furnitureTableView.setEditable(true);
+
 
         colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
         colUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
         colQuantityFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPricePerUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPPerUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPPerKeyFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPPerUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
+        colOrdinalPriceUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPKeyFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
         colPriceOrderFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
         colCostCPFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
         colProductionTimeFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -101,13 +152,41 @@ public class EditProjectController implements Initializable {
         colContactsFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        colNameMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colQuantityMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colOrdinalPriceUnitMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPUnitMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPKeyMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPUnitMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceOrderMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colProductionTimeMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCostMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualDifferenceMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPaidMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colResidueMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDateOfDeliveryMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
-    ObservableList<Furniture> observableList = FXCollections.observableArrayList(
+    ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList(
 //            new Furniture("Ведро", "шт", "2"),
 //            new Furniture("Лопата", "шт", "5"),
-            new Furniture(),
-            new Furniture(),
+//            new Furniture(),
+//            new Furniture(),
+            new Furniture()
+    );
+
+    ObservableList<Material> observableListMaterial = FXCollections.observableArrayList(
+//            new Furniture(),
+//            new Furniture(),
             new Furniture()
     );
 

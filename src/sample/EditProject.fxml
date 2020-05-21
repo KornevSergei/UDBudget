@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -172,11 +173,47 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <Accordion layoutX="14.0" layoutY="22.0" prefHeight="306.0" prefWidth="1442.0">
+                        <Accordion layoutX="5.0" layoutY="5.0" prefHeight="400.0" prefWidth="1900.0">
                             <panes>
-                                <TitledPane animated="false" text="Стены">
+                                <TitledPane animated="true" text="Стены">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane prefHeight="200.0" prefWidth="1900.0">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="materialTableView" prefHeight="500.0" prefWidth="1900.0">
+                                                  <columns>
+                                                      <TableColumn fx:id="colNameMaterial" prefWidth="108.0" text="Наименование" />
+                                                      <TableColumn prefWidth="25.0" text="П" />
+                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colUnitMaterial" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colQuantityMaterial" prefWidth="63.0" text="Кол-во" />
+                                                      <TableColumn fx:id="colOrdinalPriceUnitMaterial" prefWidth="125.0" text="Цена порядковая за ед." />
+                                                      <TableColumn fx:id="colPriceCPUnitMaterial" prefWidth="100.0" text="Цена по КП за ед." />
+                                                      <TableColumn fx:id="colPriceCPKeyMaterial" prefWidth="100.0" text="Цена по КП под ключ" />
+                                                      <TableColumn fx:id="colCostCPUnitMaterial" prefWidth="100.0" text="Стоимость по КП за ед." />
+                                                      <TableColumn fx:id="colPriceOrderMaterial" prefWidth="100.0" text="Порядок цен" />
+                                                      <TableColumn fx:id="colCostCPMaterial" prefWidth="85.0" text="Стоимость по КП" />
+                                                      <TableColumn fx:id="colProductionTimeMaterial" prefWidth="85.0" text="Срок изготовления" />
+                                                      <TableColumn fx:id="colActualCostMaterial" prefWidth="85.0" text="Стоимость фактическая" />
+                                                      <TableColumn fx:id="colActualDifferenceMaterial" prefWidth="85.0" text="Разница фактическая" />
+                                                      <TableColumn fx:id="colPaidMaterial" prefWidth="85.0" text="Оплачено" />
+                                                      <TableColumn fx:id="colResidueMaterial" prefWidth="85.0" text="Остаток" />
+                                                      <TableColumn fx:id="colDateOfDeliveryMaterial" prefWidth="85.0" text="Дата поставки" />
+                                                      <TableColumn fx:id="colPlannedCPMaterial" prefWidth="85.0" text="КП плановое" />
+                                                      <TableColumn fx:id="colActualCPMaterial" prefWidth="85.0" text="КП фактическое" />
+                                                      <TableColumn fx:id="colAccountMaterial" prefWidth="55.0" text="Счет" />
+                                                      <TableColumn fx:id="colContactsMaterial" prefWidth="85.0" text="Контакты" />
+                                                      <TableColumn fx:id="colNotesMaterial" prefWidth="85.0" text="Примечания" />
+                                                      <TableColumn fx:id="colCharacteristicsMaterial" prefWidth="85.0" text="Характеристики" />
+                                                  </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
+                                      </content>
+                                    </ScrollPane>
+                                 </children></AnchorPane>
                                     </content>
                                 </TitledPane>
                                 <TitledPane animated="false" text="Пол">
@@ -244,17 +281,17 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1000.0">
                     <children>
-                        <TableView fx:id="furnitureTableView" layoutY="62.0" prefHeight="238.0" prefWidth="2000.0">
+                        <TableView fx:id="furnitureTableView" layoutY="62.0" prefHeight="238.0" prefWidth="1900.0">
                             <columns>
                                 <TableColumn fx:id="colNameFurniture" prefWidth="108.0" text="Наименование" />
                                 <TableColumn prefWidth="25.0" text="П" />
                                 <TableColumn prefWidth="25.0" text="С" />
                                 <TableColumn fx:id="colUnitFurniture" prefWidth="58.0" text="Ед.изм." />
                                 <TableColumn fx:id="colQuantityFurniture" prefWidth="63.0" text="Кол-во" />
-                                <TableColumn fx:id="colOrdinalPricePerUnitFurniture" prefWidth="125.0" text="Цена порядковая за ед." />
-                                <TableColumn fx:id="colPriceCPPerUnitFurniture" prefWidth="100.0" text="Цена по КП за ед." />
-                                <TableColumn fx:id="colPriceCPPerKeyFurniture" prefWidth="100.0" text="Цена по КП под ключ" />
-                                <TableColumn fx:id="colCostCPPerUnitFurniture" prefWidth="100.0" text="Стоимость по КП за ед." />
+                                <TableColumn fx:id="colOrdinalPriceUnitFurniture" prefWidth="125.0" text="Цена порядковая за ед." />
+                                <TableColumn fx:id="colPriceCPUnitFurniture" prefWidth="100.0" text="Цена по КП за ед." />
+                                <TableColumn fx:id="colPriceCPKeyFurniture" prefWidth="100.0" text="Цена по КП под ключ" />
+                                <TableColumn fx:id="colCostCPUnitFurniture" prefWidth="100.0" text="Стоимость по КП за ед." />
                                 <TableColumn fx:id="colPriceOrderFurniture" prefWidth="100.0" text="Порядок цен" />
                                 <TableColumn fx:id="colCostCPFurniture" prefWidth="85.0" text="Стоимость по КП" />
                                 <TableColumn fx:id="colProductionTimeFurniture" prefWidth="85.0" text="Срок изготовления" />
@@ -272,7 +309,7 @@
                             </columns>
                         </TableView>
                   <Text layoutX="14.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Помещение:" />
-                  <Button layoutX="423.0" layoutY="28.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementFurniture" />
+                  <Button layoutX="423.0" layoutY="28.0" mnemonicParsing="false" onAction="#deleteElementFurniture" text="Удалить" />
                     </children>
                 </AnchorPane>
             </content>
