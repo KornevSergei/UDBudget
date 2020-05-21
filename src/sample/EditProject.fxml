@@ -179,35 +179,35 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ScrollPane prefHeight="200.0" prefWidth="1900.0">
+                                    <ScrollPane prefHeight="500.0" prefWidth="1900.0">
                                       <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="200.0">
                                              <children>
-                                                <TableView fx:id="materialTableView" prefHeight="500.0" prefWidth="1900.0">
+                                                <TableView fx:id="materialTableViewWall" prefHeight="700.0" prefWidth="1900.0">
                                                   <columns>
-                                                      <TableColumn fx:id="colNameMaterial" prefWidth="108.0" text="Наименование" />
+                                                      <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование"  />
                                                       <TableColumn prefWidth="25.0" text="П" />
                                                       <TableColumn prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterial" prefWidth="58.0" text="Ед.изм." />
-                                                      <TableColumn fx:id="colQuantityMaterial" prefWidth="63.0" text="Кол-во" />
-                                                      <TableColumn fx:id="colOrdinalPriceUnitMaterial" prefWidth="125.0" text="Цена порядковая за ед." />
-                                                      <TableColumn fx:id="colPriceCPUnitMaterial" prefWidth="100.0" text="Цена по КП за ед." />
-                                                      <TableColumn fx:id="colPriceCPKeyMaterial" prefWidth="100.0" text="Цена по КП под ключ" />
-                                                      <TableColumn fx:id="colCostCPUnitMaterial" prefWidth="100.0" text="Стоимость по КП за ед." />
-                                                      <TableColumn fx:id="colPriceOrderMaterial" prefWidth="100.0" text="Порядок цен" />
-                                                      <TableColumn fx:id="colCostCPMaterial" prefWidth="85.0" text="Стоимость по КП" />
-                                                      <TableColumn fx:id="colProductionTimeMaterial" prefWidth="85.0" text="Срок изготовления" />
-                                                      <TableColumn fx:id="colActualCostMaterial" prefWidth="85.0" text="Стоимость фактическая" />
-                                                      <TableColumn fx:id="colActualDifferenceMaterial" prefWidth="85.0" text="Разница фактическая" />
-                                                      <TableColumn fx:id="colPaidMaterial" prefWidth="85.0" text="Оплачено" />
-                                                      <TableColumn fx:id="colResidueMaterial" prefWidth="85.0" text="Остаток" />
-                                                      <TableColumn fx:id="colDateOfDeliveryMaterial" prefWidth="85.0" text="Дата поставки" />
-                                                      <TableColumn fx:id="colPlannedCPMaterial" prefWidth="85.0" text="КП плановое" />
-                                                      <TableColumn fx:id="colActualCPMaterial" prefWidth="85.0" text="КП фактическое" />
-                                                      <TableColumn fx:id="colAccountMaterial" prefWidth="55.0" text="Счет" />
-                                                      <TableColumn fx:id="colContactsMaterial" prefWidth="85.0" text="Контакты" />
-                                                      <TableColumn fx:id="colNotesMaterial" prefWidth="85.0" text="Примечания" />
-                                                      <TableColumn fx:id="colCharacteristicsMaterial" prefWidth="85.0" text="Характеристики" />
+                                                      <TableColumn fx:id="colUnitMaterialWall" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colQuantityMaterialWall" prefWidth="63.0" text="Кол-во" />
+                                                      <TableColumn fx:id="colOrdinalPriceUnitMaterialWall" prefWidth="125.0" text="Цена порядковая за ед." />
+                                                      <TableColumn fx:id="colPriceCPUnitMaterialWall" prefWidth="100.0" text="Цена по КП за ед." />
+                                                      <TableColumn fx:id="colPriceCPKeyMaterialWall" prefWidth="100.0" text="Цена по КП под ключ" />
+                                                      <TableColumn fx:id="colCostCPUnitMaterialWall" prefWidth="100.0" text="Стоимость по КП за ед." />
+                                                      <TableColumn fx:id="colPriceOrderMaterialWall" prefWidth="100.0" text="Порядок цен" />
+                                                      <TableColumn fx:id="colCostCPMaterialWall" prefWidth="85.0" text="Стоимость по КП" />
+                                                      <TableColumn fx:id="colProductionTimeMaterialWall" prefWidth="85.0" text="Срок изготовления" />
+                                                      <TableColumn fx:id="colActualCostMaterialWall" prefWidth="85.0" text="Стоимость фактическая" />
+                                                      <TableColumn fx:id="colActualDifferenceMaterialWall" prefWidth="85.0" text="Разница фактическая" />
+                                                      <TableColumn fx:id="colPaidMaterialWall" prefWidth="85.0" text="Оплачено" />
+                                                      <TableColumn fx:id="colResidueMaterialWall" prefWidth="85.0" text="Остаток" />
+                                                      <TableColumn fx:id="colDateOfDeliveryMaterialWall" prefWidth="85.0" text="Дата поставки" />
+                                                      <TableColumn fx:id="colPlannedCPMaterialWall" prefWidth="85.0" text="КП плановое" />
+                                                      <TableColumn fx:id="colActualCPMaterialWall" prefWidth="85.0" text="КП фактическое" />
+                                                      <TableColumn fx:id="colAccountMaterialWall" prefWidth="55.0" text="Счет" />
+                                                      <TableColumn fx:id="colContactsMaterialWall" prefWidth="85.0" text="Контакты" />
+                                                      <TableColumn fx:id="colNotesMaterialWall" prefWidth="85.0" text="Примечания" />
+                                                      <TableColumn fx:id="colCharacteristicsMaterialWall" prefWidth="85.0" text="Характеристики" />
                                                   </columns>
                                                 </TableView>
                                              </children></AnchorPane>

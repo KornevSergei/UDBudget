@@ -47,30 +47,30 @@ public class EditProjectController implements Initializable {
 
 
 
-    public TableView<Material> materialTableView;
-    public TableColumn<Material, String> colNameMaterial;
-    public TableColumn<Material, Boolean> tabcolActivePMaterial;
-    public TableColumn<Material, Boolean> tabcolActiveCMaterial;
-    public TableColumn<Material, String> colUnitMaterial;
-    public TableColumn<Material, String> colQuantityMaterial;
-    public TableColumn<Material, String> colOrdinalPriceUnitMaterial;
-    public TableColumn<Material, String> colPriceCPUnitMaterial;
-    public TableColumn<Material, String> colPriceCPKeyMaterial;
-    public TableColumn<Material, String> colCostCPUnitMaterial;
-    public TableColumn<Material, String> colPriceOrderMaterial;
-    public TableColumn<Material, String> colCostCPMaterial;
-    public TableColumn<Material, String> colProductionTimeMaterial;
-    public TableColumn<Material, String> colActualCostMaterial;
-    public TableColumn<Material, String> colActualDifferenceMaterial;
-    public TableColumn<Material, String> colPaidMaterial;
-    public TableColumn<Material, String> colResidueMaterial;
-    public TableColumn<Material, String> colDateOfDeliveryMaterial;
-    public TableColumn<Material, String> colPlannedCPMaterial;
-    public TableColumn<Material, String> colActualCPMaterial;
-    public TableColumn<Material, String> colAccountMaterial;
-    public TableColumn<Material, String> colContactsMaterial;
-    public TableColumn<Material, String> colNotesMaterial;
-    public TableColumn<Material, String> colCharacteristicsMaterial;
+    public TableView<MaterialWall> materialTableViewWall;
+    public TableColumn<MaterialWall, String> colNameMaterialWall;
+    public TableColumn<MaterialWall, Boolean> tabcolActivePMaterialWall;
+    public TableColumn<MaterialWall, Boolean> tabcolActiveCMaterialWall;
+    public TableColumn<MaterialWall, String> colUnitMaterialWall;
+    public TableColumn<MaterialWall, String> colQuantityMaterialWall;
+    public TableColumn<MaterialWall, String> colOrdinalPriceUnitMaterialWall;
+    public TableColumn<MaterialWall, String> colPriceCPUnitMaterialWall;
+    public TableColumn<MaterialWall, String> colPriceCPKeyMaterialWall;
+    public TableColumn<MaterialWall, String> colCostCPUnitMaterialWall;
+    public TableColumn<MaterialWall, String> colPriceOrderMaterialWall;
+    public TableColumn<MaterialWall, String> colCostCPMaterialWall;
+    public TableColumn<MaterialWall, String> colProductionTimeMaterialWall;
+    public TableColumn<MaterialWall, String> colActualCostMaterialWall;
+    public TableColumn<MaterialWall, String> colActualDifferenceMaterialWall;
+    public TableColumn<MaterialWall, String> colPaidMaterialWall;
+    public TableColumn<MaterialWall, String> colResidueMaterialWall;
+    public TableColumn<MaterialWall, String> colDateOfDeliveryMaterialWall;
+    public TableColumn<MaterialWall, String> colPlannedCPMaterialWall;
+    public TableColumn<MaterialWall, String> colActualCPMaterialWall;
+    public TableColumn<MaterialWall, String> colAccountMaterialWall;
+    public TableColumn<MaterialWall, String> colContactsMaterialWall;
+    public TableColumn<MaterialWall, String> colNotesMaterialWall;
+    public TableColumn<MaterialWall, String> colCharacteristicsMaterialWall;
 
 
     public Button createRoomButton;
@@ -101,34 +101,34 @@ public class EditProjectController implements Initializable {
         colNotesFurniture.setCellValueFactory(new PropertyValueFactory<>("notesFurniture"));
         colCharacteristicsFurniture.setCellValueFactory(new PropertyValueFactory<>("characteristicsFurniture"));
 
-        colNameMaterial.setCellValueFactory(new PropertyValueFactory<>("nameMaterial"));
-        colUnitMaterial.setCellValueFactory(new PropertyValueFactory<>("unitMaterial"));
-        colQuantityMaterial.setCellValueFactory(new PropertyValueFactory<>("quantityMaterial"));
-        colOrdinalPriceUnitMaterial.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterial"));
-        colPriceCPUnitMaterial.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterial"));
-        colPriceCPKeyMaterial.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterial"));
-        colCostCPUnitMaterial.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterial"));
-        colPriceOrderMaterial.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterial"));
-        colCostCPMaterial.setCellValueFactory(new PropertyValueFactory<>("costCPMaterial"));
-        colProductionTimeMaterial.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterial"));
-        colActualCostMaterial.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterial"));
-        colActualDifferenceMaterial.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterial"));
-        colPaidMaterial.setCellValueFactory(new PropertyValueFactory<>("paidMaterial"));
-        colResidueMaterial.setCellValueFactory(new PropertyValueFactory<>("residueMaterial"));
-        colDateOfDeliveryMaterial.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterial"));
-        colPlannedCPMaterial.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterial"));
-        colActualCPMaterial.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterial"));
-        colAccountMaterial.setCellValueFactory(new PropertyValueFactory<>("accountMaterial"));
-        colContactsMaterial.setCellValueFactory(new PropertyValueFactory<>("contactsMaterial"));
-        colNotesMaterial.setCellValueFactory(new PropertyValueFactory<>("notesMaterial"));
-        colCharacteristicsMaterial.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterial"));
+        colNameMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
+        colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
+        colQuantityMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+        colOrdinalPriceUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialWall"));
+        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialWall"));
+        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialWall"));
+        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
+        colPriceOrderMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialWall"));
+        colCostCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialWall"));
+        colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
+        colActualCostMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialWall"));
+        colActualDifferenceMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialWall"));
+        colPaidMaterialWall.setCellValueFactory(new PropertyValueFactory<>("paidMaterialWall"));
+        colResidueMaterialWall.setCellValueFactory(new PropertyValueFactory<>("residueMaterialWall"));
+        colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
+        colPlannedCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialWall"));
+        colActualCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialWall"));
+        colAccountMaterialWall.setCellValueFactory(new PropertyValueFactory<>("accountMaterialWall"));
+        colContactsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialWall"));
+        colNotesMaterialWall.setCellValueFactory(new PropertyValueFactory<>("notesMaterialWall"));
+        colCharacteristicsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialWall"));
 
-
-        materialTableView.setItems(observableListMaterial);
-        materialTableView.setEditable(true);
 
         furnitureTableView.setItems(observableListFurniture);
         furnitureTableView.setEditable(true);
+
+        materialTableViewWall.setItems(observableListMaterialWall);
+        materialTableViewWall.setEditable(true);
 
 
         colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -153,41 +153,41 @@ public class EditProjectController implements Initializable {
         colNotesFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        colNameMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colQuantityMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colOrdinalPriceUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPKeyMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceOrderMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colProductionTimeMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCostMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualDifferenceMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPaidMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colResidueMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDateOfDeliveryMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList(
 //            new Furniture("Ведро", "шт", "2"),
 //            new Furniture("Лопата", "шт", "5"),
-//            new Furniture(),
-//            new Furniture(),
+            new Furniture(),
+            new Furniture(),
             new Furniture()
     );
 
-    ObservableList<Material> observableListMaterial = FXCollections.observableArrayList(
-//            new Furniture(),
-//            new Furniture(),
-            new Furniture()
+    ObservableList<MaterialWall> observableListMaterialWall = FXCollections.observableArrayList(
+            new MaterialWall(),
+            new MaterialWall(),
+            new MaterialWall()
     );
 
 
