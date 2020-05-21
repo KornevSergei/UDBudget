@@ -120,6 +120,31 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialCeiling, String> colNotesMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colCharacteristicsMaterialCeiling;
 
+    public TableView<MaterialOther> materialTableViewOther;
+    public TableColumn<MaterialOther, String> colNameMaterialOther;
+    public TableColumn<MaterialOther, Boolean> colActivePMaterialOther;
+    public TableColumn<MaterialOther, Boolean> colActiveCMaterialOther;
+    public TableColumn<MaterialOther, String> colUnitMaterialOther;
+    public TableColumn<MaterialOther, String> colQuantityMaterialOther;
+    public TableColumn<MaterialOther, String> colOrdinalPriceUnitMaterialOther;
+    public TableColumn<MaterialOther, String> colPriceCPUnitMaterialOther;
+    public TableColumn<MaterialOther, String> colPriceCPKeyMaterialOther;
+    public TableColumn<MaterialOther, String> colCostCPUnitMaterialOther;
+    public TableColumn<MaterialOther, String> colPriceOrderMaterialOther;
+    public TableColumn<MaterialOther, String> colCostCPMaterialOther;
+    public TableColumn<MaterialOther, String> colProductionTimeMaterialOther;
+    public TableColumn<MaterialOther, String> colActualCostMaterialOther;
+    public TableColumn<MaterialOther, String> colActualDifferenceMaterialOther;
+    public TableColumn<MaterialOther, String> colPaidMaterialOther;
+    public TableColumn<MaterialOther, String> colResidueMaterialOther;
+    public TableColumn<MaterialOther, String> colDateOfDeliveryMaterialOther;
+    public TableColumn<MaterialOther, String> colPlannedCPMaterialOther;
+    public TableColumn<MaterialOther, String> colActualCPMaterialOther;
+    public TableColumn<MaterialOther, String> colAccountMaterialOther;
+    public TableColumn<MaterialOther, String> colContactsMaterialOther;
+    public TableColumn<MaterialOther, String> colNotesMaterialOther;
+    public TableColumn<MaterialOther, String> colCharacteristicsMaterialOther;
+
 
     public Button createRoomButton;
 
@@ -215,17 +240,41 @@ public class EditProjectController implements Initializable {
         colNotesMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("notesMaterialCeiling"));
         colCharacteristicsMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialCeiling"));
 
+        colNameMaterialOther.setCellValueFactory(new PropertyValueFactory<>("nameMaterialOther"));
+        colUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("unitMaterialOther"));
+        colQuantityMaterialOther.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialOther"));
+        colOrdinalPriceUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialOther"));
+        colPriceCPUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialOther"));
+        colPriceCPKeyMaterialOther.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialOther"));
+        colCostCPUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialOther"));
+        colPriceOrderMaterialOther.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialOther"));
+        colCostCPMaterialOther.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialOther"));
+        colProductionTimeMaterialOther.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialOther"));
+        colActualCostMaterialOther.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialOther"));
+        colActualDifferenceMaterialOther.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialOther"));
+        colPaidMaterialOther.setCellValueFactory(new PropertyValueFactory<>("paidMaterialOther"));
+        colResidueMaterialOther.setCellValueFactory(new PropertyValueFactory<>("residueMaterialOther"));
+        colDateOfDeliveryMaterialOther.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialOther"));
+        colPlannedCPMaterialOther.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialOther"));
+        colActualCPMaterialOther.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialOther"));
+        colAccountMaterialOther.setCellValueFactory(new PropertyValueFactory<>("accountMaterialOther"));
+        colContactsMaterialOther.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialOther"));
+        colNotesMaterialOther.setCellValueFactory(new PropertyValueFactory<>("notesMaterialOther"));
+        colCharacteristicsMaterialOther.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialOther"));
+
 
         furnitureTableView.setItems(observableListFurniture);
         materialTableViewWall.setItems(observableListMaterialWall);
         materialTableViewFloor.setItems(observableListMaterialFloor);
         materialTableViewCeiling.setItems(observableListMaterialCeiling);
+        materialTableViewOther.setItems(observableListMaterialOther);
 
 
         furnitureTableView.setEditable(true);
         materialTableViewWall.setEditable(true);
         materialTableViewFloor.setEditable(true);
         materialTableViewCeiling.setEditable(true);
+        materialTableViewOther.setEditable(true);
 
 
         colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -315,6 +364,28 @@ public class EditProjectController implements Initializable {
         colContactsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        colNameMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colQuantityMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colOrdinalPriceUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPKeyMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceOrderMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colProductionTimeMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCostMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualDifferenceMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPaidMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colResidueMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDateOfDeliveryMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList(
@@ -340,6 +411,12 @@ public class EditProjectController implements Initializable {
             new MaterialCeiling(),
             new MaterialCeiling(),
             new MaterialCeiling()
+    );
+
+    ObservableList<MaterialOther> observableListMaterialOther = FXCollections.observableArrayList(
+            new MaterialOther(),
+            new MaterialOther(),
+            new MaterialOther()
     );
 
 
