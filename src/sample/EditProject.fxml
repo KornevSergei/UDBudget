@@ -48,15 +48,15 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView layoutX="54.0" layoutY="50.0" prefHeight="261.0" prefWidth="582.0">
+                        <TableView layoutX="54.0" layoutY="50.0" prefHeight="300.0" prefWidth="1000.0">
                             <columns>
-                                <TableColumn prefWidth="150.4000244140625" text="Наименование категории" />
-                                <TableColumn minWidth="0.0" prefWidth="35.20001220703125" text="Порядок цен, руб." />
-                                <TableColumn prefWidth="41.5999755859375" text="Стоимость плановая, руб." />
-                                <TableColumn prefWidth="75.0" text="Стоимость фактическая, руб." />
-                                <TableColumn prefWidth="75.0" text="Разница, руб." />
-                                <TableColumn prefWidth="75.0" text="Оплачено, руб." />
-                                <TableColumn prefWidth="75.0" text="Остаток, руб." />
+                                <TableColumn prefWidth="180.0" text="Наименование категории" />
+                                <TableColumn prefWidth="130.0" text="Порядок цен, руб." />
+                                <TableColumn prefWidth="130.0" text="Стоимость плановая, руб." />
+                                <TableColumn prefWidth="130.0" text="Стоимость фактическая, руб." />
+                                <TableColumn prefWidth="130.0" text="Разница, руб." />
+                                <TableColumn prefWidth="130.0" text="Оплачено, руб." />
+                                <TableColumn prefWidth="130.0" text="Остаток, руб." />
                             </columns>
                         </TableView>
                     </children>
@@ -403,35 +403,35 @@
         <Tab text="Сантехника">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <children>
-                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="1445.0">
-                            <columns>
-                                <TableColumn prefWidth="75.0" text="C1" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                            </columns>
-                        </TableView>
-                    </children>
+               <children>
+                  <TableView fx:id="furnitureTableView1" prefHeight="238.0" prefWidth="1900.0">
+                     <columns>
+                        <TableColumn fx:id="colNameFurniture1" prefWidth="108.0" text="Наименование" />
+                        <TableColumn prefWidth="25.0" text="П" />
+                        <TableColumn prefWidth="25.0" text="С" />
+                        <TableColumn fx:id="colUnitFurniture1" prefWidth="58.0" text="Ед.изм." />
+                        <TableColumn fx:id="colQuantityFurniture1" prefWidth="63.0" text="Кол-во" />
+                        <TableColumn fx:id="colOrdinalPriceUnitFurniture1" prefWidth="125.0" text="Цена порядковая за ед." />
+                        <TableColumn fx:id="colPriceCPUnitFurniture1" prefWidth="100.0" text="Цена по КП за ед." />
+                        <TableColumn fx:id="colPriceCPKeyFurniture1" prefWidth="100.0" text="Цена по КП под ключ" />
+                        <TableColumn fx:id="colCostCPUnitFurniture1" prefWidth="100.0" text="Стоимость по КП за ед." />
+                        <TableColumn fx:id="colPriceOrderFurniture1" prefWidth="100.0" text="Порядок цен" />
+                        <TableColumn fx:id="colCostCPFurniture1" prefWidth="85.0" text="Стоимость по КП" />
+                        <TableColumn fx:id="colProductionTimeFurniture1" prefWidth="85.0" text="Срок изготовления" />
+                        <TableColumn fx:id="colActualCostFurniture1" prefWidth="85.0" text="Стоимость фактическая" />
+                        <TableColumn fx:id="colActualDifferenceFurniture1" prefWidth="85.0" text="Разница фактическая" />
+                        <TableColumn fx:id="colPaidFurniture1" prefWidth="85.0" text="Оплачено" />
+                        <TableColumn fx:id="colResidueFurniture1" prefWidth="85.0" text="Остаток" />
+                        <TableColumn fx:id="colDateOfDeliveryFurniture1" prefWidth="85.0" text="Дата поставки" />
+                        <TableColumn fx:id="colPlannedCPFurniture1" prefWidth="85.0" text="КП плановое" />
+                        <TableColumn fx:id="colActualCPFurniture1" prefWidth="85.0" text="КП фактическое" />
+                        <TableColumn fx:id="colAccountFurniture1" prefWidth="55.0" text="Счет" />
+                        <TableColumn fx:id="colContactsFurniture1" prefWidth="85.0" text="Контакты" />
+                        <TableColumn fx:id="colNotesFurniture1" prefWidth="85.0" text="Примечания" />
+                        <TableColumn fx:id="colCharacteristicsFurniture1" prefWidth="85.0" text="Характеристики" />
+                     </columns>
+                  </TableView>
+               </children>
                 </AnchorPane>
             </content>
         </Tab>
@@ -475,28 +475,35 @@
         <Tab text="Свет">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <children>
-                        <TableView prefHeight="200.0" prefWidth="1316.0">
-                            <columns>
-                                <TableColumn prefWidth="108.0" text="Наименование" />
-                                <TableColumn prefWidth="29.0" text="П" />
-                                <TableColumn prefWidth="27.0" text="С" />
-                                <TableColumn prefWidth="58.0" text="Ед.изм." />
-                                <TableColumn prefWidth="63.0" text="Кол-во" />
-                                <TableColumn prefWidth="165.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                            </columns>
-                        </TableView>
-                    </children>
+               <children>
+                  <TableView fx:id="furnitureTableView2" prefHeight="238.0" prefWidth="1900.0">
+                     <columns>
+                        <TableColumn fx:id="colNameFurniture2" prefWidth="108.0" text="Наименование" />
+                        <TableColumn prefWidth="25.0" text="П" />
+                        <TableColumn prefWidth="25.0" text="С" />
+                        <TableColumn fx:id="colUnitFurniture2" prefWidth="58.0" text="Ед.изм." />
+                        <TableColumn fx:id="colQuantityFurniture2" prefWidth="63.0" text="Кол-во" />
+                        <TableColumn fx:id="colOrdinalPriceUnitFurniture2" prefWidth="125.0" text="Цена порядковая за ед." />
+                        <TableColumn fx:id="colPriceCPUnitFurniture2" prefWidth="100.0" text="Цена по КП за ед." />
+                        <TableColumn fx:id="colPriceCPKeyFurniture2" prefWidth="100.0" text="Цена по КП под ключ" />
+                        <TableColumn fx:id="colCostCPUnitFurniture2" prefWidth="100.0" text="Стоимость по КП за ед." />
+                        <TableColumn fx:id="colPriceOrderFurniture2" prefWidth="100.0" text="Порядок цен" />
+                        <TableColumn fx:id="colCostCPFurniture2" prefWidth="85.0" text="Стоимость по КП" />
+                        <TableColumn fx:id="colProductionTimeFurniture2" prefWidth="85.0" text="Срок изготовления" />
+                        <TableColumn fx:id="colActualCostFurniture2" prefWidth="85.0" text="Стоимость фактическая" />
+                        <TableColumn fx:id="colActualDifferenceFurniture2" prefWidth="85.0" text="Разница фактическая" />
+                        <TableColumn fx:id="colPaidFurniture2" prefWidth="85.0" text="Оплачено" />
+                        <TableColumn fx:id="colResidueFurniture2" prefWidth="85.0" text="Остаток" />
+                        <TableColumn fx:id="colDateOfDeliveryFurniture2" prefWidth="85.0" text="Дата поставки" />
+                        <TableColumn fx:id="colPlannedCPFurniture2" prefWidth="85.0" text="КП плановое" />
+                        <TableColumn fx:id="colActualCPFurniture2" prefWidth="85.0" text="КП фактическое" />
+                        <TableColumn fx:id="colAccountFurniture2" prefWidth="55.0" text="Счет" />
+                        <TableColumn fx:id="colContactsFurniture2" prefWidth="85.0" text="Контакты" />
+                        <TableColumn fx:id="colNotesFurniture2" prefWidth="85.0" text="Примечания" />
+                        <TableColumn fx:id="colCharacteristicsFurniture2" prefWidth="85.0" text="Характеристики" />
+                     </columns>
+                  </TableView>
+               </children>
                 </AnchorPane>
             </content>
         </Tab>
@@ -604,29 +611,29 @@
                                              <children>
                                                 <TableView fx:id="appliancesTableViewDelivery" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
-                                                      <TableColumn fx:id="colNameMaterialDelivery" prefWidth="108.0" text="Наименование" />
+                                                      <TableColumn fx:id="colNameAppliancesDelivery" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn prefWidth="25.0" text="П" />
                                                       <TableColumn prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterialDelivery" prefWidth="58.0" text="Ед.изм." />
-                                                      <TableColumn fx:id="colQuantityMaterialDelivery" prefWidth="63.0" text="Кол-во" />
-                                                      <TableColumn fx:id="colOrdinalPriceUnitMaterialDelivery" prefWidth="125.0" text="Цена порядковая за ед." />
-                                                      <TableColumn fx:id="colPriceCPUnitMaterialDelivery" prefWidth="100.0" text="Цена по КП за ед." />
-                                                      <TableColumn fx:id="colPriceCPKeyMaterialDelivery" prefWidth="100.0" text="Цена по КП под ключ" />
-                                                      <TableColumn fx:id="colCostCPUnitMaterialDelivery" prefWidth="100.0" text="Стоимость по КП за ед." />
-                                                      <TableColumn fx:id="colPriceOrderMaterialDelivery" prefWidth="100.0" text="Порядок цен" />
-                                                      <TableColumn fx:id="colCostCPMaterialDelivery" prefWidth="85.0" text="Стоимость по КП" />
-                                                      <TableColumn fx:id="colProductionTimeMaterialDelivery" prefWidth="85.0" text="Срок изготовления" />
-                                                      <TableColumn fx:id="colActualCostMaterialDelivery" prefWidth="85.0" text="Стоимость фактическая" />
-                                                      <TableColumn fx:id="colActualDifferenceMaterialDelivery" prefWidth="85.0" text="Разница фактическая" />
-                                                      <TableColumn fx:id="colPaidMaterialDelivery" prefWidth="85.0" text="Оплачено" />
-                                                      <TableColumn fx:id="colResidueMaterialDelivery" prefWidth="85.0" text="Остаток" />
-                                                      <TableColumn fx:id="colDateOfDeliveryMaterialDelivery" prefWidth="85.0" text="Дата поставки" />
-                                                      <TableColumn fx:id="colPlannedCPMaterialDelivery" prefWidth="85.0" text="КП плановое" />
-                                                      <TableColumn fx:id="colActualCPMaterialDelivery" prefWidth="85.0" text="КП фактическое" />
-                                                      <TableColumn fx:id="colAccountMaterialDelivery" prefWidth="55.0" text="Счет" />
-                                                      <TableColumn fx:id="colContactsMaterialDelivery" prefWidth="85.0" text="Контакты" />
-                                                      <TableColumn fx:id="colNotesMaterialDelivery" prefWidth="85.0" text="Примечания" />
-                                                      <TableColumn fx:id="colCharacteristicsMaterialDelivery" prefWidth="85.0" text="Характеристики" />
+                                                      <TableColumn fx:id="colUnitAppliancesDelivery" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colQuantityAppliancesDelivery" prefWidth="63.0" text="Кол-во" />
+                                                      <TableColumn fx:id="colOrdinalPriceUnitAppliancesDelivery" prefWidth="125.0" text="Цена порядковая за ед." />
+                                                      <TableColumn fx:id="colPriceCPUnitAppliancesDelivery" prefWidth="100.0" text="Цена по КП за ед." />
+                                                      <TableColumn fx:id="colPriceCPKeyAppliancesDelivery" prefWidth="100.0" text="Цена по КП под ключ" />
+                                                      <TableColumn fx:id="colCostCPUnitAppliancesDelivery" prefWidth="100.0" text="Стоимость по КП за ед." />
+                                                      <TableColumn fx:id="colPriceOrderAppliancesDelivery" prefWidth="100.0" text="Порядок цен" />
+                                                      <TableColumn fx:id="colCostCPAppliancesDelivery" prefWidth="85.0" text="Стоимость по КП" />
+                                                      <TableColumn fx:id="colProductionTimeAppliancesDelivery" prefWidth="85.0" text="Срок изготовления" />
+                                                      <TableColumn fx:id="colActualCostAppliancesDelivery" prefWidth="85.0" text="Стоимость фактическая" />
+                                                      <TableColumn fx:id="colActualDifferenceAppliancesDelivery" prefWidth="85.0" text="Разница фактическая" />
+                                                      <TableColumn fx:id="colPaidAppliancesDelivery" prefWidth="85.0" text="Оплачено" />
+                                                      <TableColumn fx:id="colResidueAppliancesDelivery" prefWidth="85.0" text="Остаток" />
+                                                      <TableColumn fx:id="colDateOfDeliveryAppliancesDelivery" prefWidth="85.0" text="Дата поставки" />
+                                                      <TableColumn fx:id="colPlannedCPAppliancesDelivery" prefWidth="85.0" text="КП плановое" />
+                                                      <TableColumn fx:id="colActualCPAppliancesDelivery" prefWidth="85.0" text="КП фактическое" />
+                                                      <TableColumn fx:id="colAccountAppliancesDelivery" prefWidth="55.0" text="Счет" />
+                                                      <TableColumn fx:id="colContactsAppliancesDelivery" prefWidth="85.0" text="Контакты" />
+                                                      <TableColumn fx:id="colNotesAppliancesDelivery" prefWidth="85.0" text="Примечания" />
+                                                      <TableColumn fx:id="colCharacteristicsAppliancesDelivery" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
@@ -646,31 +653,31 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewWall4" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="appliancesTableViewSuddenly" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
-                                                      <TableColumn fx:id="colNameMaterialWall4" prefWidth="108.0" text="Наименование" />
+                                                      <TableColumn fx:id="colNameAppliancesSuddenly" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn prefWidth="25.0" text="П" />
                                                       <TableColumn prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterialWall4" prefWidth="58.0" text="Ед.изм." />
-                                                      <TableColumn fx:id="colQuantityMaterialWall4" prefWidth="63.0" text="Кол-во" />
-                                                      <TableColumn fx:id="colOrdinalPriceUnitMaterialWall4" prefWidth="125.0" text="Цена порядковая за ед." />
-                                                      <TableColumn fx:id="colPriceCPUnitMaterialWall4" prefWidth="100.0" text="Цена по КП за ед." />
-                                                      <TableColumn fx:id="colPriceCPKeyMaterialWall4" prefWidth="100.0" text="Цена по КП под ключ" />
-                                                      <TableColumn fx:id="colCostCPUnitMaterialWall4" prefWidth="100.0" text="Стоимость по КП за ед." />
-                                                      <TableColumn fx:id="colPriceOrderMaterialWall4" prefWidth="100.0" text="Порядок цен" />
-                                                      <TableColumn fx:id="colCostCPMaterialWall4" prefWidth="85.0" text="Стоимость по КП" />
-                                                      <TableColumn fx:id="colProductionTimeMaterialWall4" prefWidth="85.0" text="Срок изготовления" />
-                                                      <TableColumn fx:id="colActualCostMaterialWall4" prefWidth="85.0" text="Стоимость фактическая" />
-                                                      <TableColumn fx:id="colActualDifferenceMaterialWall4" prefWidth="85.0" text="Разница фактическая" />
-                                                      <TableColumn fx:id="colPaidMaterialWall4" prefWidth="85.0" text="Оплачено" />
-                                                      <TableColumn fx:id="colResidueMaterialWall4" prefWidth="85.0" text="Остаток" />
-                                                      <TableColumn fx:id="colDateOfDeliveryMaterialWall4" prefWidth="85.0" text="Дата поставки" />
-                                                      <TableColumn fx:id="colPlannedCPMaterialWall4" prefWidth="85.0" text="КП плановое" />
-                                                      <TableColumn fx:id="colActualCPMaterialWall4" prefWidth="85.0" text="КП фактическое" />
-                                                      <TableColumn fx:id="colAccountMaterialWall4" prefWidth="55.0" text="Счет" />
-                                                      <TableColumn fx:id="colContactsMaterialWall4" prefWidth="85.0" text="Контакты" />
-                                                      <TableColumn fx:id="colNotesMaterialWall4" prefWidth="85.0" text="Примечания" />
-                                                      <TableColumn fx:id="colCharacteristicsMaterialWall4" prefWidth="85.0" text="Характеристики" />
+                                                      <TableColumn fx:id="colUnitAppliancesSuddenly" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colQuantityAppliancesSuddenly" prefWidth="63.0" text="Кол-во" />
+                                                      <TableColumn fx:id="colOrdinalPriceUnitAppliancesSuddenly" prefWidth="125.0" text="Цена порядковая за ед." />
+                                                      <TableColumn fx:id="colPriceCPUnitAppliancesSuddenly" prefWidth="100.0" text="Цена по КП за ед." />
+                                                      <TableColumn fx:id="colPriceCPKeyAppliancesSuddenly" prefWidth="100.0" text="Цена по КП под ключ" />
+                                                      <TableColumn fx:id="colCostCPUnitAppliancesSuddenly" prefWidth="100.0" text="Стоимость по КП за ед." />
+                                                      <TableColumn fx:id="colPriceOrderAppliancesSuddenly" prefWidth="100.0" text="Порядок цен" />
+                                                      <TableColumn fx:id="colCostCPAppliancesSuddenly" prefWidth="85.0" text="Стоимость по КП" />
+                                                      <TableColumn fx:id="colProductionTimeAppliancesSuddenly" prefWidth="85.0" text="Срок изготовления" />
+                                                      <TableColumn fx:id="colActualCostAppliancesSuddenly" prefWidth="85.0" text="Стоимость фактическая" />
+                                                      <TableColumn fx:id="colActualDifferenceAppliancesSuddenly" prefWidth="85.0" text="Разница фактическая" />
+                                                      <TableColumn fx:id="colPaidAppliancesSuddenly" prefWidth="85.0" text="Оплачено" />
+                                                      <TableColumn fx:id="colResidueAppliancesSuddenly" prefWidth="85.0" text="Остаток" />
+                                                      <TableColumn fx:id="colDateOfDeliveryAppliancesSuddenly" prefWidth="85.0" text="Дата поставки" />
+                                                      <TableColumn fx:id="colPlannedCPAppliancesSuddenly" prefWidth="85.0" text="КП плановое" />
+                                                      <TableColumn fx:id="colActualCPAppliancesSuddenly" prefWidth="85.0" text="КП фактическое" />
+                                                      <TableColumn fx:id="colAccountAppliancesSuddenly" prefWidth="55.0" text="Счет" />
+                                                      <TableColumn fx:id="colContactsAppliancesSuddenly" prefWidth="85.0" text="Контакты" />
+                                                      <TableColumn fx:id="colNotesAppliancesSuddenly" prefWidth="85.0" text="Примечания" />
+                                                      <TableColumn fx:id="colCharacteristicsAppliancesSuddenly" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
@@ -691,28 +698,35 @@
         <Tab text="Декор">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <children>
-                        <TableView prefHeight="200.0" prefWidth="1316.0">
-                            <columns>
-                                <TableColumn prefWidth="108.0" text="Наименование" />
-                                <TableColumn prefWidth="29.0" text="П" />
-                                <TableColumn prefWidth="27.0" text="С" />
-                                <TableColumn prefWidth="58.0" text="Ед.изм." />
-                                <TableColumn prefWidth="63.0" text="Кол-во" />
-                                <TableColumn prefWidth="165.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                                <TableColumn prefWidth="75.0" text="C2" />
-                            </columns>
-                        </TableView>
-                    </children>
+               <children>
+                  <TableView fx:id="furnitureTableView3" prefHeight="238.0" prefWidth="1900.0">
+                     <columns>
+                        <TableColumn fx:id="colNameFurniture3" prefWidth="108.0" text="Наименование" />
+                        <TableColumn prefWidth="25.0" text="П" />
+                        <TableColumn prefWidth="25.0" text="С" />
+                        <TableColumn fx:id="colUnitFurniture3" prefWidth="58.0" text="Ед.изм." />
+                        <TableColumn fx:id="colQuantityFurniture3" prefWidth="63.0" text="Кол-во" />
+                        <TableColumn fx:id="colOrdinalPriceUnitFurniture3" prefWidth="125.0" text="Цена порядковая за ед." />
+                        <TableColumn fx:id="colPriceCPUnitFurniture3" prefWidth="100.0" text="Цена по КП за ед." />
+                        <TableColumn fx:id="colPriceCPKeyFurniture3" prefWidth="100.0" text="Цена по КП под ключ" />
+                        <TableColumn fx:id="colCostCPUnitFurniture3" prefWidth="100.0" text="Стоимость по КП за ед." />
+                        <TableColumn fx:id="colPriceOrderFurniture3" prefWidth="100.0" text="Порядок цен" />
+                        <TableColumn fx:id="colCostCPFurniture3" prefWidth="85.0" text="Стоимость по КП" />
+                        <TableColumn fx:id="colProductionTimeFurniture3" prefWidth="85.0" text="Срок изготовления" />
+                        <TableColumn fx:id="colActualCostFurniture3" prefWidth="85.0" text="Стоимость фактическая" />
+                        <TableColumn fx:id="colActualDifferenceFurniture3" prefWidth="85.0" text="Разница фактическая" />
+                        <TableColumn fx:id="colPaidFurniture3" prefWidth="85.0" text="Оплачено" />
+                        <TableColumn fx:id="colResidueFurniture3" prefWidth="85.0" text="Остаток" />
+                        <TableColumn fx:id="colDateOfDeliveryFurniture3" prefWidth="85.0" text="Дата поставки" />
+                        <TableColumn fx:id="colPlannedCPFurniture3" prefWidth="85.0" text="КП плановое" />
+                        <TableColumn fx:id="colActualCPFurniture3" prefWidth="85.0" text="КП фактическое" />
+                        <TableColumn fx:id="colAccountFurniture3" prefWidth="55.0" text="Счет" />
+                        <TableColumn fx:id="colContactsFurniture3" prefWidth="85.0" text="Контакты" />
+                        <TableColumn fx:id="colNotesFurniture3" prefWidth="85.0" text="Примечания" />
+                        <TableColumn fx:id="colCharacteristicsFurniture3" prefWidth="85.0" text="Характеристики" />
+                     </columns>
+                  </TableView>
+               </children>
                 </AnchorPane>
             </content>
         </Tab>

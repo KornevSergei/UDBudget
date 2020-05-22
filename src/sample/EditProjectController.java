@@ -250,6 +250,31 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesDelivery, String> colNotesAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colCharacteristicsAppliancesDelivery;
 
+    public TableView<AppliancesSuddenly> appliancesTableViewSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colNameAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, Boolean> colActivePAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, Boolean> colActiveCAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colUnitAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colQuantityAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colOrdinalPriceUnitAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colPriceCPUnitAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colPriceCPKeyAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colCostCPUnitAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colPriceOrderAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colCostCPAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colProductionTimeAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colActualCostAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colActualDifferenceAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colPaidAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colResidueAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colDateOfDeliveryAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colPlannedCPAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colActualCPAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colAccountAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colContactsAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colNotesAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, String> colCharacteristicsAppliancesSuddenly;
+
 
 
     public Button createRoomButton;
@@ -459,6 +484,28 @@ public class EditProjectController implements Initializable {
         colNotesAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesDelivery"));
         colCharacteristicsAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesDelivery"));
 
+        colNameAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameAppliancesSuddenly"));
+        colUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesSuddenly"));
+        colQuantityAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("quantityAppliancesSuddenly"));
+        colOrdinalPriceUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitAppliancesSuddenly"));
+        colPriceCPUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitAppliancesSuddenly"));
+        colPriceCPKeyAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyAppliancesSuddenly"));
+        colCostCPUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPUnitAppliancesSuddenly"));
+        colPriceOrderAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceOrderAppliancesSuddenly"));
+        colCostCPAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPAppliancesSuddenly"));
+        colProductionTimeAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesSuddenly"));
+        colActualCostAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCostAppliancesSuddenly"));
+        colActualDifferenceAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceAppliancesSuddenly"));
+        colPaidAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("paidAppliancesSuddenly"));
+        colResidueAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("residueAppliancesSuddenly"));
+        colDateOfDeliveryAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesSuddenly"));
+        colPlannedCPAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("plannedCPAppliancesSuddenly"));
+        colActualCPAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCPAppliancesSuddenly"));
+        colAccountAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("accountAppliancesSuddenly"));
+        colContactsAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("contactsAppliancesSuddenly"));
+        colNotesAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesSuddenly"));
+        colCharacteristicsAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesSuddenly"));
+
 
         furnitureTableView.setItems(observableListFurniture);
 
@@ -471,6 +518,7 @@ public class EditProjectController implements Initializable {
         appliancesTableViewKitchen.setItems(observableListAppliancesKitchen);
         appliancesTableViewOther.setItems(observableListAppliancesOther);
         appliancesTableViewDelivery.setItems(observableListAppliancesDelivery);
+        appliancesTableViewSuddenly.setItems(observableListAppliancesSuddenly);
 
 
         furnitureTableView.setEditable(true);
@@ -484,6 +532,7 @@ public class EditProjectController implements Initializable {
         appliancesTableViewKitchen.setEditable(true);
         appliancesTableViewOther.setEditable(true);
         appliancesTableViewDelivery.setEditable(true);
+        appliancesTableViewSuddenly.setEditable(true);
 
 
         colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -661,6 +710,50 @@ public class EditProjectController implements Initializable {
         colContactsAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        colNameAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colQuantityAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colOrdinalPriceUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPKeyAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceOrderAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colProductionTimeAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCostAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualDifferenceAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPaidAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colResidueAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDateOfDeliveryAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        colNameAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colQuantityAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colOrdinalPriceUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPKeyAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceOrderAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colProductionTimeAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCostAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualDifferenceAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPaidAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colResidueAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDateOfDeliveryAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList(
@@ -716,6 +809,12 @@ public class EditProjectController implements Initializable {
             new AppliancesDelivery(),
             new AppliancesDelivery(),
             new AppliancesDelivery()
+    );
+
+    ObservableList<AppliancesSuddenly> observableListAppliancesSuddenly = FXCollections.observableArrayList(
+            new AppliancesSuddenly(),
+            new AppliancesSuddenly(),
+            new AppliancesSuddenly()
     );
 
 
