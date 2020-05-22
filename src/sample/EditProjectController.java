@@ -200,6 +200,56 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesKitchen, String> colNotesAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colCharacteristicsAppliancesKitchen;
 
+    public TableView<AppliancesOther> appliancesTableViewOther;
+    public TableColumn<AppliancesOther, String> colNameAppliancesOther;
+    public TableColumn<AppliancesOther, Boolean> colActivePAppliancesOther;
+    public TableColumn<AppliancesOther, Boolean> colActiveCAppliancesOther;
+    public TableColumn<AppliancesOther, String> colUnitAppliancesOther;
+    public TableColumn<AppliancesOther, String> colQuantityAppliancesOther;
+    public TableColumn<AppliancesOther, String> colOrdinalPriceUnitAppliancesOther;
+    public TableColumn<AppliancesOther, String> colPriceCPUnitAppliancesOther;
+    public TableColumn<AppliancesOther, String> colPriceCPKeyAppliancesOther;
+    public TableColumn<AppliancesOther, String> colCostCPUnitAppliancesOther;
+    public TableColumn<AppliancesOther, String> colPriceOrderAppliancesOther;
+    public TableColumn<AppliancesOther, String> colCostCPAppliancesOther;
+    public TableColumn<AppliancesOther, String> colProductionTimeAppliancesOther;
+    public TableColumn<AppliancesOther, String> colActualCostAppliancesOther;
+    public TableColumn<AppliancesOther, String> colActualDifferenceAppliancesOther;
+    public TableColumn<AppliancesOther, String> colPaidAppliancesOther;
+    public TableColumn<AppliancesOther, String> colResidueAppliancesOther;
+    public TableColumn<AppliancesOther, String> colDateOfDeliveryAppliancesOther;
+    public TableColumn<AppliancesOther, String> colPlannedCPAppliancesOther;
+    public TableColumn<AppliancesOther, String> colActualCPAppliancesOther;
+    public TableColumn<AppliancesOther, String> colAccountAppliancesOther;
+    public TableColumn<AppliancesOther, String> colContactsAppliancesOther;
+    public TableColumn<AppliancesOther, String> colNotesAppliancesOther;
+    public TableColumn<AppliancesOther, String> colCharacteristicsAppliancesOther;
+
+    public TableView<AppliancesDelivery> appliancesTableViewDelivery;
+    public TableColumn<AppliancesDelivery, String> colNameAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, Boolean> colActivePAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, Boolean> colActiveCAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colUnitAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colQuantityAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colOrdinalPriceUnitAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colPriceCPUnitAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colPriceCPKeyAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colCostCPUnitAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colPriceOrderAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colCostCPAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colProductionTimeAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colActualCostAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colActualDifferenceAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colPaidAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colResidueAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colDateOfDeliveryAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colPlannedCPAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colActualCPAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colAccountAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colContactsAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colNotesAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, String> colCharacteristicsAppliancesDelivery;
+
 
 
     public Button createRoomButton;
@@ -365,6 +415,50 @@ public class EditProjectController implements Initializable {
         colNotesAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesKitchen"));
         colCharacteristicsAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesKitchen"));
 
+        colNameAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("nameAppliancesOther"));
+        colUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesOther"));
+        colQuantityAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("quantityAppliancesOther"));
+        colOrdinalPriceUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitAppliancesOther"));
+        colPriceCPUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitAppliancesOther"));
+        colPriceCPKeyAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyAppliancesOther"));
+        colCostCPUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("costCPUnitAppliancesOther"));
+        colPriceOrderAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("priceOrderAppliancesOther"));
+        colCostCPAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("costCPAppliancesOther"));
+        colProductionTimeAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesOther"));
+        colActualCostAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("actualCostAppliancesOther"));
+        colActualDifferenceAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceAppliancesOther"));
+        colPaidAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("paidAppliancesOther"));
+        colResidueAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("residueAppliancesOther"));
+        colDateOfDeliveryAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesOther"));
+        colPlannedCPAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("plannedCPAppliancesOther"));
+        colActualCPAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("actualCPAppliancesOther"));
+        colAccountAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("accountAppliancesOther"));
+        colContactsAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("contactsAppliancesOther"));
+        colNotesAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesOther"));
+        colCharacteristicsAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesOther"));
+
+        colNameAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("nameAppliancesDelivery"));
+        colUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesDelivery"));
+        colQuantityAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("quantityAppliancesDelivery"));
+        colOrdinalPriceUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitAppliancesDelivery"));
+        colPriceCPUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitAppliancesDelivery"));
+        colPriceCPKeyAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyAppliancesDelivery"));
+        colCostCPUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPUnitAppliancesDelivery"));
+        colPriceOrderAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("priceOrderAppliancesDelivery"));
+        colCostCPAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPAppliancesDelivery"));
+        colProductionTimeAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesDelivery"));
+        colActualCostAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCostAppliancesDelivery"));
+        colActualDifferenceAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceAppliancesDelivery"));
+        colPaidAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("paidAppliancesDelivery"));
+        colResidueAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("residueAppliancesDelivery"));
+        colDateOfDeliveryAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesDelivery"));
+        colPlannedCPAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("plannedCPAppliancesDelivery"));
+        colActualCPAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCPAppliancesDelivery"));
+        colAccountAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("accountAppliancesDelivery"));
+        colContactsAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("contactsAppliancesDelivery"));
+        colNotesAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesDelivery"));
+        colCharacteristicsAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesDelivery"));
+
 
         furnitureTableView.setItems(observableListFurniture);
 
@@ -375,6 +469,8 @@ public class EditProjectController implements Initializable {
         materialTableViewSuddenly.setItems(observableListMaterialSuddenly);
 
         appliancesTableViewKitchen.setItems(observableListAppliancesKitchen);
+        appliancesTableViewOther.setItems(observableListAppliancesOther);
+        appliancesTableViewDelivery.setItems(observableListAppliancesDelivery);
 
 
         furnitureTableView.setEditable(true);
@@ -386,6 +482,8 @@ public class EditProjectController implements Initializable {
         materialTableViewSuddenly.setEditable(true);
 
         appliancesTableViewKitchen.setEditable(true);
+        appliancesTableViewOther.setEditable(true);
+        appliancesTableViewDelivery.setEditable(true);
 
 
         colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -541,6 +639,28 @@ public class EditProjectController implements Initializable {
         colContactsAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        colNameAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colQuantityAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colOrdinalPriceUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceCPKeyAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPriceOrderAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCostCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colProductionTimeAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCostAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualDifferenceAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPaidAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colResidueAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDateOfDeliveryAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList(
@@ -584,6 +704,18 @@ public class EditProjectController implements Initializable {
             new AppliancesKitchen(),
             new AppliancesKitchen(),
             new AppliancesKitchen()
+    );
+
+    ObservableList<AppliancesOther> observableListAppliancesOther = FXCollections.observableArrayList(
+            new AppliancesOther(),
+            new AppliancesOther(),
+            new AppliancesOther()
+    );
+
+    ObservableList<AppliancesDelivery> observableListAppliancesDelivery = FXCollections.observableArrayList(
+            new AppliancesDelivery(),
+            new AppliancesDelivery(),
+            new AppliancesDelivery()
     );
 
 
