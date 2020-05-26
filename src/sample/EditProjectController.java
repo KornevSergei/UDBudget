@@ -895,7 +895,7 @@ public class EditProjectController implements Initializable {
             new AppliancesSuddenly()
     );
 
-    //клик по  таблице мебели
+    //клик по  таблице
     public void On_tabCalculatorClickedAction(MouseEvent mouseEvent)
     {
         if(observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0)
