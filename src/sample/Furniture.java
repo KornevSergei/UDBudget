@@ -57,6 +57,12 @@ public class Furniture {
         this.characteristicsFurniture = new SimpleStringProperty(characteristicsFurniture);
     }
 
+
+//    public void Calculate() {
+//        priceOrderFurniture = quantityFurniture * ordinalPriceUnitFurniture;
+//    }
+
+
     public String getNameFurniture() {
         return nameFurniture.get();
     }
