@@ -439,7 +439,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1000.0">
                     <children>
-                        <TableView fx:id="furnitureTableView" layoutY="62.0" prefHeight="238.0" prefWidth="1900.0">
+                        <TableView fx:id="furnitureTableView" layoutY="62.0" prefHeight="238.0" prefWidth="1900.0" onMouseClicked="#On_tabCalculatorClickedAction" >
                             <columns>
                                 <TableColumn fx:id="colNameFurniture" prefWidth="108.0" text="Наименование" />
                                 <TableColumn prefWidth="25.0" text="П" />

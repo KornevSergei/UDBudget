@@ -21,7 +21,7 @@ public class EditingCellTextBox extends TableCell<Object, String> {
 
     // Конструктор для установки формата текста (авто-валидации) в соответствии с регулярными выражениями
     // * Нужно для третьей сцены
-    public EditingCellTextBox(String formatter)  {
+    public EditingCellTextBox(String formatter) {
         this();
         this.formatter = formatter;
         createTextField();
@@ -84,8 +84,7 @@ public class EditingCellTextBox extends TableCell<Object, String> {
         textField = new TextField(getString());
 
         // Если установлено форматирование
-        if (formatter != null && !"".equals(formatter))
-        {
+        if (formatter != null && !"".equals(formatter)) {
             // Устанавливается обработчик на событие изменения текстового поля
             textField.textProperty().addListener(new ChangeListener<String>() {
                 @Override
@@ -106,9 +105,9 @@ public class EditingCellTextBox extends TableCell<Object, String> {
         // Добавляются обработчики клавиш
         textField.setOnKeyReleased(t -> {
             // При нажатии ENTER введенное значение сохраняется
-            if(t.getCode() == KeyCode.ENTER)
+            if (t.getCode() == KeyCode.ENTER)
                 commitEdit(textField.getText());
-            // При нажатии ESCAPE - сбрасывается
+                // При нажатии ESCAPE - сбрасывается
             else if (t.getCode() == KeyCode.ESCAPE)
                 cancelEdit();
         });

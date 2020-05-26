@@ -3,8 +3,8 @@ package sample;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Furniture {
-    protected SimpleStringProperty nameFurniture;
-    protected SimpleStringProperty unitFurniture;
+//    protected SimpleStringProperty nameFurniture;
+//    protected SimpleStringProperty unitFurniture;
     protected SimpleStringProperty quantityFurniture;
     protected SimpleStringProperty ordinalPriceUnitFurniture;
     protected SimpleStringProperty priceCPUnitFurniture;
@@ -25,6 +25,9 @@ public class Furniture {
     protected SimpleStringProperty notesFurniture;
     protected SimpleStringProperty characteristicsFurniture;
 
+    private double nameFurniture;
+    private double unitFurniture;
+
 
     public Furniture() {
     }
@@ -34,8 +37,8 @@ public class Furniture {
                      String priceCPPerKeyFurniture, String costCPPerUnitFurniture, String priceOrderFurniture, String costCPFurniture, String productionTimeFurniture,
                      String actualCostFurniture, String actualDifferenceFurniture, String paidFurniture, String residueFurniture, String dateOfDeliveryFurniture,
                      String plannedCPFurniture, String actualCPFurniture, String accountFurniture, String contactsFurniture, String notesFurniture, String characteristicsFurniture) {
-        this.nameFurniture = new SimpleStringProperty(nameFurniture);
-        this.unitFurniture = new SimpleStringProperty(unitFurniture);
+//        this.nameFurniture = new SimpleStringProperty(nameFurniture);
+//        this.unitFurniture = new SimpleStringProperty(unitFurniture);
         this.quantityFurniture = new SimpleStringProperty(quantityFurniture);
         this.ordinalPriceUnitFurniture = new SimpleStringProperty(ordinalPricePerUnitFurniture);
         this.priceCPUnitFurniture = new SimpleStringProperty(priceCPPerUnitFurniture);
@@ -62,30 +65,61 @@ public class Furniture {
 //        priceOrderFurniture = quantityFurniture * ordinalPriceUnitFurniture;
 //    }
 
-
-    public String getNameFurniture() {
-        return nameFurniture.get();
+    public Furniture(double nameFurniture, double unitFurniture) {
+        this.nameFurniture = nameFurniture;
+        this.unitFurniture = unitFurniture;
     }
 
-    public SimpleStringProperty nameFurnitureProperty() {
-        return nameFurniture;
+    public String getNameFurniture() {
+        return Double.toString(nameFurniture);
+    }
+
+    public void setNameFurniture(double nameFurniture) {
+        this.nameFurniture = nameFurniture;
     }
 
     public void setNameFurniture(String nameFurniture) {
-        this.nameFurniture = new SimpleStringProperty(nameFurniture);
+        this.nameFurniture = Double.parseDouble(nameFurniture);
     }
+
+
 
     public String getUnitFurniture() {
-        return unitFurniture.get();
+        return Double.toString(unitFurniture);
     }
 
-    public SimpleStringProperty unitFurnitureProperty() {
-        return unitFurniture;
+    public void setUnitFurniture(double unitFurniture) {
+        this.unitFurniture = unitFurniture;
     }
 
-    public void setUnitFurniture(String unitFurniture) {
-        this.unitFurniture = new SimpleStringProperty(unitFurniture);
+    public void setUnitFurniture(String  unitFurniture) {
+        this.unitFurniture = Double.parseDouble(unitFurniture);
     }
+
+//
+//    public String getNameFurniture() {
+//        return nameFurniture.get();
+//    }
+//
+//    public SimpleStringProperty nameFurnitureProperty() {
+//        return nameFurniture;
+//    }
+//
+//    public void setNameFurniture(String nameFurniture) {
+//        this.nameFurniture = new SimpleStringProperty(nameFurniture);
+//    }
+//
+//    public String getUnitFurniture() {
+//        return unitFurniture.get();
+//    }
+//
+//    public SimpleStringProperty unitFurnitureProperty() {
+//        return unitFurniture;
+//    }
+//
+//    public void setUnitFurniture(String unitFurniture) {
+//        this.unitFurniture = new SimpleStringProperty(unitFurniture);
+//    }
 
     public String getQuantityFurniture() {
         return quantityFurniture.get();
