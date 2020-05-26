@@ -3,309 +3,240 @@ package sample;
 import javafx.beans.property.SimpleStringProperty;
 
 public class MaterialWall {
-    protected SimpleStringProperty nameMaterialWall;
-    protected SimpleStringProperty unitMaterialWall;
-    protected SimpleStringProperty quantityMaterialWall;
-    protected SimpleStringProperty ordinalPriceUnitMaterialWall;
-    protected SimpleStringProperty priceCPUnitMaterialWall;
-    protected SimpleStringProperty priceCPKeyMaterialWall;
-    protected SimpleStringProperty costCPUnitMaterialWall;
-    protected SimpleStringProperty priceOrderMaterialWall;
-    protected SimpleStringProperty costCPMaterialWall;
-    protected SimpleStringProperty productionTimeMaterialWall;
-    protected SimpleStringProperty actualCostMaterialWall;
-    protected SimpleStringProperty actualDifferenceMaterialWall;
-    protected SimpleStringProperty paidMaterialWall;
-    protected SimpleStringProperty residueMaterialWall;
-    protected SimpleStringProperty dateOfDeliveryMaterialWall;
-    protected SimpleStringProperty plannedCPMaterialWall;
-    protected SimpleStringProperty actualCPMaterialWall;
-    protected SimpleStringProperty accountMaterialWall;
-    protected SimpleStringProperty contactsMaterialWall;
-    protected SimpleStringProperty notesMaterialWall;
-    protected SimpleStringProperty characteristicsMaterialWall;
+    protected String nameMaterialWall;
+    protected String unitMaterialWall;
+    protected double quantityMaterialWall;//1
+    protected double ordinalPriceUnitMaterialWall;//2
+    protected double priceCPUnitMaterialWall;
+    protected double priceCPKeyMaterialWall;
+    protected double costCPUnitMaterialWall;
+    protected double priceOrderMaterialWall;//=
+    protected double costCPMaterialWall;
+    protected String productionTimeMaterialWall;
+    protected double actualCostMaterialWall;
+    protected double actualDifferenceMaterialWall;
+    protected double paidMaterialWall;
+    protected double residueMaterialWall;
+    protected String dateOfDeliveryMaterialWall;
+    protected String plannedCPMaterialWall;
+    protected String actualCPMaterialWall;
+    protected String accountMaterialWall;
+    protected String contactsMaterialWall;
+    protected String notesMaterialWall;
+    protected String characteristicsMaterialWall;
 
-    public MaterialWall() {
+    public MaterialWall(double quantityMaterialWall, double ordinalPriceUnitMaterialWall, double priceOrderMaterialWall) {
+        this.quantityMaterialWall = quantityMaterialWall;
+        this.ordinalPriceUnitMaterialWall = ordinalPriceUnitMaterialWall;
+        this.priceOrderMaterialWall = priceOrderMaterialWall;
     }
 
-    public MaterialWall(String nameMaterialWall, String unitMaterialWall, String quantityMaterialWall, String ordinalPriceUnitMaterialWall,
-                        String priceCPUnitMaterialWall, String priceCPKeyMaterialWall, String costCPUnitMaterialWall, String priceOrderMaterialWall,
-                        String costCPMaterialWall, String productionTimeMaterialWall, String actualCostMaterialWall,
-                        String actualDifferenceMaterialWall, String paidMaterialWall, String residueMaterialWall, String dateOfDeliveryMaterialWall,
-                        String plannedCPMaterialWall, String actualCPMaterialWall, String accountMaterialWall, String contactsMaterialWall,
-                        String notesMaterialWall, String characteristicsMaterialWall) {
-        this.nameMaterialWall = new SimpleStringProperty(nameMaterialWall);
-        this.unitMaterialWall = new SimpleStringProperty(unitMaterialWall);
-        this.quantityMaterialWall = new SimpleStringProperty(quantityMaterialWall);
-        this.ordinalPriceUnitMaterialWall = new SimpleStringProperty(ordinalPriceUnitMaterialWall);
-        this.priceCPUnitMaterialWall = new SimpleStringProperty(priceCPUnitMaterialWall);
-        this.priceCPKeyMaterialWall = new SimpleStringProperty(priceCPKeyMaterialWall);
-        this.costCPUnitMaterialWall = new SimpleStringProperty(costCPUnitMaterialWall);
-        this.priceOrderMaterialWall = new SimpleStringProperty(priceOrderMaterialWall);
-        this.costCPMaterialWall = new SimpleStringProperty(costCPMaterialWall);
-        this.productionTimeMaterialWall = new SimpleStringProperty(productionTimeMaterialWall);
-        this.actualCostMaterialWall = new SimpleStringProperty(actualCostMaterialWall);
-        this.actualDifferenceMaterialWall = new SimpleStringProperty(actualDifferenceMaterialWall);
-        this.paidMaterialWall = new SimpleStringProperty(paidMaterialWall);
-        this.residueMaterialWall = new SimpleStringProperty(residueMaterialWall);
-        this.dateOfDeliveryMaterialWall = new SimpleStringProperty(dateOfDeliveryMaterialWall);
-        this.plannedCPMaterialWall = new SimpleStringProperty(plannedCPMaterialWall);
-        this.actualCPMaterialWall = new SimpleStringProperty(actualCPMaterialWall);
-        this.accountMaterialWall = new SimpleStringProperty(accountMaterialWall);
-        this.contactsMaterialWall = new SimpleStringProperty(contactsMaterialWall);
-        this.notesMaterialWall = new SimpleStringProperty(notesMaterialWall);
-        this.characteristicsMaterialWall = new SimpleStringProperty(characteristicsMaterialWall);
+    public MaterialWall(String nameMaterialWall, String unitMaterialWall, double quantityMaterialWall, double ordinalPriceUnitMaterialWall, double priceCPUnitMaterialWall, double priceCPKeyMaterialWall, double costCPUnitMaterialWall, double priceOrderMaterialWall, double costCPMaterialWall, String productionTimeMaterialWall, double actualCostMaterialWall, double actualDifferenceMaterialWall, double paidMaterialWall, double residueMaterialWall, String dateOfDeliveryMaterialWall, String plannedCPMaterialWall, String actualCPMaterialWall, String accountMaterialWall, String contactsMaterialWall, String notesMaterialWall, String characteristicsMaterialWall) {
+        this.nameMaterialWall = nameMaterialWall;
+        this.unitMaterialWall = unitMaterialWall;
+        this.quantityMaterialWall = quantityMaterialWall;
+        this.ordinalPriceUnitMaterialWall = ordinalPriceUnitMaterialWall;
+        this.priceCPUnitMaterialWall = priceCPUnitMaterialWall;
+        this.priceCPKeyMaterialWall = priceCPKeyMaterialWall;
+        this.costCPUnitMaterialWall = costCPUnitMaterialWall;
+        this.priceOrderMaterialWall = priceOrderMaterialWall;
+        this.costCPMaterialWall = costCPMaterialWall;
+        this.productionTimeMaterialWall = productionTimeMaterialWall;
+        this.actualCostMaterialWall = actualCostMaterialWall;
+        this.actualDifferenceMaterialWall = actualDifferenceMaterialWall;
+        this.paidMaterialWall = paidMaterialWall;
+        this.residueMaterialWall = residueMaterialWall;
+        this.dateOfDeliveryMaterialWall = dateOfDeliveryMaterialWall;
+        this.plannedCPMaterialWall = plannedCPMaterialWall;
+        this.actualCPMaterialWall = actualCPMaterialWall;
+        this.accountMaterialWall = accountMaterialWall;
+        this.contactsMaterialWall = contactsMaterialWall;
+        this.notesMaterialWall = notesMaterialWall;
+        this.characteristicsMaterialWall = characteristicsMaterialWall;
+    }
+
+    public void Calculate() {
+        priceOrderMaterialWall = quantityMaterialWall * ordinalPriceUnitMaterialWall;
     }
 
     public String getNameMaterialWall() {
-        return nameMaterialWall.get();
-    }
-
-    public SimpleStringProperty nameMaterialWallProperty() {
         return nameMaterialWall;
     }
 
     public void setNameMaterialWall(String nameMaterialWall) {
-        this.nameMaterialWall = new SimpleStringProperty(nameMaterialWall);
+        this.nameMaterialWall = nameMaterialWall;
     }
 
     public String getUnitMaterialWall() {
-        return unitMaterialWall.get();
-    }
-
-    public SimpleStringProperty unitMaterialWallProperty() {
         return unitMaterialWall;
     }
 
     public void setUnitMaterialWall(String unitMaterialWall) {
-        this.unitMaterialWall = new SimpleStringProperty(unitMaterialWall);
+        this.unitMaterialWall = unitMaterialWall;
     }
 
+    //Обана
     public String getQuantityMaterialWall() {
-        return quantityMaterialWall.get();
+        return Double.toString(quantityMaterialWall);
     }
 
-    public SimpleStringProperty quantityMaterialWallProperty() {
-        return quantityMaterialWall;
+    public void setQuantityMaterialWall(double quantityMaterialWall) {
+        this.quantityMaterialWall = quantityMaterialWall;
     }
 
     public void setQuantityMaterialWall(String quantityMaterialWall) {
-        this.quantityMaterialWall = new SimpleStringProperty(quantityMaterialWall);
+        this.quantityMaterialWall = Double.parseDouble(quantityMaterialWall);
+        Calculate();
     }
-
+    //Хуяк
     public String getOrdinalPriceUnitMaterialWall() {
-        return ordinalPriceUnitMaterialWall.get();
+        return Double.toString(ordinalPriceUnitMaterialWall);
     }
 
-    public SimpleStringProperty ordinalPriceUnitMaterialWallProperty() {
-        return ordinalPriceUnitMaterialWall;
+    public void setOrdinalPriceUnitMaterialWall(double ordinalPriceUnitMaterialWall) {
+        this.ordinalPriceUnitMaterialWall = ordinalPriceUnitMaterialWall;
     }
-
     public void setOrdinalPriceUnitMaterialWall(String ordinalPriceUnitMaterialWall) {
-        this.ordinalPriceUnitMaterialWall = new SimpleStringProperty(ordinalPriceUnitMaterialWall);
+        this.ordinalPriceUnitMaterialWall = Double.parseDouble(ordinalPriceUnitMaterialWall);
     }
 
-    public String getPriceCPUnitMaterialWall() {
-        return priceCPUnitMaterialWall.get();
-    }
-
-    public SimpleStringProperty priceCPUnitMaterialWallProperty() {
+    public double getPriceCPUnitMaterialWall() {
         return priceCPUnitMaterialWall;
     }
 
-    public void setPriceCPUnitMaterialWall(String priceCPUnitMaterialWall) {
-        this.priceCPUnitMaterialWall = new SimpleStringProperty(priceCPUnitMaterialWall);
+    public void setPriceCPUnitMaterialWall(double priceCPUnitMaterialWall) {
+        this.priceCPUnitMaterialWall = priceCPUnitMaterialWall;
     }
 
-    public String getPriceCPKeyMaterialWall() {
-        return priceCPKeyMaterialWall.get();
-    }
-
-    public SimpleStringProperty priceCPKeyMaterialWallProperty() {
+    public double getPriceCPKeyMaterialWall() {
         return priceCPKeyMaterialWall;
     }
 
-    public void setPriceCPKeyMaterialWall(String priceCPKeyMaterialWall) {
-        this.priceCPKeyMaterialWall = new SimpleStringProperty(priceCPKeyMaterialWall);
+    public void setPriceCPKeyMaterialWall(double priceCPKeyMaterialWall) {
+        this.priceCPKeyMaterialWall = priceCPKeyMaterialWall;
     }
 
-    public String getCostCPUnitMaterialWall() {
-        return costCPUnitMaterialWall.get();
-    }
-
-    public SimpleStringProperty costCPUnitMaterialWallProperty() {
+    public double getCostCPUnitMaterialWall() {
         return costCPUnitMaterialWall;
     }
 
-    public void setCostCPUnitMaterialWall(String costCPUnitMaterialWall) {
-        this.costCPUnitMaterialWall = new SimpleStringProperty(costCPUnitMaterialWall);
+    public void setCostCPUnitMaterialWall(double costCPUnitMaterialWall) {
+        this.costCPUnitMaterialWall = costCPUnitMaterialWall;
     }
-
+    //Понеслось
     public String getPriceOrderMaterialWall() {
-        return priceOrderMaterialWall.get();
+        return Double.toString(priceOrderMaterialWall);
     }
 
-    public SimpleStringProperty priceOrderMaterialWallProperty() {
-        return priceOrderMaterialWall;
+    public void setPriceOrderMaterialWall(double priceOrderMaterialWall) {
+        this.priceOrderMaterialWall = priceOrderMaterialWall;
     }
 
     public void setPriceOrderMaterialWall(String priceOrderMaterialWall) {
-        this.priceOrderMaterialWall = new SimpleStringProperty(priceOrderMaterialWall);
+        this.priceOrderMaterialWall = Double.parseDouble(priceOrderMaterialWall);
     }
 
-    public String getCostCPMaterialWall() {
-        return costCPMaterialWall.get();
-    }
-
-    public SimpleStringProperty costCPMaterialWallProperty() {
+    public double getCostCPMaterialWall() {
         return costCPMaterialWall;
     }
 
-    public void setCostCPMaterialWall(String costCPMaterialWall) {
-        this.costCPMaterialWall = new SimpleStringProperty(costCPMaterialWall);
+    public void setCostCPMaterialWall(double costCPMaterialWall) {
+        this.costCPMaterialWall = costCPMaterialWall;
     }
 
     public String getProductionTimeMaterialWall() {
-        return productionTimeMaterialWall.get();
-    }
-
-    public SimpleStringProperty productionTimeMaterialWallProperty() {
         return productionTimeMaterialWall;
     }
 
     public void setProductionTimeMaterialWall(String productionTimeMaterialWall) {
-        this.productionTimeMaterialWall = new SimpleStringProperty(productionTimeMaterialWall);
+        this.productionTimeMaterialWall = productionTimeMaterialWall;
     }
 
-    public String getActualCostMaterialWall() {
-        return actualCostMaterialWall.get();
-    }
-
-    public SimpleStringProperty actualCostMaterialWallProperty() {
+    public double getActualCostMaterialWall() {
         return actualCostMaterialWall;
     }
 
-    public void setActualCostMaterialWall(String actualCostMaterialWall) {
-        this.actualCostMaterialWall = new SimpleStringProperty(actualCostMaterialWall);
+    public void setActualCostMaterialWall(double actualCostMaterialWall) {
+        this.actualCostMaterialWall = actualCostMaterialWall;
     }
 
-    public String getActualDifferenceMaterialWall() {
-        return actualDifferenceMaterialWall.get();
-    }
-
-    public SimpleStringProperty actualDifferenceMaterialWallProperty() {
+    public double getActualDifferenceMaterialWall() {
         return actualDifferenceMaterialWall;
     }
 
-    public void setActualDifferenceMaterialWall(String actualDifferenceMaterialWall) {
-        this.actualDifferenceMaterialWall = new SimpleStringProperty(actualDifferenceMaterialWall);
+    public void setActualDifferenceMaterialWall(double actualDifferenceMaterialWall) {
+        this.actualDifferenceMaterialWall = actualDifferenceMaterialWall;
     }
 
-    public String getPaidMaterialWall() {
-        return paidMaterialWall.get();
-    }
-
-    public SimpleStringProperty paidMaterialWallProperty() {
+    public double getPaidMaterialWall() {
         return paidMaterialWall;
     }
 
-    public void setPaidMaterialWall(String paidMaterialWall) {
-        this.paidMaterialWall = new SimpleStringProperty(paidMaterialWall);
+    public void setPaidMaterialWall(double paidMaterialWall) {
+        this.paidMaterialWall = paidMaterialWall;
     }
 
-    public String getResidueMaterialWall() {
-        return residueMaterialWall.get();
-    }
-
-    public SimpleStringProperty residueMaterialWallProperty() {
+    public double getResidueMaterialWall() {
         return residueMaterialWall;
     }
 
-    public void setResidueMaterialWall(String residueMaterialWall) {
-        this.residueMaterialWall = new SimpleStringProperty(residueMaterialWall);
+    public void setResidueMaterialWall(double residueMaterialWall) {
+        this.residueMaterialWall = residueMaterialWall;
     }
 
     public String getDateOfDeliveryMaterialWall() {
-        return dateOfDeliveryMaterialWall.get();
-    }
-
-    public SimpleStringProperty dateOfDeliveryMaterialWallProperty() {
         return dateOfDeliveryMaterialWall;
     }
 
     public void setDateOfDeliveryMaterialWall(String dateOfDeliveryMaterialWall) {
-        this.dateOfDeliveryMaterialWall = new SimpleStringProperty(dateOfDeliveryMaterialWall);
+        this.dateOfDeliveryMaterialWall = dateOfDeliveryMaterialWall;
     }
 
     public String getPlannedCPMaterialWall() {
-        return plannedCPMaterialWall.get();
-    }
-
-    public SimpleStringProperty plannedCPMaterialWallProperty() {
         return plannedCPMaterialWall;
     }
 
     public void setPlannedCPMaterialWall(String plannedCPMaterialWall) {
-        this.plannedCPMaterialWall = new SimpleStringProperty(plannedCPMaterialWall);
+        this.plannedCPMaterialWall = plannedCPMaterialWall;
     }
 
     public String getActualCPMaterialWall() {
-        return actualCPMaterialWall.get();
-    }
-
-    public SimpleStringProperty actualCPMaterialWallProperty() {
         return actualCPMaterialWall;
     }
 
     public void setActualCPMaterialWall(String actualCPMaterialWall) {
-        this.actualCPMaterialWall = new SimpleStringProperty(actualCPMaterialWall);
+        this.actualCPMaterialWall = actualCPMaterialWall;
     }
 
     public String getAccountMaterialWall() {
-        return accountMaterialWall.get();
-    }
-
-    public SimpleStringProperty accountMaterialWallProperty() {
         return accountMaterialWall;
     }
 
     public void setAccountMaterialWall(String accountMaterialWall) {
-        this.accountMaterialWall = new SimpleStringProperty(accountMaterialWall);
+        this.accountMaterialWall = accountMaterialWall;
     }
 
     public String getContactsMaterialWall() {
-        return contactsMaterialWall.get();
-    }
-
-    public SimpleStringProperty contactsMaterialWallProperty() {
         return contactsMaterialWall;
     }
 
     public void setContactsMaterialWall(String contactsMaterialWall) {
-        this.contactsMaterialWall = new SimpleStringProperty(contactsMaterialWall);
+        this.contactsMaterialWall = contactsMaterialWall;
     }
 
     public String getNotesMaterialWall() {
-        return notesMaterialWall.get();
-    }
-
-    public SimpleStringProperty notesMaterialWallProperty() {
         return notesMaterialWall;
     }
 
     public void setNotesMaterialWall(String notesMaterialWall) {
-        this.notesMaterialWall = new SimpleStringProperty(notesMaterialWall);
+        this.notesMaterialWall = notesMaterialWall;
     }
 
     public String getCharacteristicsMaterialWall() {
-        return characteristicsMaterialWall.get();
-    }
-
-    public SimpleStringProperty characteristicsMaterialWallProperty() {
         return characteristicsMaterialWall;
     }
 
     public void setCharacteristicsMaterialWall(String characteristicsMaterialWall) {
-        this.characteristicsMaterialWall = new SimpleStringProperty(characteristicsMaterialWall);
+        this.characteristicsMaterialWall = characteristicsMaterialWall;
     }
 }
