@@ -147,7 +147,7 @@
                                 <TableColumn prefWidth="75.0" text="Оплачено" />
                             </columns>
                         </TableView>
-                        <TableView fx:id="AKTableView" layoutX="26.0" layoutY="25.0" onMouseClicked="#On_tabCalculatorClickedActionAK" prefHeight="73.0" prefWidth="406.0">
+                        <TableView fx:id="AKTableView" layoutX="26.0" layoutY="25.0" onMouseClicked="#On_tabCalculatorClickedActionAK" prefHeight="58.0" prefWidth="406.0">
                             <columns>
                                 <TableColumn fx:id="colRateAK" prefWidth="110.0" text="Ставка за месяц" />
                                 <TableColumn fx:id="colTermAK" prefWidth="145.0" text="Плановый срок(мес.)" />
@@ -175,8 +175,8 @@
                                                 <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedAction" prefHeight="669.0" prefWidth="1900.0">
                                                   <columns>
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCMaterialWall" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitMaterialWall" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialWall" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialWall" prefWidth="125.0" text="Цена порядковая за ед." />
