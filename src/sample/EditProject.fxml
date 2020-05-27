@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
     <tabs>
         <Tab text="Проект">
             <content>
@@ -158,11 +147,11 @@
                                 <TableColumn prefWidth="75.0" text="Оплачено" />
                             </columns>
                         </TableView>
-                        <TableView layoutX="26.0" layoutY="25.0" prefHeight="62.0" prefWidth="391.0">
+                        <TableView fx:id="AKTableView" layoutX="26.0" layoutY="25.0" onMouseClicked="#On_tabCalculatorClickedActionAK" prefHeight="73.0" prefWidth="406.0">
                             <columns>
-                                <TableColumn prefWidth="110.0" text="Ставка за месяц" />
-                                <TableColumn prefWidth="145.0" text="Плановый срок(мес.)" />
-                                <TableColumn prefWidth="135.0" text="Стоимость плановая" />
+                                <TableColumn fx:id="colRateAK" prefWidth="110.0" text="Ставка за месяц" />
+                                <TableColumn fx:id="colTermAK" prefWidth="145.0" text="Плановый срок(мес.)" />
+                                <TableColumn fx:id="colCostAK" prefWidth="135.0" text="Стоимость плановая" />
                             </columns>
                         </TableView>
                     </children>
@@ -183,7 +172,7 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewWall" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0" onMouseClicked="#On_tabCalculatorClickedAction">
+                                                <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedAction" prefHeight="669.0" prefWidth="1900.0">
                                                   <columns>
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn prefWidth="25.0" text="П" />
@@ -439,7 +428,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1000.0">
                     <children>
-                        <TableView fx:id="furnitureTableView" layoutY="62.0" prefHeight="238.0" prefWidth="1900.0" >
+                        <TableView fx:id="furnitureTableView" layoutY="62.0" prefHeight="238.0" prefWidth="1900.0">
                             <columns>
                                 <TableColumn fx:id="colNameFurniture" prefWidth="108.0" text="Наименование" />
                                 <TableColumn prefWidth="25.0" text="П" />

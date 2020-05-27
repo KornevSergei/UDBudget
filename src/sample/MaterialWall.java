@@ -98,6 +98,7 @@ public class MaterialWall {
     }
     public void setOrdinalPriceUnitMaterialWall(String ordinalPriceUnitMaterialWall) {
         this.ordinalPriceUnitMaterialWall = Double.parseDouble(ordinalPriceUnitMaterialWall);
+        Calculate();
     }
 
     public double getPriceCPUnitMaterialWall() {

@@ -24,6 +24,14 @@ import java.util.ResourceBundle;
 
 public class EditProjectController implements Initializable {
 
+    public TableView<AK> AKTableView;
+    public TableColumn<AK, String> colRateAK;
+    public TableColumn<AK, String> colTermAK;
+    public TableColumn<AK, String> colCostAK;
+    private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
+
+
+
 
     //Блок Мебели
     public TableView<Furniture> furnitureTableView;
@@ -293,6 +301,61 @@ public class EditProjectController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        AKTableView.setItems(observableListAK);
+        // Обработчик для колонок с дробными полями (double)
+        Callback<TableColumn<AK, String>, TableCell<AK, String>> cellFactoryDouble =
+                new Callback<TableColumn<AK, String>, TableCell<AK, String>>() {
+                    public TableCell call(TableColumn p) {
+
+                        // Так как в таблице будет текстовое поле, а нам нужно дробное число (double)
+                        // устанавливаем форматтер по регулярному выражению "числа, точка, числа"
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+
+
+        colRateAK.setCellFactory(cellFactoryDouble);
+        colRateAK.setCellValueFactory(
+                new PropertyValueFactory<>("rateAK"));
+
+        colRateAK.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+                    @Override public void handle(TableColumn.CellEditEvent<AK, String> t) {
+                        ((AK)t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setRateAK(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colTermAK.setCellFactory(cellFactoryDouble);
+        colTermAK.setCellValueFactory(
+                new PropertyValueFactory<>("termAK"));
+
+        colTermAK.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+                    @Override public void handle(TableColumn.CellEditEvent<AK, String> t) {
+                        ((AK)t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setTermAK(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+
+        colCostAK.setCellFactory(cellFactoryDouble);
+        colCostAK.setCellValueFactory(
+                new PropertyValueFactory<>("costAK"));
+
+        colCostAK.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+                    @Override public void handle(TableColumn.CellEditEvent<AK, String> t) {
+                        ((AK)t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setCostAK(t.getNewValue());
+                    }
+                });
+
+
+
+
         furnitureTableView.setItems(observableListFurniture);
 
 //        // Обработчик для колонок с дробными полями (double)
@@ -356,68 +419,68 @@ public class EditProjectController implements Initializable {
         colCharacteristicsFurniture.setCellValueFactory(new PropertyValueFactory<>("characteristicsFurniture"));
 
 
-        materialTableViewWall.setItems(observableListMaterialWall);
-
-        // Обработчик для колонок с дробными полями (double)
-        Callback<TableColumn<MaterialWall, String>, TableCell<MaterialWall, String>> cellFactoryDouble =
-                new Callback<TableColumn<MaterialWall, String>, TableCell<MaterialWall, String>>() {
-                    public TableCell call(TableColumn p) {
-                        return new EditingCellTextBox("\\d.\\d");
-                    }
-                };
-
-
-        colNameMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
-        colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
+//        materialTableViewWall.setItems(observableListMaterialWall);
+//
+//        // Обработчик для колонок с дробными полями (double)
+//        Callback<TableColumn<MaterialWall, String>, TableCell<MaterialWall, String>> cellFactoryDouble =
+//                new Callback<TableColumn<MaterialWall, String>, TableCell<MaterialWall, String>>() {
+//                    public TableCell call(TableColumn p) {
+//                        return new EditingCellTextBox("\\d.\\d");
+//                    }
+//                };
+//
+//
+//        colNameMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
+//        colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
+////        colQuantityMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+//        colQuantityMaterialWall.setCellFactory(cellFactoryDouble);
 //        colQuantityMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
-        colQuantityMaterialWall.setCellFactory(cellFactoryDouble);
-        colQuantityMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
-        colQuantityMaterialWall.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
-                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
-                        ((MaterialWall)t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setQuantityMaterialWall(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+//        colQuantityMaterialWall.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+//                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+//                        ((MaterialWall)t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setQuantityMaterialWall(t.getNewValue());
+//                        t.getTableView().refresh();
+//                    }
+//                });
+////        colOrdinalPriceUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialWall"));
+//        colOrdinalPriceUnitMaterialWall.setCellFactory(cellFactoryDouble);
 //        colOrdinalPriceUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialWall"));
-        colOrdinalPriceUnitMaterialWall.setCellFactory(cellFactoryDouble);
-        colOrdinalPriceUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialWall"));
-        colOrdinalPriceUnitMaterialWall.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
-                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
-                        ((MaterialWall)t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setOrdinalPriceUnitMaterialWall(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
-        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialWall"));
-        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialWall"));
-        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
+//        colOrdinalPriceUnitMaterialWall.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+//                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+//                        ((MaterialWall)t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setOrdinalPriceUnitMaterialWall(t.getNewValue());
+//                        t.getTableView().refresh();
+//                    }
+//                });
+//        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialWall"));
+//        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialWall"));
+//        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
+////        colPriceOrderMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialWall"));
+//        colPriceOrderMaterialWall.setCellFactory(cellFactoryDouble);
 //        colPriceOrderMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialWall"));
-        colPriceOrderMaterialWall.setCellFactory(cellFactoryDouble);
-        colPriceOrderMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialWall"));
-        colPriceOrderMaterialWall.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
-                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
-                        ((MaterialWall)t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceOrderMaterialWall(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
-        colCostCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialWall"));
-        colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
-        colActualCostMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialWall"));
-        colActualDifferenceMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialWall"));
-        colPaidMaterialWall.setCellValueFactory(new PropertyValueFactory<>("paidMaterialWall"));
-        colResidueMaterialWall.setCellValueFactory(new PropertyValueFactory<>("residueMaterialWall"));
-        colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
-        colPlannedCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialWall"));
-        colActualCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialWall"));
-        colAccountMaterialWall.setCellValueFactory(new PropertyValueFactory<>("accountMaterialWall"));
-        colContactsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialWall"));
-        colNotesMaterialWall.setCellValueFactory(new PropertyValueFactory<>("notesMaterialWall"));
-        colCharacteristicsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialWall"));
+//        colPriceOrderMaterialWall.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+//                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+//                        ((MaterialWall)t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setPriceOrderMaterialWall(t.getNewValue());
+//                        t.getTableView().refresh();
+//                    }
+//                });
+//        colCostCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialWall"));
+//        colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
+//        colActualCostMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialWall"));
+//        colActualDifferenceMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialWall"));
+//        colPaidMaterialWall.setCellValueFactory(new PropertyValueFactory<>("paidMaterialWall"));
+//        colResidueMaterialWall.setCellValueFactory(new PropertyValueFactory<>("residueMaterialWall"));
+//        colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
+//        colPlannedCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialWall"));
+//        colActualCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialWall"));
+//        colAccountMaterialWall.setCellValueFactory(new PropertyValueFactory<>("accountMaterialWall"));
+//        colContactsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialWall"));
+//        colNotesMaterialWall.setCellValueFactory(new PropertyValueFactory<>("notesMaterialWall"));
+//        colCharacteristicsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialWall"));
 
         colNameMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("nameMaterialFloor"));
         colUnitMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("unitMaterialFloor"));
@@ -623,6 +686,8 @@ public class EditProjectController implements Initializable {
         appliancesTableViewOther.setEditable(true);
         appliancesTableViewDelivery.setEditable(true);
         appliancesTableViewSuddenly.setEditable(true);
+
+        AKTableView.setEditable(true);
 
 
 //        colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -928,5 +993,11 @@ public class EditProjectController implements Initializable {
     public void addPayment(ActionEvent actionEvent) {
     }
 
+    public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
+        if(observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0)
+        {
+            observableListAK.add(new AK(0, 0, 0));
+        }
 
+    }
 }
