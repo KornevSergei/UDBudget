@@ -1,18 +1,16 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class MaterialWall {
     protected String nameMaterialWall;
     protected boolean activePMaterialWall;
     protected boolean activeCMaterialWall;
     protected String unitMaterialWall;
-    protected double quantityMaterialWall;//1
-    protected double ordinalPriceUnitMaterialWall;//2
-    protected double priceCPUnitMaterialWall;
-    protected double priceCPKeyMaterialWall;
-    protected double costCPUnitMaterialWall;
-    protected double priceOrderMaterialWall;//=
+    protected double quantityMaterialWall;//Количество
+    protected double ordinalPriceUnitMaterialWall;//Цена порядковая за ед.
+    protected double priceCPUnitMaterialWall;//Цена по КП за ед.
+    protected double priceCPKeyMaterialWall;//Цена по КП под ключ
+    protected double costCPUnitMaterialWall;//Стоимость по КП за ед.
+    protected double priceOrderMaterialWall;//Порядок цен
     protected double costCPMaterialWall;
     protected String productionTimeMaterialWall;
     protected double actualCostMaterialWall;
@@ -64,8 +62,12 @@ public class MaterialWall {
         this.characteristicsMaterialWall = characteristicsMaterialWall;
     }
 
-    public void Calculate() {
+    public void CalculatePriceOrder() {
         priceOrderMaterialWall = quantityMaterialWall * ordinalPriceUnitMaterialWall;
+    }
+    public void CalculateСostCPUnit() {
+        if (priceCPKeyMaterialWall > priceCPUnitMaterialWall ) costCPUnitMaterialWall = priceCPKeyMaterialWall / quantityMaterialWall;
+        else costCPUnitMaterialWall = priceCPUnitMaterialWall ;
     }
 
     public String getNameMaterialWall() {
@@ -119,7 +121,7 @@ public class MaterialWall {
 
     public void setQuantityMaterialWall(String quantityMaterialWall) {
         this.quantityMaterialWall = Double.parseDouble(quantityMaterialWall);
-        Calculate();
+        CalculatePriceOrder();
     }
 
     //Хуяк
@@ -133,7 +135,7 @@ public class MaterialWall {
 
     public void setOrdinalPriceUnitMaterialWall(String ordinalPriceUnitMaterialWall) {
         this.ordinalPriceUnitMaterialWall = Double.parseDouble(ordinalPriceUnitMaterialWall);
-        Calculate();
+        CalculatePriceOrder();
     }
 
     public double getPriceCPUnitMaterialWall() {
@@ -152,12 +154,16 @@ public class MaterialWall {
         this.priceCPKeyMaterialWall = priceCPKeyMaterialWall;
     }
 
-    public double getCostCPUnitMaterialWall() {
-        return costCPUnitMaterialWall;
+    public String getCostCPUnitMaterialWall() {
+        return Double.toString(costCPUnitMaterialWall);
     }
 
     public void setCostCPUnitMaterialWall(double costCPUnitMaterialWall) {
         this.costCPUnitMaterialWall = costCPUnitMaterialWall;
+    }
+    public void setCostCPUnitMaterialWall(String costCPUnitMaterialWall) {
+        this.costCPUnitMaterialWall = Double.parseDouble(costCPUnitMaterialWall);
+        CalculateСostCPUnit();///////////Подумать!
     }
 
     //Понеслось
