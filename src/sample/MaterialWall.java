@@ -72,6 +72,10 @@ public class MaterialWall {
         else costCPUnitMaterialWall = priceCPUnitMaterialWall;
     }
 
+    public void CalculateCostCP() {
+        costCPMaterialWall = quantityMaterialWall * costCPUnitMaterialWall;
+    }
+
     public String getNameMaterialWall() {
         return nameMaterialWall;
     }
@@ -125,6 +129,7 @@ public class MaterialWall {
     public void setQuantityMaterialWall(String quantityMaterialWall) {
         this.quantityMaterialWall = Double.parseDouble(quantityMaterialWall);
         CalculatePriceOrder();
+        CalculateCostCP();
     }
 
     //Хуяк
@@ -177,6 +182,7 @@ public class MaterialWall {
 
     public void setCostCPUnitMaterialWall(String costCPUnitMaterialWall) {
         this.costCPUnitMaterialWall = Double.parseDouble(costCPUnitMaterialWall);
+        CalculateCostCP();
     }
 
     //Понеслось
