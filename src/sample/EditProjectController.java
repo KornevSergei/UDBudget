@@ -449,7 +449,7 @@ public class EditProjectController implements Initializable {
 //        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialWall"));
 
         colPriceCPUnitMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
-        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialWall"));
         colPriceCPUnitMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
                     @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
@@ -463,7 +463,7 @@ public class EditProjectController implements Initializable {
 //        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialWall"));
 
         colPriceCPKeyMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
-        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialWall"));
         colPriceCPKeyMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
                     @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
@@ -477,7 +477,7 @@ public class EditProjectController implements Initializable {
 //        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
 
         colCostCPUnitMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
-        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
         colCostCPUnitMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
                     @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {

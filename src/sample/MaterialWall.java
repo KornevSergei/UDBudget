@@ -67,7 +67,7 @@ public class MaterialWall {
     }
 
     public void CalculateСostCPUnit() {
-        if (priceCPUnitMaterialWall > 0)
+        if (priceCPKeyMaterialWall > 0)
             costCPUnitMaterialWall = priceCPKeyMaterialWall / quantityMaterialWall;
         else costCPUnitMaterialWall = priceCPUnitMaterialWall;
     }
@@ -151,6 +151,7 @@ public class MaterialWall {
 
     public void setPriceCPUnitMaterialWall(String priceCPUnitMaterialWall) {
         this.priceCPUnitMaterialWall = Double.parseDouble(priceCPUnitMaterialWall);
+        CalculateСostCPUnit();
     }
 
     public String getPriceCPKeyMaterialWall() {
@@ -163,6 +164,7 @@ public class MaterialWall {
 
     public void setPriceCPKeyMaterialWall(String priceCPKeyMaterialWall) {
         this.priceCPKeyMaterialWall = Double.parseDouble(priceCPKeyMaterialWall);
+        CalculateСostCPUnit();
     }
 
     public String getCostCPUnitMaterialWall() {
@@ -175,7 +177,6 @@ public class MaterialWall {
 
     public void setCostCPUnitMaterialWall(String costCPUnitMaterialWall) {
         this.costCPUnitMaterialWall = Double.parseDouble(costCPUnitMaterialWall);
-        CalculateСostCPUnit();
     }
 
     //Понеслось
