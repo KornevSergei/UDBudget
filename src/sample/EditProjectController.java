@@ -434,7 +434,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colOrdinalPriceUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialWall"));
         colOrdinalPriceUnitMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colOrdinalPriceUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialWall"));
         colOrdinalPriceUnitMaterialWall.setOnEditCommit(
@@ -445,10 +444,50 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialWall"));
-        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialWall"));
-        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
-//        colPriceOrderMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialWall"));
+
+
+//        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialWall"));
+
+        colPriceCPUnitMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
+        colPriceCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+        colPriceCPUnitMaterialWall.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+                        ((MaterialWall)t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setPriceCPUnitMaterialWall(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+
+//        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialWall"));
+
+        colPriceCPKeyMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
+        colPriceCPKeyMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+        colPriceCPKeyMaterialWall.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+                        ((MaterialWall)t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setPriceCPKeyMaterialWall(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+
+//        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
+
+        colCostCPUnitMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
+        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+        colCostCPUnitMaterialWall.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+                    @Override public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+                        ((MaterialWall)t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setCostCPUnitMaterialWall(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+
         colPriceOrderMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colPriceOrderMaterialWall.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialWall"));
         colPriceOrderMaterialWall.setOnEditCommit(
