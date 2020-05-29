@@ -421,7 +421,6 @@ public class EditProjectController implements Initializable {
                                 t.getTablePosition().getRow())).setUnitMaterialWall(t.getNewValue());
                     }
                 });
-//        colQuantityMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
         colQuantityMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colQuantityMaterialWall.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
         colQuantityMaterialWall.setOnEditCommit(
@@ -472,7 +471,6 @@ public class EditProjectController implements Initializable {
                 });
 
 
-//        colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
 
         colCostCPUnitMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colCostCPUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialWall"));
@@ -497,7 +495,6 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-//        colCostCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialWall"));
         colCostCPMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colCostCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialWall"));
         colCostCPMaterialWall.setOnEditCommit(
@@ -508,7 +505,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
         colProductionTimeMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
         colProductionTimeMaterialWall.setOnEditCommit(
@@ -519,7 +515,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colActualCostMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialWall"));
         colActualCostMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colActualCostMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialWall"));
         colActualCostMaterialWall.setOnEditCommit(
@@ -530,7 +525,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colActualDifferenceMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialWall"));
         colActualDifferenceMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colActualDifferenceMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialWall"));
         colActualDifferenceMaterialWall.setOnEditCommit(
@@ -541,7 +535,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colPaidMaterialWall.setCellValueFactory(new PropertyValueFactory<>("paidMaterialWall"));
         colPaidMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colPaidMaterialWall.setCellValueFactory(new PropertyValueFactory<>("paidMaterialWall"));
         colPaidMaterialWall.setOnEditCommit(
@@ -552,7 +545,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colResidueMaterialWall.setCellValueFactory(new PropertyValueFactory<>("residueMaterialWall"));
         colResidueMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colResidueMaterialWall.setCellValueFactory(new PropertyValueFactory<>("residueMaterialWall"));
         colResidueMaterialWall.setOnEditCommit(
@@ -563,8 +555,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
-//        colDateOfDeliveryMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
         colDateOfDeliveryMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
@@ -574,8 +564,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colPlannedCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialWall"));
-//        colPlannedCPMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colPlannedCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialWall"));
         colPlannedCPMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
@@ -585,8 +573,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colActualCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialWall"));
-//        colActualCPMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colActualCPMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialWall"));
         colActualCPMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
@@ -596,8 +582,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colAccountMaterialWall.setCellValueFactory(new PropertyValueFactory<>("accountMaterialWall"));
-//        colAccountMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colAccountMaterialWall.setCellValueFactory(new PropertyValueFactory<>("accountMaterialWall"));
         colAccountMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
@@ -607,8 +591,7 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colContactsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialWall"));
-//        colContactsMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
+//
         colContactsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialWall"));
         colContactsMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
@@ -618,8 +601,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colNotesMaterialWall.setCellValueFactory(new PropertyValueFactory<>("notesMaterialWall"));
-//        colNotesMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colNotesMaterialWall.setCellValueFactory(new PropertyValueFactory<>("notesMaterialWall"));
         colNotesMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
@@ -629,8 +610,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colCharacteristicsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialWall"));
-//        colCharacteristicsMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colCharacteristicsMaterialWall.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialWall"));
         colCharacteristicsMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
@@ -1124,9 +1103,9 @@ public class EditProjectController implements Initializable {
     {
         if(observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0)
         {
-            observableListMaterialWall.add(new MaterialWall("",false,false,"",0,0,0,0,
-                    0,0,0,"",0,0,0,0,
-                    "","","","","","",""));
+            observableListMaterialWall.add(new MaterialWall("",false,false,"",0,0,
+                    0,0, 0,0,0,"",0,0,
+                    0,0, "","","","","","",""));
         }
     }
 

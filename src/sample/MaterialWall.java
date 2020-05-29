@@ -25,11 +25,6 @@ public class MaterialWall {
     protected String notesMaterialWall;
     protected String characteristicsMaterialWall;
 
-//    public MaterialWall(double quantityMaterialWall, double ordinalPriceUnitMaterialWall, double priceOrderMaterialWall) {
-//        this.quantityMaterialWall = quantityMaterialWall;
-//        this.ordinalPriceUnitMaterialWall = ordinalPriceUnitMaterialWall;
-//        this.priceOrderMaterialWall = priceOrderMaterialWall;
-//    }
 
     public MaterialWall(String nameMaterialWall, boolean activePMaterialWall, boolean activeCMaterialWall, String unitMaterialWall, double quantityMaterialWall,
                         double ordinalPriceUnitMaterialWall, double priceCPUnitMaterialWall, double priceCPKeyMaterialWall, double costCPUnitMaterialWall,
@@ -73,7 +68,9 @@ public class MaterialWall {
     }
 
     public void CalculateCostCP() {
-        costCPMaterialWall = quantityMaterialWall * costCPUnitMaterialWall;
+        if (priceCPKeyMaterialWall > 0)
+            costCPMaterialWall = priceCPKeyMaterialWall;
+        else costCPMaterialWall = priceCPUnitMaterialWall * quantityMaterialWall;
     }
 
     public String getNameMaterialWall() {
@@ -157,6 +154,7 @@ public class MaterialWall {
     public void setPriceCPUnitMaterialWall(String priceCPUnitMaterialWall) {
         this.priceCPUnitMaterialWall = Double.parseDouble(priceCPUnitMaterialWall);
         CalculateСostCPUnit();
+        CalculateCostCP();
     }
 
     public String getPriceCPKeyMaterialWall() {
@@ -170,6 +168,7 @@ public class MaterialWall {
     public void setPriceCPKeyMaterialWall(String priceCPKeyMaterialWall) {
         this.priceCPKeyMaterialWall = Double.parseDouble(priceCPKeyMaterialWall);
         CalculateСostCPUnit();
+        CalculateCostCP();
     }
 
     public String getCostCPUnitMaterialWall() {
@@ -182,7 +181,6 @@ public class MaterialWall {
 
     public void setCostCPUnitMaterialWall(String costCPUnitMaterialWall) {
         this.costCPUnitMaterialWall = Double.parseDouble(costCPUnitMaterialWall);
-        CalculateCostCP();
     }
 
     //Понеслось
