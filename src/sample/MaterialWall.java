@@ -57,21 +57,30 @@ public class MaterialWall {
         this.characteristicsMaterialWall = characteristicsMaterialWall;
     }
 
-    public void CalculatePriceOrder() {
+    public void CalculatePriceOrderMaterialWall() {
         priceOrderMaterialWall = quantityMaterialWall * ordinalPriceUnitMaterialWall;
     }
 
-    public void CalculateСostCPUnit() {
+    public void CalculateСostCPUnitMaterialWall() {
         if (priceCPKeyMaterialWall > 0)
             costCPUnitMaterialWall = priceCPKeyMaterialWall / quantityMaterialWall;
         else costCPUnitMaterialWall = priceCPUnitMaterialWall;
     }
 
-    public void CalculateCostCP() {
+    public void CalculateCostCPMaterialWall() {
         if (priceCPKeyMaterialWall > 0)
             costCPMaterialWall = priceCPKeyMaterialWall;
         else costCPMaterialWall = priceCPUnitMaterialWall * quantityMaterialWall;
     }
+
+    public void CalculateActualDifferenceMaterialWall() {
+        actualDifferenceMaterialWall = costCPMaterialWall - actualCostMaterialWall;
+    }
+
+    public void CalculateResidueMaterialWall() {
+        residueMaterialWall = actualCostMaterialWall - paidMaterialWall;
+    }
+
 
     public String getNameMaterialWall() {
         return nameMaterialWall;
@@ -125,8 +134,8 @@ public class MaterialWall {
 
     public void setQuantityMaterialWall(String quantityMaterialWall) {
         this.quantityMaterialWall = Double.parseDouble(quantityMaterialWall);
-        CalculatePriceOrder();
-        CalculateCostCP();
+        CalculatePriceOrderMaterialWall();
+        CalculateCostCPMaterialWall();
     }
 
     //Хуяк
@@ -140,7 +149,7 @@ public class MaterialWall {
 
     public void setOrdinalPriceUnitMaterialWall(String ordinalPriceUnitMaterialWall) {
         this.ordinalPriceUnitMaterialWall = Double.parseDouble(ordinalPriceUnitMaterialWall);
-        CalculatePriceOrder();
+        CalculatePriceOrderMaterialWall();
     }
 
     public String getPriceCPUnitMaterialWall() {
@@ -153,8 +162,8 @@ public class MaterialWall {
 
     public void setPriceCPUnitMaterialWall(String priceCPUnitMaterialWall) {
         this.priceCPUnitMaterialWall = Double.parseDouble(priceCPUnitMaterialWall);
-        CalculateСostCPUnit();
-        CalculateCostCP();
+        CalculateСostCPUnitMaterialWall();
+        CalculateCostCPMaterialWall();
     }
 
     public String getPriceCPKeyMaterialWall() {
@@ -167,8 +176,8 @@ public class MaterialWall {
 
     public void setPriceCPKeyMaterialWall(String priceCPKeyMaterialWall) {
         this.priceCPKeyMaterialWall = Double.parseDouble(priceCPKeyMaterialWall);
-        CalculateСostCPUnit();
-        CalculateCostCP();
+        CalculateСostCPUnitMaterialWall();
+        CalculateCostCPMaterialWall();
     }
 
     public String getCostCPUnitMaterialWall() {
@@ -206,6 +215,7 @@ public class MaterialWall {
 
     public void setCostCPMaterialWall(String costCPMaterialWall) {
         this.costCPMaterialWall = Double.parseDouble(costCPMaterialWall);
+        CalculateActualDifferenceMaterialWall();
     }
 
     public String getProductionTimeMaterialWall() {
@@ -226,6 +236,9 @@ public class MaterialWall {
 
     public void setActualCostMaterialWall(String actualCostMaterialWall) {
         this.actualCostMaterialWall = Double.parseDouble(actualCostMaterialWall);
+        CalculateActualDifferenceMaterialWall();
+        CalculateResidueMaterialWall();
+
     }
 
     public String getActualDifferenceMaterialWall() {
@@ -250,6 +263,7 @@ public class MaterialWall {
 
     public void setPaidMaterialWall(String paidMaterialWall) {
         this.paidMaterialWall = Double.parseDouble(paidMaterialWall);
+        CalculateResidueMaterialWall();
     }
 
     public String getResidueMaterialWall() {

@@ -172,7 +172,7 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedAction" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="1900.0">
                                                   <columns>
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />
@@ -215,11 +215,11 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewFloor" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="materialTableViewFloor" onMouseClicked="#On_tabCalculatorClickedActionMaterialFloor" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialFloor" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePMaterialFloor" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCMaterialFloor" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitMaterialFloor" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialFloor" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialFloor" prefWidth="125.0" text="Цена порядковая за ед." />

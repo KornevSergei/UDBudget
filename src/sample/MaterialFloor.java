@@ -1,311 +1,336 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class MaterialFloor {
-    protected SimpleStringProperty nameMaterialFloor;
-    protected SimpleStringProperty unitMaterialFloor;
-    protected SimpleStringProperty quantityMaterialFloor;
-    protected SimpleStringProperty ordinalPriceUnitMaterialFloor;
-    protected SimpleStringProperty priceCPUnitMaterialFloor;
-    protected SimpleStringProperty priceCPKeyMaterialFloor;
-    protected SimpleStringProperty costCPUnitMaterialFloor;
-    protected SimpleStringProperty priceOrderMaterialFloor;
-    protected SimpleStringProperty costCPMaterialFloor;
-    protected SimpleStringProperty productionTimeMaterialFloor;
-    protected SimpleStringProperty actualCostMaterialFloor;
-    protected SimpleStringProperty actualDifferenceMaterialFloor;
-    protected SimpleStringProperty paidMaterialFloor;
-    protected SimpleStringProperty residueMaterialFloor;
-    protected SimpleStringProperty dateOfDeliveryMaterialFloor;
-    protected SimpleStringProperty plannedCPMaterialFloor;
-    protected SimpleStringProperty actualCPMaterialFloor;
-    protected SimpleStringProperty accountMaterialFloor;
-    protected SimpleStringProperty contactsMaterialFloor;
-    protected SimpleStringProperty notesMaterialFloor;
-    protected SimpleStringProperty characteristicsMaterialFloor;
+    protected String nameMaterialFloor;//Наименование
+    protected boolean activePMaterialFloor;//П
+    protected boolean activeCMaterialFloor;//С
+    protected String unitMaterialFloor;//Ед. изм.
+    protected double quantityMaterialFloor;//Количество
+    protected double ordinalPriceUnitMaterialFloor;//Цена порядковая за ед.
+    protected double priceCPUnitMaterialFloor;//Цена по КП за ед.
+    protected double priceCPKeyMaterialFloor;//Цена по КП под ключ
+    protected double costCPUnitMaterialFloor;//Стоимость по КП за ед.
+    protected double priceOrderMaterialFloor;//Порядок цен
+    protected double costCPMaterialFloor;//Стоимость по КП
+    protected String productionTimeMaterialFloor;//Срок доставки
+    protected double actualCostMaterialFloor;//Стоимость фактическая
+    protected double actualDifferenceMaterialFloor;//Разница фактическая
+    protected double paidMaterialFloor;//Оплачено
+    protected double residueMaterialFloor;//Остаток
+    protected String dateOfDeliveryMaterialFloor;//Дата поставки
+    protected String plannedCPMaterialFloor;
+    protected String actualCPMaterialFloor;
+    protected String accountMaterialFloor;
+    protected String contactsMaterialFloor;
+    protected String notesMaterialFloor;
+    protected String characteristicsMaterialFloor;
 
-    public MaterialFloor() {
+
+    public MaterialFloor(String nameMaterialFloor, boolean activePMaterialFloor, boolean activeCMaterialFloor, String unitMaterialFloor, double quantityMaterialFloor,
+                         double ordinalPriceUnitMaterialFloor, double priceCPUnitMaterialFloor, double priceCPKeyMaterialFloor, double costCPUnitMaterialFloor,
+                         double priceOrderMaterialFloor, double costCPMaterialFloor, String productionTimeMaterialFloor, double actualCostMaterialFloor,
+                         double actualDifferenceMaterialFloor, double paidMaterialFloor, double residueMaterialFloor, String dateOfDeliveryMaterialFloor,
+                         String plannedCPMaterialFloor, String actualCPMaterialFloor, String accountMaterialFloor, String contactsMaterialFloor, String notesMaterialFloor,
+                         String characteristicsMaterialFloor) {
+        this.nameMaterialFloor = nameMaterialFloor;
+        this.unitMaterialFloor = unitMaterialFloor;
+        this.activePMaterialFloor = activePMaterialFloor;
+        this.activeCMaterialFloor = activeCMaterialFloor;
+        this.quantityMaterialFloor = quantityMaterialFloor;
+        this.ordinalPriceUnitMaterialFloor = ordinalPriceUnitMaterialFloor;
+        this.priceCPUnitMaterialFloor = priceCPUnitMaterialFloor;
+        this.priceCPKeyMaterialFloor = priceCPKeyMaterialFloor;
+        this.costCPUnitMaterialFloor = costCPUnitMaterialFloor;
+        this.priceOrderMaterialFloor = priceOrderMaterialFloor;
+        this.costCPMaterialFloor = costCPMaterialFloor;
+        this.productionTimeMaterialFloor = productionTimeMaterialFloor;
+        this.actualCostMaterialFloor = actualCostMaterialFloor;
+        this.actualDifferenceMaterialFloor = actualDifferenceMaterialFloor;
+        this.paidMaterialFloor = paidMaterialFloor;
+        this.residueMaterialFloor = residueMaterialFloor;
+        this.dateOfDeliveryMaterialFloor = dateOfDeliveryMaterialFloor;
+        this.plannedCPMaterialFloor = plannedCPMaterialFloor;
+        this.actualCPMaterialFloor = actualCPMaterialFloor;
+        this.accountMaterialFloor = accountMaterialFloor;
+        this.contactsMaterialFloor = contactsMaterialFloor;
+        this.notesMaterialFloor = notesMaterialFloor;
+        this.characteristicsMaterialFloor = characteristicsMaterialFloor;
     }
 
-    public MaterialFloor(String nameMaterialFloor, String unitMaterialFloor, String quantityMaterialFloor, String ordinalPriceUnitMaterialFloor,
-                        String priceCPUnitMaterialFloor, String priceCPKeyMaterialFloor, String costCPUnitMaterialFloor, String priceOrderMaterialFloor,
-                        String costCPMaterialFloor, String productionTimeMaterialFloor, String actualCostMaterialFloor,
-                        String actualDifferenceMaterialFloor, String paidMaterialFloor, String residueMaterialFloor, String dateOfDeliveryMaterialFloor,
-                        String plannedCPMaterialFloor, String actualCPMaterialFloor, String accountMaterialFloor, String contactsMaterialFloor,
-                        String notesMaterialFloor, String characteristicsMaterialFloor) {
-        this.nameMaterialFloor = new SimpleStringProperty(nameMaterialFloor);
-        this.unitMaterialFloor = new SimpleStringProperty(unitMaterialFloor);
-        this.quantityMaterialFloor = new SimpleStringProperty(quantityMaterialFloor);
-        this.ordinalPriceUnitMaterialFloor = new SimpleStringProperty(ordinalPriceUnitMaterialFloor);
-        this.priceCPUnitMaterialFloor = new SimpleStringProperty(priceCPUnitMaterialFloor);
-        this.priceCPKeyMaterialFloor = new SimpleStringProperty(priceCPKeyMaterialFloor);
-        this.costCPUnitMaterialFloor = new SimpleStringProperty(costCPUnitMaterialFloor);
-        this.priceOrderMaterialFloor = new SimpleStringProperty(priceOrderMaterialFloor);
-        this.costCPMaterialFloor = new SimpleStringProperty(costCPMaterialFloor);
-        this.productionTimeMaterialFloor = new SimpleStringProperty(productionTimeMaterialFloor);
-        this.actualCostMaterialFloor = new SimpleStringProperty(actualCostMaterialFloor);
-        this.actualDifferenceMaterialFloor = new SimpleStringProperty(actualDifferenceMaterialFloor);
-        this.paidMaterialFloor = new SimpleStringProperty(paidMaterialFloor);
-        this.residueMaterialFloor = new SimpleStringProperty(residueMaterialFloor);
-        this.dateOfDeliveryMaterialFloor = new SimpleStringProperty(dateOfDeliveryMaterialFloor);
-        this.plannedCPMaterialFloor = new SimpleStringProperty(plannedCPMaterialFloor);
-        this.actualCPMaterialFloor = new SimpleStringProperty(actualCPMaterialFloor);
-        this.accountMaterialFloor = new SimpleStringProperty(accountMaterialFloor);
-        this.contactsMaterialFloor = new SimpleStringProperty(contactsMaterialFloor);
-        this.notesMaterialFloor = new SimpleStringProperty(notesMaterialFloor);
-        this.characteristicsMaterialFloor = new SimpleStringProperty(characteristicsMaterialFloor);
+    public void CalculatePriceOrderMaterialFloor() {
+        priceOrderMaterialFloor = quantityMaterialFloor * ordinalPriceUnitMaterialFloor;
     }
+
+    public void CalculateСostCPUnitMaterialFloor() {
+        if (priceCPKeyMaterialFloor > 0)
+            costCPUnitMaterialFloor = priceCPKeyMaterialFloor / quantityMaterialFloor;
+        else costCPUnitMaterialFloor = priceCPUnitMaterialFloor;
+    }
+
+    public void CalculateCostCPMaterialFloor() {
+        if (priceCPKeyMaterialFloor > 0)
+            costCPMaterialFloor = priceCPKeyMaterialFloor;
+        else costCPMaterialFloor = priceCPUnitMaterialFloor * quantityMaterialFloor;
+    }
+
+    public void CalculateActualDifferenceMaterialFloor() {
+        actualDifferenceMaterialFloor = costCPMaterialFloor - actualCostMaterialFloor;
+    }
+
+    public void CalculateResidueMaterialFloor() {
+        residueMaterialFloor = actualCostMaterialFloor - paidMaterialFloor;
+    }
+
 
     public String getNameMaterialFloor() {
-        return nameMaterialFloor.get();
-    }
-
-    public SimpleStringProperty nameMaterialFloorProperty() {
         return nameMaterialFloor;
     }
 
     public void setNameMaterialFloor(String nameMaterialFloor) {
-        this.nameMaterialFloor = new SimpleStringProperty(nameMaterialFloor);
+        this.nameMaterialFloor = nameMaterialFloor;
     }
 
     public String getUnitMaterialFloor() {
-        return unitMaterialFloor.get();
-    }
-
-    public SimpleStringProperty unitMaterialFloorProperty() {
         return unitMaterialFloor;
     }
 
     public void setUnitMaterialFloor(String unitMaterialFloor) {
-        this.unitMaterialFloor = new SimpleStringProperty(unitMaterialFloor);
+        this.unitMaterialFloor = unitMaterialFloor;
     }
 
+    //Чекбоксы
+    public boolean getActivePMaterialFloor() {
+        return activePMaterialFloor;
+    }
+
+    public void setActivePMaterialFloor(boolean activePMaterialFloor) {
+        this.activePMaterialFloor = activePMaterialFloor;
+    }
+
+    public void setActivePMaterialFloor(String activePMaterialFloor) {
+        this.activePMaterialFloor = Boolean.parseBoolean(activePMaterialFloor);
+    }
+
+    public boolean getActiveCMaterialFloor() {
+        return activeCMaterialFloor;
+    }
+
+    public void setActiveCMaterialFloor(boolean activeCMaterialFloor) {
+        this.activeCMaterialFloor = activeCMaterialFloor;
+    }
+
+    public void setActiveCMaterialFloor(String activeCMaterialFloor) {
+        this.activeCMaterialFloor = Boolean.parseBoolean(activeCMaterialFloor);
+    }
+
+    //Обана
     public String getQuantityMaterialFloor() {
-        return quantityMaterialFloor.get();
+        return Double.toString(quantityMaterialFloor);
     }
 
-    public SimpleStringProperty quantityMaterialFloorProperty() {
-        return quantityMaterialFloor;
+    public void setQuantityMaterialFloor(double quantityMaterialFloor) {
+        this.quantityMaterialFloor = quantityMaterialFloor;
     }
 
     public void setQuantityMaterialFloor(String quantityMaterialFloor) {
-        this.quantityMaterialFloor = new SimpleStringProperty(quantityMaterialFloor);
+        this.quantityMaterialFloor = Double.parseDouble(quantityMaterialFloor);
+        CalculatePriceOrderMaterialFloor();
+        CalculateCostCPMaterialFloor();
     }
 
+    //Хуяк
     public String getOrdinalPriceUnitMaterialFloor() {
-        return ordinalPriceUnitMaterialFloor.get();
+        return Double.toString(ordinalPriceUnitMaterialFloor);
     }
 
-    public SimpleStringProperty ordinalPriceUnitMaterialFloorProperty() {
-        return ordinalPriceUnitMaterialFloor;
+    public void setOrdinalPriceUnitMaterialFloor(double ordinalPriceUnitMaterialFloor) {
+        this.ordinalPriceUnitMaterialFloor = ordinalPriceUnitMaterialFloor;
     }
 
     public void setOrdinalPriceUnitMaterialFloor(String ordinalPriceUnitMaterialFloor) {
-        this.ordinalPriceUnitMaterialFloor = new SimpleStringProperty(ordinalPriceUnitMaterialFloor);
+        this.ordinalPriceUnitMaterialFloor = Double.parseDouble(ordinalPriceUnitMaterialFloor);
+        CalculatePriceOrderMaterialFloor();
     }
 
     public String getPriceCPUnitMaterialFloor() {
-        return priceCPUnitMaterialFloor.get();
+        return Double.toString(priceCPUnitMaterialFloor);
     }
 
-    public SimpleStringProperty priceCPUnitMaterialFloorProperty() {
-        return priceCPUnitMaterialFloor;
+    public void setPriceCPUnitMaterialFloor(double priceCPUnitMaterialFloor) {
+        this.priceCPUnitMaterialFloor = priceCPUnitMaterialFloor;
     }
 
     public void setPriceCPUnitMaterialFloor(String priceCPUnitMaterialFloor) {
-        this.priceCPUnitMaterialFloor = new SimpleStringProperty(priceCPUnitMaterialFloor);
+        this.priceCPUnitMaterialFloor = Double.parseDouble(priceCPUnitMaterialFloor);
+        CalculateСostCPUnitMaterialFloor();
+        CalculateCostCPMaterialFloor();
     }
 
     public String getPriceCPKeyMaterialFloor() {
-        return priceCPKeyMaterialFloor.get();
+        return Double.toString(priceCPKeyMaterialFloor);
     }
 
-    public SimpleStringProperty priceCPKeyMaterialFloorProperty() {
-        return priceCPKeyMaterialFloor;
+    public void setPriceCPKeyMaterialFloor(double priceCPKeyMaterialFloor) {
+        this.priceCPKeyMaterialFloor = priceCPKeyMaterialFloor;
     }
 
     public void setPriceCPKeyMaterialFloor(String priceCPKeyMaterialFloor) {
-        this.priceCPKeyMaterialFloor = new SimpleStringProperty(priceCPKeyMaterialFloor);
+        this.priceCPKeyMaterialFloor = Double.parseDouble(priceCPKeyMaterialFloor);
+        CalculateСostCPUnitMaterialFloor();
+        CalculateCostCPMaterialFloor();
     }
 
     public String getCostCPUnitMaterialFloor() {
-        return costCPUnitMaterialFloor.get();
+        return Double.toString(costCPUnitMaterialFloor);
     }
 
-    public SimpleStringProperty costCPUnitMaterialFloorProperty() {
-        return costCPUnitMaterialFloor;
+    public void setCostCPUnitMaterialFloor(double costCPUnitMaterialFloor) {
+        this.costCPUnitMaterialFloor = costCPUnitMaterialFloor;
     }
 
     public void setCostCPUnitMaterialFloor(String costCPUnitMaterialFloor) {
-        this.costCPUnitMaterialFloor = new SimpleStringProperty(costCPUnitMaterialFloor);
+        this.costCPUnitMaterialFloor = Double.parseDouble(costCPUnitMaterialFloor);
     }
 
+    //Понеслось
     public String getPriceOrderMaterialFloor() {
-        return priceOrderMaterialFloor.get();
+        return Double.toString(priceOrderMaterialFloor);
     }
 
-    public SimpleStringProperty priceOrderMaterialFloorProperty() {
-        return priceOrderMaterialFloor;
+    public void setPriceOrderMaterialFloor(double priceOrderMaterialFloor) {
+        this.priceOrderMaterialFloor = priceOrderMaterialFloor;
     }
 
     public void setPriceOrderMaterialFloor(String priceOrderMaterialFloor) {
-        this.priceOrderMaterialFloor = new SimpleStringProperty(priceOrderMaterialFloor);
+        this.priceOrderMaterialFloor = Double.parseDouble(priceOrderMaterialFloor);
     }
 
     public String getCostCPMaterialFloor() {
-        return costCPMaterialFloor.get();
+        return Double.toString(costCPMaterialFloor);
     }
 
-    public SimpleStringProperty costCPMaterialFloorProperty() {
-        return costCPMaterialFloor;
+    public void setCostCPMaterialFloor(double costCPMaterialFloor) {
+        this.costCPMaterialFloor = costCPMaterialFloor;
     }
 
     public void setCostCPMaterialFloor(String costCPMaterialFloor) {
-        this.costCPMaterialFloor = new SimpleStringProperty(costCPMaterialFloor);
+        this.costCPMaterialFloor = Double.parseDouble(costCPMaterialFloor);
+        CalculateActualDifferenceMaterialFloor();
     }
 
     public String getProductionTimeMaterialFloor() {
-        return productionTimeMaterialFloor.get();
-    }
-
-    public SimpleStringProperty productionTimeMaterialFloorProperty() {
         return productionTimeMaterialFloor;
     }
 
     public void setProductionTimeMaterialFloor(String productionTimeMaterialFloor) {
-        this.productionTimeMaterialFloor = new SimpleStringProperty(productionTimeMaterialFloor);
+        this.productionTimeMaterialFloor = productionTimeMaterialFloor;
     }
 
     public String getActualCostMaterialFloor() {
-        return actualCostMaterialFloor.get();
+        return Double.toString(actualCostMaterialFloor);
     }
 
-    public SimpleStringProperty actualCostMaterialFloorProperty() {
-        return actualCostMaterialFloor;
+    public void setActualCostMaterialFloor(double actualCostMaterialFloor) {
+        this.actualCostMaterialFloor = actualCostMaterialFloor;
     }
 
     public void setActualCostMaterialFloor(String actualCostMaterialFloor) {
-        this.actualCostMaterialFloor = new SimpleStringProperty(actualCostMaterialFloor);
+        this.actualCostMaterialFloor = Double.parseDouble(actualCostMaterialFloor);
+        CalculateActualDifferenceMaterialFloor();
+        CalculateResidueMaterialFloor();
+
     }
 
     public String getActualDifferenceMaterialFloor() {
-        return actualDifferenceMaterialFloor.get();
+        return Double.toString(actualDifferenceMaterialFloor);
     }
 
-    public SimpleStringProperty actualDifferenceMaterialFloorProperty() {
-        return actualDifferenceMaterialFloor;
+    public void setActualDifferenceMaterialFloor(double actualDifferenceMaterialFloor) {
+        this.actualDifferenceMaterialFloor = actualDifferenceMaterialFloor;
     }
 
     public void setActualDifferenceMaterialFloor(String actualDifferenceMaterialFloor) {
-        this.actualDifferenceMaterialFloor = new SimpleStringProperty(actualDifferenceMaterialFloor);
+        this.actualDifferenceMaterialFloor = Double.parseDouble(actualDifferenceMaterialFloor);
     }
 
     public String getPaidMaterialFloor() {
-        return paidMaterialFloor.get();
+        return Double.toString(paidMaterialFloor);
     }
 
-    public SimpleStringProperty paidMaterialFloorProperty() {
-        return paidMaterialFloor;
+    public void setPaidMaterialFloor(double paidMaterialFloor) {
+        this.paidMaterialFloor = paidMaterialFloor;
     }
 
     public void setPaidMaterialFloor(String paidMaterialFloor) {
-        this.paidMaterialFloor = new SimpleStringProperty(paidMaterialFloor);
+        this.paidMaterialFloor = Double.parseDouble(paidMaterialFloor);
+        CalculateResidueMaterialFloor();
     }
 
     public String getResidueMaterialFloor() {
-        return residueMaterialFloor.get();
+        return Double.toString(residueMaterialFloor);
     }
 
-    public SimpleStringProperty residueMaterialFloorProperty() {
-        return residueMaterialFloor;
+    public void setResidueMaterialFloor(double residueMaterialFloor) {
+        this.residueMaterialFloor = residueMaterialFloor;
     }
 
     public void setResidueMaterialFloor(String residueMaterialFloor) {
-        this.residueMaterialFloor = new SimpleStringProperty(residueMaterialFloor);
+        this.residueMaterialFloor = Double.parseDouble(residueMaterialFloor);
     }
 
     public String getDateOfDeliveryMaterialFloor() {
-        return dateOfDeliveryMaterialFloor.get();
-    }
-
-    public SimpleStringProperty dateOfDeliveryMaterialFloorProperty() {
         return dateOfDeliveryMaterialFloor;
     }
 
     public void setDateOfDeliveryMaterialFloor(String dateOfDeliveryMaterialFloor) {
-        this.dateOfDeliveryMaterialFloor = new SimpleStringProperty(dateOfDeliveryMaterialFloor);
+        this.dateOfDeliveryMaterialFloor = dateOfDeliveryMaterialFloor;
     }
 
     public String getPlannedCPMaterialFloor() {
-        return plannedCPMaterialFloor.get();
-    }
-
-    public SimpleStringProperty plannedCPMaterialFloorProperty() {
         return plannedCPMaterialFloor;
     }
 
     public void setPlannedCPMaterialFloor(String plannedCPMaterialFloor) {
-        this.plannedCPMaterialFloor = new SimpleStringProperty(plannedCPMaterialFloor);
+        this.plannedCPMaterialFloor = plannedCPMaterialFloor;
     }
 
     public String getActualCPMaterialFloor() {
-        return actualCPMaterialFloor.get();
-    }
-
-    public SimpleStringProperty actualCPMaterialFloorProperty() {
         return actualCPMaterialFloor;
     }
 
     public void setActualCPMaterialFloor(String actualCPMaterialFloor) {
-        this.actualCPMaterialFloor = new SimpleStringProperty(actualCPMaterialFloor);
+        this.actualCPMaterialFloor = actualCPMaterialFloor;
     }
 
     public String getAccountMaterialFloor() {
-        return accountMaterialFloor.get();
-    }
-
-    public SimpleStringProperty accountMaterialFloorProperty() {
         return accountMaterialFloor;
     }
 
     public void setAccountMaterialFloor(String accountMaterialFloor) {
-        this.accountMaterialFloor = new SimpleStringProperty(accountMaterialFloor);
+        this.accountMaterialFloor = accountMaterialFloor;
     }
 
     public String getContactsMaterialFloor() {
-        return contactsMaterialFloor.get();
-    }
-
-    public SimpleStringProperty contactsMaterialFloorProperty() {
         return contactsMaterialFloor;
     }
 
     public void setContactsMaterialFloor(String contactsMaterialFloor) {
-        this.contactsMaterialFloor = new SimpleStringProperty(contactsMaterialFloor);
+        this.contactsMaterialFloor = contactsMaterialFloor;
     }
 
     public String getNotesMaterialFloor() {
-        return notesMaterialFloor.get();
-    }
-
-    public SimpleStringProperty notesMaterialFloorProperty() {
         return notesMaterialFloor;
     }
 
     public void setNotesMaterialFloor(String notesMaterialFloor) {
-        this.notesMaterialFloor = new SimpleStringProperty(notesMaterialFloor);
+        this.notesMaterialFloor = notesMaterialFloor;
     }
 
     public String getCharacteristicsMaterialFloor() {
-        return characteristicsMaterialFloor.get();
-    }
-
-    public SimpleStringProperty characteristicsMaterialFloorProperty() {
         return characteristicsMaterialFloor;
     }
 
     public void setCharacteristicsMaterialFloor(String characteristicsMaterialFloor) {
-        this.characteristicsMaterialFloor = new SimpleStringProperty(characteristicsMaterialFloor);
+        this.characteristicsMaterialFloor = characteristicsMaterialFloor;
     }
 }
