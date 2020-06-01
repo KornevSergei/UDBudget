@@ -138,6 +138,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialCeiling, String> colContactsMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colNotesMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colCharacteristicsMaterialCeiling;
+    private ObservableList<MaterialCeiling> observableListMaterialCeiling = FXCollections.observableArrayList();
 
     public TableView<MaterialOther> materialTableViewOther;
     public TableColumn<MaterialOther, String> colNameMaterialOther;
@@ -909,30 +910,282 @@ public class EditProjectController implements Initializable {
         colCharacteristicsMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
-
+        //Материалы - Потолок!
+        materialTableViewCeiling.setItems(observableListMaterialCeiling);
+        Callback<TableColumn<MaterialCeiling, String>, TableCell<MaterialCeiling, String>> cellFactoryDoubleMaterialCeiling =
+                new Callback<TableColumn<MaterialCeiling, String>, TableCell<MaterialCeiling, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<MaterialCeiling, Boolean>, TableCell<MaterialCeiling, Boolean>> cellFactoryCheckboxMaterialCeiling =
+                new Callback<TableColumn<MaterialCeiling, Boolean>, TableCell<MaterialCeiling, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
 
 
         colNameMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("nameMaterialCeiling"));
+        colNameMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setNameMaterialCeiling(t.getNewValue());
+                    }
+                });
+        colActivePMaterialCeiling.setCellFactory(cellFactoryCheckboxMaterialCeiling);
+        colActivePMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("activePMaterialCeiling"));
+        colActivePMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, Boolean> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setActivePMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCMaterialCeiling.setCellFactory(cellFactoryCheckboxMaterialCeiling);
+        colActiveCMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("activeCMaterialCeiling"));
+        colActiveCMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, Boolean> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setActiveCMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
         colUnitMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("unitMaterialCeiling"));
+        colUnitMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setUnitMaterialCeiling(t.getNewValue());
+                    }
+                });
+        colQuantityMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colQuantityMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialCeiling"));
+        colQuantityMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setQuantityMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colOrdinalPriceUnitMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialCeiling"));
+        colOrdinalPriceUnitMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setOrdinalPriceUnitMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colPriceCPUnitMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialCeiling"));
+        colPriceCPUnitMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setPriceCPUnitMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colPriceCPKeyMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialCeiling"));
+        colPriceCPKeyMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setPriceCPKeyMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colCostCPUnitMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialCeiling"));
+        colCostCPUnitMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setCostCPUnitMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colPriceOrderMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialCeiling"));
+        colPriceOrderMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setPriceOrderMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colCostCPMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialCeiling"));
+        colCostCPMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setCostCPMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colProductionTimeMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colProductionTimeMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialCeiling"));
+        colProductionTimeMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setProductionTimeMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCostMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colActualCostMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialCeiling"));
+        colActualCostMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setActualCostMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferenceMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colActualDifferenceMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialCeiling"));
+        colActualDifferenceMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setActualDifferenceMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colPaidMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("paidMaterialCeiling"));
+        colPaidMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setPaidMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResidueMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
         colResidueMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("residueMaterialCeiling"));
+        colResidueMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setResidueMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
         colDateOfDeliveryMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialCeiling"));
+        colDateOfDeliveryMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
         colPlannedCPMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialCeiling"));
+        colPlannedCPMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setPlannedCPMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
         colActualCPMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialCeiling"));
+        colActualCPMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setActualCPMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
         colAccountMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("accountMaterialCeiling"));
+        colAccountMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setAccountMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
         colContactsMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialCeiling"));
+        colContactsMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setContactsMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
         colNotesMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("notesMaterialCeiling"));
+        colNotesMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setNotesMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
         colCharacteristicsMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialCeiling"));
+        colCharacteristicsMaterialCeiling.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                        ((MaterialCeiling) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setCharacteristicsMaterialCeiling(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        materialTableViewCeiling.setEditable(true);
+
+        colNameMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colProductionTimeMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDateOfDeliveryMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
+
+
 
         colNameMaterialOther.setCellValueFactory(new PropertyValueFactory<>("nameMaterialOther"));
         colUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("unitMaterialOther"));
@@ -1071,8 +1324,7 @@ public class EditProjectController implements Initializable {
 
         furnitureTableView.setItems(observableListFurniture);
 
-        materialTableViewFloor.setItems(observableListMaterialFloor);
-        materialTableViewCeiling.setItems(observableListMaterialCeiling);
+
         materialTableViewOther.setItems(observableListMaterialOther);
         materialTableViewSuddenly.setItems(observableListMaterialSuddenly);
 
@@ -1082,13 +1334,10 @@ public class EditProjectController implements Initializable {
         appliancesTableViewSuddenly.setItems(observableListAppliancesSuddenly);
 
 
-        AKTableView.setEditable(true);
-
-        furnitureTableView.setEditable(true);
-
-
-        materialTableViewFloor.setEditable(true);
-        materialTableViewCeiling.setEditable(true);
+//        AKTableView.setEditable(true);
+//
+//        materialTableViewFloor.setEditable(true);
+//        materialTableViewCeiling.setEditable(true);
         materialTableViewOther.setEditable(true);
         materialTableViewSuddenly.setEditable(true);
 
@@ -1096,6 +1345,9 @@ public class EditProjectController implements Initializable {
         appliancesTableViewOther.setEditable(true);
         appliancesTableViewDelivery.setEditable(true);
         appliancesTableViewSuddenly.setEditable(true);
+
+
+        furnitureTableView.setEditable(true);
 
 
         colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1121,49 +1373,27 @@ public class EditProjectController implements Initializable {
         colCharacteristicsFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
-        colNameMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        colNameMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colNameMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colQuantityMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colOrdinalPriceUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colPriceCPUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colPriceCPKeyMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colCostCPUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colPriceOrderMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colCostCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colActualCostMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colActualDifferenceMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colPaidMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colResidueMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colPlannedCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colActualCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colAccountMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colContactsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colNotesMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colCharacteristicsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
 
         colNameMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1301,12 +1531,6 @@ public class EditProjectController implements Initializable {
 
 
 
-    ObservableList<MaterialCeiling> observableListMaterialCeiling = FXCollections.observableArrayList(
-            new MaterialCeiling(),
-            new MaterialCeiling(),
-            new MaterialCeiling()
-    );
-
     ObservableList<MaterialOther> observableListMaterialOther = FXCollections.observableArrayList(
             new MaterialOther(),
             new MaterialOther(),
@@ -1355,6 +1579,14 @@ public class EditProjectController implements Initializable {
     public void On_tabCalculatorClickedActionMaterialFloor(MouseEvent mouseEvent) {
         if (observableListMaterialFloor.filtered(x -> "0.0".equals(x.getQuantityMaterialFloor()) && "0.0".equals(x.getOrdinalPriceUnitMaterialFloor())).size() == 0) {
             observableListMaterialFloor.add(new MaterialFloor("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", ""));
+        }
+    }
+
+    public void On_tabCalculatorClickedActionMaterialCeiling(MouseEvent mouseEvent) {
+        if (observableListMaterialCeiling.filtered(x -> "0.0".equals(x.getQuantityMaterialCeiling()) && "0.0".equals(x.getOrdinalPriceUnitMaterialCeiling())).size() == 0) {
+            observableListMaterialCeiling.add(new MaterialCeiling("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", ""));
         }

@@ -3,309 +3,336 @@ package sample;
 import javafx.beans.property.SimpleStringProperty;
 
 public class MaterialCeiling {
-    protected SimpleStringProperty nameMaterialCeiling;
-    protected SimpleStringProperty unitMaterialCeiling;
-    protected SimpleStringProperty quantityMaterialCeiling;
-    protected SimpleStringProperty ordinalPriceUnitMaterialCeiling;
-    protected SimpleStringProperty priceCPUnitMaterialCeiling;
-    protected SimpleStringProperty priceCPKeyMaterialCeiling;
-    protected SimpleStringProperty costCPUnitMaterialCeiling;
-    protected SimpleStringProperty priceOrderMaterialCeiling;
-    protected SimpleStringProperty costCPMaterialCeiling;
-    protected SimpleStringProperty productionTimeMaterialCeiling;
-    protected SimpleStringProperty actualCostMaterialCeiling;
-    protected SimpleStringProperty actualDifferenceMaterialCeiling;
-    protected SimpleStringProperty paidMaterialCeiling;
-    protected SimpleStringProperty residueMaterialCeiling;
-    protected SimpleStringProperty dateOfDeliveryMaterialCeiling;
-    protected SimpleStringProperty plannedCPMaterialCeiling;
-    protected SimpleStringProperty actualCPMaterialCeiling;
-    protected SimpleStringProperty accountMaterialCeiling;
-    protected SimpleStringProperty contactsMaterialCeiling;
-    protected SimpleStringProperty notesMaterialCeiling;
-    protected SimpleStringProperty characteristicsMaterialCeiling;
+    protected String nameMaterialCeiling;//Наименование
+    protected boolean activePMaterialCeiling;//П
+    protected boolean activeCMaterialCeiling;//С
+    protected String unitMaterialCeiling;//Ед. изм.
+    protected double quantityMaterialCeiling;//Количество
+    protected double ordinalPriceUnitMaterialCeiling;//Цена порядковая за ед.
+    protected double priceCPUnitMaterialCeiling;//Цена по КП за ед.
+    protected double priceCPKeyMaterialCeiling;//Цена по КП под ключ
+    protected double costCPUnitMaterialCeiling;//Стоимость по КП за ед.
+    protected double priceOrderMaterialCeiling;//Порядок цен
+    protected double costCPMaterialCeiling;//Стоимость по КП
+    protected String productionTimeMaterialCeiling;//Срок доставки
+    protected double actualCostMaterialCeiling;//Стоимость фактическая
+    protected double actualDifferenceMaterialCeiling;//Разница фактическая
+    protected double paidMaterialCeiling;//Оплачено
+    protected double residueMaterialCeiling;//Остаток
+    protected String dateOfDeliveryMaterialCeiling;//Дата поставки
+    protected String plannedCPMaterialCeiling;
+    protected String actualCPMaterialCeiling;
+    protected String accountMaterialCeiling;
+    protected String contactsMaterialCeiling;
+    protected String notesMaterialCeiling;
+    protected String characteristicsMaterialCeiling;
 
-    public MaterialCeiling() {
+
+    public MaterialCeiling(String nameMaterialCeiling, boolean activePMaterialCeiling, boolean activeCMaterialCeiling, String unitMaterialCeiling, double quantityMaterialCeiling,
+                        double ordinalPriceUnitMaterialCeiling, double priceCPUnitMaterialCeiling, double priceCPKeyMaterialCeiling, double costCPUnitMaterialCeiling,
+                        double priceOrderMaterialCeiling, double costCPMaterialCeiling, String productionTimeMaterialCeiling, double actualCostMaterialCeiling,
+                        double actualDifferenceMaterialCeiling, double paidMaterialCeiling, double residueMaterialCeiling, String dateOfDeliveryMaterialCeiling,
+                        String plannedCPMaterialCeiling, String actualCPMaterialCeiling, String accountMaterialCeiling, String contactsMaterialCeiling, String notesMaterialCeiling,
+                        String characteristicsMaterialCeiling) {
+        this.nameMaterialCeiling = nameMaterialCeiling;
+        this.unitMaterialCeiling = unitMaterialCeiling;
+        this.activePMaterialCeiling = activePMaterialCeiling;
+        this.activeCMaterialCeiling = activeCMaterialCeiling;
+        this.quantityMaterialCeiling = quantityMaterialCeiling;
+        this.ordinalPriceUnitMaterialCeiling = ordinalPriceUnitMaterialCeiling;
+        this.priceCPUnitMaterialCeiling = priceCPUnitMaterialCeiling;
+        this.priceCPKeyMaterialCeiling = priceCPKeyMaterialCeiling;
+        this.costCPUnitMaterialCeiling = costCPUnitMaterialCeiling;
+        this.priceOrderMaterialCeiling = priceOrderMaterialCeiling;
+        this.costCPMaterialCeiling = costCPMaterialCeiling;
+        this.productionTimeMaterialCeiling = productionTimeMaterialCeiling;
+        this.actualCostMaterialCeiling = actualCostMaterialCeiling;
+        this.actualDifferenceMaterialCeiling = actualDifferenceMaterialCeiling;
+        this.paidMaterialCeiling = paidMaterialCeiling;
+        this.residueMaterialCeiling = residueMaterialCeiling;
+        this.dateOfDeliveryMaterialCeiling = dateOfDeliveryMaterialCeiling;
+        this.plannedCPMaterialCeiling = plannedCPMaterialCeiling;
+        this.actualCPMaterialCeiling = actualCPMaterialCeiling;
+        this.accountMaterialCeiling = accountMaterialCeiling;
+        this.contactsMaterialCeiling = contactsMaterialCeiling;
+        this.notesMaterialCeiling = notesMaterialCeiling;
+        this.characteristicsMaterialCeiling = characteristicsMaterialCeiling;
     }
 
-    public MaterialCeiling(String nameMaterialCeiling, String unitMaterialCeiling, String quantityMaterialCeiling, String ordinalPriceUnitMaterialCeiling,
-                         String priceCPUnitMaterialCeiling, String priceCPKeyMaterialCeiling, String costCPUnitMaterialCeiling, String priceOrderMaterialCeiling,
-                         String costCPMaterialCeiling, String productionTimeMaterialCeiling, String actualCostMaterialCeiling,
-                         String actualDifferenceMaterialCeiling, String paidMaterialCeiling, String residueMaterialCeiling, String dateOfDeliveryMaterialCeiling,
-                         String plannedCPMaterialCeiling, String actualCPMaterialCeiling, String accountMaterialCeiling, String contactsMaterialCeiling,
-                         String notesMaterialCeiling, String characteristicsMaterialCeiling) {
-        this.nameMaterialCeiling = new SimpleStringProperty(nameMaterialCeiling);
-        this.unitMaterialCeiling = new SimpleStringProperty(unitMaterialCeiling);
-        this.quantityMaterialCeiling = new SimpleStringProperty(quantityMaterialCeiling);
-        this.ordinalPriceUnitMaterialCeiling = new SimpleStringProperty(ordinalPriceUnitMaterialCeiling);
-        this.priceCPUnitMaterialCeiling = new SimpleStringProperty(priceCPUnitMaterialCeiling);
-        this.priceCPKeyMaterialCeiling = new SimpleStringProperty(priceCPKeyMaterialCeiling);
-        this.costCPUnitMaterialCeiling = new SimpleStringProperty(costCPUnitMaterialCeiling);
-        this.priceOrderMaterialCeiling = new SimpleStringProperty(priceOrderMaterialCeiling);
-        this.costCPMaterialCeiling = new SimpleStringProperty(costCPMaterialCeiling);
-        this.productionTimeMaterialCeiling = new SimpleStringProperty(productionTimeMaterialCeiling);
-        this.actualCostMaterialCeiling = new SimpleStringProperty(actualCostMaterialCeiling);
-        this.actualDifferenceMaterialCeiling = new SimpleStringProperty(actualDifferenceMaterialCeiling);
-        this.paidMaterialCeiling = new SimpleStringProperty(paidMaterialCeiling);
-        this.residueMaterialCeiling = new SimpleStringProperty(residueMaterialCeiling);
-        this.dateOfDeliveryMaterialCeiling = new SimpleStringProperty(dateOfDeliveryMaterialCeiling);
-        this.plannedCPMaterialCeiling = new SimpleStringProperty(plannedCPMaterialCeiling);
-        this.actualCPMaterialCeiling = new SimpleStringProperty(actualCPMaterialCeiling);
-        this.accountMaterialCeiling = new SimpleStringProperty(accountMaterialCeiling);
-        this.contactsMaterialCeiling = new SimpleStringProperty(contactsMaterialCeiling);
-        this.notesMaterialCeiling = new SimpleStringProperty(notesMaterialCeiling);
-        this.characteristicsMaterialCeiling = new SimpleStringProperty(characteristicsMaterialCeiling);
+    public void CalculatePriceOrderMaterialCeiling() {
+        priceOrderMaterialCeiling = quantityMaterialCeiling * ordinalPriceUnitMaterialCeiling;
     }
+
+    public void CalculateСostCPUnitMaterialCeiling() {
+        if (priceCPKeyMaterialCeiling > 0)
+            costCPUnitMaterialCeiling = priceCPKeyMaterialCeiling / quantityMaterialCeiling;
+        else costCPUnitMaterialCeiling = priceCPUnitMaterialCeiling;
+    }
+
+    public void CalculateCostCPMaterialCeiling() {
+        if (priceCPKeyMaterialCeiling > 0)
+            costCPMaterialCeiling = priceCPKeyMaterialCeiling;
+        else costCPMaterialCeiling = priceCPUnitMaterialCeiling * quantityMaterialCeiling;
+    }
+
+    public void CalculateActualDifferenceMaterialCeiling() {
+        actualDifferenceMaterialCeiling = costCPMaterialCeiling - actualCostMaterialCeiling;
+    }
+
+    public void CalculateResidueMaterialCeiling() {
+        residueMaterialCeiling = actualCostMaterialCeiling - paidMaterialCeiling;
+    }
+
 
     public String getNameMaterialCeiling() {
-        return nameMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty nameMaterialCeilingProperty() {
         return nameMaterialCeiling;
     }
 
     public void setNameMaterialCeiling(String nameMaterialCeiling) {
-        this.nameMaterialCeiling = new SimpleStringProperty(nameMaterialCeiling);
+        this.nameMaterialCeiling = nameMaterialCeiling;
     }
 
     public String getUnitMaterialCeiling() {
-        return unitMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty unitMaterialCeilingProperty() {
         return unitMaterialCeiling;
     }
 
     public void setUnitMaterialCeiling(String unitMaterialCeiling) {
-        this.unitMaterialCeiling = new SimpleStringProperty(unitMaterialCeiling);
+        this.unitMaterialCeiling = unitMaterialCeiling;
     }
 
+    //Чекбоксы
+    public boolean getActivePMaterialCeiling() {
+        return activePMaterialCeiling;
+    }
+
+    public void setActivePMaterialCeiling(boolean activePMaterialCeiling) {
+        this.activePMaterialCeiling = activePMaterialCeiling;
+    }
+
+    public void setActivePMaterialCeiling(String activePMaterialCeiling) {
+        this.activePMaterialCeiling = Boolean.parseBoolean(activePMaterialCeiling);
+    }
+
+    public boolean getActiveCMaterialCeiling() {
+        return activeCMaterialCeiling;
+    }
+
+    public void setActiveCMaterialCeiling(boolean activeCMaterialCeiling) {
+        this.activeCMaterialCeiling = activeCMaterialCeiling;
+    }
+
+    public void setActiveCMaterialCeiling(String activeCMaterialCeiling) {
+        this.activeCMaterialCeiling = Boolean.parseBoolean(activeCMaterialCeiling);
+    }
+
+    //Обана
     public String getQuantityMaterialCeiling() {
-        return quantityMaterialCeiling.get();
+        return Double.toString(quantityMaterialCeiling);
     }
 
-    public SimpleStringProperty quantityMaterialCeilingProperty() {
-        return quantityMaterialCeiling;
+    public void setQuantityMaterialWall(double quantityMaterialCeiling) {
+        this.quantityMaterialCeiling = quantityMaterialCeiling;
     }
 
     public void setQuantityMaterialCeiling(String quantityMaterialCeiling) {
-        this.quantityMaterialCeiling = new SimpleStringProperty(quantityMaterialCeiling);
+        this.quantityMaterialCeiling = Double.parseDouble(quantityMaterialCeiling);
+        CalculatePriceOrderMaterialCeiling();
+        CalculateCostCPMaterialCeiling();
     }
 
+    //Хуяк
     public String getOrdinalPriceUnitMaterialCeiling() {
-        return ordinalPriceUnitMaterialCeiling.get();
+        return Double.toString(ordinalPriceUnitMaterialCeiling);
     }
 
-    public SimpleStringProperty ordinalPriceUnitMaterialCeilingProperty() {
-        return ordinalPriceUnitMaterialCeiling;
+    public void setOrdinalPriceUnitMaterialCeiling(double ordinalPriceUnitMaterialCeiling) {
+        this.ordinalPriceUnitMaterialCeiling = ordinalPriceUnitMaterialCeiling;
     }
 
     public void setOrdinalPriceUnitMaterialCeiling(String ordinalPriceUnitMaterialCeiling) {
-        this.ordinalPriceUnitMaterialCeiling = new SimpleStringProperty(ordinalPriceUnitMaterialCeiling);
+        this.ordinalPriceUnitMaterialCeiling = Double.parseDouble(ordinalPriceUnitMaterialCeiling);
+        CalculatePriceOrderMaterialCeiling();
     }
 
     public String getPriceCPUnitMaterialCeiling() {
-        return priceCPUnitMaterialCeiling.get();
+        return Double.toString(priceCPUnitMaterialCeiling);
     }
 
-    public SimpleStringProperty priceCPUnitMaterialCeilingProperty() {
-        return priceCPUnitMaterialCeiling;
+    public void setPriceCPUnitMaterialCeiling(double priceCPUnitMaterialCeiling) {
+        this.priceCPUnitMaterialCeiling = priceCPUnitMaterialCeiling;
     }
 
     public void setPriceCPUnitMaterialCeiling(String priceCPUnitMaterialCeiling) {
-        this.priceCPUnitMaterialCeiling = new SimpleStringProperty(priceCPUnitMaterialCeiling);
+        this.priceCPUnitMaterialCeiling = Double.parseDouble(priceCPUnitMaterialCeiling);
+        CalculateСostCPUnitMaterialCeiling();
+        CalculateCostCPMaterialCeiling();
     }
 
     public String getPriceCPKeyMaterialCeiling() {
-        return priceCPKeyMaterialCeiling.get();
+        return Double.toString(priceCPKeyMaterialCeiling);
     }
 
-    public SimpleStringProperty priceCPKeyMaterialCeilingProperty() {
-        return priceCPKeyMaterialCeiling;
+    public void setPriceCPKeyMaterialCeiling(double priceCPKeyMaterialCeiling) {
+        this.priceCPKeyMaterialCeiling = priceCPKeyMaterialCeiling;
     }
 
     public void setPriceCPKeyMaterialCeiling(String priceCPKeyMaterialCeiling) {
-        this.priceCPKeyMaterialCeiling = new SimpleStringProperty(priceCPKeyMaterialCeiling);
+        this.priceCPKeyMaterialCeiling = Double.parseDouble(priceCPKeyMaterialCeiling);
+        CalculateСostCPUnitMaterialCeiling();
+        CalculateCostCPMaterialCeiling();
     }
 
     public String getCostCPUnitMaterialCeiling() {
-        return costCPUnitMaterialCeiling.get();
+        return Double.toString(costCPUnitMaterialCeiling);
     }
 
-    public SimpleStringProperty costCPUnitMaterialCeilingProperty() {
-        return costCPUnitMaterialCeiling;
+    public void setCostCPUnitMaterialCeiling(double costCPUnitMaterialCeiling) {
+        this.costCPUnitMaterialCeiling = costCPUnitMaterialCeiling;
     }
 
     public void setCostCPUnitMaterialCeiling(String costCPUnitMaterialCeiling) {
-        this.costCPUnitMaterialCeiling = new SimpleStringProperty(costCPUnitMaterialCeiling);
+        this.costCPUnitMaterialCeiling = Double.parseDouble(costCPUnitMaterialCeiling);
     }
 
+    //Понеслось
     public String getPriceOrderMaterialCeiling() {
-        return priceOrderMaterialCeiling.get();
+        return Double.toString(priceOrderMaterialCeiling);
     }
 
-    public SimpleStringProperty priceOrderMaterialCeilingProperty() {
-        return priceOrderMaterialCeiling;
+    public void setPriceOrderMaterialCeiling(double priceOrderMaterialCeiling) {
+        this.priceOrderMaterialCeiling = priceOrderMaterialCeiling;
     }
 
     public void setPriceOrderMaterialCeiling(String priceOrderMaterialCeiling) {
-        this.priceOrderMaterialCeiling = new SimpleStringProperty(priceOrderMaterialCeiling);
+        this.priceOrderMaterialCeiling = Double.parseDouble(priceOrderMaterialCeiling);
     }
 
     public String getCostCPMaterialCeiling() {
-        return costCPMaterialCeiling.get();
+        return Double.toString(costCPMaterialCeiling);
     }
 
-    public SimpleStringProperty costCPMaterialCeilingProperty() {
-        return costCPMaterialCeiling;
+    public void setCostCPMaterialCeiling(double costCPMaterialCeiling) {
+        this.costCPMaterialCeiling = costCPMaterialCeiling;
     }
 
     public void setCostCPMaterialCeiling(String costCPMaterialCeiling) {
-        this.costCPMaterialCeiling = new SimpleStringProperty(costCPMaterialCeiling);
+        this.costCPMaterialCeiling = Double.parseDouble(costCPMaterialCeiling);
+        CalculateActualDifferenceMaterialCeiling();
     }
 
     public String getProductionTimeMaterialCeiling() {
-        return productionTimeMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty productionTimeMaterialCeilingProperty() {
         return productionTimeMaterialCeiling;
     }
 
     public void setProductionTimeMaterialCeiling(String productionTimeMaterialCeiling) {
-        this.productionTimeMaterialCeiling = new SimpleStringProperty(productionTimeMaterialCeiling);
+        this.productionTimeMaterialCeiling = productionTimeMaterialCeiling;
     }
 
     public String getActualCostMaterialCeiling() {
-        return actualCostMaterialCeiling.get();
+        return Double.toString(actualCostMaterialCeiling);
     }
 
-    public SimpleStringProperty actualCostMaterialCeilingProperty() {
-        return actualCostMaterialCeiling;
+    public void setActualCostMaterialCeiling(double actualCostMaterialCeiling) {
+        this.actualCostMaterialCeiling = actualCostMaterialCeiling;
     }
 
     public void setActualCostMaterialCeiling(String actualCostMaterialCeiling) {
-        this.actualCostMaterialCeiling = new SimpleStringProperty(actualCostMaterialCeiling);
+        this.actualCostMaterialCeiling = Double.parseDouble(actualCostMaterialCeiling);
+        CalculateActualDifferenceMaterialCeiling();
+        CalculateResidueMaterialCeiling();
+
     }
 
     public String getActualDifferenceMaterialCeiling() {
-        return actualDifferenceMaterialCeiling.get();
+        return Double.toString(actualDifferenceMaterialCeiling);
     }
 
-    public SimpleStringProperty actualDifferenceMaterialCeilingProperty() {
-        return actualDifferenceMaterialCeiling;
+    public void setActualDifferenceMaterialCeiling(double actualDifferenceMaterialCeiling) {
+        this.actualDifferenceMaterialCeiling = actualDifferenceMaterialCeiling;
     }
 
     public void setActualDifferenceMaterialCeiling(String actualDifferenceMaterialCeiling) {
-        this.actualDifferenceMaterialCeiling = new SimpleStringProperty(actualDifferenceMaterialCeiling);
+        this.actualDifferenceMaterialCeiling = Double.parseDouble(actualDifferenceMaterialCeiling);
     }
 
     public String getPaidMaterialCeiling() {
-        return paidMaterialCeiling.get();
+        return Double.toString(paidMaterialCeiling);
     }
 
-    public SimpleStringProperty paidMaterialCeilingProperty() {
-        return paidMaterialCeiling;
+    public void setPaidMaterialCeiling(double paidMaterialCeiling) {
+        this.paidMaterialCeiling = paidMaterialCeiling;
     }
 
     public void setPaidMaterialCeiling(String paidMaterialCeiling) {
-        this.paidMaterialCeiling = new SimpleStringProperty(paidMaterialCeiling);
+        this.paidMaterialCeiling = Double.parseDouble(paidMaterialCeiling);
+        CalculateResidueMaterialCeiling();
     }
 
     public String getResidueMaterialCeiling() {
-        return residueMaterialCeiling.get();
+        return Double.toString(residueMaterialCeiling);
     }
 
-    public SimpleStringProperty residueMaterialCeilingProperty() {
-        return residueMaterialCeiling;
+    public void setResidueMaterialCeiling(double residueMaterialCeiling) {
+        this.residueMaterialCeiling = residueMaterialCeiling;
     }
 
     public void setResidueMaterialCeiling(String residueMaterialCeiling) {
-        this.residueMaterialCeiling = new SimpleStringProperty(residueMaterialCeiling);
+        this.residueMaterialCeiling = Double.parseDouble(residueMaterialCeiling);
     }
 
     public String getDateOfDeliveryMaterialCeiling() {
-        return dateOfDeliveryMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty dateOfDeliveryMaterialCeilingProperty() {
         return dateOfDeliveryMaterialCeiling;
     }
 
     public void setDateOfDeliveryMaterialCeiling(String dateOfDeliveryMaterialCeiling) {
-        this.dateOfDeliveryMaterialCeiling = new SimpleStringProperty(dateOfDeliveryMaterialCeiling);
+        this.dateOfDeliveryMaterialCeiling = dateOfDeliveryMaterialCeiling;
     }
 
     public String getPlannedCPMaterialCeiling() {
-        return plannedCPMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty plannedCPMaterialCeilingProperty() {
         return plannedCPMaterialCeiling;
     }
 
     public void setPlannedCPMaterialCeiling(String plannedCPMaterialCeiling) {
-        this.plannedCPMaterialCeiling = new SimpleStringProperty(plannedCPMaterialCeiling);
+        this.plannedCPMaterialCeiling = plannedCPMaterialCeiling;
     }
 
     public String getActualCPMaterialCeiling() {
-        return actualCPMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty actualCPMaterialCeilingProperty() {
         return actualCPMaterialCeiling;
     }
 
     public void setActualCPMaterialCeiling(String actualCPMaterialCeiling) {
-        this.actualCPMaterialCeiling = new SimpleStringProperty(actualCPMaterialCeiling);
+        this.actualCPMaterialCeiling = actualCPMaterialCeiling;
     }
 
     public String getAccountMaterialCeiling() {
-        return accountMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty accountMaterialCeilingProperty() {
         return accountMaterialCeiling;
     }
 
     public void setAccountMaterialCeiling(String accountMaterialCeiling) {
-        this.accountMaterialCeiling = new SimpleStringProperty(accountMaterialCeiling);
+        this.accountMaterialCeiling = accountMaterialCeiling;
     }
 
     public String getContactsMaterialCeiling() {
-        return contactsMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty contactsMaterialCeilingProperty() {
         return contactsMaterialCeiling;
     }
 
     public void setContactsMaterialCeiling(String contactsMaterialCeiling) {
-        this.contactsMaterialCeiling = new SimpleStringProperty(contactsMaterialCeiling);
+        this.contactsMaterialCeiling = contactsMaterialCeiling;
     }
 
     public String getNotesMaterialCeiling() {
-        return notesMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty notesMaterialCeilingProperty() {
         return notesMaterialCeiling;
     }
 
     public void setNotesMaterialCeiling(String notesMaterialCeiling) {
-        this.notesMaterialCeiling = new SimpleStringProperty(notesMaterialCeiling);
+        this.notesMaterialCeiling = notesMaterialCeiling;
     }
 
     public String getCharacteristicsMaterialCeiling() {
-        return characteristicsMaterialCeiling.get();
-    }
-
-    public SimpleStringProperty characteristicsMaterialCeilingProperty() {
         return characteristicsMaterialCeiling;
     }
 
     public void setCharacteristicsMaterialCeiling(String characteristicsMaterialCeiling) {
-        this.characteristicsMaterialCeiling = new SimpleStringProperty(characteristicsMaterialCeiling);
+        this.characteristicsMaterialCeiling = characteristicsMaterialCeiling;
     }
 }

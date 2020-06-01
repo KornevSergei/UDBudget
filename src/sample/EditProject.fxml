@@ -200,7 +200,6 @@
                                                   </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children></AnchorPane>
                                       </content>
                                     </ScrollPane>
@@ -243,7 +242,6 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -259,11 +257,11 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewCeiling" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="materialTableViewCeiling" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialCeiling" >
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialCeiling" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePMaterialCeiling" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCMaterialCeiling" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitMaterialCeiling" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialCeiling" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialCeiling" prefWidth="125.0" text="Цена порядковая за ед." />
@@ -287,7 +285,6 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -331,7 +328,6 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -375,7 +371,6 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -538,7 +533,6 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -582,7 +576,6 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -626,7 +619,6 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -670,7 +662,6 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                                                <Button layoutX="170.0" layoutY="2.0" mnemonicParsing="false" text="Сохранить" />
                                              </children>
                                           </AnchorPane>
                                        </content>
