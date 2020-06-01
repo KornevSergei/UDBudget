@@ -3,309 +3,336 @@ package sample;
 import javafx.beans.property.SimpleStringProperty;
 
 public class AppliancesKitchen {
-    protected SimpleStringProperty nameAppliancesKitchen;
-    protected SimpleStringProperty unitAppliancesKitchen;
-    protected SimpleStringProperty quantityAppliancesKitchen;
-    protected SimpleStringProperty ordinalPriceUnitAppliancesKitchen;
-    protected SimpleStringProperty priceCPUnitAppliancesKitchen;
-    protected SimpleStringProperty priceCPKeyAppliancesKitchen;
-    protected SimpleStringProperty costCPUnitAppliancesKitchen;
-    protected SimpleStringProperty priceOrderAppliancesKitchen;
-    protected SimpleStringProperty costCPAppliancesKitchen;
-    protected SimpleStringProperty productionTimeAppliancesKitchen;
-    protected SimpleStringProperty actualCostAppliancesKitchen;
-    protected SimpleStringProperty actualDifferenceAppliancesKitchen;
-    protected SimpleStringProperty paidAppliancesKitchen;
-    protected SimpleStringProperty residueAppliancesKitchen;
-    protected SimpleStringProperty dateOfDeliveryAppliancesKitchen;
-    protected SimpleStringProperty plannedCPAppliancesKitchen;
-    protected SimpleStringProperty actualCPAppliancesKitchen;
-    protected SimpleStringProperty accountAppliancesKitchen;
-    protected SimpleStringProperty contactsAppliancesKitchen;
-    protected SimpleStringProperty notesAppliancesKitchen;
-    protected SimpleStringProperty characteristicsAppliancesKitchen;
+    protected String nameAppliancesKitchen;//Наименование
+    protected boolean activePAppliancesKitchen;//П
+    protected boolean activeCAppliancesKitchen;//С
+    protected String unitAppliancesKitchen;//Ед. изм.
+    protected double quantityAppliancesKitchen;//Количество
+    protected double ordinalPriceUnitAppliancesKitchen;//Цена порядковая за ед.
+    protected double priceCPUnitAppliancesKitchen;//Цена по КП за ед.
+    protected double priceCPKeyAppliancesKitchen;//Цена по КП под ключ
+    protected double costCPUnitAppliancesKitchen;//Стоимость по КП за ед.
+    protected double priceOrderAppliancesKitchen;//Порядок цен
+    protected double costCPAppliancesKitchen;//Стоимость по КП
+    protected String productionTimeAppliancesKitchen;//Срок доставки
+    protected double actualCostAppliancesKitchen;//Стоимость фактическая
+    protected double actualDifferenceAppliancesKitchen;//Разница фактическая
+    protected double paidAppliancesKitchen;//Оплачено
+    protected double residueAppliancesKitchen;//Остаток
+    protected String dateOfKitchenAppliancesKitchen;//Дата поставки
+    protected String plannedCPAppliancesKitchen;
+    protected String actualCPAppliancesKitchen;
+    protected String accountAppliancesKitchen;
+    protected String contactsAppliancesKitchen;
+    protected String notesAppliancesKitchen;
+    protected String characteristicsAppliancesKitchen;
 
-    public AppliancesKitchen() {
+
+    public AppliancesKitchen(String nameAppliancesKitchen, boolean activePAppliancesKitchen, boolean activeCAppliancesKitchen, String unitAppliancesKitchen, double quantityAppliancesKitchen,
+                             double ordinalPriceUnitAppliancesKitchen, double priceCPUnitAppliancesKitchen, double priceCPKeyAppliancesKitchen, double costCPUnitAppliancesKitchen,
+                             double priceOrderAppliancesKitchen, double costCPAppliancesKitchen, String productionTimeAppliancesKitchen, double actualCostAppliancesKitchen,
+                             double actualDifferenceAppliancesKitchen, double paidAppliancesKitchen, double residueAppliancesKitchen, String dateOfKitchenAppliancesKitchen,
+                             String plannedCPAppliancesKitchen, String actualCPAppliancesKitchen, String accountAppliancesKitchen, String contactsAppliancesKitchen, String notesAppliancesKitchen,
+                             String characteristicsAppliancesKitchen) {
+        this.nameAppliancesKitchen = nameAppliancesKitchen;
+        this.unitAppliancesKitchen = unitAppliancesKitchen;
+        this.activePAppliancesKitchen = activePAppliancesKitchen;
+        this.activeCAppliancesKitchen = activeCAppliancesKitchen;
+        this.quantityAppliancesKitchen = quantityAppliancesKitchen;
+        this.ordinalPriceUnitAppliancesKitchen = ordinalPriceUnitAppliancesKitchen;
+        this.priceCPUnitAppliancesKitchen = priceCPUnitAppliancesKitchen;
+        this.priceCPKeyAppliancesKitchen = priceCPKeyAppliancesKitchen;
+        this.costCPUnitAppliancesKitchen = costCPUnitAppliancesKitchen;
+        this.priceOrderAppliancesKitchen = priceOrderAppliancesKitchen;
+        this.costCPAppliancesKitchen = costCPAppliancesKitchen;
+        this.productionTimeAppliancesKitchen = productionTimeAppliancesKitchen;
+        this.actualCostAppliancesKitchen = actualCostAppliancesKitchen;
+        this.actualDifferenceAppliancesKitchen = actualDifferenceAppliancesKitchen;
+        this.paidAppliancesKitchen = paidAppliancesKitchen;
+        this.residueAppliancesKitchen = residueAppliancesKitchen;
+        this.dateOfKitchenAppliancesKitchen = dateOfKitchenAppliancesKitchen;
+        this.plannedCPAppliancesKitchen = plannedCPAppliancesKitchen;
+        this.actualCPAppliancesKitchen = actualCPAppliancesKitchen;
+        this.accountAppliancesKitchen = accountAppliancesKitchen;
+        this.contactsAppliancesKitchen = contactsAppliancesKitchen;
+        this.notesAppliancesKitchen = notesAppliancesKitchen;
+        this.characteristicsAppliancesKitchen = characteristicsAppliancesKitchen;
     }
 
-    public AppliancesKitchen(String nameAppliancesKitchen, String unitAppliancesKitchen, String quantityAppliancesKitchen, String ordinalPriceUnitAppliancesKitchen,
-                         String priceCPUnitAppliancesKitchen, String priceCPKeyAppliancesKitchen, String costCPUnitAppliancesKitchen, String priceOrderAppliancesKitchen,
-                         String costCPAppliancesKitchen, String productionTimeAppliancesKitchen, String actualCostAppliancesKitchen,
-                         String actualDifferenceAppliancesKitchen, String paidAppliancesKitchen, String residueAppliancesKitchen, String dateOfDeliveryAppliancesKitchen,
-                         String plannedCPAppliancesKitchen, String actualCPAppliancesKitchen, String accountAppliancesKitchen, String contactsAppliancesKitchen,
-                         String notesAppliancesKitchen, String characteristicsAppliancesKitchen) {
-        this.nameAppliancesKitchen = new SimpleStringProperty(nameAppliancesKitchen);
-        this.unitAppliancesKitchen = new SimpleStringProperty(unitAppliancesKitchen);
-        this.quantityAppliancesKitchen = new SimpleStringProperty(quantityAppliancesKitchen);
-        this.ordinalPriceUnitAppliancesKitchen = new SimpleStringProperty(ordinalPriceUnitAppliancesKitchen);
-        this.priceCPUnitAppliancesKitchen = new SimpleStringProperty(priceCPUnitAppliancesKitchen);
-        this.priceCPKeyAppliancesKitchen = new SimpleStringProperty(priceCPKeyAppliancesKitchen);
-        this.costCPUnitAppliancesKitchen = new SimpleStringProperty(costCPUnitAppliancesKitchen);
-        this.priceOrderAppliancesKitchen = new SimpleStringProperty(priceOrderAppliancesKitchen);
-        this.costCPAppliancesKitchen = new SimpleStringProperty(costCPAppliancesKitchen);
-        this.productionTimeAppliancesKitchen = new SimpleStringProperty(productionTimeAppliancesKitchen);
-        this.actualCostAppliancesKitchen = new SimpleStringProperty(actualCostAppliancesKitchen);
-        this.actualDifferenceAppliancesKitchen = new SimpleStringProperty(actualDifferenceAppliancesKitchen);
-        this.paidAppliancesKitchen = new SimpleStringProperty(paidAppliancesKitchen);
-        this.residueAppliancesKitchen = new SimpleStringProperty(residueAppliancesKitchen);
-        this.dateOfDeliveryAppliancesKitchen = new SimpleStringProperty(dateOfDeliveryAppliancesKitchen);
-        this.plannedCPAppliancesKitchen = new SimpleStringProperty(plannedCPAppliancesKitchen);
-        this.actualCPAppliancesKitchen = new SimpleStringProperty(actualCPAppliancesKitchen);
-        this.accountAppliancesKitchen = new SimpleStringProperty(accountAppliancesKitchen);
-        this.contactsAppliancesKitchen = new SimpleStringProperty(contactsAppliancesKitchen);
-        this.notesAppliancesKitchen = new SimpleStringProperty(notesAppliancesKitchen);
-        this.characteristicsAppliancesKitchen = new SimpleStringProperty(characteristicsAppliancesKitchen);
+    public void CalculatePriceOrderAppliancesKitchen() {
+        priceOrderAppliancesKitchen = quantityAppliancesKitchen * ordinalPriceUnitAppliancesKitchen;
     }
+
+    public void CalculateСostCPUnitAppliancesKitchen() {
+        if (priceCPKeyAppliancesKitchen > 0)
+            costCPUnitAppliancesKitchen = priceCPKeyAppliancesKitchen / quantityAppliancesKitchen;
+        else costCPUnitAppliancesKitchen = priceCPUnitAppliancesKitchen;
+    }
+
+    public void CalculateCostCPAppliancesKitchen() {
+        if (priceCPKeyAppliancesKitchen > 0)
+            costCPAppliancesKitchen = priceCPKeyAppliancesKitchen;
+        else costCPAppliancesKitchen = priceCPUnitAppliancesKitchen * quantityAppliancesKitchen;
+    }
+
+    public void CalculateActualDifferenceAppliancesKitchen() {
+        actualDifferenceAppliancesKitchen = costCPAppliancesKitchen - actualCostAppliancesKitchen;
+    }
+
+    public void CalculateResidueAppliancesKitchen() {
+        residueAppliancesKitchen = actualCostAppliancesKitchen - paidAppliancesKitchen;
+    }
+
 
     public String getNameAppliancesKitchen() {
-        return nameAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty nameAppliancesKitchenProperty() {
         return nameAppliancesKitchen;
     }
 
-    public void setNameMaterialOther(String nameAppliancesKitchen) {
-        this.nameAppliancesKitchen = new SimpleStringProperty(nameAppliancesKitchen);
+    public void setNameAppliancesKitchen(String nameAppliancesKitchen) {
+        this.nameAppliancesKitchen = nameAppliancesKitchen;
     }
 
     public String getUnitAppliancesKitchen() {
-        return unitAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty unitAppliancesKitchenProperty() {
         return unitAppliancesKitchen;
     }
 
     public void setUnitAppliancesKitchen(String unitAppliancesKitchen) {
-        this.unitAppliancesKitchen = new SimpleStringProperty(unitAppliancesKitchen);
+        this.unitAppliancesKitchen = unitAppliancesKitchen;
     }
 
+    //Чекбоксы
+    public boolean getActivePAppliancesKitchen() {
+        return activePAppliancesKitchen;
+    }
+
+    public void setActivePAppliancesKitchen(boolean activePAppliancesKitchen) {
+        this.activePAppliancesKitchen = activePAppliancesKitchen;
+    }
+
+    public void setActivePAppliancesKitchen(String activePAppliancesKitchen) {
+        this.activePAppliancesKitchen = Boolean.parseBoolean(activePAppliancesKitchen);
+    }
+
+    public boolean getActiveCAppliancesKitchen() {
+        return activeCAppliancesKitchen;
+    }
+
+    public void setActiveCAppliancesKitchen(boolean activeCAppliancesKitchen) {
+        this.activeCAppliancesKitchen = activeCAppliancesKitchen;
+    }
+
+    public void setActiveCAppliancesKitchen(String activeCAppliancesKitchen) {
+        this.activeCAppliancesKitchen = Boolean.parseBoolean(activeCAppliancesKitchen);
+    }
+
+    //Обана
     public String getQuantityAppliancesKitchen() {
-        return quantityAppliancesKitchen.get();
+        return Double.toString(quantityAppliancesKitchen);
     }
 
-    public SimpleStringProperty quantityAppliancesKitchenProperty() {
-        return quantityAppliancesKitchen;
+    public void setQuantityAppliancesKitchen(double quantityAppliancesKitchen) {
+        this.quantityAppliancesKitchen = quantityAppliancesKitchen;
     }
 
     public void setQuantityAppliancesKitchen(String quantityAppliancesKitchen) {
-        this.quantityAppliancesKitchen = new SimpleStringProperty(quantityAppliancesKitchen);
+        this.quantityAppliancesKitchen = Double.parseDouble(quantityAppliancesKitchen);
+        CalculatePriceOrderAppliancesKitchen();
+        CalculateCostCPAppliancesKitchen();
     }
 
+    //Хуяк
     public String getOrdinalPriceUnitAppliancesKitchen() {
-        return ordinalPriceUnitAppliancesKitchen.get();
+        return Double.toString(ordinalPriceUnitAppliancesKitchen);
     }
 
-    public SimpleStringProperty ordinalPriceUnitAppliancesKitchenProperty() {
-        return ordinalPriceUnitAppliancesKitchen;
+    public void setOrdinalPriceUnitAppliancesKitchen(double ordinalPriceUnitAppliancesKitchen) {
+        this.ordinalPriceUnitAppliancesKitchen = ordinalPriceUnitAppliancesKitchen;
     }
 
     public void setOrdinalPriceUnitAppliancesKitchen(String ordinalPriceUnitAppliancesKitchen) {
-        this.ordinalPriceUnitAppliancesKitchen = new SimpleStringProperty(ordinalPriceUnitAppliancesKitchen);
+        this.ordinalPriceUnitAppliancesKitchen = Double.parseDouble(ordinalPriceUnitAppliancesKitchen);
+        CalculatePriceOrderAppliancesKitchen();
     }
 
     public String getPriceCPUnitAppliancesKitchen() {
-        return priceCPUnitAppliancesKitchen.get();
+        return Double.toString(priceCPUnitAppliancesKitchen);
     }
 
-    public SimpleStringProperty priceCPUnitAppliancesKitchenProperty() {
-        return priceCPUnitAppliancesKitchen;
+    public void setPriceCPUnitAppliancesKitchen(double priceCPUnitAppliancesKitchen) {
+        this.priceCPUnitAppliancesKitchen = priceCPUnitAppliancesKitchen;
     }
 
     public void setPriceCPUnitAppliancesKitchen(String priceCPUnitAppliancesKitchen) {
-        this.priceCPUnitAppliancesKitchen = new SimpleStringProperty(priceCPUnitAppliancesKitchen);
+        this.priceCPUnitAppliancesKitchen = Double.parseDouble(priceCPUnitAppliancesKitchen);
+        CalculateСostCPUnitAppliancesKitchen();
+        CalculateCostCPAppliancesKitchen();
     }
 
     public String getPriceCPKeyAppliancesKitchen() {
-        return priceCPKeyAppliancesKitchen.get();
+        return Double.toString(priceCPKeyAppliancesKitchen);
     }
 
-    public SimpleStringProperty priceCPKeyAppliancesKitchenProperty() {
-        return priceCPKeyAppliancesKitchen;
+    public void setPriceCPKeyAppliancesKitchen(double priceCPKeyAppliancesKitchen) {
+        this.priceCPKeyAppliancesKitchen = priceCPKeyAppliancesKitchen;
     }
 
     public void setPriceCPKeyAppliancesKitchen(String priceCPKeyAppliancesKitchen) {
-        this.priceCPKeyAppliancesKitchen = new SimpleStringProperty(priceCPKeyAppliancesKitchen);
+        this.priceCPKeyAppliancesKitchen = Double.parseDouble(priceCPKeyAppliancesKitchen);
+        CalculateСostCPUnitAppliancesKitchen();
+        CalculateCostCPAppliancesKitchen();
     }
 
     public String getCostCPUnitAppliancesKitchen() {
-        return costCPUnitAppliancesKitchen.get();
+        return Double.toString(costCPUnitAppliancesKitchen);
     }
 
-    public SimpleStringProperty costCPUnitAppliancesKitchenProperty() {
-        return costCPUnitAppliancesKitchen;
+    public void setCostCPUnitAppliancesKitchen(double costCPUnitAppliancesKitchen) {
+        this.costCPUnitAppliancesKitchen = costCPUnitAppliancesKitchen;
     }
 
     public void setCostCPUnitAppliancesKitchen(String costCPUnitAppliancesKitchen) {
-        this.costCPUnitAppliancesKitchen = new SimpleStringProperty(costCPUnitAppliancesKitchen);
+        this.costCPUnitAppliancesKitchen = Double.parseDouble(costCPUnitAppliancesKitchen);
     }
 
+    //Понеслось
     public String getPriceOrderAppliancesKitchen() {
-        return priceOrderAppliancesKitchen.get();
+        return Double.toString(priceOrderAppliancesKitchen);
     }
 
-    public SimpleStringProperty priceOrderAppliancesKitchenProperty() {
-        return priceOrderAppliancesKitchen;
+    public void setPriceOrderAppliancesKitchen(double priceOrderAppliancesKitchen) {
+        this.priceOrderAppliancesKitchen = priceOrderAppliancesKitchen;
     }
 
     public void setPriceOrderAppliancesKitchen(String priceOrderAppliancesKitchen) {
-        this.priceOrderAppliancesKitchen = new SimpleStringProperty(priceOrderAppliancesKitchen);
+        this.priceOrderAppliancesKitchen = Double.parseDouble(priceOrderAppliancesKitchen);
     }
 
     public String getCostCPAppliancesKitchen() {
-        return costCPAppliancesKitchen.get();
+        return Double.toString(costCPAppliancesKitchen);
     }
 
-    public SimpleStringProperty costCPAppliancesKitchenProperty() {
-        return costCPAppliancesKitchen;
+    public void setCostCPAppliancesKitchen(double costCPAppliancesKitchen) {
+        this.costCPAppliancesKitchen = costCPAppliancesKitchen;
     }
 
     public void setCostCPAppliancesKitchen(String costCPAppliancesKitchen) {
-        this.costCPAppliancesKitchen = new SimpleStringProperty(costCPAppliancesKitchen);
+        this.costCPAppliancesKitchen = Double.parseDouble(costCPAppliancesKitchen);
+        CalculateActualDifferenceAppliancesKitchen();
     }
 
     public String getProductionTimeAppliancesKitchen() {
-        return productionTimeAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty productionTimeAppliancesKitchenProperty() {
         return productionTimeAppliancesKitchen;
     }
 
     public void setProductionTimeAppliancesKitchen(String productionTimeAppliancesKitchen) {
-        this.productionTimeAppliancesKitchen = new SimpleStringProperty(productionTimeAppliancesKitchen);
+        this.productionTimeAppliancesKitchen = productionTimeAppliancesKitchen;
     }
 
     public String getActualCostAppliancesKitchen() {
-        return actualCostAppliancesKitchen.get();
+        return Double.toString(actualCostAppliancesKitchen);
     }
 
-    public SimpleStringProperty actualCostAppliancesKitchenProperty() {
-        return actualCostAppliancesKitchen;
+    public void setActualCostAppliancesKitchen(double actualCostAppliancesKitchen) {
+        this.actualCostAppliancesKitchen = actualCostAppliancesKitchen;
     }
 
     public void setActualCostAppliancesKitchen(String actualCostAppliancesKitchen) {
-        this.actualCostAppliancesKitchen = new SimpleStringProperty(actualCostAppliancesKitchen);
+        this.actualCostAppliancesKitchen = Double.parseDouble(actualCostAppliancesKitchen);
+        CalculateActualDifferenceAppliancesKitchen();
+        CalculateResidueAppliancesKitchen();
+
     }
 
     public String getActualDifferenceAppliancesKitchen() {
-        return actualDifferenceAppliancesKitchen.get();
+        return Double.toString(actualDifferenceAppliancesKitchen);
     }
 
-    public SimpleStringProperty actualDifferenceAppliancesKitchenProperty() {
-        return actualDifferenceAppliancesKitchen;
+    public void setActualDifferenceAppliancesKitchen(double actualDifferenceAppliancesKitchen) {
+        this.actualDifferenceAppliancesKitchen = actualDifferenceAppliancesKitchen;
     }
 
     public void setActualDifferenceAppliancesKitchen(String actualDifferenceAppliancesKitchen) {
-        this.actualDifferenceAppliancesKitchen = new SimpleStringProperty(actualDifferenceAppliancesKitchen);
+        this.actualDifferenceAppliancesKitchen = Double.parseDouble(actualDifferenceAppliancesKitchen);
     }
 
     public String getPaidAppliancesKitchen() {
-        return paidAppliancesKitchen.get();
+        return Double.toString(paidAppliancesKitchen);
     }
 
-    public SimpleStringProperty paidAppliancesKitchenProperty() {
-        return paidAppliancesKitchen;
+    public void setPaidAppliancesKitchen(double paidAppliancesKitchen) {
+        this.paidAppliancesKitchen = paidAppliancesKitchen;
     }
 
     public void setPaidAppliancesKitchen(String paidAppliancesKitchen) {
-        this.paidAppliancesKitchen = new SimpleStringProperty(paidAppliancesKitchen);
+        this.paidAppliancesKitchen = Double.parseDouble(paidAppliancesKitchen);
+        CalculateResidueAppliancesKitchen();
     }
 
     public String getResidueAppliancesKitchen() {
-        return residueAppliancesKitchen.get();
+        return Double.toString(residueAppliancesKitchen);
     }
 
-    public SimpleStringProperty residueAppliancesKitchenProperty() {
-        return residueAppliancesKitchen;
+    public void setResidueAppliancesKitchen(double residueAppliancesKitchen) {
+        this.residueAppliancesKitchen = residueAppliancesKitchen;
     }
 
     public void setResidueAppliancesKitchen(String residueAppliancesKitchen) {
-        this.residueAppliancesKitchen = new SimpleStringProperty(residueAppliancesKitchen);
+        this.residueAppliancesKitchen = Double.parseDouble(residueAppliancesKitchen);
     }
 
-    public String getDateOfDeliveryAppliancesKitchen() {
-        return dateOfDeliveryAppliancesKitchen.get();
+    public String getDateOfKitchenAppliancesKitchen() {
+        return dateOfKitchenAppliancesKitchen;
     }
 
-    public SimpleStringProperty dateOfDeliveryAppliancesKitchenProperty() {
-        return dateOfDeliveryAppliancesKitchen;
-    }
-
-    public void setDateOfDeliveryAppliancesKitchen(String dateOfDeliveryAppliancesKitchen) {
-        this.dateOfDeliveryAppliancesKitchen = new SimpleStringProperty(dateOfDeliveryAppliancesKitchen);
+    public void setDateOfKitchenAppliancesKitchen(String dateOfKitchenAppliancesKitchen) {
+        this.dateOfKitchenAppliancesKitchen = dateOfKitchenAppliancesKitchen;
     }
 
     public String getPlannedCPAppliancesKitchen() {
-        return plannedCPAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty plannedCPAppliancesKitchenProperty() {
         return plannedCPAppliancesKitchen;
     }
 
     public void setPlannedCPAppliancesKitchen(String plannedCPAppliancesKitchen) {
-        this.plannedCPAppliancesKitchen = new SimpleStringProperty(plannedCPAppliancesKitchen);
+        this.plannedCPAppliancesKitchen = plannedCPAppliancesKitchen;
     }
 
     public String getActualCPAppliancesKitchen() {
-        return actualCPAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty actualCPAppliancesKitchenProperty() {
         return actualCPAppliancesKitchen;
     }
 
     public void setActualCPAppliancesKitchen(String actualCPAppliancesKitchen) {
-        this.actualCPAppliancesKitchen = new SimpleStringProperty(actualCPAppliancesKitchen);
+        this.actualCPAppliancesKitchen = actualCPAppliancesKitchen;
     }
 
     public String getAccountAppliancesKitchen() {
-        return accountAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty accountAppliancesKitchenProperty() {
         return accountAppliancesKitchen;
     }
 
     public void setAccountAppliancesKitchen(String accountAppliancesKitchen) {
-        this.accountAppliancesKitchen = new SimpleStringProperty(accountAppliancesKitchen);
+        this.accountAppliancesKitchen = accountAppliancesKitchen;
     }
 
     public String getContactsAppliancesKitchen() {
-        return contactsAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty contactsAppliancesKitchenProperty() {
         return contactsAppliancesKitchen;
     }
 
     public void setContactsAppliancesKitchen(String contactsAppliancesKitchen) {
-        this.contactsAppliancesKitchen = new SimpleStringProperty(contactsAppliancesKitchen);
+        this.contactsAppliancesKitchen = contactsAppliancesKitchen;
     }
 
     public String getNotesAppliancesKitchen() {
-        return notesAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty notesAppliancesKitchenProperty() {
         return notesAppliancesKitchen;
     }
 
     public void setNotesAppliancesKitchen(String notesAppliancesKitchen) {
-        this.notesAppliancesKitchen = new SimpleStringProperty(notesAppliancesKitchen);
+        this.notesAppliancesKitchen = notesAppliancesKitchen;
     }
 
     public String getCharacteristicsAppliancesKitchen() {
-        return characteristicsAppliancesKitchen.get();
-    }
-
-    public SimpleStringProperty characteristicsAppliancesKitchenProperty() {
         return characteristicsAppliancesKitchen;
     }
 
     public void setCharacteristicsAppliancesKitchen(String characteristicsAppliancesKitchen) {
-        this.characteristicsAppliancesKitchen = new SimpleStringProperty(characteristicsAppliancesKitchen);
+        this.characteristicsAppliancesKitchen = characteristicsAppliancesKitchen;
     }
 }

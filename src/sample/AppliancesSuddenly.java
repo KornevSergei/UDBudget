@@ -1,311 +1,336 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class AppliancesSuddenly {
-    protected SimpleStringProperty nameAppliancesSuddenly;
-    protected SimpleStringProperty unitAppliancesSuddenly;
-    protected SimpleStringProperty quantityAppliancesSuddenly;
-    protected SimpleStringProperty ordinalPriceUnitAppliancesSuddenly;
-    protected SimpleStringProperty priceCPUnitAppliancesSuddenly;
-    protected SimpleStringProperty priceCPKeyAppliancesSuddenly;
-    protected SimpleStringProperty costCPUnitAppliancesSuddenly;
-    protected SimpleStringProperty priceOrderAppliancesSuddenly;
-    protected SimpleStringProperty costCPAppliancesSuddenly;
-    protected SimpleStringProperty productionTimeAppliancesSuddenly;
-    protected SimpleStringProperty actualCostAppliancesSuddenly;
-    protected SimpleStringProperty actualDifferenceAppliancesSuddenly;
-    protected SimpleStringProperty paidAppliancesSuddenly;
-    protected SimpleStringProperty residueAppliancesSuddenly;
-    protected SimpleStringProperty dateOfDeliveryAppliancesSuddenly;
-    protected SimpleStringProperty plannedCPAppliancesSuddenly;
-    protected SimpleStringProperty actualCPAppliancesSuddenly;
-    protected SimpleStringProperty accountAppliancesSuddenly;
-    protected SimpleStringProperty contactsAppliancesSuddenly;
-    protected SimpleStringProperty notesAppliancesSuddenly;
-    protected SimpleStringProperty characteristicsAppliancesSuddenly;
+    protected String nameAppliancesSuddenly;//Наименование
+    protected boolean activePAppliancesSuddenly;//П
+    protected boolean activeCAppliancesSuddenly;//С
+    protected String unitAppliancesSuddenly;//Ед. изм.
+    protected double quantityAppliancesSuddenly;//Количество
+    protected double ordinalPriceUnitAppliancesSuddenly;//Цена порядковая за ед.
+    protected double priceCPUnitAppliancesSuddenly;//Цена по КП за ед.
+    protected double priceCPKeyAppliancesSuddenly;//Цена по КП под ключ
+    protected double costCPUnitAppliancesSuddenly;//Стоимость по КП за ед.
+    protected double priceOrderAppliancesSuddenly;//Порядок цен
+    protected double costCPAppliancesSuddenly;//Стоимость по КП
+    protected String productionTimeAppliancesSuddenly;//Срок доставки
+    protected double actualCostAppliancesSuddenly;//Стоимость фактическая
+    protected double actualDifferenceAppliancesSuddenly;//Разница фактическая
+    protected double paidAppliancesSuddenly;//Оплачено
+    protected double residueAppliancesSuddenly;//Остаток
+    protected String dateOfSuddenlyAppliancesSuddenly;//Дата поставки
+    protected String plannedCPAppliancesSuddenly;
+    protected String actualCPAppliancesSuddenly;
+    protected String accountAppliancesSuddenly;
+    protected String contactsAppliancesSuddenly;
+    protected String notesAppliancesSuddenly;
+    protected String characteristicsAppliancesSuddenly;
 
-    public AppliancesSuddenly() {
+
+    public AppliancesSuddenly(String nameAppliancesSuddenly, boolean activePAppliancesSuddenly, boolean activeCAppliancesSuddenly, String unitAppliancesSuddenly, double quantityAppliancesSuddenly,
+                              double ordinalPriceUnitAppliancesSuddenly, double priceCPUnitAppliancesSuddenly, double priceCPKeyAppliancesSuddenly, double costCPUnitAppliancesSuddenly,
+                              double priceOrderAppliancesSuddenly, double costCPAppliancesSuddenly, String productionTimeAppliancesSuddenly, double actualCostAppliancesSuddenly,
+                              double actualDifferenceAppliancesSuddenly, double paidAppliancesSuddenly, double residueAppliancesSuddenly, String dateOfSuddenlyAppliancesSuddenly,
+                              String plannedCPAppliancesSuddenly, String actualCPAppliancesSuddenly, String accountAppliancesSuddenly, String contactsAppliancesSuddenly, String notesAppliancesSuddenly,
+                              String characteristicsAppliancesSuddenly) {
+        this.nameAppliancesSuddenly = nameAppliancesSuddenly;
+        this.unitAppliancesSuddenly = unitAppliancesSuddenly;
+        this.activePAppliancesSuddenly = activePAppliancesSuddenly;
+        this.activeCAppliancesSuddenly = activeCAppliancesSuddenly;
+        this.quantityAppliancesSuddenly = quantityAppliancesSuddenly;
+        this.ordinalPriceUnitAppliancesSuddenly = ordinalPriceUnitAppliancesSuddenly;
+        this.priceCPUnitAppliancesSuddenly = priceCPUnitAppliancesSuddenly;
+        this.priceCPKeyAppliancesSuddenly = priceCPKeyAppliancesSuddenly;
+        this.costCPUnitAppliancesSuddenly = costCPUnitAppliancesSuddenly;
+        this.priceOrderAppliancesSuddenly = priceOrderAppliancesSuddenly;
+        this.costCPAppliancesSuddenly = costCPAppliancesSuddenly;
+        this.productionTimeAppliancesSuddenly = productionTimeAppliancesSuddenly;
+        this.actualCostAppliancesSuddenly = actualCostAppliancesSuddenly;
+        this.actualDifferenceAppliancesSuddenly = actualDifferenceAppliancesSuddenly;
+        this.paidAppliancesSuddenly = paidAppliancesSuddenly;
+        this.residueAppliancesSuddenly = residueAppliancesSuddenly;
+        this.dateOfSuddenlyAppliancesSuddenly = dateOfSuddenlyAppliancesSuddenly;
+        this.plannedCPAppliancesSuddenly = plannedCPAppliancesSuddenly;
+        this.actualCPAppliancesSuddenly = actualCPAppliancesSuddenly;
+        this.accountAppliancesSuddenly = accountAppliancesSuddenly;
+        this.contactsAppliancesSuddenly = contactsAppliancesSuddenly;
+        this.notesAppliancesSuddenly = notesAppliancesSuddenly;
+        this.characteristicsAppliancesSuddenly = characteristicsAppliancesSuddenly;
     }
 
-    public AppliancesSuddenly(String nameAppliancesSuddenly, String unitAppliancesSuddenly, String quantityAppliancesSuddenly, String ordinalPriceUnitAppliancesSuddenly,
-                              String priceCPUnitAppliancesSuddenly, String priceCPKeyAppliancesSuddenly, String costCPUnitAppliancesSuddenly, String priceOrderAppliancesSuddenly,
-                              String costCPAppliancesSuddenly, String productionTimeAppliancesSuddenly, String actualCostAppliancesSuddenly,
-                              String actualDifferenceAppliancesSuddenly, String paidAppliancesSuddenly, String residueAppliancesSuddenly, String dateOfDeliveryAppliancesSuddenly,
-                              String plannedCPAppliancesSuddenly, String actualCPAppliancesSuddenly, String accountAppliancesSuddenly, String contactsAppliancesSuddenly,
-                              String notesAppliancesSuddenly, String characteristicsAppliancesSuddenly) {
-        this.nameAppliancesSuddenly = new SimpleStringProperty(nameAppliancesSuddenly);
-        this.unitAppliancesSuddenly = new SimpleStringProperty(unitAppliancesSuddenly);
-        this.quantityAppliancesSuddenly = new SimpleStringProperty(quantityAppliancesSuddenly);
-        this.ordinalPriceUnitAppliancesSuddenly = new SimpleStringProperty(ordinalPriceUnitAppliancesSuddenly);
-        this.priceCPUnitAppliancesSuddenly = new SimpleStringProperty(priceCPUnitAppliancesSuddenly);
-        this.priceCPKeyAppliancesSuddenly = new SimpleStringProperty(priceCPKeyAppliancesSuddenly);
-        this.costCPUnitAppliancesSuddenly = new SimpleStringProperty(costCPUnitAppliancesSuddenly);
-        this.priceOrderAppliancesSuddenly = new SimpleStringProperty(priceOrderAppliancesSuddenly);
-        this.costCPAppliancesSuddenly = new SimpleStringProperty(costCPAppliancesSuddenly);
-        this.productionTimeAppliancesSuddenly = new SimpleStringProperty(productionTimeAppliancesSuddenly);
-        this.actualCostAppliancesSuddenly = new SimpleStringProperty(actualCostAppliancesSuddenly);
-        this.actualDifferenceAppliancesSuddenly = new SimpleStringProperty(actualDifferenceAppliancesSuddenly);
-        this.paidAppliancesSuddenly = new SimpleStringProperty(paidAppliancesSuddenly);
-        this.residueAppliancesSuddenly = new SimpleStringProperty(residueAppliancesSuddenly);
-        this.dateOfDeliveryAppliancesSuddenly = new SimpleStringProperty(dateOfDeliveryAppliancesSuddenly);
-        this.plannedCPAppliancesSuddenly = new SimpleStringProperty(plannedCPAppliancesSuddenly);
-        this.actualCPAppliancesSuddenly = new SimpleStringProperty(actualCPAppliancesSuddenly);
-        this.accountAppliancesSuddenly = new SimpleStringProperty(accountAppliancesSuddenly);
-        this.contactsAppliancesSuddenly = new SimpleStringProperty(contactsAppliancesSuddenly);
-        this.notesAppliancesSuddenly = new SimpleStringProperty(notesAppliancesSuddenly);
-        this.characteristicsAppliancesSuddenly = new SimpleStringProperty(characteristicsAppliancesSuddenly);
+    public void CalculatePriceOrderAppliancesSuddenly() {
+        priceOrderAppliancesSuddenly = quantityAppliancesSuddenly * ordinalPriceUnitAppliancesSuddenly;
     }
+
+    public void CalculateСostCPUnitAppliancesSuddenly() {
+        if (priceCPKeyAppliancesSuddenly > 0)
+            costCPUnitAppliancesSuddenly = priceCPKeyAppliancesSuddenly / quantityAppliancesSuddenly;
+        else costCPUnitAppliancesSuddenly = priceCPUnitAppliancesSuddenly;
+    }
+
+    public void CalculateCostCPAppliancesSuddenly() {
+        if (priceCPKeyAppliancesSuddenly > 0)
+            costCPAppliancesSuddenly = priceCPKeyAppliancesSuddenly;
+        else costCPAppliancesSuddenly = priceCPUnitAppliancesSuddenly * quantityAppliancesSuddenly;
+    }
+
+    public void CalculateActualDifferenceAppliancesSuddenly() {
+        actualDifferenceAppliancesSuddenly = costCPAppliancesSuddenly - actualCostAppliancesSuddenly;
+    }
+
+    public void CalculateResidueAppliancesSuddenly() {
+        residueAppliancesSuddenly = actualCostAppliancesSuddenly - paidAppliancesSuddenly;
+    }
+
 
     public String getNameAppliancesSuddenly() {
-        return nameAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty nameAppliancesSuddenlyProperty() {
         return nameAppliancesSuddenly;
     }
 
-    public void setNameMaterialOther(String nameAppliancesKitchen) {
-        this.nameAppliancesSuddenly = new SimpleStringProperty(nameAppliancesKitchen);
+    public void setNameAppliancesSuddenly(String nameAppliancesSuddenly) {
+        this.nameAppliancesSuddenly = nameAppliancesSuddenly;
     }
 
     public String getUnitAppliancesSuddenly() {
-        return unitAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty unitAppliancesSuddenlyProperty() {
         return unitAppliancesSuddenly;
     }
 
     public void setUnitAppliancesSuddenly(String unitAppliancesSuddenly) {
-        this.unitAppliancesSuddenly = new SimpleStringProperty(unitAppliancesSuddenly);
+        this.unitAppliancesSuddenly = unitAppliancesSuddenly;
     }
 
+    //Чекбоксы
+    public boolean getActivePAppliancesSuddenly() {
+        return activePAppliancesSuddenly;
+    }
+
+    public void setActivePAppliancesSuddenly(boolean activePAppliancesSuddenly) {
+        this.activePAppliancesSuddenly = activePAppliancesSuddenly;
+    }
+
+    public void setActivePAppliancesSuddenly(String activePAppliancesSuddenly) {
+        this.activePAppliancesSuddenly = Boolean.parseBoolean(activePAppliancesSuddenly);
+    }
+
+    public boolean getActiveCAppliancesSuddenly() {
+        return activeCAppliancesSuddenly;
+    }
+
+    public void setActiveCAppliancesSuddenly(boolean activeCAppliancesSuddenly) {
+        this.activeCAppliancesSuddenly = activeCAppliancesSuddenly;
+    }
+
+    public void setActiveCAppliancesSuddenly(String activeCAppliancesSuddenly) {
+        this.activeCAppliancesSuddenly = Boolean.parseBoolean(activeCAppliancesSuddenly);
+    }
+
+    //Обана
     public String getQuantityAppliancesSuddenly() {
-        return quantityAppliancesSuddenly.get();
+        return Double.toString(quantityAppliancesSuddenly);
     }
 
-    public SimpleStringProperty quantityAppliancesSuddenlyProperty() {
-        return quantityAppliancesSuddenly;
+    public void setQuantityAppliancesSuddenly(double quantityAppliancesSuddenly) {
+        this.quantityAppliancesSuddenly = quantityAppliancesSuddenly;
     }
 
     public void setQuantityAppliancesSuddenly(String quantityAppliancesSuddenly) {
-        this.quantityAppliancesSuddenly = new SimpleStringProperty(quantityAppliancesSuddenly);
+        this.quantityAppliancesSuddenly = Double.parseDouble(quantityAppliancesSuddenly);
+        CalculatePriceOrderAppliancesSuddenly();
+        CalculateCostCPAppliancesSuddenly();
     }
 
+    //Хуяк
     public String getOrdinalPriceUnitAppliancesSuddenly() {
-        return ordinalPriceUnitAppliancesSuddenly.get();
+        return Double.toString(ordinalPriceUnitAppliancesSuddenly);
     }
 
-    public SimpleStringProperty ordinalPriceUnitAppliancesSuddenlyProperty() {
-        return ordinalPriceUnitAppliancesSuddenly;
+    public void setOrdinalPriceUnitAppliancesSuddenly(double ordinalPriceUnitAppliancesSuddenly) {
+        this.ordinalPriceUnitAppliancesSuddenly = ordinalPriceUnitAppliancesSuddenly;
     }
 
     public void setOrdinalPriceUnitAppliancesSuddenly(String ordinalPriceUnitAppliancesSuddenly) {
-        this.ordinalPriceUnitAppliancesSuddenly = new SimpleStringProperty(ordinalPriceUnitAppliancesSuddenly);
+        this.ordinalPriceUnitAppliancesSuddenly = Double.parseDouble(ordinalPriceUnitAppliancesSuddenly);
+        CalculatePriceOrderAppliancesSuddenly();
     }
 
     public String getPriceCPUnitAppliancesSuddenly() {
-        return priceCPUnitAppliancesSuddenly.get();
+        return Double.toString(priceCPUnitAppliancesSuddenly);
     }
 
-    public SimpleStringProperty priceCPUnitAppliancesSuddenlyProperty() {
-        return priceCPUnitAppliancesSuddenly;
+    public void setPriceCPUnitAppliancesSuddenly(double priceCPUnitAppliancesSuddenly) {
+        this.priceCPUnitAppliancesSuddenly = priceCPUnitAppliancesSuddenly;
     }
 
     public void setPriceCPUnitAppliancesSuddenly(String priceCPUnitAppliancesSuddenly) {
-        this.priceCPUnitAppliancesSuddenly = new SimpleStringProperty(priceCPUnitAppliancesSuddenly);
+        this.priceCPUnitAppliancesSuddenly = Double.parseDouble(priceCPUnitAppliancesSuddenly);
+        CalculateСostCPUnitAppliancesSuddenly();
+        CalculateCostCPAppliancesSuddenly();
     }
 
     public String getPriceCPKeyAppliancesSuddenly() {
-        return priceCPKeyAppliancesSuddenly.get();
+        return Double.toString(priceCPKeyAppliancesSuddenly);
     }
 
-    public SimpleStringProperty priceCPKeyAppliancesSuddenlyProperty() {
-        return priceCPKeyAppliancesSuddenly;
+    public void setPriceCPKeyAppliancesSuddenly(double priceCPKeyAppliancesSuddenly) {
+        this.priceCPKeyAppliancesSuddenly = priceCPKeyAppliancesSuddenly;
     }
 
     public void setPriceCPKeyAppliancesSuddenly(String priceCPKeyAppliancesSuddenly) {
-        this.priceCPKeyAppliancesSuddenly = new SimpleStringProperty(priceCPKeyAppliancesSuddenly);
+        this.priceCPKeyAppliancesSuddenly = Double.parseDouble(priceCPKeyAppliancesSuddenly);
+        CalculateСostCPUnitAppliancesSuddenly();
+        CalculateCostCPAppliancesSuddenly();
     }
 
     public String getCostCPUnitAppliancesSuddenly() {
-        return costCPUnitAppliancesSuddenly.get();
+        return Double.toString(costCPUnitAppliancesSuddenly);
     }
 
-    public SimpleStringProperty costCPUnitAppliancesSuddenlyProperty() {
-        return costCPUnitAppliancesSuddenly;
+    public void setCostCPUnitAppliancesSuddenly(double costCPUnitAppliancesSuddenly) {
+        this.costCPUnitAppliancesSuddenly = costCPUnitAppliancesSuddenly;
     }
 
     public void setCostCPUnitAppliancesSuddenly(String costCPUnitAppliancesSuddenly) {
-        this.costCPUnitAppliancesSuddenly = new SimpleStringProperty(costCPUnitAppliancesSuddenly);
+        this.costCPUnitAppliancesSuddenly = Double.parseDouble(costCPUnitAppliancesSuddenly);
     }
 
+    //Понеслось
     public String getPriceOrderAppliancesSuddenly() {
-        return priceOrderAppliancesSuddenly.get();
+        return Double.toString(priceOrderAppliancesSuddenly);
     }
 
-    public SimpleStringProperty priceOrderAppliancesSuddenlyProperty() {
-        return priceOrderAppliancesSuddenly;
+    public void setPriceOrderAppliancesSuddenly(double priceOrderAppliancesSuddenly) {
+        this.priceOrderAppliancesSuddenly = priceOrderAppliancesSuddenly;
     }
 
     public void setPriceOrderAppliancesSuddenly(String priceOrderAppliancesSuddenly) {
-        this.priceOrderAppliancesSuddenly = new SimpleStringProperty(priceOrderAppliancesSuddenly);
+        this.priceOrderAppliancesSuddenly = Double.parseDouble(priceOrderAppliancesSuddenly);
     }
 
     public String getCostCPAppliancesSuddenly() {
-        return costCPAppliancesSuddenly.get();
+        return Double.toString(costCPAppliancesSuddenly);
     }
 
-    public SimpleStringProperty costCPAppliancesSuddenlyProperty() {
-        return costCPAppliancesSuddenly;
+    public void setCostCPAppliancesSuddenly(double costCPAppliancesSuddenly) {
+        this.costCPAppliancesSuddenly = costCPAppliancesSuddenly;
     }
 
     public void setCostCPAppliancesSuddenly(String costCPAppliancesSuddenly) {
-        this.costCPAppliancesSuddenly = new SimpleStringProperty(costCPAppliancesSuddenly);
+        this.costCPAppliancesSuddenly = Double.parseDouble(costCPAppliancesSuddenly);
+        CalculateActualDifferenceAppliancesSuddenly();
     }
 
     public String getProductionTimeAppliancesSuddenly() {
-        return productionTimeAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty productionTimeAppliancesSuddenlyProperty() {
         return productionTimeAppliancesSuddenly;
     }
 
     public void setProductionTimeAppliancesSuddenly(String productionTimeAppliancesSuddenly) {
-        this.productionTimeAppliancesSuddenly = new SimpleStringProperty(productionTimeAppliancesSuddenly);
+        this.productionTimeAppliancesSuddenly = productionTimeAppliancesSuddenly;
     }
 
     public String getActualCostAppliancesSuddenly() {
-        return actualCostAppliancesSuddenly.get();
+        return Double.toString(actualCostAppliancesSuddenly);
     }
 
-    public SimpleStringProperty actualCostAppliancesSuddenlyProperty() {
-        return actualCostAppliancesSuddenly;
+    public void setActualCostAppliancesSuddenly(double actualCostAppliancesSuddenly) {
+        this.actualCostAppliancesSuddenly = actualCostAppliancesSuddenly;
     }
 
     public void setActualCostAppliancesSuddenly(String actualCostAppliancesSuddenly) {
-        this.actualCostAppliancesSuddenly = new SimpleStringProperty(actualCostAppliancesSuddenly);
+        this.actualCostAppliancesSuddenly = Double.parseDouble(actualCostAppliancesSuddenly);
+        CalculateActualDifferenceAppliancesSuddenly();
+        CalculateResidueAppliancesSuddenly();
+
     }
 
     public String getActualDifferenceAppliancesSuddenly() {
-        return actualDifferenceAppliancesSuddenly.get();
+        return Double.toString(actualDifferenceAppliancesSuddenly);
     }
 
-    public SimpleStringProperty actualDifferenceAppliancesSuddenlyProperty() {
-        return actualDifferenceAppliancesSuddenly;
+    public void setActualDifferenceAppliancesSuddenly(double actualDifferenceAppliancesSuddenly) {
+        this.actualDifferenceAppliancesSuddenly = actualDifferenceAppliancesSuddenly;
     }
 
     public void setActualDifferenceAppliancesSuddenly(String actualDifferenceAppliancesSuddenly) {
-        this.actualDifferenceAppliancesSuddenly = new SimpleStringProperty(actualDifferenceAppliancesSuddenly);
+        this.actualDifferenceAppliancesSuddenly = Double.parseDouble(actualDifferenceAppliancesSuddenly);
     }
 
     public String getPaidAppliancesSuddenly() {
-        return paidAppliancesSuddenly.get();
+        return Double.toString(paidAppliancesSuddenly);
     }
 
-    public SimpleStringProperty paidAppliancesSuddenlyProperty() {
-        return paidAppliancesSuddenly;
+    public void setPaidAppliancesSuddenly(double paidAppliancesSuddenly) {
+        this.paidAppliancesSuddenly = paidAppliancesSuddenly;
     }
 
     public void setPaidAppliancesSuddenly(String paidAppliancesSuddenly) {
-        this.paidAppliancesSuddenly = new SimpleStringProperty(paidAppliancesSuddenly);
+        this.paidAppliancesSuddenly = Double.parseDouble(paidAppliancesSuddenly);
+        CalculateResidueAppliancesSuddenly();
     }
 
     public String getResidueAppliancesSuddenly() {
-        return residueAppliancesSuddenly.get();
+        return Double.toString(residueAppliancesSuddenly);
     }
 
-    public SimpleStringProperty residueAppliancesSuddenlyProperty() {
-        return residueAppliancesSuddenly;
+    public void setResidueAppliancesSuddenly(double residueAppliancesSuddenly) {
+        this.residueAppliancesSuddenly = residueAppliancesSuddenly;
     }
 
     public void setResidueAppliancesSuddenly(String residueAppliancesSuddenly) {
-        this.residueAppliancesSuddenly = new SimpleStringProperty(residueAppliancesSuddenly);
+        this.residueAppliancesSuddenly = Double.parseDouble(residueAppliancesSuddenly);
     }
 
-    public String getDateOfDeliveryAppliancesSuddenly() {
-        return dateOfDeliveryAppliancesSuddenly.get();
+    public String getDateOfSuddenlyAppliancesSuddenly() {
+        return dateOfSuddenlyAppliancesSuddenly;
     }
 
-    public SimpleStringProperty dateOfDeliveryAppliancesSuddenlyProperty() {
-        return dateOfDeliveryAppliancesSuddenly;
-    }
-
-    public void setDateOfDeliveryAppliancesSuddenly(String dateOfDeliveryAppliancesSuddenly) {
-        this.dateOfDeliveryAppliancesSuddenly = new SimpleStringProperty(dateOfDeliveryAppliancesSuddenly);
+    public void setDateOfSuddenlyAppliancesSuddenly(String dateOfSuddenlyAppliancesSuddenly) {
+        this.dateOfSuddenlyAppliancesSuddenly = dateOfSuddenlyAppliancesSuddenly;
     }
 
     public String getPlannedCPAppliancesSuddenly() {
-        return plannedCPAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty plannedCPAppliancesSuddenlyProperty() {
         return plannedCPAppliancesSuddenly;
     }
 
     public void setPlannedCPAppliancesSuddenly(String plannedCPAppliancesSuddenly) {
-        this.plannedCPAppliancesSuddenly = new SimpleStringProperty(plannedCPAppliancesSuddenly);
+        this.plannedCPAppliancesSuddenly = plannedCPAppliancesSuddenly;
     }
 
     public String getActualCPAppliancesSuddenly() {
-        return actualCPAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty actualCPAppliancesSuddenlyProperty() {
         return actualCPAppliancesSuddenly;
     }
 
     public void setActualCPAppliancesSuddenly(String actualCPAppliancesSuddenly) {
-        this.actualCPAppliancesSuddenly = new SimpleStringProperty(actualCPAppliancesSuddenly);
+        this.actualCPAppliancesSuddenly = actualCPAppliancesSuddenly;
     }
 
     public String getAccountAppliancesSuddenly() {
-        return accountAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty accountAppliancesSuddenlyProperty() {
         return accountAppliancesSuddenly;
     }
 
     public void setAccountAppliancesSuddenly(String accountAppliancesSuddenly) {
-        this.accountAppliancesSuddenly = new SimpleStringProperty(accountAppliancesSuddenly);
+        this.accountAppliancesSuddenly = accountAppliancesSuddenly;
     }
 
     public String getContactsAppliancesSuddenly() {
-        return contactsAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty contactsAppliancesSuddenlyProperty() {
         return contactsAppliancesSuddenly;
     }
 
     public void setContactsAppliancesSuddenly(String contactsAppliancesSuddenly) {
-        this.contactsAppliancesSuddenly = new SimpleStringProperty(contactsAppliancesSuddenly);
+        this.contactsAppliancesSuddenly = contactsAppliancesSuddenly;
     }
 
     public String getNotesAppliancesSuddenly() {
-        return notesAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty notesAppliancesSuddenlyProperty() {
         return notesAppliancesSuddenly;
     }
 
     public void setNotesAppliancesSuddenly(String notesAppliancesSuddenly) {
-        this.notesAppliancesSuddenly = new SimpleStringProperty(notesAppliancesSuddenly);
+        this.notesAppliancesSuddenly = notesAppliancesSuddenly;
     }
 
     public String getCharacteristicsAppliancesSuddenly() {
-        return characteristicsAppliancesSuddenly.get();
-    }
-
-    public SimpleStringProperty characteristicsAppliancesSuddenlyProperty() {
         return characteristicsAppliancesSuddenly;
     }
 
     public void setCharacteristicsAppliancesSuddenly(String characteristicsAppliancesSuddenly) {
-        this.characteristicsAppliancesSuddenly = new SimpleStringProperty(characteristicsAppliancesSuddenly);
+        this.characteristicsAppliancesSuddenly = characteristicsAppliancesSuddenly;
     }
 }
