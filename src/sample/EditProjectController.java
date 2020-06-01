@@ -31,7 +31,7 @@ public class EditProjectController implements Initializable {
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
 
-    //Блок Мебели
+    //Блок Мебели - доделать!!
     public TableView<Furniture> furnitureTableView;
     public TableColumn<Furniture, String> colNameFurniture;
     public TableColumn<Furniture, Boolean> colActivePFurniture;
@@ -56,7 +56,6 @@ public class EditProjectController implements Initializable {
     public TableColumn<Furniture, String> colContactsFurniture;
     public TableColumn<Furniture, String> colNotesFurniture;
     public TableColumn<Furniture, String> colCharacteristicsFurniture;
-
     private ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList();
 
 
@@ -164,6 +163,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialOther, String> colContactsMaterialOther;
     public TableColumn<MaterialOther, String> colNotesMaterialOther;
     public TableColumn<MaterialOther, String> colCharacteristicsMaterialOther;
+    private ObservableList<MaterialOther> observableListMaterialOther = FXCollections.observableArrayList();
 
     public TableView<MaterialSuddenly> materialTableViewSuddenly;
     public TableColumn<MaterialSuddenly, String> colNameMaterialSuddenly;
@@ -189,6 +189,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialSuddenly, String> colContactsMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colNotesMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colCharacteristicsMaterialSuddenly;
+    private ObservableList<MaterialSuddenly> observableListMaterialSuddenly = FXCollections.observableArrayList();
 
 
     //Блок Техники
@@ -216,6 +217,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesKitchen, String> colContactsAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colNotesAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colCharacteristicsAppliancesKitchen;
+    private ObservableList<AppliancesKitchen> observableListAppliancesKitchen = FXCollections.observableArrayList();
 
     public TableView<AppliancesOther> appliancesTableViewOther;
     public TableColumn<AppliancesOther, String> colNameAppliancesOther;
@@ -241,6 +243,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesOther, String> colContactsAppliancesOther;
     public TableColumn<AppliancesOther, String> colNotesAppliancesOther;
     public TableColumn<AppliancesOther, String> colCharacteristicsAppliancesOther;
+    private ObservableList<AppliancesOther> observableListAppliancesOther = FXCollections.observableArrayList();
 
     public TableView<AppliancesDelivery> appliancesTableViewDelivery;
     public TableColumn<AppliancesDelivery, String> colNameAppliancesDelivery;
@@ -266,6 +269,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesDelivery, String> colContactsAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colNotesAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colCharacteristicsAppliancesDelivery;
+    private ObservableList<AppliancesDelivery> observableListAppliancesDelivery = FXCollections.observableArrayList();
 
     public TableView<AppliancesSuddenly> appliancesTableViewSuddenly;
     public TableColumn<AppliancesSuddenly, String> colNameAppliancesSuddenly;
@@ -291,6 +295,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesSuddenly, String> colContactsAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colNotesAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colCharacteristicsAppliancesSuddenly;
+    private ObservableList<AppliancesSuddenly> observableListAppliancesSuddenly = FXCollections.observableArrayList();
 
 
     public Button createRoomButton;
@@ -340,28 +345,9 @@ public class EditProjectController implements Initializable {
             }
         });
 
+        AKTableView.setEditable(true);
 
-        colNameFurniture.setCellValueFactory(new PropertyValueFactory<>("nameFurniture"));
-        colUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("unitFurniture"));
-        colQuantityFurniture.setCellValueFactory(new PropertyValueFactory<>("quantityFurniture"));
-        colOrdinalPriceUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitFurniture"));
-        colPriceCPUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitFurniture"));
-        colPriceCPKeyFurniture.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyFurniture"));
-        colCostCPUnitFurniture.setCellValueFactory(new PropertyValueFactory<>("costCPUnitFurniture"));
-        colPriceOrderFurniture.setCellValueFactory(new PropertyValueFactory<>("priceOrderFurniture"));
-        colCostCPFurniture.setCellValueFactory(new PropertyValueFactory<>("costCPFurniture"));
-        colProductionTimeFurniture.setCellValueFactory(new PropertyValueFactory<>("productionTimeFurniture"));
-        colActualCostFurniture.setCellValueFactory(new PropertyValueFactory<>("actualCostFurniture"));
-        colActualDifferenceFurniture.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceFurniture"));
-        colPaidFurniture.setCellValueFactory(new PropertyValueFactory<>("paidFurniture"));
-        colResidueFurniture.setCellValueFactory(new PropertyValueFactory<>("residueFurniture"));
-        colDateOfDeliveryFurniture.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryFurniture"));
-        colPlannedCPFurniture.setCellValueFactory(new PropertyValueFactory<>("plannedCPFurniture"));
-        colActualCPFurniture.setCellValueFactory(new PropertyValueFactory<>("actualCPFurniture"));
-        colAccountFurniture.setCellValueFactory(new PropertyValueFactory<>("accountFurniture"));
-        colContactsFurniture.setCellValueFactory(new PropertyValueFactory<>("contactsFurniture"));
-        colNotesFurniture.setCellValueFactory(new PropertyValueFactory<>("notesFurniture"));
-        colCharacteristicsFurniture.setCellValueFactory(new PropertyValueFactory<>("characteristicsFurniture"));
+
 
 
         //Материалы - стена
@@ -624,7 +610,6 @@ public class EditProjectController implements Initializable {
                 });
 
         materialTableViewWall.setEditable(true);
-
         colNameMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colProductionTimeMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -635,6 +620,9 @@ public class EditProjectController implements Initializable {
         colContactsMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
 
 
         //Материалы - Пол!
@@ -897,7 +885,6 @@ public class EditProjectController implements Initializable {
                 });
 
         materialTableViewFloor.setEditable(true);
-
         colNameMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
         colUnitMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
         colProductionTimeMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1170,7 +1157,6 @@ public class EditProjectController implements Initializable {
                 });
 
         materialTableViewCeiling.setEditable(true);
-
         colNameMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colProductionTimeMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1187,387 +1173,16 @@ public class EditProjectController implements Initializable {
 
 
 
-        colNameMaterialOther.setCellValueFactory(new PropertyValueFactory<>("nameMaterialOther"));
-        colUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("unitMaterialOther"));
-        colQuantityMaterialOther.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialOther"));
-        colOrdinalPriceUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialOther"));
-        colPriceCPUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialOther"));
-        colPriceCPKeyMaterialOther.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialOther"));
-        colCostCPUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialOther"));
-        colPriceOrderMaterialOther.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialOther"));
-        colCostCPMaterialOther.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialOther"));
-        colProductionTimeMaterialOther.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialOther"));
-        colActualCostMaterialOther.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialOther"));
-        colActualDifferenceMaterialOther.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialOther"));
-        colPaidMaterialOther.setCellValueFactory(new PropertyValueFactory<>("paidMaterialOther"));
-        colResidueMaterialOther.setCellValueFactory(new PropertyValueFactory<>("residueMaterialOther"));
-        colDateOfDeliveryMaterialOther.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialOther"));
-        colPlannedCPMaterialOther.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialOther"));
-        colActualCPMaterialOther.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialOther"));
-        colAccountMaterialOther.setCellValueFactory(new PropertyValueFactory<>("accountMaterialOther"));
-        colContactsMaterialOther.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialOther"));
-        colNotesMaterialOther.setCellValueFactory(new PropertyValueFactory<>("notesMaterialOther"));
-        colCharacteristicsMaterialOther.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialOther"));
 
-        colNameMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameMaterialSuddenly"));
-        colUnitMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitMaterialSuddenly"));
-        colQuantityMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialSuddenly"));
-        colOrdinalPriceUnitMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitMaterialSuddenly"));
-        colPriceCPUnitMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitMaterialSuddenly"));
-        colPriceCPKeyMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyMaterialSuddenly"));
-        colCostCPUnitMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPUnitMaterialSuddenly"));
-        colPriceOrderMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceOrderMaterialSuddenly"));
-        colCostCPMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPMaterialSuddenly"));
-        colProductionTimeMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialSuddenly"));
-        colActualCostMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialSuddenly"));
-        colActualDifferenceMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceMaterialSuddenly"));
-        colPaidMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("paidMaterialSuddenly"));
-        colResidueMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("residueMaterialSuddenly"));
-        colDateOfDeliveryMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialSuddenly"));
-        colPlannedCPMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("plannedCPMaterialSuddenly"));
-        colActualCPMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCPMaterialSuddenly"));
-        colAccountMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("accountMaterialSuddenly"));
-        colContactsMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("contactsMaterialSuddenly"));
-        colNotesMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("notesMaterialSuddenly"));
-        colCharacteristicsMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("characteristicsMaterialSuddenly"));
-
-
-        //Блок Техники
-        colNameAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("nameAppliancesKitchen"));
-        colUnitAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesKitchen"));
-        colQuantityAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("quantityAppliancesKitchen"));
-        colOrdinalPriceUnitAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitAppliancesKitchen"));
-        colPriceCPUnitAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitAppliancesKitchen"));
-        colPriceCPKeyAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyAppliancesKitchen"));
-        colCostCPUnitAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("costCPUnitAppliancesKitchen"));
-        colPriceOrderAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("priceOrderAppliancesKitchen"));
-        colCostCPAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("costCPAppliancesKitchen"));
-        colProductionTimeAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesKitchen"));
-        colActualCostAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("actualCostAppliancesKitchen"));
-        colActualDifferenceAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceAppliancesKitchen"));
-        colPaidAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("paidAppliancesKitchen"));
-        colResidueAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("residueAppliancesKitchen"));
-        colDateOfDeliveryAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesKitchen"));
-        colPlannedCPAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("plannedCPAppliancesKitchen"));
-        colActualCPAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("actualCPAppliancesKitchen"));
-        colAccountAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("accountAppliancesKitchen"));
-        colContactsAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("contactsAppliancesKitchen"));
-        colNotesAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesKitchen"));
-        colCharacteristicsAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesKitchen"));
-
-        colNameAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("nameAppliancesOther"));
-        colUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesOther"));
-        colQuantityAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("quantityAppliancesOther"));
-        colOrdinalPriceUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitAppliancesOther"));
-        colPriceCPUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitAppliancesOther"));
-        colPriceCPKeyAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyAppliancesOther"));
-        colCostCPUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("costCPUnitAppliancesOther"));
-        colPriceOrderAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("priceOrderAppliancesOther"));
-        colCostCPAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("costCPAppliancesOther"));
-        colProductionTimeAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesOther"));
-        colActualCostAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("actualCostAppliancesOther"));
-        colActualDifferenceAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceAppliancesOther"));
-        colPaidAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("paidAppliancesOther"));
-        colResidueAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("residueAppliancesOther"));
-        colDateOfDeliveryAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesOther"));
-        colPlannedCPAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("plannedCPAppliancesOther"));
-        colActualCPAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("actualCPAppliancesOther"));
-        colAccountAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("accountAppliancesOther"));
-        colContactsAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("contactsAppliancesOther"));
-        colNotesAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesOther"));
-        colCharacteristicsAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesOther"));
-
-        colNameAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("nameAppliancesDelivery"));
-        colUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesDelivery"));
-        colQuantityAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("quantityAppliancesDelivery"));
-        colOrdinalPriceUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitAppliancesDelivery"));
-        colPriceCPUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitAppliancesDelivery"));
-        colPriceCPKeyAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyAppliancesDelivery"));
-        colCostCPUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPUnitAppliancesDelivery"));
-        colPriceOrderAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("priceOrderAppliancesDelivery"));
-        colCostCPAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPAppliancesDelivery"));
-        colProductionTimeAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesDelivery"));
-        colActualCostAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCostAppliancesDelivery"));
-        colActualDifferenceAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceAppliancesDelivery"));
-        colPaidAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("paidAppliancesDelivery"));
-        colResidueAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("residueAppliancesDelivery"));
-        colDateOfDeliveryAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesDelivery"));
-        colPlannedCPAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("plannedCPAppliancesDelivery"));
-        colActualCPAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCPAppliancesDelivery"));
-        colAccountAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("accountAppliancesDelivery"));
-        colContactsAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("contactsAppliancesDelivery"));
-        colNotesAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesDelivery"));
-        colCharacteristicsAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesDelivery"));
-
-        colNameAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameAppliancesSuddenly"));
-        colUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesSuddenly"));
-        colQuantityAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("quantityAppliancesSuddenly"));
-        colOrdinalPriceUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitAppliancesSuddenly"));
-        colPriceCPUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitAppliancesSuddenly"));
-        colPriceCPKeyAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyAppliancesSuddenly"));
-        colCostCPUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPUnitAppliancesSuddenly"));
-        colPriceOrderAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceOrderAppliancesSuddenly"));
-        colCostCPAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPAppliancesSuddenly"));
-        colProductionTimeAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesSuddenly"));
-        colActualCostAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCostAppliancesSuddenly"));
-        colActualDifferenceAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceAppliancesSuddenly"));
-        colPaidAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("paidAppliancesSuddenly"));
-        colResidueAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("residueAppliancesSuddenly"));
-        colDateOfDeliveryAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesSuddenly"));
-        colPlannedCPAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("plannedCPAppliancesSuddenly"));
-        colActualCPAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCPAppliancesSuddenly"));
-        colAccountAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("accountAppliancesSuddenly"));
-        colContactsAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("contactsAppliancesSuddenly"));
-        colNotesAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("notesAppliancesSuddenly"));
-        colCharacteristicsAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("characteristicsAppliancesSuddenly"));
-
-
-        furnitureTableView.setItems(observableListFurniture);
-
-
-        materialTableViewOther.setItems(observableListMaterialOther);
-        materialTableViewSuddenly.setItems(observableListMaterialSuddenly);
-
-        appliancesTableViewKitchen.setItems(observableListAppliancesKitchen);
-        appliancesTableViewOther.setItems(observableListAppliancesOther);
-        appliancesTableViewDelivery.setItems(observableListAppliancesDelivery);
-        appliancesTableViewSuddenly.setItems(observableListAppliancesSuddenly);
-
-
-//        AKTableView.setEditable(true);
-//
-//        materialTableViewFloor.setEditable(true);
-//        materialTableViewCeiling.setEditable(true);
-        materialTableViewOther.setEditable(true);
-        materialTableViewSuddenly.setEditable(true);
-
-        appliancesTableViewKitchen.setEditable(true);
-        appliancesTableViewOther.setEditable(true);
-        appliancesTableViewDelivery.setEditable(true);
-        appliancesTableViewSuddenly.setEditable(true);
-
-
-        furnitureTableView.setEditable(true);
-
-
-        colNameFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsFurniture.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
-//        colNameMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colQuantityMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colOrdinalPriceUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colPriceCPUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colPriceCPKeyMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colCostCPUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colPriceOrderMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colCostCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colActualCostMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colActualDifferenceMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colPaidMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colResidueMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colPlannedCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colActualCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colAccountMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colContactsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colNotesMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colCharacteristicsMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        colNameMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        colNameMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        colNameAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        colNameAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        colNameAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        colNameAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colOrdinalPriceUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceCPKeyAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPriceOrderAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCostCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCostAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualDifferenceAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPaidAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colResidueAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colPlannedCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colActualCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colAccountAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colContactsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colNotesAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colCharacteristicsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
+    public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
+        if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
+            observableListAK.add(new AK(0, 0, 0));
+        }
 
+    }
 
-
-    ObservableList<MaterialOther> observableListMaterialOther = FXCollections.observableArrayList(
-            new MaterialOther(),
-            new MaterialOther(),
-            new MaterialOther()
-    );
-
-    ObservableList<MaterialSuddenly> observableListMaterialSuddenly = FXCollections.observableArrayList(
-            new MaterialSuddenly(),
-            new MaterialSuddenly(),
-            new MaterialSuddenly()
-    );
-
-    ObservableList<AppliancesKitchen> observableListAppliancesKitchen = FXCollections.observableArrayList(
-            new AppliancesKitchen(),
-            new AppliancesKitchen(),
-            new AppliancesKitchen()
-    );
-
-    ObservableList<AppliancesOther> observableListAppliancesOther = FXCollections.observableArrayList(
-            new AppliancesOther(),
-            new AppliancesOther(),
-            new AppliancesOther()
-    );
-
-    ObservableList<AppliancesDelivery> observableListAppliancesDelivery = FXCollections.observableArrayList(
-            new AppliancesDelivery(),
-            new AppliancesDelivery(),
-            new AppliancesDelivery()
-    );
-
-    ObservableList<AppliancesSuddenly> observableListAppliancesSuddenly = FXCollections.observableArrayList(
-            new AppliancesSuddenly(),
-            new AppliancesSuddenly(),
-            new AppliancesSuddenly()
-    );
-
-    //клик по  таблице
     public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
             observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
@@ -1592,16 +1207,16 @@ public class EditProjectController implements Initializable {
         }
     }
 
-
-    public void deleteElementFurniture(ActionEvent actionEvent) {
-        ObservableList<Furniture> allFurniture, singleFurniture;
-        allFurniture = furnitureTableView.getItems();
-        singleFurniture = furnitureTableView.getSelectionModel().getSelectedItems();
-        singleFurniture.forEach(allFurniture::remove);
-    }
-
-    public void saveElementFurniture(ActionEvent actionEvent) {
-    }
+//   //УДаление элементов таблицы
+//    public void deleteElementFurniture(ActionEvent actionEvent) {
+//        ObservableList<Furniture> allFurniture, singleFurniture;
+//        allFurniture = furnitureTableView.getItems();
+//        singleFurniture = furnitureTableView.getSelectionModel().getSelectedItems();
+//        singleFurniture.forEach(allFurniture::remove);
+//    }
+//
+//    public void saveElementFurniture(ActionEvent actionEvent) {
+//    }
 
     public void addRoom(ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RoomName.fxml"));
@@ -1615,10 +1230,22 @@ public class EditProjectController implements Initializable {
     public void addPayment(ActionEvent actionEvent) {
     }
 
-    public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
-        if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
-            observableListAK.add(new AK(0, 0, 0));
-        }
 
+    public void On_tabCalculatorClickedActionMaterialOther(MouseEvent mouseEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionMaterialSuddenly(MouseEvent mouseEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionAppliancesKitchen(MouseEvent mouseEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionAppliancesOther(MouseEvent mouseEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionAppliancesDelivery(MouseEvent mouseEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionAppliancesSuddenly(MouseEvent mouseEvent) {
     }
 }

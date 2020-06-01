@@ -300,11 +300,11 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewOther" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="materialTableViewOther" onMouseClicked="#On_tabCalculatorClickedActionMaterialOther" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialOther" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePMaterialOther" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCMaterialOther" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitMaterialOther" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialOther" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialOther" prefWidth="125.0" text="Цена порядковая за ед." />
@@ -343,11 +343,11 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewSuddenly" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="materialTableViewSuddenly" onMouseClicked="#On_tabCalculatorClickedActionMaterialSuddenly" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialSuddenly" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePMaterialSuddenly" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCMaterialSuddenly" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitMaterialSuddenly" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialSuddenly" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialSuddenly" prefWidth="125.0" text="Цена порядковая за ед." />
@@ -451,7 +451,7 @@
                             </columns>
                         </TableView>
                   <Text layoutX="14.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Помещение:" />
-                  <Button layoutX="423.0" layoutY="28.0" mnemonicParsing="false" onAction="#deleteElementFurniture" text="Удалить" />
+                  <Button layoutX="423.0" layoutY="28.0" mnemonicParsing="false"  text="Удалить" />
                     </children>
                 </AnchorPane>
             </content>
@@ -505,11 +505,11 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="appliancesTableViewKitchen" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="appliancesTableViewKitchen" onMouseClicked="#On_tabCalculatorClickedActionAppliancesKitchen" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameAppliancesKitchen" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePAppliancesKitchen" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCAppliancesKitchen" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitAppliancesKitchen" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityAppliancesKitchen" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitAppliancesKitchen" prefWidth="125.0" text="Цена порядковая за ед." />
@@ -548,11 +548,11 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="appliancesTableViewOther" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="appliancesTableViewOther" onMouseClicked="#On_tabCalculatorClickedActionAppliancesOther" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameAppliancesOther" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePAppliancesOther" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCAppliancesOther" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitAppliancesOther" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityAppliancesOther" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitAppliancesOther" prefWidth="125.0" text="Цена порядковая за ед." />
@@ -591,11 +591,11 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="appliancesTableViewDelivery" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="appliancesTableViewDelivery" onMouseClicked="#On_tabCalculatorClickedActionAppliancesDelivery" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameAppliancesDelivery" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePAppliancesDelivery" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCAppliancesDelivery" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitAppliancesDelivery" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityAppliancesDelivery" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitAppliancesDelivery" prefWidth="125.0" text="Цена порядковая за ед." />
@@ -634,11 +634,11 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="appliancesTableViewSuddenly" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="appliancesTableViewSuddenly" onMouseClicked="#On_tabCalculatorClickedActionAppliancesSuddenly" layoutY="31.0" prefHeight="669.0" prefWidth="1900.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameAppliancesSuddenly" prefWidth="108.0" text="Наименование" />
-                                                      <TableColumn prefWidth="25.0" text="П" />
-                                                      <TableColumn prefWidth="25.0" text="С" />
+                                                      <TableColumn fx:id="colActivePAppliancesSuddenly" prefWidth="25.0" text="П" />
+                                                      <TableColumn fx:id="colActiveCAppliancesSuddenly" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitAppliancesSuddenly" prefWidth="58.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityAppliancesSuddenly" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitAppliancesSuddenly" prefWidth="125.0" text="Цена порядковая за ед." />
