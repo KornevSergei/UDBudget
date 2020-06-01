@@ -199,7 +199,7 @@
                                                       <TableColumn fx:id="colCharacteristicsMaterialWall" prefWidth="85.0" text="Характеристики" />
                                                   </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementMaterialWall" />
                                              </children></AnchorPane>
                                       </content>
                                     </ScrollPane>
@@ -241,7 +241,7 @@
                                                       <TableColumn fx:id="colCharacteristicsMaterialFloor" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementMaterialFloor" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -284,7 +284,7 @@
                                                       <TableColumn fx:id="colCharacteristicsMaterialCeiling" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementMaterialCeiling" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -327,7 +327,7 @@
                                                       <TableColumn fx:id="colCharacteristicsMaterialOther" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementMaterialOther" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -370,7 +370,7 @@
                                                       <TableColumn fx:id="colCharacteristicsMaterialSuddenly" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementMaterialSuddenly" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -532,7 +532,7 @@
                                                       <TableColumn fx:id="colCharacteristicsAppliancesKitchen" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementAppliancesKitchen" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -575,7 +575,7 @@
                                                       <TableColumn fx:id="colCharacteristicsAppliancesOther" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementAppliancesOther" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -618,7 +618,7 @@
                                                       <TableColumn fx:id="colCharacteristicsAppliancesDelivery" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementAppliancesDelivery" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -661,7 +661,7 @@
                                                       <TableColumn fx:id="colCharacteristicsAppliancesSuddenly" prefWidth="85.0" text="Характеристики" />
                                                    </columns>
                                                 </TableView>
-                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementAppliancesSuddenly"  />
                                              </children>
                                           </AnchorPane>
                                        </content>

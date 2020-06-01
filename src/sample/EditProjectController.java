@@ -2819,6 +2819,12 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+        public void deleteElementMaterialWall(ActionEvent actionEvent) {
+        ObservableList<MaterialWall> allMaterialWall, singleMaterialWall;
+        allMaterialWall = materialTableViewWall.getItems();
+        singleMaterialWall = materialTableViewWall.getSelectionModel().getSelectedItems();
+        singleMaterialWall.forEach(allMaterialWall::remove);
+    }
 
     public void On_tabCalculatorClickedActionMaterialFloor(MouseEvent mouseEvent) {
         if (observableListMaterialFloor.filtered(x -> "0.0".equals(x.getQuantityMaterialFloor()) && "0.0".equals(x.getOrdinalPriceUnitMaterialFloor())).size() == 0) {
@@ -2827,6 +2833,13 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+    public void deleteElementMaterialFloor(ActionEvent actionEvent) {
+        ObservableList<MaterialFloor> allMaterialFloor, singleMaterialFloor;
+        allMaterialFloor = materialTableViewFloor.getItems();
+        singleMaterialFloor = materialTableViewFloor.getSelectionModel().getSelectedItems();
+        singleMaterialFloor.forEach(allMaterialFloor::remove);
+    }
+
 
     public void On_tabCalculatorClickedActionMaterialCeiling(MouseEvent mouseEvent) {
         if (observableListMaterialCeiling.filtered(x -> "0.0".equals(x.getQuantityMaterialCeiling()) && "0.0".equals(x.getOrdinalPriceUnitMaterialCeiling())).size() == 0) {
@@ -2834,6 +2847,12 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", ""));
         }
+    }
+    public void deleteElementMaterialCeiling(ActionEvent actionEvent) {
+        ObservableList<MaterialCeiling> allMaterialCeiling, singleMaterialCeiling;
+        allMaterialCeiling = materialTableViewCeiling.getItems();
+        singleMaterialCeiling = materialTableViewCeiling.getSelectionModel().getSelectedItems();
+        singleMaterialCeiling.forEach(allMaterialCeiling::remove);
     }
 
     public void On_tabCalculatorClickedActionMaterialOther(MouseEvent mouseEvent) {
@@ -2843,6 +2862,12 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+    public void deleteElementMaterialOther(ActionEvent actionEvent) {
+        ObservableList<MaterialOther> allMaterialOther, singleMaterialOther;
+        allMaterialOther = materialTableViewOther.getItems();
+        singleMaterialOther = materialTableViewOther.getSelectionModel().getSelectedItems();
+        singleMaterialOther.forEach(allMaterialOther::remove);
+    }
 
     public void On_tabCalculatorClickedActionMaterialSuddenly(MouseEvent mouseEvent) {
         if (observableListMaterialSuddenly.filtered(x -> "0.0".equals(x.getQuantityMaterialSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitMaterialSuddenly())).size() == 0) {
@@ -2850,7 +2875,12 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", ""));
         }
-
+    }
+    public void deleteElementMaterialSuddenly(ActionEvent actionEvent) {
+        ObservableList<MaterialSuddenly> allMaterialSuddenly, singleMaterialSuddenly;
+        allMaterialSuddenly = materialTableViewSuddenly.getItems();
+        singleMaterialSuddenly = materialTableViewSuddenly.getSelectionModel().getSelectedItems();
+        singleMaterialSuddenly.forEach(allMaterialSuddenly::remove);
     }
 
     public void On_tabCalculatorClickedActionAppliancesKitchen(MouseEvent mouseEvent) {
@@ -2860,6 +2890,12 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+    public void deleteElementAppliancesKitchen(ActionEvent actionEvent) {
+        ObservableList<AppliancesKitchen> allAppliancesKitchen, singleAppliancesKitchen;
+        allAppliancesKitchen = appliancesTableViewKitchen.getItems();
+        singleAppliancesKitchen = appliancesTableViewKitchen.getSelectionModel().getSelectedItems();
+        singleAppliancesKitchen.forEach(allAppliancesKitchen::remove);
+    }
 
     public void On_tabCalculatorClickedActionAppliancesOther(MouseEvent mouseEvent) {
         if (observableListAppliancesOther.filtered(x -> "0.0".equals(x.getQuantityAppliancesOther()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesOther())).size() == 0) {
@@ -2867,6 +2903,12 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", ""));
         }
+    }
+    public void deleteElementAppliancesOther(ActionEvent actionEvent) {
+        ObservableList<AppliancesOther> allAppliancesOther, singleAppliancesOther;
+        allAppliancesOther = appliancesTableViewOther.getItems();
+        singleAppliancesOther = appliancesTableViewOther.getSelectionModel().getSelectedItems();
+        singleAppliancesOther.forEach(allAppliancesOther::remove);
     }
 
     public void On_tabCalculatorClickedActionAppliancesDelivery(MouseEvent mouseEvent) {
@@ -2876,7 +2918,12 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
-
+    public void deleteElementAppliancesDelivery(ActionEvent actionEvent) {
+        ObservableList<AppliancesDelivery> allAppliancesDelivery, singleAppliancesDelivery;
+        allAppliancesDelivery = appliancesTableViewDelivery.getItems();
+        singleAppliancesDelivery = appliancesTableViewDelivery.getSelectionModel().getSelectedItems();
+        singleAppliancesDelivery.forEach(allAppliancesDelivery::remove);
+    }
     public void On_tabCalculatorClickedActionAppliancesSuddenly(MouseEvent mouseEvent) {
         if (observableListAppliancesSuddenly.filtered(x -> "0.0".equals(x.getQuantityAppliancesSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesSuddenly())).size() == 0) {
             observableListAppliancesSuddenly.add(new AppliancesSuddenly("", false, false, "", 0, 0,
@@ -2884,17 +2931,18 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+    public void deleteElementAppliancesSuddenly(ActionEvent actionEvent) {
+        ObservableList<AppliancesSuddenly> allAppliancesSuddenly, singleAppliancesSuddenly;
+        allAppliancesSuddenly = appliancesTableViewSuddenly.getItems();
+        singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
+        singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
+    }
 
-//   //УДаление элементов таблицы
-//    public void deleteElementFurniture(ActionEvent actionEvent) {
-//        ObservableList<Furniture> allFurniture, singleFurniture;
-//        allFurniture = furnitureTableView.getItems();
-//        singleFurniture = furnitureTableView.getSelectionModel().getSelectedItems();
-//        singleFurniture.forEach(allFurniture::remove);
-//    }
-//
-//    public void saveElementFurniture(ActionEvent actionEvent) {
-//    }
+
+
+
+
+
 
     public void addRoom(ActionEvent actionEvent) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RoomName.fxml"));
