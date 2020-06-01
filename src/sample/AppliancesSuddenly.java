@@ -17,7 +17,7 @@ public class AppliancesSuddenly {
     protected double actualDifferenceAppliancesSuddenly;//Разница фактическая
     protected double paidAppliancesSuddenly;//Оплачено
     protected double residueAppliancesSuddenly;//Остаток
-    protected String dateOfSuddenlyAppliancesSuddenly;//Дата поставки
+    protected String dateOfDeliveryAppliancesSuddenly;//Дата поставки
     protected String plannedCPAppliancesSuddenly;
     protected String actualCPAppliancesSuddenly;
     protected String accountAppliancesSuddenly;
@@ -29,7 +29,7 @@ public class AppliancesSuddenly {
     public AppliancesSuddenly(String nameAppliancesSuddenly, boolean activePAppliancesSuddenly, boolean activeCAppliancesSuddenly, String unitAppliancesSuddenly, double quantityAppliancesSuddenly,
                               double ordinalPriceUnitAppliancesSuddenly, double priceCPUnitAppliancesSuddenly, double priceCPKeyAppliancesSuddenly, double costCPUnitAppliancesSuddenly,
                               double priceOrderAppliancesSuddenly, double costCPAppliancesSuddenly, String productionTimeAppliancesSuddenly, double actualCostAppliancesSuddenly,
-                              double actualDifferenceAppliancesSuddenly, double paidAppliancesSuddenly, double residueAppliancesSuddenly, String dateOfSuddenlyAppliancesSuddenly,
+                              double actualDifferenceAppliancesSuddenly, double paidAppliancesSuddenly, double residueAppliancesSuddenly, String dateOfDeliveryAppliancesSuddenly,
                               String plannedCPAppliancesSuddenly, String actualCPAppliancesSuddenly, String accountAppliancesSuddenly, String contactsAppliancesSuddenly, String notesAppliancesSuddenly,
                               String characteristicsAppliancesSuddenly) {
         this.nameAppliancesSuddenly = nameAppliancesSuddenly;
@@ -48,7 +48,7 @@ public class AppliancesSuddenly {
         this.actualDifferenceAppliancesSuddenly = actualDifferenceAppliancesSuddenly;
         this.paidAppliancesSuddenly = paidAppliancesSuddenly;
         this.residueAppliancesSuddenly = residueAppliancesSuddenly;
-        this.dateOfSuddenlyAppliancesSuddenly = dateOfSuddenlyAppliancesSuddenly;
+        this.dateOfDeliveryAppliancesSuddenly = dateOfDeliveryAppliancesSuddenly;
         this.plannedCPAppliancesSuddenly = plannedCPAppliancesSuddenly;
         this.actualCPAppliancesSuddenly = actualCPAppliancesSuddenly;
         this.accountAppliancesSuddenly = accountAppliancesSuddenly;
@@ -278,12 +278,12 @@ public class AppliancesSuddenly {
         this.residueAppliancesSuddenly = Double.parseDouble(residueAppliancesSuddenly);
     }
 
-    public String getDateOfSuddenlyAppliancesSuddenly() {
-        return dateOfSuddenlyAppliancesSuddenly;
+    public String getDateOfDeliveryAppliancesSuddenly() {
+        return dateOfDeliveryAppliancesSuddenly;
     }
 
-    public void setDateOfSuddenlyAppliancesSuddenly(String dateOfSuddenlyAppliancesSuddenly) {
-        this.dateOfSuddenlyAppliancesSuddenly = dateOfSuddenlyAppliancesSuddenly;
+    public void setDateOfDeliveryAppliancesSuddenly(String dateOfDeliveryAppliancesSuddenly) {
+        this.dateOfDeliveryAppliancesSuddenly = dateOfDeliveryAppliancesSuddenly;
     }
 
     public String getPlannedCPAppliancesSuddenly() {

@@ -19,7 +19,7 @@ public class AppliancesOther {
     protected double actualDifferenceAppliancesOther;//Разница фактическая
     protected double paidAppliancesOther;//Оплачено
     protected double residueAppliancesOther;//Остаток
-    protected String dateOfOtherAppliancesOther;//Дата поставки
+    protected String dateOfDeliveryAppliancesOther;//Дата поставки
     protected String plannedCPAppliancesOther;
     protected String actualCPAppliancesOther;
     protected String accountAppliancesOther;
@@ -31,7 +31,7 @@ public class AppliancesOther {
     public AppliancesOther(String nameAppliancesOther, boolean activePAppliancesOther, boolean activeCAppliancesOther, String unitAppliancesOther, double quantityAppliancesOther,
                            double ordinalPriceUnitAppliancesOther, double priceCPUnitAppliancesOther, double priceCPKeyAppliancesOther, double costCPUnitAppliancesOther,
                            double priceOrderAppliancesOther, double costCPAppliancesOther, String productionTimeAppliancesOther, double actualCostAppliancesOther,
-                           double actualDifferenceAppliancesOther, double paidAppliancesOther, double residueAppliancesOther, String dateOfOtherAppliancesOther,
+                           double actualDifferenceAppliancesOther, double paidAppliancesOther, double residueAppliancesOther, String dateOfDeliveryAppliancesOther,
                            String plannedCPAppliancesOther, String actualCPAppliancesOther, String accountAppliancesOther, String contactsAppliancesOther, String notesAppliancesOther,
                            String characteristicsAppliancesOther) {
         this.nameAppliancesOther = nameAppliancesOther;
@@ -50,7 +50,7 @@ public class AppliancesOther {
         this.actualDifferenceAppliancesOther = actualDifferenceAppliancesOther;
         this.paidAppliancesOther = paidAppliancesOther;
         this.residueAppliancesOther = residueAppliancesOther;
-        this.dateOfOtherAppliancesOther = dateOfOtherAppliancesOther;
+        this.dateOfDeliveryAppliancesOther = dateOfDeliveryAppliancesOther;
         this.plannedCPAppliancesOther = plannedCPAppliancesOther;
         this.actualCPAppliancesOther = actualCPAppliancesOther;
         this.accountAppliancesOther = accountAppliancesOther;
@@ -280,12 +280,12 @@ public class AppliancesOther {
         this.residueAppliancesOther = Double.parseDouble(residueAppliancesOther);
     }
 
-    public String getDateOfOtherAppliancesOther() {
-        return dateOfOtherAppliancesOther;
+    public String getDateOfDeliveryAppliancesOther() {
+        return dateOfDeliveryAppliancesOther;
     }
 
-    public void setDateOfOtherAppliancesOther(String dateOfOtherAppliancesOther) {
-        this.dateOfOtherAppliancesOther = dateOfOtherAppliancesOther;
+    public void setDateOfDeliveryAppliancesOther(String dateOfDeliveryAppliancesOther) {
+        this.dateOfDeliveryAppliancesOther = dateOfDeliveryAppliancesOther;
     }
 
     public String getPlannedCPAppliancesOther() {
