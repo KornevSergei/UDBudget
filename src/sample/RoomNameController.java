@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static sample.EditProjectController.sout;
+
 public class RoomNameController implements Initializable {
 
     public TableView<Room> roomTableView;
@@ -106,13 +108,15 @@ public class RoomNameController implements Initializable {
 
     //Делаем элементы из помещений
     public void saveRoomElement(ActionEvent actionEvent) {
+        //вызываем нужный статик метод
+        sout();
 
 
         for (Room room : observableListRoom.filtered(x-> !"".equals(x.getNameRoom())) )
         {
-            Accordion accordion = new Accordion();
             Button newButton = new Button();
             newButton.setText(room.getAreaRoom());
+
 
             VBox layout = new VBox(1);
 

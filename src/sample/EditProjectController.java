@@ -2954,4 +2954,10 @@ public class EditProjectController implements Initializable {
 
     public void addPayment(ActionEvent actionEvent) {
     }
+
+    public static void sout (){
+        System.out.println("ДУмай сука!");
+
+
+    }
 }
