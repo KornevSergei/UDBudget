@@ -1,57 +1,45 @@
 package sample;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-
-import java.awt.*;
-
 public class Room {
-    protected SimpleStringProperty nameRoom;
-    protected SimpleDoubleProperty yardageRoom;
-    protected Checkbox selectBathroomRoom;
+    protected String nameRoom;
+    protected double areaRoom;
+    protected boolean selectBathRoom;
 
-    public Room() {
-    }
-
-
-    public Room(String nameRoom, double yardageRoom) {
-        this.nameRoom = new SimpleStringProperty(nameRoom);
-        this.yardageRoom = new SimpleDoubleProperty(yardageRoom);
-        this.selectBathroomRoom = new Checkbox();
+    public Room(String nameRoom, double areaRoom, boolean selectBathRoom) {
+        this.nameRoom = nameRoom;
+        this.areaRoom = areaRoom;
+        this.selectBathRoom = selectBathRoom;
     }
 
     public String getNameRoom() {
-        return nameRoom.get();
-    }
-
-    public SimpleStringProperty nameRoomProperty() {
         return nameRoom;
     }
 
     public void setNameRoom(String nameRoom) {
-        this.nameRoom = new SimpleStringProperty(nameRoom);
+        this.nameRoom = nameRoom;
     }
 
-    public double getYardageRoom() {
-        return yardageRoom.get();
+    public double getAreaRoom() {
+        return areaRoom;
     }
 
-    public SimpleDoubleProperty yardageRoomProperty() {
-        return yardageRoom;
+    public void setAreaRoom(double areaRoom) {
+        this.areaRoom = areaRoom;
     }
 
-    public void setYardageRoom(double yardageRoom) {
-        this.yardageRoom = new SimpleDoubleProperty(yardageRoom);
+    public void setAreaRoom(String areaRoom) {
+        this.areaRoom = Double.parseDouble(areaRoom);
     }
 
-
-
-
-    public Checkbox getSelect(){
-        return selectBathroomRoom;
-    }
-    public void setSelect(Checkbox selectBathroomRoom){
-        this.selectBathroomRoom = selectBathroomRoom;
+    public boolean isSelectBathRoom() {
+        return selectBathRoom;
     }
 
+    public void setSelectBathRoom(boolean selectBathRoom) {
+        this.selectBathRoom = selectBathRoom;
+    }
+
+    public void setSelectBathroom(String selectBathRoom) {
+        this.selectBathRoom = Boolean.parseBoolean(selectBathRoom);
+    }
 }
