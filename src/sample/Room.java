@@ -19,8 +19,8 @@ public class Room {
         this.nameRoom = nameRoom;
     }
 
-    public double getAreaRoom() {
-        return areaRoom;
+    public String getAreaRoom() {
+        return Double.toString(areaRoom);
     }
 
     public void setAreaRoom(double areaRoom) {
@@ -31,7 +31,7 @@ public class Room {
         this.areaRoom = Double.parseDouble(areaRoom);
     }
 
-    public boolean isSelectBathRoom() {
+    public boolean getSelectBathRoom() {
         return selectBathRoom;
     }
 

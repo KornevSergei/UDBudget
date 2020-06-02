@@ -48,6 +48,24 @@ public class RoomNameController implements Initializable {
                 };
 
 
+//        Callback<TableColumn<Room, String>, TableCell<Room, String>> cellFactoryRoom =
+//                new Callback<TableColumn<Room, String>, TableCell<Room, String>>() {
+//                    public TableCell call(TableColumn p) {
+//                        return new EditingCellTextBox();
+//                    }
+//                };
+//
+//        colNameRoom.setCellFactory(cellFactoryRoom);
+//        colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
+//        colNameRoom.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<Room, String>>() {
+//                    @Override public void handle(TableColumn.CellEditEvent<Room, String> t) {
+//                        ((Room)t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setNameRoom(t.getNewValue());
+//                    }
+//                });
+
+
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
         colNameRoom.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<Room, String>>() {
@@ -79,6 +97,9 @@ public class RoomNameController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+
+        roomTableView.setEditable(true);
+        colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
 
     }
 
