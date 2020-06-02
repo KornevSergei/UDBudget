@@ -4,12 +4,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -27,7 +31,7 @@ public class RoomNameController implements Initializable {
     private ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
 
 
-    public Button saveRoom;
+    public Button saveRoomButton;
 
 
     @Override
@@ -48,22 +52,6 @@ public class RoomNameController implements Initializable {
                 };
 
 
-//        Callback<TableColumn<Room, String>, TableCell<Room, String>> cellFactoryRoom =
-//                new Callback<TableColumn<Room, String>, TableCell<Room, String>>() {
-//                    public TableCell call(TableColumn p) {
-//                        return new EditingCellTextBox();
-//                    }
-//                };
-//
-//        colNameRoom.setCellFactory(cellFactoryRoom);
-//        colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
-//        colNameRoom.setOnEditCommit(
-//                new EventHandler<TableColumn.CellEditEvent<Room, String>>() {
-//                    @Override public void handle(TableColumn.CellEditEvent<Room, String> t) {
-//                        ((Room)t.getTableView().getItems().get(
-//                                t.getTablePosition().getRow())).setNameRoom(t.getNewValue());
-//                    }
-//                });
 
 
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
@@ -114,5 +102,29 @@ public class RoomNameController implements Initializable {
         allRoom = roomTableView.getItems();
         singleRoom = roomTableView.getSelectionModel().getSelectedItems();
         singleRoom.forEach(allRoom::remove);
+    }
+
+    //Делаем элементы из помещений
+    public void saveRoomElement(ActionEvent actionEvent) {
+
+
+        for (Room room : observableListRoom.filtered(x-> !"".equals(x.getNameRoom())) )
+        {
+            Accordion accordion = new Accordion();
+            Button newButton = new Button();
+            newButton.setText(room.getAreaRoom());
+
+            VBox layout = new VBox(1);
+
+            layout.getChildren().add(newButton);
+
+            Scene newScene = new Scene(layout, 250, 50);
+
+            Stage newStage = new Stage();
+            newStage.setTitle(room.getNameRoom());
+            newStage.setScene(newScene);
+
+            newStage.show();
+        }
     }
 }
