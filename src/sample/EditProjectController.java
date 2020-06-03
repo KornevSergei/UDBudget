@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -13,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -20,7 +23,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class EditProjectController implements Initializable {
+public class EditProjectController implements Initializable  {
+
+    public TabPane tabPane;
+
+    public Tab plumbing;
 
 
     public TableView<AK> AKTableView;
@@ -1707,7 +1714,6 @@ public class EditProjectController implements Initializable {
         colCharacteristicsMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
-
         //Техника - Кухня!
         appliancesTableViewKitchen.setItems(observableListAppliancesKitchen);
         Callback<TableColumn<AppliancesKitchen, String>, TableCell<AppliancesKitchen, String>> cellFactoryDoubleAppliancesKitchen =
@@ -1978,8 +1984,6 @@ public class EditProjectController implements Initializable {
         colContactsAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
 
 
         //Техника - Другое!
@@ -2526,7 +2530,6 @@ public class EditProjectController implements Initializable {
         colCharacteristicsAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
-
         //Техника - Нежданчик!
         appliancesTableViewSuddenly.setItems(observableListAppliancesSuddenly);
         Callback<TableColumn<AppliancesSuddenly, String>, TableCell<AppliancesSuddenly, String>> cellFactoryDoubleAppliancesSuddenly =
@@ -2802,8 +2805,6 @@ public class EditProjectController implements Initializable {
     }
 
 
-
-
     public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
         if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
             observableListAK.add(new AK(0, 0, 0));
@@ -2818,7 +2819,8 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
-        public void deleteElementMaterialWall(ActionEvent actionEvent) {
+
+    public void deleteElementMaterialWall(ActionEvent actionEvent) {
         ObservableList<MaterialWall> allMaterialWall, singleMaterialWall;
         allMaterialWall = materialTableViewWall.getItems();
         singleMaterialWall = materialTableViewWall.getSelectionModel().getSelectedItems();
@@ -2832,6 +2834,7 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+
     public void deleteElementMaterialFloor(ActionEvent actionEvent) {
         ObservableList<MaterialFloor> allMaterialFloor, singleMaterialFloor;
         allMaterialFloor = materialTableViewFloor.getItems();
@@ -2847,6 +2850,7 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+
     public void deleteElementMaterialCeiling(ActionEvent actionEvent) {
         ObservableList<MaterialCeiling> allMaterialCeiling, singleMaterialCeiling;
         allMaterialCeiling = materialTableViewCeiling.getItems();
@@ -2861,6 +2865,7 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+
     public void deleteElementMaterialOther(ActionEvent actionEvent) {
         ObservableList<MaterialOther> allMaterialOther, singleMaterialOther;
         allMaterialOther = materialTableViewOther.getItems();
@@ -2875,6 +2880,7 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+
     public void deleteElementMaterialSuddenly(ActionEvent actionEvent) {
         ObservableList<MaterialSuddenly> allMaterialSuddenly, singleMaterialSuddenly;
         allMaterialSuddenly = materialTableViewSuddenly.getItems();
@@ -2889,6 +2895,7 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+
     public void deleteElementAppliancesKitchen(ActionEvent actionEvent) {
         ObservableList<AppliancesKitchen> allAppliancesKitchen, singleAppliancesKitchen;
         allAppliancesKitchen = appliancesTableViewKitchen.getItems();
@@ -2903,6 +2910,7 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+
     public void deleteElementAppliancesOther(ActionEvent actionEvent) {
         ObservableList<AppliancesOther> allAppliancesOther, singleAppliancesOther;
         allAppliancesOther = appliancesTableViewOther.getItems();
@@ -2917,12 +2925,14 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+
     public void deleteElementAppliancesDelivery(ActionEvent actionEvent) {
         ObservableList<AppliancesDelivery> allAppliancesDelivery, singleAppliancesDelivery;
         allAppliancesDelivery = appliancesTableViewDelivery.getItems();
         singleAppliancesDelivery = appliancesTableViewDelivery.getSelectionModel().getSelectedItems();
         singleAppliancesDelivery.forEach(allAppliancesDelivery::remove);
     }
+
     public void On_tabCalculatorClickedActionAppliancesSuddenly(MouseEvent mouseEvent) {
         if (observableListAppliancesSuddenly.filtered(x -> "0.0".equals(x.getQuantityAppliancesSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesSuddenly())).size() == 0) {
             observableListAppliancesSuddenly.add(new AppliancesSuddenly("", false, false, "", 0, 0,
@@ -2930,17 +2940,13 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", ""));
         }
     }
+
     public void deleteElementAppliancesSuddenly(ActionEvent actionEvent) {
         ObservableList<AppliancesSuddenly> allAppliancesSuddenly, singleAppliancesSuddenly;
         allAppliancesSuddenly = appliancesTableViewSuddenly.getItems();
         singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
         singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
     }
-
-
-
-
-
 
 
     public void addRoom(ActionEvent actionEvent) throws Exception {
@@ -2955,8 +2961,18 @@ public class EditProjectController implements Initializable {
     public void addPayment(ActionEvent actionEvent) {
     }
 
-    public static void sout (){
-        System.out.println("ДУмай сука!");
+    public void addRoomPlumbing()  {
+        System.out.println("Запускаем метод для помещений Сантехники");
+
+
+        VBox vBox = new VBox();
+        Button newButton = new Button();
+
+        vBox.getChildren().add(newButton);
+
+//        tabPane.getChildren().add(newButton);
+
+
 
 
     }

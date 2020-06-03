@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static sample.EditProjectController.sout;
+
 
 public class RoomNameController implements Initializable {
 
@@ -30,7 +31,7 @@ public class RoomNameController implements Initializable {
     public TableColumn<Room, String> colNameRoom;
     public TableColumn<Room, String> colAreaRoom;
     public TableColumn<Room, Boolean> colSelectBathRoom;
-    private ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
+    public ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
 
 
     public Button saveRoomButton;
@@ -107,9 +108,10 @@ public class RoomNameController implements Initializable {
     }
 
     //Делаем элементы из помещений
-    public void saveRoomElement(ActionEvent actionEvent) {
+    public void saveRoomElement (ActionEvent actionEvent)  {
+
         //вызываем нужный статик метод
-        sout();
+//        addRoomPlumbing();
 
 
         for (Room room : observableListRoom.filtered(x-> !"".equals(x.getNameRoom())) )
@@ -129,6 +131,7 @@ public class RoomNameController implements Initializable {
             newStage.setScene(newScene);
 
             newStage.show();
+
         }
     }
 }
