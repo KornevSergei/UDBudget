@@ -15,15 +15,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
-public class EditProjectController implements Initializable  {
+public class EditProjectController implements Initializable {
 
     public TabPane tabPane;
 
@@ -2812,6 +2814,9 @@ public class EditProjectController implements Initializable  {
 
     }
 
+//    double sum = Arrays.stream(colOrdinalPriceUnitMaterialWall).sum();
+//    double sum = 2 +15;
+
     public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
             observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
@@ -2961,19 +2966,38 @@ public class EditProjectController implements Initializable  {
     public void addPayment(ActionEvent actionEvent) {
     }
 
-    public void addRoomPlumbing()  {
+    public void addRoomPlumbing() {
         System.out.println("Запускаем метод для помещений Сантехники");
 
+        Button newButton1 = new Button("Кнопка!");
 
-        VBox vBox = new VBox();
-        Button newButton = new Button();
-
-        vBox.getChildren().add(newButton);
-
-//        tabPane.getChildren().add(newButton);
+        FlowPane flowPane = new FlowPane();
+        flowPane.getChildren().add(newButton1);
+        plumbing.setContent(flowPane);
 
 
+
+//        plumbing.setContent();
+
+        //В ту же сцену
+//        Button newButton = new Button();
+//        VBox vBox = new VBox();
+//
+//        vBox.getChildren().add(newButton);
+//
+//        tabPane.getChildren().add(vBox);
+
+
+        //В новое окно
+//        Scene newScene = new Scene(vBox, 250, 50);
+//        Stage newStage = new Stage();
+//        newStage.setScene(newScene);
+//        newStage.show();
 
 
     }
+    public void saveRoomElement(ActionEvent actionEvent){
+        
+    }
+
 }

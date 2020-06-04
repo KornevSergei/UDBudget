@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -53,8 +54,6 @@ public class RoomNameController implements Initializable {
                         return new EditingCellCheckBox();
                     }
                 };
-
-
 
 
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
@@ -108,30 +107,40 @@ public class RoomNameController implements Initializable {
     }
 
     //Делаем элементы из помещений
-    public void saveRoomElement (ActionEvent actionEvent)  {
+    public void saveRoomElement(ActionEvent actionEvent) {
 
         //вызываем нужный статик метод
 //        addRoomPlumbing();
 
 
-        for (Room room : observableListRoom.filtered(x-> !"".equals(x.getNameRoom())) )
-        {
-            Button newButton = new Button();
-            newButton.setText(room.getAreaRoom());
+//        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
+//            Button newButton = new Button();
+//            newButton.setText(room.getAreaRoom());
+//
+//
+//            VBox layout = new VBox(1);
+//
+//            layout.getChildren().add(newButton);
+//
+//            Scene newScene = new Scene(layout, 250, 50);
+//
+//            Stage newStage = new Stage();
+//            newStage.setTitle(room.getNameRoom());
+//            newStage.setScene(newScene);
+//
+//            newStage.show();
 
 
-            VBox layout = new VBox(1);
 
-            layout.getChildren().add(newButton);
 
-            Scene newScene = new Scene(layout, 250, 50);
 
-            Stage newStage = new Stage();
-            newStage.setTitle(room.getNameRoom());
-            newStage.setScene(newScene);
+//        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
+            Button newButton = new Button("Кнопка!");
+            FlowPane flowPane = new FlowPane();
+            flowPane.getChildren().add(newButton);
 
-            newStage.show();
-
-        }
+//            EditProjectController.class.getResource("EditProject");
+            plumbing.setContent(flowPane);
+//        }
     }
 }
