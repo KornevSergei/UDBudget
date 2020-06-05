@@ -26,9 +26,6 @@ public class Plumbing {
     protected String characteristicsPlumbing;
 
 
-
-
-
     public Plumbing(String namePlumbing, boolean activePPlumbing, boolean activeCPlumbing, String unitPlumbing, double quantityPlumbing,
                     double ordinalPriceUnitPlumbing, double priceCPUnitPlumbing, double priceCPKeyPlumbing, double costCPUnitPlumbing,
                     double priceOrderPlumbing, double costCPPlumbing, String productionTimePlumbing, double actualCostPlumbing,

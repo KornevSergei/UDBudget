@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -31,6 +32,8 @@ public class EditProjectController implements Initializable {
 
     public Tab plumbingView;
 
+    public MenuButton testButton;
+    public AnchorPane roomPane1;
 
     public TableView<AK> AKTableView;
     public TableColumn<AK, String> colRateAK;
@@ -2964,7 +2967,29 @@ public class EditProjectController implements Initializable {
     }
 
     public void addPayment(ActionEvent actionEvent) {
+        System.out.println("ТЕСТ!");
+
+        Button newButton = new Button("Кнопка!");
+        Button newButton1 = new Button("Кнопка!11111111");
+        VBox vBox = new VBox();
+        Accordion accordion = new Accordion();
+//        FlowPane flowPane = new FlowPane();
+        vBox.getChildren().add(newButton);
+        vBox.getChildren().add(newButton1);
+        plumbingView.setContent(vBox);
+        
+        roomPane1.setVisible(true);
+
+        
+
     }
+
+
+
+
+
+
+
 
     public void addRoomPlumbing() {
         System.out.println("Запускаем метод для помещений Сантехники");
@@ -2983,5 +3008,14 @@ public class EditProjectController implements Initializable {
 //        newStage.show();
 
 
+    }
+
+    public void deleteRoomElement(ActionEvent actionEvent) {
+    }
+
+    public void saveRoomElement(ActionEvent actionEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionRoom(MouseEvent mouseEvent) {
     }
 }

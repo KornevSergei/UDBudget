@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
     <tabs>
         <Tab text="Проект">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <MenuButton layoutX="13.0" layoutY="245.0" mnemonicParsing="false" text="Выбрать проект">
+                        <MenuButton fx:id="testButton" layoutX="13.0" layoutY="245.0" mnemonicParsing="false" text="Выбрать проект">
                             <items>
                                 <MenuItem mnemonicParsing="false" text="Action 1" />
                                 <MenuItem mnemonicParsing="false" text="Action 1" />
@@ -29,6 +40,20 @@
                         <ToggleButton layoutX="248.0" layoutY="245.0" mnemonicParsing="false" text="€" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Валюта :" />
                         <Button fx:id="createButton" layoutX="13.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="262.0" text="Сформировать" />
+
+                  <AnchorPane fx:id="roomPane1" visible="false" layoutX="312.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="422.0">
+                     <children>
+                        <Button layoutX="227.0" layoutY="31.0" mnemonicParsing="false" onAction="#deleteRoomElement" text="Удалить" />
+                        <Button fx:id="saveRoomButton" layoutX="137.0" layoutY="31.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" />
+                        <TableView fx:id="roomTableView" layoutX="27.0" layoutY="73.0" onMouseClicked="#On_tabCalculatorClickedActionRoom" prefHeight="200.0" prefWidth="358.0">
+                           <columns>
+                              <TableColumn fx:id="colNameRoom" prefWidth="185.0" text="Помещение" />
+                              <TableColumn fx:id="colAreaRoom" prefWidth="100.0" text="Площадь" />
+                              <TableColumn fx:id="colSelectBathRoom" prefWidth="70.0" text="Санузел" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
                     </children>
                 </AnchorPane>
             </content>
