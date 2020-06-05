@@ -2970,32 +2970,10 @@ public class EditProjectController implements Initializable {
         System.out.println("Запускаем метод для помещений Сантехники");
 
 
-
-
-
-
-
-
 //        Button newButton1 = new Button("Кнопка!");
-//
 //        FlowPane flowPane = new FlowPane();
 //        flowPane.getChildren().add(newButton1);
 //        plumbingView.setContent(flowPane);
-
-
-
-
-
-
-//        plumbing.setContent();
-
-        //В ту же сцену
-//        Button newButton = new Button();
-//        VBox vBox = new VBox();
-//
-//        vBox.getChildren().add(newButton);
-//
-//        tabPane.getChildren().add(vBox);
 
 
         //В новое окно
@@ -3006,8 +2984,4 @@ public class EditProjectController implements Initializable {
 
 
     }
-    public void saveRoomElement(ActionEvent actionEvent){
-
-    }
-
 }

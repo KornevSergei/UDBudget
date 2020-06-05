@@ -111,9 +111,7 @@ public class RoomNameController implements Initializable {
     public void saveRoomElement(ActionEvent actionEvent) {
 
         //вызываем нужный статик метод
-        addRoomPlumbing();
-
-
+//        addRoomPlumbing();
 
 
         for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
@@ -121,7 +119,7 @@ public class RoomNameController implements Initializable {
             newButton.setText(room.getAreaRoom());
 
 
-            VBox layout = new VBox(1);
+            VBox layout = new VBox();
 
             layout.getChildren().add(newButton);
 
@@ -132,16 +130,16 @@ public class RoomNameController implements Initializable {
             newStage.setScene(newScene);
 
             newStage.show();
+    }
 
 
 //        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
 //            Button newButton = new Button("Кнопка!");
 //            FlowPane flowPane = new FlowPane();
 //            flowPane.getChildren().add(newButton);
-
-//            plumbing.setContent(flowPane);
-//            plumbing.setContent(flowPane);
+//
+//
+//            plumbingView.setContent(flowPane);
 //        }
-        }
     }
 }
