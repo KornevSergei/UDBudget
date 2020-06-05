@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 
 public class RoomNameController implements Initializable {
 
+
     public TableView<Room> roomTableView;
 
     public TableColumn<Room, String> colNameRoom;
@@ -110,37 +111,37 @@ public class RoomNameController implements Initializable {
     public void saveRoomElement(ActionEvent actionEvent) {
 
         //вызываем нужный статик метод
-//        addRoomPlumbing();
+        addRoomPlumbing();
+
+
+
+
+        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
+            Button newButton = new Button();
+            newButton.setText(room.getAreaRoom());
+
+
+            VBox layout = new VBox(1);
+
+            layout.getChildren().add(newButton);
+
+            Scene newScene = new Scene(layout, 250, 50);
+
+            Stage newStage = new Stage();
+            newStage.setTitle(room.getNameRoom());
+            newStage.setScene(newScene);
+
+            newStage.show();
 
 
 //        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
-//            Button newButton = new Button();
-//            newButton.setText(room.getAreaRoom());
-//
-//
-//            VBox layout = new VBox(1);
-//
-//            layout.getChildren().add(newButton);
-//
-//            Scene newScene = new Scene(layout, 250, 50);
-//
-//            Stage newStage = new Stage();
-//            newStage.setTitle(room.getNameRoom());
-//            newStage.setScene(newScene);
-//
-//            newStage.show();
+//            Button newButton = new Button("Кнопка!");
+//            FlowPane flowPane = new FlowPane();
+//            flowPane.getChildren().add(newButton);
 
-
-
-
-
-//        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
-            Button newButton = new Button("Кнопка!");
-            FlowPane flowPane = new FlowPane();
-            flowPane.getChildren().add(newButton);
-
-//            EditProjectController.class.getResource("EditProject");
-            plumbing.setContent(flowPane);
+//            plumbing.setContent(flowPane);
+//            plumbing.setContent(flowPane);
 //        }
+        }
     }
 }

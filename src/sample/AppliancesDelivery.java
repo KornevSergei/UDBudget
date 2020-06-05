@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
 
 public class AppliancesDelivery {
     protected String nameAppliancesDelivery;//Наименование

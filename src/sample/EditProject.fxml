@@ -384,7 +384,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="plumbing"  text="Сантехника" >
+        <Tab fx:id="plumbingView"  text="Сантехника" >
             <content>
                 <AnchorPane>
 

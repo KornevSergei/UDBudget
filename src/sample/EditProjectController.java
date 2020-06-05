@@ -29,7 +29,7 @@ public class EditProjectController implements Initializable {
 
     public TabPane tabPane;
 
-    public Tab plumbing;
+    public Tab plumbingView;
 
 
     public TableView<AK> AKTableView;
@@ -2969,11 +2969,21 @@ public class EditProjectController implements Initializable {
     public void addRoomPlumbing() {
         System.out.println("Запускаем метод для помещений Сантехники");
 
-        Button newButton1 = new Button("Кнопка!");
 
-        FlowPane flowPane = new FlowPane();
-        flowPane.getChildren().add(newButton1);
-        plumbing.setContent(flowPane);
+
+
+
+
+
+
+//        Button newButton1 = new Button("Кнопка!");
+//
+//        FlowPane flowPane = new FlowPane();
+//        flowPane.getChildren().add(newButton1);
+//        plumbingView.setContent(flowPane);
+
+
+
 
 
 
@@ -2997,7 +3007,7 @@ public class EditProjectController implements Initializable {
 
     }
     public void saveRoomElement(ActionEvent actionEvent){
-        
+
     }
 
 }
