@@ -42,6 +42,15 @@ public class EditProjectController implements Initializable {
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
 
+    public TableView<Room> roomTableView;
+    public TableColumn<Room, String> colNameRoom;
+    public TableColumn<Room, String> colAreaRoom;
+    public TableColumn<Room, Boolean> colSelectBathRoom;
+    public ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
+
+    public Button saveRoomButton;
+
+
     //Блок Мебели - доделать!!
     public TableView<Furniture> furnitureTableView;
     public TableColumn<Furniture, String> colNameFurniture;
@@ -357,6 +366,61 @@ public class EditProjectController implements Initializable {
         });
 
         AKTableView.setEditable(true);
+
+
+        //Помещения
+        roomTableView.setItems(observableListRoom);
+        Callback<TableColumn<Room, String>, TableCell<Room, String>> cellFactoryDoubleRoom =
+                new Callback<TableColumn<Room, String>, TableCell<Room, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<Room, Boolean>, TableCell<Room, Boolean>> cellFactoryCheckboxRoom =
+                new Callback<TableColumn<Room, Boolean>, TableCell<Room, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
+        colNameRoom.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Room, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Room, String> t) {
+                        ((Room) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setNameRoom(t.getNewValue());
+                    }
+                });
+        colAreaRoom.setCellFactory(cellFactoryDoubleRoom);
+        colAreaRoom.setCellValueFactory(new PropertyValueFactory<>("areaRoom"));
+        colAreaRoom.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Room, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Room, String> t) {
+                        ((Room) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setAreaRoom(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colSelectBathRoom.setCellFactory(cellFactoryCheckboxRoom);
+        colSelectBathRoom.setCellValueFactory(new PropertyValueFactory<>("selectBathRoom"));
+        colSelectBathRoom.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Room, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Room, Boolean> t) {
+                        ((Room) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setSelectBathRoom(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        roomTableView.setEditable(true);
+        colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
 
 
         //Материалы - стена
@@ -2814,7 +2878,52 @@ public class EditProjectController implements Initializable {
         if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
             observableListAK.add(new AK(0, 0, 0));
         }
+    }
 
+    public void On_tabCalculatorClickedActionRoom(MouseEvent mouseEvent) {
+        if (observableListRoom.filtered(x -> "".equals(x.getNameRoom()) && "0.0".equals(x.getAreaRoom())).size() == 0) {
+            observableListRoom.add(new Room("", 0, false));
+        }
+    }
+    public void deleteRoomElement(ActionEvent actionEvent) {
+        ObservableList<Room> allRoom, singleRoom;
+        allRoom = roomTableView.getItems();
+        singleRoom = roomTableView.getSelectionModel().getSelectedItems();
+        singleRoom.forEach(allRoom::remove);
+    }
+    public void saveRoomElement(ActionEvent actionEvent) {
+
+        //вызываем нужный статик метод
+//        addRoomPlumbing();
+
+
+        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
+            Button newButton = new Button();
+            newButton.setText(room.getAreaRoom());
+
+
+            VBox layout = new VBox();
+
+            layout.getChildren().add(newButton);
+
+            Scene newScene = new Scene(layout, 250, 50);
+
+            Stage newStage = new Stage();
+            newStage.setTitle(room.getNameRoom());
+            newStage.setScene(newScene);
+
+            newStage.show();
+        }
+
+
+//        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
+//            Button newButton = new Button("Кнопка!");
+//            FlowPane flowPane = new FlowPane();
+//            flowPane.getChildren().add(newButton);
+//
+//
+//            plumbingView.setContent(flowPane);
+//        }
     }
 
 //    double sum = Arrays.stream(colOrdinalPriceUnitMaterialWall).sum();
@@ -3008,14 +3117,5 @@ public class EditProjectController implements Initializable {
 //        newStage.show();
 
 
-    }
-
-    public void deleteRoomElement(ActionEvent actionEvent) {
-    }
-
-    public void saveRoomElement(ActionEvent actionEvent) {
-    }
-
-    public void On_tabCalculatorClickedActionRoom(MouseEvent mouseEvent) {
     }
 }
