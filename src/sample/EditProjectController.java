@@ -2971,34 +2971,33 @@ public class EditProjectController implements Initializable {
             accordionLight.getPanes().add(titledPaneLight);
             accordionDecoration.getPanes().add(titledPaneDecoration);
 
+
             VBox vBoxPlumbing = new VBox();
             vBoxPlumbing.getChildren().addAll(buttonDeletePlumbing);
 
             VBox vBoxFurniture = new VBox();
+            vBoxFurniture.getChildren().addAll(buttonDeleteFurniture);
+
             VBox vBoxLight = new VBox();
+            vBoxLight.getChildren().addAll(buttonDeleteLight);
+
             VBox vBoxDecoration = new VBox();
+            vBoxDecoration.getChildren().addAll(buttonDeleteDecoration);
+
+
+
+//            TableView<Light> lightTableView = new TableView<>();
+//            TableView<Decoration> decorationTableView = new TableView<>();
+
+
 
             TableView<Plumbing> plumbingTableView = new TableView<>();
-            TableView<Furniture> furnitureTableView = new TableView<>();
-            TableView<Light> lightTableView = new TableView<>();
-            TableView<Decoration> decorationTableView = new TableView<>();
-
-            //добавляем в аккардион
-            titledPanePlumbing.setContent(plumbingTableView);
-            titledPaneFurniture.setContent(furnitureTableView);
-            titledPaneLight.setContent(lightTableView);
-            titledPaneDecoration.setContent(decorationTableView);
-
-
             TableColumn<Plumbing, String> colNamePlumbing = new TableColumn<Plumbing, String>("Наименование");
 //            TableColumn<Plumbing, Boolean> colActivePPlumbing = new TableColumn<Plumbing, String>("П");
 //            TableColumn<Plumbing, Boolean> colActiveCPlumbing = new TableColumn<Plumbing, String>("С");
             TableColumn<Plumbing, String> colUnitPlumbing = new TableColumn<Plumbing, String>("Ед. изм.");
-            ;
             TableColumn<Plumbing, String> colQuantityPlumbing = new TableColumn<Plumbing, String>("Количество");
-            ;
             TableColumn<Plumbing, String> colOrdinalPriceUnitPlumbing = new TableColumn<Plumbing, String>("Цена порядковая за ед.");
-            ;
             TableColumn<Plumbing, String> colPriceCPUnitPlumbing = new TableColumn<Plumbing, String>("Цена по КП за ед.");
             TableColumn<Plumbing, String> colPriceCPKeyPlumbing = new TableColumn<Plumbing, String>("Цена по КП под ключ");
             TableColumn<Plumbing, String> colCostCPUnitPlumbing = new TableColumn<Plumbing, String>("Стоимость по КП за ед.");
@@ -3020,15 +3019,104 @@ public class EditProjectController implements Initializable {
                     colCostCPUnitPlumbing, colPriceOrderPlumbing, colCostCPPlumbing, colProductionTimePlumbing, colActualCostPlumbing, colActualDifferencePlumbing, colPaidPlumbing,
                     colResiduePlumbing, colDateOfDeliveryPlumbing, colPlannedCPPlumbing, colActualCPPlumbing, colAccountMPlumbing, colContactsPlumbing, colNotesPlumbing, colCharacteristicsPlumbing);
 
+            TableView<Furniture> furnitureTableView = new TableView<>();
+            TableColumn<Furniture, String> colNameFurniture = new TableColumn<Furniture, String>("Наименование");
+//            TableColumn<Furniture, Boolean> colActivePFurniture = new TableColumn<Furniture, String>("П");
+//            TableColumn<Furniture, Boolean> colActiveCFurniture = new TableColumn<Furniture, String>("С");
+            TableColumn<Furniture, String> colUnitFurniture = new TableColumn<Furniture, String>("Ед. изм.");
+            TableColumn<Furniture, String> colQuantityFurniture = new TableColumn<Furniture, String>("Количество");
+            TableColumn<Furniture, String> colOrdinalPriceUnitFurniture = new TableColumn<Furniture, String>("Цена порядковая за ед.");
+            TableColumn<Furniture, String> colPriceCPUnitFurniture = new TableColumn<Furniture, String>("Цена по КП за ед.");
+            TableColumn<Furniture, String> colPriceCPKeyFurniture = new TableColumn<Furniture, String>("Цена по КП под ключ");
+            TableColumn<Furniture, String> colCostCPUnitFurniture = new TableColumn<Furniture, String>("Стоимость по КП за ед.");
+            TableColumn<Furniture, String> colPriceOrderFurniture = new TableColumn<Furniture, String>("Порядок цен");
+            TableColumn<Furniture, String> colCostCPFurniture = new TableColumn<Furniture, String>("Стоимость по КП");
+            TableColumn<Furniture, String> colProductionTimeFurniture = new TableColumn<Furniture, String>("Срок доставки");
+            TableColumn<Furniture, String> colActualCostFurniture = new TableColumn<Furniture, String>("Стоимость фактическая");
+            TableColumn<Furniture, String> colActualDifferenceFurniture = new TableColumn<Furniture, String>("Разница фактическая");
+            TableColumn<Furniture, String> colPaidFurniture = new TableColumn<Furniture, String>("Оплачено");
+            TableColumn<Furniture, String> colResidueFurniture = new TableColumn<Furniture, String>("Остаток");
+            TableColumn<Furniture, String> colDateOfDeliveryFurniture = new TableColumn<Furniture, String>("Дата поставки");
+            TableColumn<Furniture, String> colPlannedCPFurniture = new TableColumn<Furniture, String>("КП плановое");
+            TableColumn<Furniture, String> colActualCPFurniture = new TableColumn<Furniture, String>("КП фактическое");
+            TableColumn<Furniture, String> colAccountMFurniture = new TableColumn<Furniture, String>("Счёт");
+            TableColumn<Furniture, String> colContactsFurniture = new TableColumn<Furniture, String>("Контакты");
+            TableColumn<Furniture, String> colNotesFurniture = new TableColumn<Furniture, String>("Примечания");
+            TableColumn<Furniture, String> colCharacteristicsFurniture = new TableColumn<Furniture, String>("Характеристики");
+            furnitureTableView.getColumns().addAll(colNameFurniture, colUnitFurniture, colQuantityFurniture, colOrdinalPriceUnitFurniture, colPriceCPUnitFurniture, colPriceCPKeyFurniture,
+                    colCostCPUnitFurniture, colPriceOrderFurniture, colCostCPFurniture, colProductionTimeFurniture, colActualCostFurniture, colActualDifferenceFurniture, colPaidFurniture,
+                    colResidueFurniture, colDateOfDeliveryFurniture, colPlannedCPFurniture, colActualCPFurniture, colAccountMFurniture, colContactsFurniture, colNotesFurniture, colCharacteristicsFurniture);
+
+
+            TableView<Light> lightTableView = new TableView<>();
+            TableColumn<Light, String> colNameLight = new TableColumn<Light, String>("Наименование");
+//            TableColumn<Light, Boolean> colActivePLight = new TableColumn<Light, String>("П");
+//            TableColumn<Light, Boolean> colActiveCLight = new TableColumn<Light, String>("С");
+            TableColumn<Light, String> colUnitLight = new TableColumn<Light, String>("Ед. изм.");
+            TableColumn<Light, String> colQuantityLight = new TableColumn<Light, String>("Количество");
+            TableColumn<Light, String> colOrdinalPriceUnitLight = new TableColumn<Light, String>("Цена порядковая за ед.");
+            TableColumn<Light, String> colPriceCPUnitLight = new TableColumn<Light, String>("Цена по КП за ед.");
+            TableColumn<Light, String> colPriceCPKeyLight = new TableColumn<Light, String>("Цена по КП под ключ");
+            TableColumn<Light, String> colCostCPUnitLight = new TableColumn<Light, String>("Стоимость по КП за ед.");
+            TableColumn<Light, String> colPriceOrderLight = new TableColumn<Light, String>("Порядок цен");
+            TableColumn<Light, String> colCostCPLight = new TableColumn<Light, String>("Стоимость по КП");
+            TableColumn<Light, String> colProductionTimeLight = new TableColumn<Light, String>("Срок доставки");
+            TableColumn<Light, String> colActualCostLight = new TableColumn<Light, String>("Стоимость фактическая");
+            TableColumn<Light, String> colActualDifferenceLight = new TableColumn<Light, String>("Разница фактическая");
+            TableColumn<Light, String> colPaidLight = new TableColumn<Light, String>("Оплачено");
+            TableColumn<Light, String> colResidueLight = new TableColumn<Light, String>("Остаток");
+            TableColumn<Light, String> colDateOfDeliveryLight = new TableColumn<Light, String>("Дата поставки");
+            TableColumn<Light, String> colPlannedCPLight = new TableColumn<Light, String>("КП плановое");
+            TableColumn<Light, String> colActualCPLight = new TableColumn<Light, String>("КП фактическое");
+            TableColumn<Light, String> colAccountMLight = new TableColumn<Light, String>("Счёт");
+            TableColumn<Light, String> colContactsLight = new TableColumn<Light, String>("Контакты");
+            TableColumn<Light, String> colNotesLight = new TableColumn<Light, String>("Примечания");
+            TableColumn<Light, String> colCharacteristicsLight = new TableColumn<Light, String>("Характеристики");
+            lightTableView.getColumns().addAll(colNameLight, colUnitLight, colQuantityLight, colOrdinalPriceUnitLight, colPriceCPUnitLight, colPriceCPKeyLight,
+                    colCostCPUnitLight, colPriceOrderLight, colCostCPLight, colProductionTimeLight, colActualCostLight, colActualDifferenceLight, colPaidLight,
+                    colResidueLight, colDateOfDeliveryLight, colPlannedCPLight, colActualCPLight, colAccountMLight, colContactsLight, colNotesLight, colCharacteristicsLight);
+
+
+            TableView<Decoration> decorationTableView = new TableView<>();
+            TableColumn<Decoration, String> colNameDecoration = new TableColumn<Decoration, String>("Наименование");
+//            TableColumn<Decoration, Boolean> colActivePDecoration = new TableColumn<Decoration, String>("П");
+//            TableColumn<Decoration, Boolean> colActiveCDecoration = new TableColumn<Decoration, String>("С");
+            TableColumn<Decoration, String> colUnitDecoration = new TableColumn<Decoration, String>("Ед. изм.");
+            TableColumn<Decoration, String> colQuantityDecoration = new TableColumn<Decoration, String>("Количество");
+            TableColumn<Decoration, String> colOrdinalPriceUnitDecoration = new TableColumn<Decoration, String>("Цена порядковая за ед.");
+            TableColumn<Decoration, String> colPriceCPUnitDecoration = new TableColumn<Decoration, String>("Цена по КП за ед.");
+            TableColumn<Decoration, String> colPriceCPKeyDecoration = new TableColumn<Decoration, String>("Цена по КП под ключ");
+            TableColumn<Decoration, String> colCostCPUnitDecoration = new TableColumn<Decoration, String>("Стоимость по КП за ед.");
+            TableColumn<Decoration, String> colPriceOrderDecoration = new TableColumn<Decoration, String>("Порядок цен");
+            TableColumn<Decoration, String> colCostCPDecoration = new TableColumn<Decoration, String>("Стоимость по КП");
+            TableColumn<Decoration, String> colProductionTimeDecoration = new TableColumn<Decoration, String>("Срок доставки");
+            TableColumn<Decoration, String> colActualCostDecoration = new TableColumn<Decoration, String>("Стоимость фактическая");
+            TableColumn<Decoration, String> colActualDifferenceDecoration = new TableColumn<Decoration, String>("Разница фактическая");
+            TableColumn<Decoration, String> colPaidDecoration = new TableColumn<Decoration, String>("Оплачено");
+            TableColumn<Decoration, String> colResidueDecoration = new TableColumn<Decoration, String>("Остаток");
+            TableColumn<Decoration, String> colDateOfDeliveryDecoration = new TableColumn<Decoration, String>("Дата поставки");
+            TableColumn<Decoration, String> colPlannedCPDecoration = new TableColumn<Decoration, String>("КП плановое");
+            TableColumn<Decoration, String> colActualCPDecoration = new TableColumn<Decoration, String>("КП фактическое");
+            TableColumn<Decoration, String> colAccountMDecoration = new TableColumn<Decoration, String>("Счёт");
+            TableColumn<Decoration, String> colContactsDecoration = new TableColumn<Decoration, String>("Контакты");
+            TableColumn<Decoration, String> colNotesDecoration = new TableColumn<Decoration, String>("Примечания");
+            TableColumn<Decoration, String> colCharacteristicsDecoration = new TableColumn<Decoration, String>("Характеристики");
+            decorationTableView.getColumns().addAll(colNameDecoration, colUnitDecoration, colQuantityDecoration, colOrdinalPriceUnitDecoration, colPriceCPUnitDecoration, colPriceCPKeyDecoration,
+                    colCostCPUnitDecoration, colPriceOrderDecoration, colCostCPDecoration, colProductionTimeDecoration, colActualCostDecoration, colActualDifferenceDecoration, colPaidDecoration,
+                    colResidueDecoration, colDateOfDeliveryDecoration, colPlannedCPDecoration, colActualCPDecoration, colAccountMDecoration, colContactsDecoration, colNotesDecoration, colCharacteristicsDecoration);
+
+
+
             vBoxPlumbing.getChildren().add(accordionPlumbing);
             vBoxFurniture.getChildren().add(accordionFurniture);
             vBoxLight.getChildren().add(accordionLight);
             vBoxDecoration.getChildren().add(accordionDecoration);
 
-            vBoxPlumbing.getChildren().add(plumbingTableView);
-            vBoxFurniture.getChildren().add(furnitureTableView);
-            vBoxLight.getChildren().add(lightTableView);
-            vBoxDecoration.getChildren().add(decorationTableView);
+            //добавляем в аккардион
+            titledPanePlumbing.setContent(plumbingTableView);
+            titledPaneFurniture.setContent(furnitureTableView);
+            titledPaneLight.setContent(lightTableView);
+            titledPaneDecoration.setContent(decorationTableView);
 
 
             plumbingView.setContent(vBoxPlumbing);
