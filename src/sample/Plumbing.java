@@ -123,7 +123,6 @@ public class Plumbing {
         this.activeCPlumbing = Boolean.parseBoolean(activeCPlumbing);
     }
 
-    //Обана
     public String getQuantityPlumbing() {
         return Double.toString(quantityPlumbing);
     }
@@ -138,7 +137,6 @@ public class Plumbing {
         CalculateCostCPPlumbing();
     }
 
-    //Хуяк
     public String getOrdinalPriceUnitPlumbing() {
         return Double.toString(ordinalPriceUnitPlumbing);
     }

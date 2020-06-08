@@ -44,6 +44,15 @@ public class EditProjectController implements Initializable {
     public TableColumn<AK, String> colRateAK;
     public TableColumn<AK, String> colTermAK;
     public TableColumn<AK, String> colCostAK;
+    public Tab totalView;
+    public Tab DPView;
+    public Tab buildersView;
+    public Tab subcontractorsView;
+    public Tab AKView;
+    public Tab MaterialView;
+    public Tab appliancesView;
+    public Tab statisticsView;
+    public Tab diagramView;
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
 
@@ -57,31 +66,31 @@ public class EditProjectController implements Initializable {
 
 
     //Блок Мебели - доделать!!
-    public TableView<Furniture> furnitureTableView;
-    public TableColumn<Furniture, String> colNameFurniture;
-    public TableColumn<Furniture, Boolean> colActivePFurniture;
-    public TableColumn<Furniture, Boolean> colActiveCFurniture;
-    public TableColumn<Furniture, String> colUnitFurniture;
-    public TableColumn<Furniture, String> colQuantityFurniture;
-    public TableColumn<Furniture, String> colOrdinalPriceUnitFurniture;
-    public TableColumn<Furniture, String> colPriceCPUnitFurniture;
-    public TableColumn<Furniture, String> colPriceCPKeyFurniture;
-    public TableColumn<Furniture, String> colCostCPUnitFurniture;
-    public TableColumn<Furniture, String> colPriceOrderFurniture;
-    public TableColumn<Furniture, String> colCostCPFurniture;
-    public TableColumn<Furniture, String> colProductionTimeFurniture;
-    public TableColumn<Furniture, String> colActualCostFurniture;
-    public TableColumn<Furniture, String> colActualDifferenceFurniture;
-    public TableColumn<Furniture, String> colPaidFurniture;
-    public TableColumn<Furniture, String> colResidueFurniture;
-    public TableColumn<Furniture, String> colDateOfDeliveryFurniture;
-    public TableColumn<Furniture, String> colPlannedCPFurniture;
-    public TableColumn<Furniture, String> colActualCPFurniture;
-    public TableColumn<Furniture, String> colAccountFurniture;
-    public TableColumn<Furniture, String> colContactsFurniture;
-    public TableColumn<Furniture, String> colNotesFurniture;
-    public TableColumn<Furniture, String> colCharacteristicsFurniture;
-    private ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList();
+//    public TableView<Furniture> furnitureTableView;
+//    public TableColumn<Furniture, String> colNameFurniture;
+//    public TableColumn<Furniture, Boolean> colActivePFurniture;
+//    public TableColumn<Furniture, Boolean> colActiveCFurniture;
+//    public TableColumn<Furniture, String> colUnitFurniture;
+//    public TableColumn<Furniture, String> colQuantityFurniture;
+//    public TableColumn<Furniture, String> colOrdinalPriceUnitFurniture;
+//    public TableColumn<Furniture, String> colPriceCPUnitFurniture;
+//    public TableColumn<Furniture, String> colPriceCPKeyFurniture;
+//    public TableColumn<Furniture, String> colCostCPUnitFurniture;
+//    public TableColumn<Furniture, String> colPriceOrderFurniture;
+//    public TableColumn<Furniture, String> colCostCPFurniture;
+//    public TableColumn<Furniture, String> colProductionTimeFurniture;
+//    public TableColumn<Furniture, String> colActualCostFurniture;
+//    public TableColumn<Furniture, String> colActualDifferenceFurniture;
+//    public TableColumn<Furniture, String> colPaidFurniture;
+//    public TableColumn<Furniture, String> colResidueFurniture;
+//    public TableColumn<Furniture, String> colDateOfDeliveryFurniture;
+//    public TableColumn<Furniture, String> colPlannedCPFurniture;
+//    public TableColumn<Furniture, String> colActualCPFurniture;
+//    public TableColumn<Furniture, String> colAccountFurniture;
+//    public TableColumn<Furniture, String> colContactsFurniture;
+//    public TableColumn<Furniture, String> colNotesFurniture;
+//    public TableColumn<Furniture, String> colCharacteristicsFurniture;
+//    private ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList();
 
 
     //Блок материалов
@@ -2898,6 +2907,20 @@ public class EditProjectController implements Initializable {
     }
     public void saveRoomElement(ActionEvent actionEvent) {
 
+        totalView.setDisable(false);
+        DPView.setDisable(false);
+        buildersView.setDisable(false);
+        subcontractorsView.setDisable(false);
+        AKView.setDisable(false);
+        MaterialView.setDisable(false);
+        plumbingView.setDisable(false);
+        furnitureView.setDisable(false);
+        lightView.setDisable(false);
+        appliancesView.setDisable(false);
+        decorationView.setDisable(false);
+        statisticsView.setDisable(false);
+        diagramView.setDisable(false);
+
 
 //        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
 //            Button newButton = new Button();
@@ -2930,11 +2953,13 @@ public class EditProjectController implements Initializable {
             TitledPane titledPaneLight = new TitledPane();
             TitledPane titledPaneDecoration = new TitledPane();
 
+            //получаем имя + "ТЕКСТ!"
             titledPanePlumbing.setText(room.getNameRoom());
             titledPaneFurniture.setText(room.getNameRoom());
             titledPaneLight.setText(room.getNameRoom());
             titledPaneDecoration.setText(room.getNameRoom());
 
+            //присваиваем имя
             accordionPlumbing.getPanes().add(titledPanePlumbing);
             accordionFurniture.getPanes().add(titledPaneFurniture);
             accordionLight.getPanes().add(titledPaneLight);
@@ -2945,10 +2970,15 @@ public class EditProjectController implements Initializable {
             VBox vBoxLight = new VBox();
             VBox vBoxDecoration = new VBox();
 
+            TableView<Plumbing> plumbingTableView = new TableView<>();
+            TableColumn<Plumbing, String> namePlumbing = new TableColumn<Plumbing, String>("namePlumbing");
+            TableColumn<Plumbing, String> quantityPlumbing = new TableColumn<Plumbing, String>("quantityPlumbing");
+
             vBoxPlumbing.getChildren().add(accordionPlumbing);
             vBoxFurniture.getChildren().add(accordionFurniture);
             vBoxLight.getChildren().add(accordionLight);
             vBoxDecoration.getChildren().add(accordionDecoration);
+
 
 
             plumbingView.setContent(vBoxPlumbing);
@@ -2971,10 +3001,7 @@ public class EditProjectController implements Initializable {
 //        plumbingView.setContent(vBox);
 //
         roomPane.setVisible(true);
-        plumbingView.setDisable(false);
-        furnitureView.setDisable(false);
-        lightView.setDisable(false);
-        decorationView.setDisable(false);
+
 
 
 
