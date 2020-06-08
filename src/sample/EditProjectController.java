@@ -34,16 +34,6 @@ public class EditProjectController implements Initializable {
     public Tab furnitureView;
     public Tab lightView;
     public Tab decorationView;
-
-
-
-    public MenuButton testButton;
-    public AnchorPane roomPane;
-
-    public TableView<AK> AKTableView;
-    public TableColumn<AK, String> colRateAK;
-    public TableColumn<AK, String> colTermAK;
-    public TableColumn<AK, String> colCostAK;
     public Tab totalView;
     public Tab DPView;
     public Tab buildersView;
@@ -53,6 +43,15 @@ public class EditProjectController implements Initializable {
     public Tab appliancesView;
     public Tab statisticsView;
     public Tab diagramView;
+
+
+    public MenuButton testButton;
+    public AnchorPane roomPane;
+
+    public TableView<AK> AKTableView;
+    public TableColumn<AK, String> colRateAK;
+    public TableColumn<AK, String> colTermAK;
+    public TableColumn<AK, String> colCostAK;
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
 
@@ -63,6 +62,8 @@ public class EditProjectController implements Initializable {
     public ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
 
     public Button saveRoomButton;
+
+    public int counterPlumping = 0;
 
 
     //Блок Мебели - доделать!!
@@ -432,9 +433,6 @@ public class EditProjectController implements Initializable {
 
         roomTableView.setEditable(true);
         colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
-
 
 
         //Материалы - стена
@@ -2899,12 +2897,14 @@ public class EditProjectController implements Initializable {
             observableListRoom.add(new Room("", 0, false));
         }
     }
+
     public void deleteRoomElement(ActionEvent actionEvent) {
         ObservableList<Room> allRoom, singleRoom;
         allRoom = roomTableView.getItems();
         singleRoom = roomTableView.getSelectionModel().getSelectedItems();
         singleRoom.forEach(allRoom::remove);
     }
+
     public void saveRoomElement(ActionEvent actionEvent) {
 
         totalView.setDisable(false);
@@ -2971,6 +2971,11 @@ public class EditProjectController implements Initializable {
             VBox vBoxDecoration = new VBox();
 
             TableView<Plumbing> plumbingTableView = new TableView<>();
+            TableView<Furniture> furnitureTableView = new TableView<>();
+            TableView<Light> lightTableView = new TableView<>();
+            TableView<Decoration> decorationTableView = new TableView<>();
+
+
             TableColumn<Plumbing, String> namePlumbing = new TableColumn<Plumbing, String>("namePlumbing");
             TableColumn<Plumbing, String> quantityPlumbing = new TableColumn<Plumbing, String>("quantityPlumbing");
 
@@ -2979,6 +2984,10 @@ public class EditProjectController implements Initializable {
             vBoxLight.getChildren().add(accordionLight);
             vBoxDecoration.getChildren().add(accordionDecoration);
 
+            vBoxPlumbing.getChildren().add(plumbingTableView);
+            vBoxFurniture.getChildren().add(furnitureTableView);
+            vBoxLight.getChildren().add(lightTableView);
+            vBoxDecoration.getChildren().add(decorationTableView);
 
 
             plumbingView.setContent(vBoxPlumbing);
@@ -3001,8 +3010,6 @@ public class EditProjectController implements Initializable {
 //        plumbingView.setContent(vBox);
 //
         roomPane.setVisible(true);
-
-
 
 
 //    public void addRoomPlumbing() {
