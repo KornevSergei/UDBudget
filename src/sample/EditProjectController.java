@@ -48,11 +48,11 @@ public class EditProjectController implements Initializable {
     public MenuButton testButton;
     public AnchorPane roomPane;
 
-//    public TableView<AK> AKTableView;
-//    public TableColumn<AK, String> colRateAK;
-//    public TableColumn<AK, String> colTermAK;
-//    public TableColumn<AK, String> colCostAK;
-//    private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
+    public TableView<AK> AKTableView;
+    public TableColumn<AK, String> colRateAK;
+    public TableColumn<AK, String> colTermAK;
+    public TableColumn<AK, String> colCostAK;
+    private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
 
     public TableView<Room> roomTableView;
@@ -65,33 +65,6 @@ public class EditProjectController implements Initializable {
 
     public int counterPlumping = 0;
 
-
-    //Блок Мебели - доделать!!
-//    public TableView<Furniture> furnitureTableView;
-//    public TableColumn<Furniture, String> colNameFurniture;
-//    public TableColumn<Furniture, Boolean> colActivePFurniture;
-//    public TableColumn<Furniture, Boolean> colActiveCFurniture;
-//    public TableColumn<Furniture, String> colUnitFurniture;
-//    public TableColumn<Furniture, String> colQuantityFurniture;
-//    public TableColumn<Furniture, String> colOrdinalPriceUnitFurniture;
-//    public TableColumn<Furniture, String> colPriceCPUnitFurniture;
-//    public TableColumn<Furniture, String> colPriceCPKeyFurniture;
-//    public TableColumn<Furniture, String> colCostCPUnitFurniture;
-//    public TableColumn<Furniture, String> colPriceOrderFurniture;
-//    public TableColumn<Furniture, String> colCostCPFurniture;
-//    public TableColumn<Furniture, String> colProductionTimeFurniture;
-//    public TableColumn<Furniture, String> colActualCostFurniture;
-//    public TableColumn<Furniture, String> colActualDifferenceFurniture;
-//    public TableColumn<Furniture, String> colPaidFurniture;
-//    public TableColumn<Furniture, String> colResidueFurniture;
-//    public TableColumn<Furniture, String> colDateOfDeliveryFurniture;
-//    public TableColumn<Furniture, String> colPlannedCPFurniture;
-//    public TableColumn<Furniture, String> colActualCPFurniture;
-//    public TableColumn<Furniture, String> colAccountFurniture;
-//    public TableColumn<Furniture, String> colContactsFurniture;
-//    public TableColumn<Furniture, String> colNotesFurniture;
-//    public TableColumn<Furniture, String> colCharacteristicsFurniture;
-//    private ObservableList<Furniture> observableListFurniture = FXCollections.observableArrayList();
 
 
     //Блок материалов
@@ -339,49 +312,49 @@ public class EditProjectController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        AKTableView.setItems(observableListAK);
-//        Callback<TableColumn<AK, String>, TableCell<AK, String>> cellFactoryDoubleAK =
-//                new Callback<TableColumn<AK, String>, TableCell<AK, String>>() {
-//                    public TableCell call(TableColumn p) {
-//                        return new EditingCellTextBox("\\d.\\d");
-//                    }
-//                };
-//
-//
-//        colRateAK.setCellFactory(cellFactoryDoubleAK);
-//        colRateAK.setCellValueFactory(new PropertyValueFactory<>("rateAK"));
-//        colRateAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
-//            @Override
-//            public void handle(TableColumn.CellEditEvent<AK, String> t) {
-//                ((AK) t.getTableView().getItems().get(
-//                        t.getTablePosition().getRow())).setRateAK(t.getNewValue());
-//                t.getTableView().refresh();
-//            }
-//        });
-//
-//        colTermAK.setCellFactory(cellFactoryDoubleAK);
-//        colTermAK.setCellValueFactory(new PropertyValueFactory<>("termAK"));
-//        colTermAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
-//            @Override
-//            public void handle(TableColumn.CellEditEvent<AK, String> t) {
-//                ((AK) t.getTableView().getItems().get(
-//                        t.getTablePosition().getRow())).setTermAK(t.getNewValue());
-//                t.getTableView().refresh();
-//            }
-//        });
-//
-//        colCostAK.setCellFactory(cellFactoryDoubleAK);
-//        colCostAK.setCellValueFactory(new PropertyValueFactory<>("costAK"));
-//        colCostAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
-//            @Override
-//            public void handle(TableColumn.CellEditEvent<AK, String> t) {
-//                ((AK) t.getTableView().getItems().get(
-//                        t.getTablePosition().getRow())).setCostAK(t.getNewValue());
-//            }
-//        });
-//
-//        AKTableView.setEditable(true);
-//
+        AKTableView.setItems(observableListAK);
+        Callback<TableColumn<AK, String>, TableCell<AK, String>> cellFactoryDoubleAK =
+                new Callback<TableColumn<AK, String>, TableCell<AK, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+
+
+        colRateAK.setCellFactory(cellFactoryDoubleAK);
+        colRateAK.setCellValueFactory(new PropertyValueFactory<>("rateAK"));
+        colRateAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<AK, String> t) {
+                ((AK) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setRateAK(t.getNewValue());
+                t.getTableView().refresh();
+            }
+        });
+
+        colTermAK.setCellFactory(cellFactoryDoubleAK);
+        colTermAK.setCellValueFactory(new PropertyValueFactory<>("termAK"));
+        colTermAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<AK, String> t) {
+                ((AK) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setTermAK(t.getNewValue());
+                t.getTableView().refresh();
+            }
+        });
+
+        colCostAK.setCellFactory(cellFactoryDoubleAK);
+        colCostAK.setCellValueFactory(new PropertyValueFactory<>("costAK"));
+        colCostAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<AK, String> t) {
+                ((AK) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setCostAK(t.getNewValue());
+            }
+        });
+
+        AKTableView.setEditable(true);
+
 
         //Помещения
         roomTableView.setItems(observableListRoom);
@@ -2887,9 +2860,9 @@ public class EditProjectController implements Initializable {
 
 
     public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
-//        if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
-//            observableListAK.add(new AK(0, 0, 0));
-//        }
+        if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
+            observableListAK.add(new AK(0, 0, 0));
+        }
     }
 
     public void On_tabCalculatorClickedActionRoom(MouseEvent mouseEvent) {
@@ -2985,9 +2958,6 @@ public class EditProjectController implements Initializable {
             vBoxDecoration.getChildren().addAll(buttonDeleteDecoration);
 
 
-
-//            TableView<Light> lightTableView = new TableView<>();
-//            TableView<Decoration> decorationTableView = new TableView<>();
 
 
 
