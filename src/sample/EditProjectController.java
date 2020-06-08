@@ -31,6 +31,11 @@ public class EditProjectController implements Initializable {
     public TabPane tabPane;
 
     public Tab plumbingView;
+    public Tab furnitureView;
+    public Tab lightView;
+    public Tab decorationView;
+
+
 
     public MenuButton testButton;
     public AnchorPane roomPane;
@@ -2914,16 +2919,42 @@ public class EditProjectController implements Initializable {
 
 
         for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
-            Button newButton = new Button();
-            newButton.setText(room.getNameRoom());
 
-//            FlowPane flowPane = new FlowPane();
-            VBox vBox = new VBox();
+            Accordion accordionPlumbing = new Accordion();
+            Accordion accordionFurniture = new Accordion();
+            Accordion accordionLight = new Accordion();
+            Accordion accordionDecoration = new Accordion();
 
-            vBox.getChildren().add(newButton);
+            TitledPane titledPanePlumbing = new TitledPane();
+            TitledPane titledPaneFurniture = new TitledPane();
+            TitledPane titledPaneLight = new TitledPane();
+            TitledPane titledPaneDecoration = new TitledPane();
+
+            titledPanePlumbing.setText(room.getNameRoom());
+            titledPaneFurniture.setText(room.getNameRoom());
+            titledPaneLight.setText(room.getNameRoom());
+            titledPaneDecoration.setText(room.getNameRoom());
+
+            accordionPlumbing.getPanes().add(titledPanePlumbing);
+            accordionFurniture.getPanes().add(titledPaneFurniture);
+            accordionLight.getPanes().add(titledPaneLight);
+            accordionDecoration.getPanes().add(titledPaneDecoration);
+
+            VBox vBoxPlumbing = new VBox();
+            VBox vBoxFurniture = new VBox();
+            VBox vBoxLight = new VBox();
+            VBox vBoxDecoration = new VBox();
+
+            vBoxPlumbing.getChildren().add(accordionPlumbing);
+            vBoxFurniture.getChildren().add(accordionFurniture);
+            vBoxLight.getChildren().add(accordionLight);
+            vBoxDecoration.getChildren().add(accordionDecoration);
 
 
-            plumbingView.setContent(vBox);
+            plumbingView.setContent(vBoxPlumbing);
+            furnitureView.setContent(vBoxFurniture);
+            lightView.setContent(vBoxLight);
+            decorationView.setContent(vBoxDecoration);
         }
     }
 
@@ -2940,6 +2971,10 @@ public class EditProjectController implements Initializable {
 //        plumbingView.setContent(vBox);
 //
         roomPane.setVisible(true);
+        plumbingView.setDisable(false);
+        furnitureView.setDisable(false);
+        lightView.setDisable(false);
+        decorationView.setDisable(false);
 
 
 
