@@ -2943,6 +2943,11 @@ public class EditProjectController implements Initializable {
 
         for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
 
+            Button buttonDeletePlumbing = new Button("Удалить");
+            Button buttonDeleteFurniture = new Button("Удалить");
+            Button buttonDeleteLight = new Button("Удалить");
+            Button buttonDeleteDecoration = new Button("Удалить");
+
             Accordion accordionPlumbing = new Accordion();
             Accordion accordionFurniture = new Accordion();
             Accordion accordionLight = new Accordion();
@@ -2959,6 +2964,7 @@ public class EditProjectController implements Initializable {
             titledPaneLight.setText(room.getNameRoom());
             titledPaneDecoration.setText(room.getNameRoom());
 
+
             //присваиваем имя
             accordionPlumbing.getPanes().add(titledPanePlumbing);
             accordionFurniture.getPanes().add(titledPaneFurniture);
@@ -2966,6 +2972,8 @@ public class EditProjectController implements Initializable {
             accordionDecoration.getPanes().add(titledPaneDecoration);
 
             VBox vBoxPlumbing = new VBox();
+            vBoxPlumbing.getChildren().addAll(buttonDeletePlumbing);
+
             VBox vBoxFurniture = new VBox();
             VBox vBoxLight = new VBox();
             VBox vBoxDecoration = new VBox();
@@ -2974,6 +2982,12 @@ public class EditProjectController implements Initializable {
             TableView<Furniture> furnitureTableView = new TableView<>();
             TableView<Light> lightTableView = new TableView<>();
             TableView<Decoration> decorationTableView = new TableView<>();
+
+            //добавляем в аккардион
+            titledPanePlumbing.setContent(plumbingTableView);
+            titledPaneFurniture.setContent(furnitureTableView);
+            titledPaneLight.setContent(lightTableView);
+            titledPaneDecoration.setContent(decorationTableView);
 
 
             TableColumn<Plumbing, String> colNamePlumbing = new TableColumn<Plumbing, String>("Наименование");
@@ -3021,6 +3035,7 @@ public class EditProjectController implements Initializable {
             furnitureView.setContent(vBoxFurniture);
             lightView.setContent(vBoxLight);
             decorationView.setContent(vBoxDecoration);
+
         }
     }
 
