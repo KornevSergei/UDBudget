@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.layout.VBox?>
 <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
     <tabs>
         <Tab text="Проект">
@@ -60,7 +61,7 @@
         </Tab>
         <Tab text="Итоговая" disable="true" fx:id="totalView">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <TableView layoutX="54.0" layoutY="50.0" prefHeight="300.0" prefWidth="1000.0">
                             <columns>
@@ -74,7 +75,7 @@
                             </columns>
                         </TableView>
                     </children>
-                </AnchorPane>
+                </VBox>
             </content>
         </Tab>
         <Tab text="ДП" disable="true" fx:id="DPView">
@@ -139,7 +140,7 @@
         </Tab>
         <Tab text="Смежники" disable="true" fx:id="subcontractorsView">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="1272.0">
                             <columns>
@@ -159,10 +160,10 @@
                             </columns>
                         </TableView>
                     </children>
-                </AnchorPane>
+                </VBox>
             </content>
         </Tab>
-        <Tab text="АК" disable="true" fx:id="AKView">
+        <Tab text="AK" disable="true" fx:id="AKView">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -185,13 +186,13 @@
         </Tab>
         <Tab text="Материалы" disable="true" fx:id="MaterialView">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900.0">
                             <panes>
                                 <TitledPane animated="true" prefHeight="280.0" prefWidth="1900.0" text="Стены">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <ScrollPane prefHeight="500.0" prefWidth="1900.0">
                                       <content>
@@ -228,7 +229,7 @@
                                              </children></AnchorPane>
                                       </content>
                                     </ScrollPane>
-                                 </children></AnchorPane>
+                                 </children></VBox>
                                     </content>
                                 </TitledPane>
                                 <TitledPane animated="true" text="Пол">
@@ -406,33 +407,33 @@
                             </panes>
                         </Accordion>
                     </children>
-                </AnchorPane>
+                </VBox>
             </content>
         </Tab>
         <Tab fx:id="plumbingView" text="Сантехника" disable="true">
             <content>
-                <AnchorPane>
+                <VBox>
 
-                </AnchorPane>
+                </VBox>
             </content>
         </Tab>
         <Tab text="Мебель" fx:id="furnitureView" disable="true">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1000.0">
+                <VBox minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1000.0">
 
-                </AnchorPane>
+                </VBox>
             </content>
         </Tab>
         <Tab text="Свет" fx:id="lightView" disable="true">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
-                </AnchorPane>
+                </VBox>
             </content>
         </Tab>
         <Tab text="Техника" disable="true" fx:id="appliancesView">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <Accordion layoutX="14.0" layoutY="14.0" prefHeight="700.0" prefWidth="1900.0">
                             <panes>
@@ -611,14 +612,14 @@
                             </panes>
                         </Accordion>
                     </children>
-                </AnchorPane>
+                </VBox>
             </content>
         </Tab>
         <Tab text="Декор" fx:id="decorationView" disable="true">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
-                </AnchorPane>
+                </VBox>
             </content>
         </Tab>
         <Tab text="Статистика" disable="true" fx:id="statisticsView">

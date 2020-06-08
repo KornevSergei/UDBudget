@@ -48,11 +48,11 @@ public class EditProjectController implements Initializable {
     public MenuButton testButton;
     public AnchorPane roomPane;
 
-    public TableView<AK> AKTableView;
-    public TableColumn<AK, String> colRateAK;
-    public TableColumn<AK, String> colTermAK;
-    public TableColumn<AK, String> colCostAK;
-    private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
+//    public TableView<AK> AKTableView;
+//    public TableColumn<AK, String> colRateAK;
+//    public TableColumn<AK, String> colTermAK;
+//    public TableColumn<AK, String> colCostAK;
+//    private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
 
     public TableView<Room> roomTableView;
@@ -339,49 +339,49 @@ public class EditProjectController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        AKTableView.setItems(observableListAK);
-        Callback<TableColumn<AK, String>, TableCell<AK, String>> cellFactoryDoubleAK =
-                new Callback<TableColumn<AK, String>, TableCell<AK, String>>() {
-                    public TableCell call(TableColumn p) {
-                        return new EditingCellTextBox("\\d.\\d");
-                    }
-                };
-
-
-        colRateAK.setCellFactory(cellFactoryDoubleAK);
-        colRateAK.setCellValueFactory(new PropertyValueFactory<>("rateAK"));
-        colRateAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<AK, String> t) {
-                ((AK) t.getTableView().getItems().get(
-                        t.getTablePosition().getRow())).setRateAK(t.getNewValue());
-                t.getTableView().refresh();
-            }
-        });
-
-        colTermAK.setCellFactory(cellFactoryDoubleAK);
-        colTermAK.setCellValueFactory(new PropertyValueFactory<>("termAK"));
-        colTermAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<AK, String> t) {
-                ((AK) t.getTableView().getItems().get(
-                        t.getTablePosition().getRow())).setTermAK(t.getNewValue());
-                t.getTableView().refresh();
-            }
-        });
-
-        colCostAK.setCellFactory(cellFactoryDoubleAK);
-        colCostAK.setCellValueFactory(new PropertyValueFactory<>("costAK"));
-        colCostAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<AK, String> t) {
-                ((AK) t.getTableView().getItems().get(
-                        t.getTablePosition().getRow())).setCostAK(t.getNewValue());
-            }
-        });
-
-        AKTableView.setEditable(true);
-
+//        AKTableView.setItems(observableListAK);
+//        Callback<TableColumn<AK, String>, TableCell<AK, String>> cellFactoryDoubleAK =
+//                new Callback<TableColumn<AK, String>, TableCell<AK, String>>() {
+//                    public TableCell call(TableColumn p) {
+//                        return new EditingCellTextBox("\\d.\\d");
+//                    }
+//                };
+//
+//
+//        colRateAK.setCellFactory(cellFactoryDoubleAK);
+//        colRateAK.setCellValueFactory(new PropertyValueFactory<>("rateAK"));
+//        colRateAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+//            @Override
+//            public void handle(TableColumn.CellEditEvent<AK, String> t) {
+//                ((AK) t.getTableView().getItems().get(
+//                        t.getTablePosition().getRow())).setRateAK(t.getNewValue());
+//                t.getTableView().refresh();
+//            }
+//        });
+//
+//        colTermAK.setCellFactory(cellFactoryDoubleAK);
+//        colTermAK.setCellValueFactory(new PropertyValueFactory<>("termAK"));
+//        colTermAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+//            @Override
+//            public void handle(TableColumn.CellEditEvent<AK, String> t) {
+//                ((AK) t.getTableView().getItems().get(
+//                        t.getTablePosition().getRow())).setTermAK(t.getNewValue());
+//                t.getTableView().refresh();
+//            }
+//        });
+//
+//        colCostAK.setCellFactory(cellFactoryDoubleAK);
+//        colCostAK.setCellValueFactory(new PropertyValueFactory<>("costAK"));
+//        colCostAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
+//            @Override
+//            public void handle(TableColumn.CellEditEvent<AK, String> t) {
+//                ((AK) t.getTableView().getItems().get(
+//                        t.getTablePosition().getRow())).setCostAK(t.getNewValue());
+//            }
+//        });
+//
+//        AKTableView.setEditable(true);
+//
 
         //Помещения
         roomTableView.setItems(observableListRoom);
@@ -2887,9 +2887,9 @@ public class EditProjectController implements Initializable {
 
 
     public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
-        if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
-            observableListAK.add(new AK(0, 0, 0));
-        }
+//        if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
+//            observableListAK.add(new AK(0, 0, 0));
+//        }
     }
 
     public void On_tabCalculatorClickedActionRoom(MouseEvent mouseEvent) {
@@ -2976,8 +2976,35 @@ public class EditProjectController implements Initializable {
             TableView<Decoration> decorationTableView = new TableView<>();
 
 
-            TableColumn<Plumbing, String> namePlumbing = new TableColumn<Plumbing, String>("namePlumbing");
-            TableColumn<Plumbing, String> quantityPlumbing = new TableColumn<Plumbing, String>("quantityPlumbing");
+            TableColumn<Plumbing, String> colNamePlumbing = new TableColumn<Plumbing, String>("Наименование");
+//            TableColumn<Plumbing, Boolean> colActivePPlumbing = new TableColumn<Plumbing, String>("П");
+//            TableColumn<Plumbing, Boolean> colActiveCPlumbing = new TableColumn<Plumbing, String>("С");
+            TableColumn<Plumbing, String> colUnitPlumbing = new TableColumn<Plumbing, String>("Ед. изм.");
+            ;
+            TableColumn<Plumbing, String> colQuantityPlumbing = new TableColumn<Plumbing, String>("Количество");
+            ;
+            TableColumn<Plumbing, String> colOrdinalPriceUnitPlumbing = new TableColumn<Plumbing, String>("Цена порядковая за ед.");
+            ;
+            TableColumn<Plumbing, String> colPriceCPUnitPlumbing = new TableColumn<Plumbing, String>("Цена по КП за ед.");
+            TableColumn<Plumbing, String> colPriceCPKeyPlumbing = new TableColumn<Plumbing, String>("Цена по КП под ключ");
+            TableColumn<Plumbing, String> colCostCPUnitPlumbing = new TableColumn<Plumbing, String>("Стоимость по КП за ед.");
+            TableColumn<Plumbing, String> colPriceOrderPlumbing = new TableColumn<Plumbing, String>("Порядок цен");
+            TableColumn<Plumbing, String> colCostCPPlumbing = new TableColumn<Plumbing, String>("Стоимость по КП");
+            TableColumn<Plumbing, String> colProductionTimePlumbing = new TableColumn<Plumbing, String>("Срок доставки");
+            TableColumn<Plumbing, String> colActualCostPlumbing = new TableColumn<Plumbing, String>("Стоимость фактическая");
+            TableColumn<Plumbing, String> colActualDifferencePlumbing = new TableColumn<Plumbing, String>("Разница фактическая");
+            TableColumn<Plumbing, String> colPaidPlumbing = new TableColumn<Plumbing, String>("Оплачено");
+            TableColumn<Plumbing, String> colResiduePlumbing = new TableColumn<Plumbing, String>("Остаток");
+            TableColumn<Plumbing, String> colDateOfDeliveryPlumbing = new TableColumn<Plumbing, String>("Дата поставки");
+            TableColumn<Plumbing, String> colPlannedCPPlumbing = new TableColumn<Plumbing, String>("КП плановое");
+            TableColumn<Plumbing, String> colActualCPPlumbing = new TableColumn<Plumbing, String>("КП фактическое");
+            TableColumn<Plumbing, String> colAccountMPlumbing = new TableColumn<Plumbing, String>("Счёт");
+            TableColumn<Plumbing, String> colContactsPlumbing = new TableColumn<Plumbing, String>("Контакты");
+            TableColumn<Plumbing, String> colNotesPlumbing = new TableColumn<Plumbing, String>("Примечания");
+            TableColumn<Plumbing, String> colCharacteristicsPlumbing = new TableColumn<Plumbing, String>("Характеристики");
+            plumbingTableView.getColumns().addAll(colNamePlumbing, colUnitPlumbing, colQuantityPlumbing, colOrdinalPriceUnitPlumbing, colPriceCPUnitPlumbing, colPriceCPKeyPlumbing,
+                    colCostCPUnitPlumbing, colPriceOrderPlumbing, colCostCPPlumbing, colProductionTimePlumbing, colActualCostPlumbing, colActualDifferencePlumbing, colPaidPlumbing,
+                    colResiduePlumbing, colDateOfDeliveryPlumbing, colPlannedCPPlumbing, colActualCPPlumbing, colAccountMPlumbing, colContactsPlumbing, colNotesPlumbing, colCharacteristicsPlumbing);
 
             vBoxPlumbing.getChildren().add(accordionPlumbing);
             vBoxFurniture.getChildren().add(accordionFurniture);
