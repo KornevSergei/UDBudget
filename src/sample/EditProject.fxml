@@ -34,14 +34,14 @@
                         <TextField layoutX="13.0" layoutY="136.0" prefHeight="26.0" prefWidth="262.0" promptText="Стоимость ДП за кв.м" />
                         <TextField layoutX="13.0" layoutY="171.0" prefHeight="26.0" prefWidth="262.0" promptText="Скидка за ДП %" />
                         <Button fx:id="createRoomButton" layoutX="13.0" layoutY="99.0" mnemonicParsing="false" onAction="#addRoom" prefHeight="26.0" prefWidth="262.0" text="+ Добавить помещение" />
-                        <Button fx:id="addPaymentButton" layoutX="13.0" layoutY="208.0" mnemonicParsing="false" onAction="#addPayment" prefHeight="26.0" prefWidth="262.0" text="+ Добавить этап оплаты" />
+                        <Button fx:id="addPaymentButton" layoutX="13.0" layoutY="208.0" mnemonicParsing="false"  prefHeight="26.0" prefWidth="262.0" text="+ Добавить этап оплаты" />
                         <ToggleButton layoutX="200.0" layoutY="245.0" mnemonicParsing="false" text="Р" />
                         <ToggleButton layoutX="224.0" layoutY="245.0" mnemonicParsing="false" text="\$" />
                         <ToggleButton layoutX="248.0" layoutY="245.0" mnemonicParsing="false" text="€" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Валюта :" />
                         <Button fx:id="createButton" layoutX="13.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="262.0" text="Сформировать" />
 
-                  <AnchorPane fx:id="roomPane1" visible="false" layoutX="312.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="422.0">
+                  <AnchorPane fx:id="roomPane" visible="false" layoutX="312.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="422.0">
                      <children>
                         <Button layoutX="227.0" layoutY="31.0" mnemonicParsing="false" onAction="#deleteRoomElement" text="Удалить" />
                         <Button fx:id="saveRoomButton" layoutX="137.0" layoutY="31.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" />

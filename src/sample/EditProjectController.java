@@ -33,7 +33,7 @@ public class EditProjectController implements Initializable {
     public Tab plumbingView;
 
     public MenuButton testButton;
-    public AnchorPane roomPane1;
+    public AnchorPane roomPane;
 
     public TableView<AK> AKTableView;
     public TableColumn<AK, String> colRateAK;
@@ -2893,37 +2893,71 @@ public class EditProjectController implements Initializable {
     }
     public void saveRoomElement(ActionEvent actionEvent) {
 
-        //вызываем нужный статик метод
-//        addRoomPlumbing();
+
+//        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
+//            Button newButton = new Button();
+//            newButton.setText(room.getAreaRoom());
+//
+//
+//            VBox layout = new VBox();
+//
+//            layout.getChildren().add(newButton);
+//
+//            Scene newScene = new Scene(layout, 250, 50);
+//
+//            Stage newStage = new Stage();
+//            newStage.setTitle(room.getNameRoom());
+//            newStage.setScene(newScene);
+//
+//            newStage.show();
+//        }
 
 
         for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
             Button newButton = new Button();
-            newButton.setText(room.getAreaRoom());
+            newButton.setText(room.getNameRoom());
 
-
-            VBox layout = new VBox();
-
-            layout.getChildren().add(newButton);
-
-            Scene newScene = new Scene(layout, 250, 50);
-
-            Stage newStage = new Stage();
-            newStage.setTitle(room.getNameRoom());
-            newStage.setScene(newScene);
-
-            newStage.show();
-        }
-
-
-//        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
-//            Button newButton = new Button("Кнопка!");
 //            FlowPane flowPane = new FlowPane();
-//            flowPane.getChildren().add(newButton);
+            VBox vBox = new VBox();
+
+            vBox.getChildren().add(newButton);
+
+
+            plumbingView.setContent(vBox);
+        }
+    }
+
+    public void addRoom(ActionEvent actionEvent) throws Exception {
+//        System.out.println("ТЕСТ!");
 //
+//        Button newButton = new Button("Кнопка!");
+//        Button newButton1 = new Button("Кнопка!11111111");
+//        VBox vBox = new VBox();
+//        Accordion accordion = new Accordion();
+////        FlowPane flowPane = new FlowPane();
+//        vBox.getChildren().add(newButton);
+//        vBox.getChildren().add(newButton1);
+//        plumbingView.setContent(vBox);
 //
-//            plumbingView.setContent(flowPane);
-//        }
+        roomPane.setVisible(true);
+
+
+
+//    public void addRoomPlumbing() {
+//        System.out.println("Запускаем метод для помещений Сантехники");
+//
+
+//        Button newButton1 = new Button("Кнопка!");
+//        FlowPane flowPane = new FlowPane();
+//        flowPane.getChildren().add(newButton1);
+//        plumbingView.setContent(flowPane);
+
+
+        //В новое окно
+//        Scene newScene = new Scene(vBox, 250, 50);
+//        Stage newStage = new Stage();
+//        newStage.setScene(newScene);
+//        newStage.show();
     }
 
 //    double sum = Arrays.stream(colOrdinalPriceUnitMaterialWall).sum();
@@ -3063,59 +3097,5 @@ public class EditProjectController implements Initializable {
         allAppliancesSuddenly = appliancesTableViewSuddenly.getItems();
         singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
         singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
-    }
-
-
-    public void addRoom(ActionEvent actionEvent) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RoomName.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("УД Бюджет");
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    public void addPayment(ActionEvent actionEvent) {
-        System.out.println("ТЕСТ!");
-
-        Button newButton = new Button("Кнопка!");
-        Button newButton1 = new Button("Кнопка!11111111");
-        VBox vBox = new VBox();
-        Accordion accordion = new Accordion();
-//        FlowPane flowPane = new FlowPane();
-        vBox.getChildren().add(newButton);
-        vBox.getChildren().add(newButton1);
-        plumbingView.setContent(vBox);
-        
-        roomPane1.setVisible(true);
-
-        
-
-    }
-
-
-
-
-
-
-
-
-    public void addRoomPlumbing() {
-        System.out.println("Запускаем метод для помещений Сантехники");
-
-
-//        Button newButton1 = new Button("Кнопка!");
-//        FlowPane flowPane = new FlowPane();
-//        flowPane.getChildren().add(newButton1);
-//        plumbingView.setContent(flowPane);
-
-
-        //В новое окно
-//        Scene newScene = new Scene(vBox, 250, 50);
-//        Stage newStage = new Stage();
-//        newStage.setScene(newScene);
-//        newStage.show();
-
-
     }
 }
