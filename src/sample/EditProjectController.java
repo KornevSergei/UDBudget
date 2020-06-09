@@ -30,6 +30,7 @@ public class EditProjectController implements Initializable {
 
     public TabPane tabPane;
 
+    public Tab fileView;
     public Tab plumbingView;
     public Tab furnitureView;
     public Tab lightView;
@@ -39,20 +40,14 @@ public class EditProjectController implements Initializable {
     public Tab buildersView;
     public Tab subcontractorsView;
     public Tab AKView;
-    public Tab MaterialView;
+    public Tab materialView;
     public Tab appliancesView;
     public Tab statisticsView;
     public Tab diagramView;
 
 
-    public MenuButton testButton;
     public AnchorPane roomPane;
 
-    public TableView<AK> AKTableView;
-    public TableColumn<AK, String> colRateAK;
-    public TableColumn<AK, String> colTermAK;
-    public TableColumn<AK, String> colCostAK;
-    private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
 
     public TableView<Room> roomTableView;
@@ -61,10 +56,23 @@ public class EditProjectController implements Initializable {
     public TableColumn<Room, Boolean> colSelectBathRoom;
     public ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
 
+    public TextField createProjectTextField;
+    public ListView selectProjectListView;
+    public Button createProjectButton;
+    public Button selectProjectButton;
+
     public Button saveRoomButton;
+
+
+
 
     public int counterPlumping = 0;
 
+    public TableView<AK> AKTableView;
+    public TableColumn<AK, String> colRateAK;
+    public TableColumn<AK, String> colTermAK;
+    public TableColumn<AK, String> colCostAK;
+    private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
 
     //Блок материалов
@@ -307,6 +315,14 @@ public class EditProjectController implements Initializable {
 
 
     public Button createRoomButton;
+
+    public void createProject(ActionEvent actionEvent) {
+        createProjectTextField.setVisible(true);
+    }
+
+    public void selectProject(ActionEvent actionEvent) {
+        selectProjectListView.setVisible(true);
+    }
 
 
     @Override
@@ -2885,7 +2901,7 @@ public class EditProjectController implements Initializable {
         buildersView.setDisable(false);
         subcontractorsView.setDisable(false);
         AKView.setDisable(false);
-        MaterialView.setDisable(false);
+        materialView.setDisable(false);
         plumbingView.setDisable(false);
         furnitureView.setDisable(false);
         lightView.setDisable(false);
@@ -3267,4 +3283,10 @@ public class EditProjectController implements Initializable {
         singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
         singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
     }
+
+//    public void createProject(ActionEvent actionEvent) {
+//    }
+//
+//    public void selectProject(ActionEvent actionEvent) {
+//    }
 }

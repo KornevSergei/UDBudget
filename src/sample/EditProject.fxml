@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
@@ -13,36 +14,36 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.VBox?>
 <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
     <tabs>
+      <Tab fx:id="fileView" text="Файл">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="createProjectButton" onAction="#createProject" layoutX="425.0"  layoutY="197.0" mnemonicParsing="false" text="Создать проект" />
+                  <Button  fx:id="selectProjectButton" onAction="#selectProject" layoutX="423.0" layoutY="231.0" mnemonicParsing="false" text="Выбрать проект" />
+                  <TextField fx:id="createProjectTextField" layoutX="543.0" layoutY="197.0" prefHeight="25.0" prefWidth="177.0" promptText="Название проекта" visible="false" />
+                  <ListView fx:id="selectProjectListView" layoutX="543.0" layoutY="231.0" prefHeight="200.0" prefWidth="176.0" visible="false" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
         <Tab text="Проект">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <MenuButton fx:id="testButton" layoutX="13.0" layoutY="245.0" mnemonicParsing="false" text="Выбрать проект">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                            </items>
-                        </MenuButton>
                         <TextField layoutX="14.0" layoutY="23.0" prefHeight="26.0" prefWidth="261.0" promptText="Название проекта" />
                         <TextField layoutX="14.0" layoutY="61.0" prefHeight="26.0" prefWidth="261.0" promptText="Общая площадь" />
                         <TextField layoutX="13.0" layoutY="136.0" prefHeight="26.0" prefWidth="262.0" promptText="Стоимость ДП за кв.м" />
                         <TextField layoutX="13.0" layoutY="171.0" prefHeight="26.0" prefWidth="262.0" promptText="Скидка за ДП %" />
                         <Button fx:id="createRoomButton" layoutX="13.0" layoutY="99.0" mnemonicParsing="false" onAction="#addRoom" prefHeight="26.0" prefWidth="262.0" text="+ Добавить помещение" />
-                        <Button fx:id="addPaymentButton" layoutX="13.0" layoutY="208.0" mnemonicParsing="false"  prefHeight="26.0" prefWidth="262.0" text="+ Добавить этап оплаты" />
-                        <ToggleButton layoutX="200.0" layoutY="245.0" mnemonicParsing="false" text="Р" />
-                        <ToggleButton layoutX="224.0" layoutY="245.0" mnemonicParsing="false" text="\$" />
-                        <ToggleButton layoutX="248.0" layoutY="245.0" mnemonicParsing="false" text="€" />
+                        <Button fx:id="addPaymentButton" layoutX="13.0" layoutY="208.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="262.0" text="+ Добавить этап оплаты" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Валюта :" />
-                        <Button fx:id="createButton" layoutX="13.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="262.0" text="Сформировать" />
 
-                  <AnchorPane fx:id="roomPane" visible="false" layoutX="312.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="422.0">
+                  <AnchorPane fx:id="roomPane" layoutX="312.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="422.0" visible="false">
                      <children>
                         <Button layoutX="227.0" layoutY="31.0" mnemonicParsing="false" onAction="#deleteRoomElement" text="Удалить" />
                         <Button fx:id="saveRoomButton" layoutX="137.0" layoutY="31.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" />
@@ -59,7 +60,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="Итоговая" disable="true" fx:id="totalView">
+        <Tab fx:id="totalView" disable="true" text="Итоговая">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -78,7 +79,7 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab text="ДП" disable="true" fx:id="DPView">
+        <Tab fx:id="DPView" disable="true" text="ДП">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -115,7 +116,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="Строители" disable="true" fx:id="buildersView">
+        <Tab fx:id="buildersView" disable="true" text="Строители">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -138,7 +139,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="Смежники" disable="true" fx:id="subcontractorsView">
+        <Tab fx:id="subcontractorsView" disable="true" text="Смежники">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -163,7 +164,7 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab text="AK" disable="true" fx:id="AKView">
+        <Tab fx:id="AKView" disable="true" text="AK">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -173,7 +174,7 @@
                                 <TableColumn prefWidth="75.0" text="Оплачено" />
                             </columns>
                         </TableView>
-                        <TableView fx:id="AKTableView"  layoutX="26.0" layoutY="25.0"  onMouseClicked="#On_tabCalculatorClickedActionAK" prefHeight="58.0" prefWidth="406.0">
+                        <TableView fx:id="AKTableView" layoutX="26.0" layoutY="25.0" onMouseClicked="#On_tabCalculatorClickedActionAK" prefHeight="58.0" prefWidth="406.0">
                             <columns>
                                 <TableColumn fx:id="colRateAK" prefWidth="110.0" text="Ставка за месяц" />
                                 <TableColumn fx:id="colTermAK" prefWidth="145.0" text="Плановый срок(мес.)" />
@@ -184,7 +185,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="Материалы" disable="true" fx:id="MaterialView">
+        <Tab fx:id="materialView" disable="true" text="Материалы">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -410,28 +411,28 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="plumbingView" text="Сантехника" disable="true">
+        <Tab fx:id="plumbingView" disable="true" text="Сантехника">
             <content>
                 <VBox>
 
                 </VBox>
             </content>
         </Tab>
-        <Tab text="Мебель" fx:id="furnitureView" disable="true">
+        <Tab fx:id="furnitureView" disable="true" text="Мебель">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1000.0">
 
                 </VBox>
             </content>
         </Tab>
-        <Tab text="Свет" fx:id="lightView" disable="true">
+        <Tab fx:id="lightView" disable="true" text="Свет">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
                 </VBox>
             </content>
         </Tab>
-        <Tab text="Техника" disable="true" fx:id="appliancesView">
+        <Tab fx:id="appliancesView" disable="true" text="Техника">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -615,14 +616,14 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab text="Декор" fx:id="decorationView" disable="true">
+        <Tab fx:id="decorationView" disable="true" text="Декор">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
                 </VBox>
             </content>
         </Tab>
-        <Tab text="Статистика" disable="true" fx:id="statisticsView">
+        <Tab fx:id="statisticsView" disable="true" text="Статистика">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -638,7 +639,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab text="Диаграммы" disable="true" fx:id="diagramView">
+        <Tab fx:id="diagramView" disable="true" text="Диаграммы">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
