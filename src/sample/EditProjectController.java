@@ -46,10 +46,6 @@ public class EditProjectController implements Initializable {
     public Tab diagramView;
 
 
-    public AnchorPane roomPane;
-
-
-
     public TableView<Room> roomTableView;
     public TableColumn<Room, String> colNameRoom;
     public TableColumn<Room, String> colAreaRoom;
@@ -60,10 +56,18 @@ public class EditProjectController implements Initializable {
     public ListView selectProjectListView;
     public Button createProjectButton;
     public Button selectProjectButton;
+    public Button addProjectButton;
+    public Button startProject;
+
+
+    public TextField roomNameTextField;
+    public TextField roomAreaTextField;
+    public TextField roomSelectBathRoomTextField;
+    public Button addRoomButton;
+    public Button deleteProjectButton;
+
 
     public Button saveRoomButton;
-
-
 
 
     public int counterPlumping = 0;
@@ -318,10 +322,37 @@ public class EditProjectController implements Initializable {
 
     public void createProject(ActionEvent actionEvent) {
         createProjectTextField.setVisible(true);
+        addProjectButton.setVisible(true);
+
+    }
+
+    public void addProject(ActionEvent actionEvent) {
+        selectProjectListView.setVisible(true);
+        startProject.setVisible(true);
+        deleteProjectButton.setVisible(true);
     }
 
     public void selectProject(ActionEvent actionEvent) {
         selectProjectListView.setVisible(true);
+        startProject.setVisible(true);
+        deleteProjectButton.setVisible(true);
+    }
+
+    public void createRoom(ActionEvent actionEvent) {
+        roomNameTextField.setVisible(true);
+        roomAreaTextField.setVisible(true);
+        roomSelectBathRoomTextField.setVisible(true);
+        addRoomButton.setVisible(true);
+
+
+
+    }
+
+    public void addRoom(ActionEvent actionEvent) {
+        roomNameTextField.setVisible(false);
+        roomAreaTextField.setVisible(false);
+        roomSelectBathRoomTextField.setVisible(false);
+        addRoomButton.setVisible(false);
     }
 
 
@@ -2974,9 +3005,6 @@ public class EditProjectController implements Initializable {
             vBoxDecoration.getChildren().addAll(buttonDeleteDecoration);
 
 
-
-
-
             TableView<Plumbing> plumbingTableView = new TableView<>();
             TableColumn<Plumbing, String> colNamePlumbing = new TableColumn<Plumbing, String>("Наименование");
 //            TableColumn<Plumbing, Boolean> colActivePPlumbing = new TableColumn<Plumbing, String>("П");
@@ -3092,7 +3120,6 @@ public class EditProjectController implements Initializable {
                     colResidueDecoration, colDateOfDeliveryDecoration, colPlannedCPDecoration, colActualCPDecoration, colAccountMDecoration, colContactsDecoration, colNotesDecoration, colCharacteristicsDecoration);
 
 
-
             vBoxPlumbing.getChildren().add(accordionPlumbing);
             vBoxFurniture.getChildren().add(accordionFurniture);
             vBoxLight.getChildren().add(accordionLight);
@@ -3113,37 +3140,6 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    public void addRoom(ActionEvent actionEvent) throws Exception {
-//        System.out.println("ТЕСТ!");
-//
-//        Button newButton = new Button("Кнопка!");
-//        Button newButton1 = new Button("Кнопка!11111111");
-//        VBox vBox = new VBox();
-//        Accordion accordion = new Accordion();
-////        FlowPane flowPane = new FlowPane();
-//        vBox.getChildren().add(newButton);
-//        vBox.getChildren().add(newButton1);
-//        plumbingView.setContent(vBox);
-//
-        roomPane.setVisible(true);
-
-
-//    public void addRoomPlumbing() {
-//        System.out.println("Запускаем метод для помещений Сантехники");
-//
-
-//        Button newButton1 = new Button("Кнопка!");
-//        FlowPane flowPane = new FlowPane();
-//        flowPane.getChildren().add(newButton1);
-//        plumbingView.setContent(flowPane);
-
-
-        //В новое окно
-//        Scene newScene = new Scene(vBox, 250, 50);
-//        Stage newStage = new Stage();
-//        newStage.setScene(newScene);
-//        newStage.show();
-    }
 
 //    double sum = Arrays.stream(colOrdinalPriceUnitMaterialWall).sum();
 //    double sum = 2 +15;
@@ -3283,6 +3279,7 @@ public class EditProjectController implements Initializable {
         singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
         singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
     }
+
 
 //    public void createProject(ActionEvent actionEvent) {
 //    }
