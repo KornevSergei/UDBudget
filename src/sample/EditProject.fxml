@@ -56,7 +56,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="totalView" disable="true" text="Итоговая">
+        <Tab fx:id="totalView" disable="false" text="Итоговая">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -75,7 +75,7 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="DPView" disable="true" text="ДП">
+        <Tab fx:id="DPView" disable="false" text="ДП">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -112,7 +112,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="buildersView" disable="true" text="Строители">
+        <Tab fx:id="buildersView" disable="false" text="Строители">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -135,7 +135,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="subcontractorsView" disable="true" text="Смежники">
+        <Tab fx:id="subcontractorsView" disable="false" text="Смежники">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -160,7 +160,7 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="AKView" disable="true" text="AK">
+        <Tab fx:id="AKView" disable="false" text="AK">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -181,7 +181,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="materialView" disable="true" text="Материалы">
+        <Tab fx:id="materialView" disable="false" text="Материалы">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -197,7 +197,7 @@
                                              <children>
                                                 <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="1900.0">
                                                   <columns>
-                                                      <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
+                                                      <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование"  />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCMaterialWall" prefWidth="25.0" text="С" />
                                                       <TableColumn fx:id="colUnitMaterialWall" prefWidth="58.0" text="Ед.изм." />
@@ -407,28 +407,28 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="plumbingView" disable="true" text="Сантехника">
+        <Tab fx:id="plumbingView" disable="false" text="Сантехника">
             <content>
                 <VBox>
 
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="furnitureView" disable="true" text="Мебель">
+        <Tab fx:id="furnitureView" disable="false" text="Мебель">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1000.0">
 
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="lightView" disable="true" text="Свет">
+        <Tab fx:id="lightView" disable="false" text="Свет">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="appliancesView" disable="true" text="Техника">
+        <Tab fx:id="appliancesView" disable="false" text="Техника">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -612,7 +612,7 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="decorationView" disable="true" text="Декор">
+        <Tab fx:id="decorationView" disable="false" text="Декор">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
@@ -635,7 +635,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="diagramView" disable="true" text="Диаграммы">
+        <Tab fx:id="diagramView" disable="false" text="Диаграммы">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>

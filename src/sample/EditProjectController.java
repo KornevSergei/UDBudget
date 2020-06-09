@@ -54,6 +54,7 @@ public class EditProjectController implements Initializable {
 
     public TextField createProjectTextField;
     public ListView selectProjectListView;
+    ObservableList<String> selectProjectObservableList = FXCollections.observableArrayList("Julia", "Ian", "Sue", "Matthew", "Hannah", "Stephan", "Denise");
     public Button createProjectButton;
     public Button selectProjectButton;
     public Button addProjectButton;
@@ -343,8 +344,7 @@ public class EditProjectController implements Initializable {
         roomAreaTextField.setVisible(true);
         roomSelectBathRoomTextField.setVisible(true);
         addRoomButton.setVisible(true);
-
-
+        selectProjectListView.setItems(selectProjectObservableList);
 
     }
 
@@ -3010,6 +3010,9 @@ public class EditProjectController implements Initializable {
 //            TableColumn<Plumbing, Boolean> colActivePPlumbing = new TableColumn<Plumbing, String>("П");
 //            TableColumn<Plumbing, Boolean> colActiveCPlumbing = new TableColumn<Plumbing, String>("С");
             TableColumn<Plumbing, String> colUnitPlumbing = new TableColumn<Plumbing, String>("Ед. изм.");
+            //делаем фикс на длинну
+            colUnitPlumbing.setMinWidth(200);
+            colUnitPlumbing.setMaxWidth(200);
             TableColumn<Plumbing, String> colQuantityPlumbing = new TableColumn<Plumbing, String>("Количество");
             TableColumn<Plumbing, String> colOrdinalPriceUnitPlumbing = new TableColumn<Plumbing, String>("Цена порядковая за ед.");
             TableColumn<Plumbing, String> colPriceCPUnitPlumbing = new TableColumn<Plumbing, String>("Цена по КП за ед.");
