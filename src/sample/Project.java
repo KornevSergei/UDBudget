@@ -3,6 +3,9 @@ package sample;
 public class Project {
     protected String nameProject;
 
+    public Project() {
+    }
+
     public Project(String colNameProject) {
         this.nameProject = colNameProject;
     }

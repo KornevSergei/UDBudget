@@ -323,6 +323,9 @@ public class EditProjectController implements Initializable {
         startProject.setVisible(true);
         deleteProjectButton.setVisible(true);
         projectTableView.setVisible(true);
+        Project project = new Project();
+        project.setNameProject(createProjectTextField.getText());
+        projectTableView.getItems().add(project);
     }
 
     public void selectProject(ActionEvent actionEvent) {
@@ -350,15 +353,16 @@ public class EditProjectController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
-        colNameProject.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setNameProject(e.getNewValue()) );
 
+
+        colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
         ObservableList<Project> observableListProject = FXCollections.observableArrayList(
                 new Project("Проект 1"),
                 new Project("Проект 2")
         );
         projectTableView.setEditable(true);
         projectTableView.setItems(observableListProject);
+
 
 
 
@@ -3150,6 +3154,7 @@ public class EditProjectController implements Initializable {
 
 //    double sum = Arrays.stream(colOrdinalPriceUnitMaterialWall).sum();
 //    double sum = 2 +15;
+
 
     public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
