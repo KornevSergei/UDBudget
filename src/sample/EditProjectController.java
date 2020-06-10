@@ -328,6 +328,13 @@ public class EditProjectController implements Initializable {
         projectTableView.getItems().add(project);
     }
 
+    public void deleteElementProject(ActionEvent actionEvent) {
+        ObservableList<Project> allProject, singleProject;
+        allProject = projectTableView.getItems();
+        singleProject = projectTableView.getSelectionModel().getSelectedItems();
+        singleProject.forEach(allProject::remove);
+    }
+
     public void selectProject(ActionEvent actionEvent) {
         startProject.setVisible(true);
         deleteProjectButton.setVisible(true);
@@ -3291,6 +3298,8 @@ public class EditProjectController implements Initializable {
         singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
         singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
     }
+
+
 
 
 //    public void createProject(ActionEvent actionEvent) {

@@ -23,7 +23,7 @@
                   <TextField fx:id="createProjectTextField" layoutX="543.0" layoutY="197.0" prefHeight="25.0" prefWidth="177.0" promptText="Название проекта" visible="false" />
                   <Button fx:id="addProjectButton" layoutX="728.0" layoutY="197.0" mnemonicParsing="false" onAction="#addProject" text="+" visible="false" />
                   <Button fx:id="startProject" layoutX="728.0" layoutY="231.0" mnemonicParsing="false" text="Выбрать" visible="false" />
-                  <Button fx:id="deleteProjectButton" layoutX="730.0" layoutY="273.0" mnemonicParsing="false" text="Удалить" visible="false" />
+                  <Button fx:id="deleteProjectButton" onAction="#deleteElementProject" layoutX="730.0" layoutY="273.0" mnemonicParsing="false" text="Удалить" visible="false" />
                   <TableView fx:id="projectTableView" layoutX="543.0" layoutY="231.0" prefHeight="200.0" prefWidth="177.0" visible="false">
                     <columns>
                       <TableColumn fx:id="colNameProject" prefWidth="176.0" text="Проект:" />
