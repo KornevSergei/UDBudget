@@ -4,25 +4,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
@@ -51,6 +41,10 @@ public class EditProjectController implements Initializable {
     public TableColumn<Room, String> colAreaRoom;
     public TableColumn<Room, Boolean> colSelectBathRoom;
     public ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
+
+    public TableView<Project> projectTableView;
+    public TableColumn<Project, String> colNameProject;
+
 
     public TextField createProjectTextField;
     public Button createProjectButton;
@@ -328,11 +322,13 @@ public class EditProjectController implements Initializable {
     public void addProject(ActionEvent actionEvent) {
         startProject.setVisible(true);
         deleteProjectButton.setVisible(true);
+        projectTableView.setVisible(true);
     }
 
     public void selectProject(ActionEvent actionEvent) {
         startProject.setVisible(true);
         deleteProjectButton.setVisible(true);
+        projectTableView.setVisible(true);
     }
 
     public void createRoom(ActionEvent actionEvent) {
@@ -353,6 +349,19 @@ public class EditProjectController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
+        colNameProject.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setNameProject(e.getNewValue()) );
+
+        ObservableList<Project> observableListProject = FXCollections.observableArrayList(
+                new Project("Проект 1"),
+                new Project("Проект 2")
+        );
+        projectTableView.setEditable(true);
+        projectTableView.setItems(observableListProject);
+
+
+
 
         AKTableView.setItems(observableListAK);
         Callback<TableColumn<AK, String>, TableCell<AK, String>> cellFactoryDoubleAK =
