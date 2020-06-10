@@ -21,11 +21,10 @@
                <children>
                   <Button fx:id="createProjectButton" layoutX="425.0" layoutY="197.0" mnemonicParsing="false" onAction="#createProject" text="Создать проект" />
                   <Button fx:id="selectProjectButton" layoutX="423.0" layoutY="231.0" mnemonicParsing="false" onAction="#selectProject" text="Выбрать проект" />
-                  <TextField fx:id="createProjectTextField" layoutX="543.0" layoutY="197.0" prefHeight="25.0" prefWidth="177.0" promptText="Название проекта" visible="false" />
-                  <ListView fx:id="selectProjectListView" layoutX="543.0" layoutY="231.0" prefHeight="200.0" prefWidth="176.0" visible="false" />
-                  <Button fx:id="addProjectButton" layoutX="728.0" layoutY="197.0" mnemonicParsing="false" onAction="#addProject" text="+" visible="false" />
-                  <Button fx:id="startProject" layoutX="728.0" layoutY="231.0" mnemonicParsing="false" text="Выбрать" visible="false" />
-                  <Button fx:id="deleteProjectButton" visible="false" layoutX="730.0" layoutY="273.0" mnemonicParsing="false" text="Удалить" />
+                  <TextField fx:id="createProjectTextField" layoutX="543.0" layoutY="197.0" prefHeight="25.0" prefWidth="177.0" promptText="Название проекта" visible="true" />
+                  <Button fx:id="addProjectButton" layoutX="728.0" layoutY="197.0" mnemonicParsing="false" onAction="#addProject" text="+" visible="true" />
+                  <Button fx:id="startProject" layoutX="728.0" layoutY="231.0" mnemonicParsing="false" text="Выбрать" visible="true" />
+                  <Button fx:id="deleteProjectButton" visible="true" layoutX="730.0" layoutY="273.0" mnemonicParsing="false" text="Удалить" />
                </children>
             </AnchorPane>
          </content>
@@ -619,7 +618,7 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="statisticsView" disable="true" text="Статистика">
+        <Tab fx:id="statisticsView" disable="false" text="Статистика">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>

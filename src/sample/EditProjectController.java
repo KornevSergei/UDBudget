@@ -53,8 +53,6 @@ public class EditProjectController implements Initializable {
     public ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
 
     public TextField createProjectTextField;
-    public ListView selectProjectListView;
-    ObservableList<String> selectProjectObservableList = FXCollections.observableArrayList("Julia", "Ian", "Sue", "Matthew", "Hannah", "Stephan", "Denise");
     public Button createProjectButton;
     public Button selectProjectButton;
     public Button addProjectButton;
@@ -328,13 +326,11 @@ public class EditProjectController implements Initializable {
     }
 
     public void addProject(ActionEvent actionEvent) {
-        selectProjectListView.setVisible(true);
         startProject.setVisible(true);
         deleteProjectButton.setVisible(true);
     }
 
     public void selectProject(ActionEvent actionEvent) {
-        selectProjectListView.setVisible(true);
         startProject.setVisible(true);
         deleteProjectButton.setVisible(true);
     }
@@ -344,7 +340,6 @@ public class EditProjectController implements Initializable {
         roomAreaTextField.setVisible(true);
         roomSelectBathRoomTextField.setVisible(true);
         addRoomButton.setVisible(true);
-        selectProjectListView.setItems(selectProjectObservableList);
 
     }
 
