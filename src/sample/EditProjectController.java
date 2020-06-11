@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -63,6 +64,7 @@ public class EditProjectController implements Initializable {
     public Button saveRoomButton;
 
 
+    public Button addPaymentButton;
     public int counterPlumping = 0;
 
     public TableView<AK> AKTableView;
@@ -358,6 +360,11 @@ public class EditProjectController implements Initializable {
         addRoomButton.setVisible(false);
     }
 
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void test(ActionEvent actionEvent) {
+        addPaymentButton.setText("Изменили название кнопки!");
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -367,7 +374,8 @@ public class EditProjectController implements Initializable {
         colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
         ObservableList<Project> observableListProject = FXCollections.observableArrayList(
                 new Project("Проект 1"),
-                new Project("Проект 2")
+                new Project("Проект 2"),
+                new Project("Проект 3")
         );
         projectTableView.setEditable(true);
         projectTableView.setItems(observableListProject);
@@ -467,7 +475,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-
         roomTableView.setEditable(true);
         colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
 
@@ -486,6 +493,7 @@ public class EditProjectController implements Initializable {
                         return new EditingCellCheckBox();
                     }
                 };
+
 
 
         colNameMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
@@ -605,6 +613,18 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+//        colProductionTimeMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
+//        colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
+//        colProductionTimeMaterialWall.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+//                    @Override
+//                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+//                        ((MaterialWall) t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setProductionTimeMaterialWall(t.getNewValue());
+//                        t.getTableView().refresh();
+//                    }
+//                });
+
         colProductionTimeMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
         colProductionTimeMaterialWall.setOnEditCommit(
@@ -3219,6 +3239,8 @@ public class EditProjectController implements Initializable {
         }
     }
 
+
+
     public void deleteElementMaterialOther(ActionEvent actionEvent) {
         ObservableList<MaterialOther> allMaterialOther, singleMaterialOther;
         allMaterialOther = materialTableViewOther.getItems();
@@ -3300,8 +3322,6 @@ public class EditProjectController implements Initializable {
         singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
         singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
     }
-
-
 
 
 //    public void createProject(ActionEvent actionEvent) {

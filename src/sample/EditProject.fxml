@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.FlowPane?>
 <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProjectController">
     <tabs>
       <Tab fx:id="fileView" text="Файл">
@@ -41,7 +42,7 @@
                         <TextField layoutX="14.0" layoutY="51.0" prefHeight="26.0" prefWidth="354.0" promptText="Стоимость ДП за кв.м" />
                         <TextField layoutX="14.0" layoutY="86.0" prefHeight="26.0" prefWidth="354.0" promptText="Скидка за ДП %" />
                         <Button fx:id="createRoomButton" layoutX="375.0" layoutY="160.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="26.0" prefWidth="75.0" text="Добавить" />
-                        <Button fx:id="addPaymentButton" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="353.0" text="+ Добавить этап оплаты" />
+                        <Button fx:id="addPaymentButton" onAction="#test" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="353.0" text="+ Добавить этап оплаты" />
                   <Button layoutX="375.0" layoutY="195.0" mnemonicParsing="false" onAction="#deleteRoomElement" prefHeight="25.0" prefWidth="75.0" text="Удалить" />
                   <Button fx:id="saveRoomButton" layoutX="376.0" layoutY="228.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" />
                   <TableView fx:id="roomTableView" layoutX="14.0" layoutY="160.0" onMouseClicked="#On_tabCalculatorClickedActionRoom" prefHeight="200.0" prefWidth="353.0">
@@ -61,7 +62,7 @@
         </Tab>
         <Tab fx:id="totalView" disable="false" text="Итоговая">
             <content>
-                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <FlowPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <TableView layoutX="54.0" layoutY="50.0" prefHeight="300.0" prefWidth="1000.0">
                             <columns>
@@ -75,7 +76,7 @@
                             </columns>
                         </TableView>
                     </children>
-                </VBox>
+                </FlowPane>
             </content>
         </Tab>
         <Tab fx:id="DPView" disable="false" text="ДП">

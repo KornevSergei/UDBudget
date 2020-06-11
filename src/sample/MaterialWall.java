@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.Date;
+
 public class MaterialWall {
     protected String nameMaterialWall;//Наименование
     protected boolean activePMaterialWall;//П
@@ -13,6 +15,7 @@ public class MaterialWall {
     protected double priceOrderMaterialWall;//Порядок цен
     protected double costCPMaterialWall;//Стоимость по КП
     protected String productionTimeMaterialWall;//Срок доставки
+//    protected Date productionTimeMaterialWall;//Срок доставки
     protected double actualCostMaterialWall;//Стоимость фактическая
     protected double actualDifferenceMaterialWall;//Разница фактическая
     protected double paidMaterialWall;//Оплачено
@@ -225,6 +228,13 @@ public class MaterialWall {
     public void setProductionTimeMaterialWall(String productionTimeMaterialWall) {
         this.productionTimeMaterialWall = productionTimeMaterialWall;
     }
+//    public Date getProductionTimeMaterialWall() {
+//        return productionTimeMaterialWall;
+//    }
+//
+//    public void setProductionTimeMaterialWall(Date productionTimeMaterialWall) {
+//        this.productionTimeMaterialWall = productionTimeMaterialWall;
+//    }
 
     public String getActualCostMaterialWall() {
         return Double.toString(actualCostMaterialWall);
