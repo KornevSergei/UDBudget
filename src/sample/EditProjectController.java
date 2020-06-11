@@ -326,6 +326,8 @@ public class EditProjectController implements Initializable {
         Project project = new Project();
         project.setNameProject(createProjectTextField.getText());
         projectTableView.getItems().add(project);
+        createProjectTextField.setVisible(false);
+        addProjectButton.setVisible(false);
     }
 
     public void deleteElementProject(ActionEvent actionEvent) {
