@@ -20,6 +20,7 @@ public class MaterialCeiling {
     protected double paidMaterialCeiling;//Оплачено
     protected double residueMaterialCeiling;//Остаток
     protected String dateOfDeliveryMaterialCeiling;//Дата поставки
+    protected String nameRoomMaterialCeiling;//аименование помещения
     protected String plannedCPMaterialCeiling;
     protected String actualCPMaterialCeiling;
     protected String accountMaterialCeiling;
@@ -31,7 +32,7 @@ public class MaterialCeiling {
     public MaterialCeiling(String nameMaterialCeiling, boolean activePMaterialCeiling, boolean activeCMaterialCeiling, String unitMaterialCeiling, double quantityMaterialCeiling,
                         double ordinalPriceUnitMaterialCeiling, double priceCPUnitMaterialCeiling, double priceCPKeyMaterialCeiling, double costCPUnitMaterialCeiling,
                         double priceOrderMaterialCeiling, double costCPMaterialCeiling, String productionTimeMaterialCeiling, double actualCostMaterialCeiling,
-                        double actualDifferenceMaterialCeiling, double paidMaterialCeiling, double residueMaterialCeiling, String dateOfDeliveryMaterialCeiling,
+                        double actualDifferenceMaterialCeiling, double paidMaterialCeiling, double residueMaterialCeiling, String dateOfDeliveryMaterialCeiling,String nameRoomMaterialCeiling,
                         String plannedCPMaterialCeiling, String actualCPMaterialCeiling, String accountMaterialCeiling, String contactsMaterialCeiling, String notesMaterialCeiling,
                         String characteristicsMaterialCeiling) {
         this.nameMaterialCeiling = nameMaterialCeiling;
@@ -51,6 +52,7 @@ public class MaterialCeiling {
         this.paidMaterialCeiling = paidMaterialCeiling;
         this.residueMaterialCeiling = residueMaterialCeiling;
         this.dateOfDeliveryMaterialCeiling = dateOfDeliveryMaterialCeiling;
+        this.nameRoomMaterialCeiling = nameRoomMaterialCeiling;
         this.plannedCPMaterialCeiling = plannedCPMaterialCeiling;
         this.actualCPMaterialCeiling = actualCPMaterialCeiling;
         this.accountMaterialCeiling = accountMaterialCeiling;
@@ -286,6 +288,14 @@ public class MaterialCeiling {
 
     public void setDateOfDeliveryMaterialCeiling(String dateOfDeliveryMaterialCeiling) {
         this.dateOfDeliveryMaterialCeiling = dateOfDeliveryMaterialCeiling;
+    }
+
+    public String getNameRoomMaterialCeiling() {
+        return nameRoomMaterialCeiling;
+    }
+
+    public void setNameRoomMaterialCeiling(String nameRoomMaterialCeiling) {
+        this.nameRoomMaterialCeiling = nameRoomMaterialCeiling;
     }
 
     public String getPlannedCPMaterialCeiling() {

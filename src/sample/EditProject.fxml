@@ -190,13 +190,13 @@
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900.0">
+                        <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900">
                             <panes>
-                                <TitledPane animated="true" prefHeight="280.0" prefWidth="1900.0" text="Стены">
+                                <TitledPane animated="true" prefHeight="280.0" prefWidth="1900" text="Стены">
                                     <content>
                                         <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ScrollPane prefHeight="500.0" prefWidth="1900.0">
+                                    <ScrollPane prefHeight="500.0" prefWidth="1900">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
@@ -263,6 +263,7 @@
                                                       <TableColumn fx:id="colPaidMaterialFloor" prefWidth="85.0" text="Оплачено" />
                                                       <TableColumn fx:id="colResidueMaterialFloor" prefWidth="85.0" text="Остаток" />
                                                       <TableColumn fx:id="colDateOfDeliveryMaterialFloor" prefWidth="85.0" text="Дата поставки" />
+                                                       <TableColumn fx:id="colNameRoomMaterialFloor" prefWidth="85.0" text="Наименование помещения"/>
                                                       <TableColumn fx:id="colPlannedCPMaterialFloor" prefWidth="85.0" text="КП плановое" />
                                                       <TableColumn fx:id="colActualCPMaterialFloor" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountMaterialFloor" prefWidth="55.0" text="Счет" />
@@ -306,6 +307,7 @@
                                                       <TableColumn fx:id="colPaidMaterialCeiling" prefWidth="85.0" text="Оплачено" />
                                                       <TableColumn fx:id="colResidueMaterialCeiling" prefWidth="85.0" text="Остаток" />
                                                       <TableColumn fx:id="colDateOfDeliveryMaterialCeiling" prefWidth="85.0" text="Дата поставки" />
+                                                       <TableColumn fx:id="colNameRoomMaterialCeiling" prefWidth="85.0" text="Наименование помещения"/>
                                                       <TableColumn fx:id="colPlannedCPMaterialCeiling" prefWidth="85.0" text="КП плановое" />
                                                       <TableColumn fx:id="colActualCPMaterialCeiling" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountMaterialCeiling" prefWidth="55.0" text="Счет" />
@@ -349,6 +351,7 @@
                                                       <TableColumn fx:id="colPaidMaterialOther" prefWidth="85.0" text="Оплачено" />
                                                       <TableColumn fx:id="colResidueMaterialOther" prefWidth="85.0" text="Остаток" />
                                                       <TableColumn fx:id="colDateOfDeliveryMaterialOther" prefWidth="85.0" text="Дата поставки" />
+                                                       <TableColumn fx:id="colNameRoomMaterialOther" prefWidth="85.0" text="Наименование помещения"/>
                                                       <TableColumn fx:id="colPlannedCPMaterialOther" prefWidth="85.0" text="КП плановое" />
                                                       <TableColumn fx:id="colActualCPMaterialOther" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountMaterialOther" prefWidth="55.0" text="Счет" />
@@ -392,6 +395,7 @@
                                                       <TableColumn fx:id="colPaidMaterialSuddenly" prefWidth="85.0" text="Оплачено" />
                                                       <TableColumn fx:id="colResidueMaterialSuddenly" prefWidth="85.0" text="Остаток" />
                                                       <TableColumn fx:id="colDateOfDeliveryMaterialSuddenly" prefWidth="85.0" text="Дата поставки" />
+                                                       <TableColumn fx:id="colNameRoomMaterialSuddenly" prefWidth="85.0" text="Наименование помещения"/>
                                                       <TableColumn fx:id="colPlannedCPMaterialSuddenly" prefWidth="85.0" text="КП плановое" />
                                                       <TableColumn fx:id="colActualCPMaterialSuddenly" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountMaterialSuddenly" prefWidth="55.0" text="Счет" />
@@ -468,6 +472,7 @@
                                                       <TableColumn fx:id="colPaidAppliancesKitchen" prefWidth="85.0" text="Оплачено" />
                                                       <TableColumn fx:id="colResidueAppliancesKitchen" prefWidth="85.0" text="Остаток" />
                                                       <TableColumn fx:id="colDateOfDeliveryAppliancesKitchen" prefWidth="85.0" text="Дата поставки" />
+                                                       <TableColumn fx:id="colNameRoomAppliancesKitchen" prefWidth="85.0" text="Наименование помещения"/>
                                                       <TableColumn fx:id="colPlannedCPAppliancesKitchen" prefWidth="85.0" text="КП плановое" />
                                                       <TableColumn fx:id="colActualCPAppliancesKitchen" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountAppliancesKitchen" prefWidth="55.0" text="Счет" />
@@ -511,6 +516,7 @@
                                                       <TableColumn fx:id="colPaidAppliancesOther" prefWidth="85.0" text="Оплачено" />
                                                       <TableColumn fx:id="colResidueAppliancesOther" prefWidth="85.0" text="Остаток" />
                                                       <TableColumn fx:id="colDateOfDeliveryAppliancesOther" prefWidth="85.0" text="Дата поставки" />
+                                                       <TableColumn fx:id="colNameRoomAppliancesOther" prefWidth="85.0" text="Наименование помещения"/>
                                                       <TableColumn fx:id="colPlannedCPAppliancesOther" prefWidth="85.0" text="КП плановое" />
                                                       <TableColumn fx:id="colActualCPAppliancesOther" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountAppliancesOther" prefWidth="55.0" text="Счет" />
@@ -554,6 +560,7 @@
                                                       <TableColumn fx:id="colPaidAppliancesDelivery" prefWidth="85.0" text="Оплачено" />
                                                       <TableColumn fx:id="colResidueAppliancesDelivery" prefWidth="85.0" text="Остаток" />
                                                       <TableColumn fx:id="colDateOfDeliveryAppliancesDelivery" prefWidth="85.0" text="Дата поставки" />
+                                                       <TableColumn fx:id="colNameRoomAppliancesDelivery" prefWidth="85.0" text="Наименование помещения"/>
                                                       <TableColumn fx:id="colPlannedCPAppliancesDelivery" prefWidth="85.0" text="КП плановое" />
                                                       <TableColumn fx:id="colActualCPAppliancesDelivery" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountAppliancesDelivery" prefWidth="55.0" text="Счет" />
@@ -597,6 +604,7 @@
                                                       <TableColumn fx:id="colPaidAppliancesSuddenly" prefWidth="85.0" text="Оплачено" />
                                                       <TableColumn fx:id="colResidueAppliancesSuddenly" prefWidth="85.0" text="Остаток" />
                                                       <TableColumn fx:id="colDateOfDeliveryAppliancesSuddenly" prefWidth="85.0" text="Дата поставки" />
+                                                       <TableColumn fx:id="colNameRoomAppliancesSuddenly" prefWidth="85.0" text="Наименование помещения"/>
                                                       <TableColumn fx:id="colPlannedCPAppliancesSuddenly" prefWidth="85.0" text="КП плановое" />
                                                       <TableColumn fx:id="colActualCPAppliancesSuddenly" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountAppliancesSuddenly" prefWidth="55.0" text="Счет" />

@@ -19,6 +19,7 @@ public class MaterialSuddenly {
     protected double paidMaterialSuddenly;//Оплачено
     protected double residueMaterialSuddenly;//Остаток
     protected String dateOfDeliveryMaterialSuddenly;//Дата поставки
+    protected String nameRoomMaterialSuddenly;//аименование помещения
     protected String plannedCPMaterialSuddenly;
     protected String actualCPMaterialSuddenly;
     protected String accountMaterialSuddenly;
@@ -30,7 +31,7 @@ public class MaterialSuddenly {
     public MaterialSuddenly(String nameMaterialSuddenly, boolean activePMaterialSuddenly, boolean activeCMaterialSuddenly, String unitMaterialSuddenly, double quantityMaterialSuddenly,
                             double ordinalPriceUnitMaterialSuddenly, double priceCPUnitMaterialSuddenly, double priceCPKeyMaterialSuddenly, double costCPUnitMaterialSuddenly,
                             double priceOrderMaterialSuddenly, double costCPMaterialSuddenly, String productionTimeMaterialSuddenly, double actualCostMaterialSuddenly,
-                            double actualDifferenceMaterialSuddenly, double paidMaterialSuddenly, double residueMaterialSuddenly, String dateOfDeliveryMaterialSuddenly,
+                            double actualDifferenceMaterialSuddenly, double paidMaterialSuddenly, double residueMaterialSuddenly, String dateOfDeliveryMaterialSuddenly,String nameRoomMaterialSuddenly,
                             String plannedCPMaterialSuddenly, String actualCPMaterialSuddenly, String accountMaterialSuddenly, String contactsMaterialSuddenly, String notesMaterialSuddenly,
                             String characteristicsMaterialSuddenly) {
         this.nameMaterialSuddenly = nameMaterialSuddenly;
@@ -50,6 +51,7 @@ public class MaterialSuddenly {
         this.paidMaterialSuddenly = paidMaterialSuddenly;
         this.residueMaterialSuddenly = residueMaterialSuddenly;
         this.dateOfDeliveryMaterialSuddenly = dateOfDeliveryMaterialSuddenly;
+        this.nameRoomMaterialSuddenly = nameRoomMaterialSuddenly;
         this.plannedCPMaterialSuddenly = plannedCPMaterialSuddenly;
         this.actualCPMaterialSuddenly = actualCPMaterialSuddenly;
         this.accountMaterialSuddenly = accountMaterialSuddenly;
@@ -285,6 +287,14 @@ public class MaterialSuddenly {
 
     public void setDateOfDeliveryMaterialSuddenly(String dateOfDeliveryMaterialSuddenly) {
         this.dateOfDeliveryMaterialSuddenly = dateOfDeliveryMaterialSuddenly;
+    }
+
+    public String getNameRoomMaterialSuddenly() {
+        return nameRoomMaterialSuddenly;
+    }
+
+    public void setNameRoomMaterialSuddenly(String nameRoomMaterialSuddenly) {
+        this.nameRoomMaterialSuddenly = nameRoomMaterialSuddenly;
     }
 
     public String getPlannedCPMaterialSuddenly() {

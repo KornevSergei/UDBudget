@@ -18,6 +18,7 @@ public class MaterialOther {
     protected double paidMaterialOther;//Оплачено
     protected double residueMaterialOther;//Остаток
     protected String dateOfDeliveryMaterialOther;//Дата поставки
+    protected String nameRoomMaterialOther;//аименование помещения
     protected String plannedCPMaterialOther;
     protected String actualCPMaterialOther;
     protected String accountMaterialOther;
@@ -29,7 +30,7 @@ public class MaterialOther {
     public MaterialOther(String nameMaterialOther, boolean activePMaterialOther, boolean activeCMaterialOther, String unitMaterialOther, double quantityMaterialOther,
                          double ordinalPriceUnitMaterialOther, double priceCPUnitMaterialOther, double priceCPKeyMaterialOther, double costCPUnitMaterialOther,
                          double priceOrderMaterialOther, double costCPMaterialOther, String productionTimeMaterialOther, double actualCostMaterialOther,
-                         double actualDifferenceMaterialOther, double paidMaterialOther, double residueMaterialOther, String dateOfDeliveryMaterialOther,
+                         double actualDifferenceMaterialOther, double paidMaterialOther, double residueMaterialOther, String dateOfDeliveryMaterialOther,String nameRoomMaterialOther,
                          String plannedCPMaterialOther, String actualCPMaterialOther, String accountMaterialOther, String contactsMaterialOther, String notesMaterialOther,
                          String characteristicsMaterialOther) {
         this.nameMaterialOther = nameMaterialOther;
@@ -49,6 +50,7 @@ public class MaterialOther {
         this.paidMaterialOther = paidMaterialOther;
         this.residueMaterialOther = residueMaterialOther;
         this.dateOfDeliveryMaterialOther = dateOfDeliveryMaterialOther;
+        this.nameRoomMaterialOther = nameRoomMaterialOther;
         this.plannedCPMaterialOther = plannedCPMaterialOther;
         this.actualCPMaterialOther = actualCPMaterialOther;
         this.accountMaterialOther = accountMaterialOther;
@@ -284,6 +286,14 @@ public class MaterialOther {
 
     public void setDateOfDeliveryMaterialOther(String dateOfDeliveryMaterialOther) {
         this.dateOfDeliveryMaterialOther = dateOfDeliveryMaterialOther;
+    }
+
+    public String getNameRoomMaterialOther() {
+        return nameRoomMaterialOther;
+    }
+
+    public void setNameRoomMaterialOther(String nameRoomMaterialOther) {
+        this.nameRoomMaterialOther = nameRoomMaterialOther;
     }
 
     public String getPlannedCPMaterialOther() {

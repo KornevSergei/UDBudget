@@ -18,6 +18,7 @@ public class MaterialFloor {
     protected double paidMaterialFloor;//Оплачено
     protected double residueMaterialFloor;//Остаток
     protected String dateOfDeliveryMaterialFloor;//Дата поставки
+    protected String nameRoomMaterialFloor;//аименование помещения
     protected String plannedCPMaterialFloor;
     protected String actualCPMaterialFloor;
     protected String accountMaterialFloor;
@@ -29,7 +30,7 @@ public class MaterialFloor {
     public MaterialFloor(String nameMaterialFloor, boolean activePMaterialFloor, boolean activeCMaterialFloor, String unitMaterialFloor, double quantityMaterialFloor,
                          double ordinalPriceUnitMaterialFloor, double priceCPUnitMaterialFloor, double priceCPKeyMaterialFloor, double costCPUnitMaterialFloor,
                          double priceOrderMaterialFloor, double costCPMaterialFloor, String productionTimeMaterialFloor, double actualCostMaterialFloor,
-                         double actualDifferenceMaterialFloor, double paidMaterialFloor, double residueMaterialFloor, String dateOfDeliveryMaterialFloor,
+                         double actualDifferenceMaterialFloor, double paidMaterialFloor, double residueMaterialFloor, String dateOfDeliveryMaterialFloor,String nameRoomMaterialFloor,
                          String plannedCPMaterialFloor, String actualCPMaterialFloor, String accountMaterialFloor, String contactsMaterialFloor, String notesMaterialFloor,
                          String characteristicsMaterialFloor) {
         this.nameMaterialFloor = nameMaterialFloor;
@@ -49,6 +50,7 @@ public class MaterialFloor {
         this.paidMaterialFloor = paidMaterialFloor;
         this.residueMaterialFloor = residueMaterialFloor;
         this.dateOfDeliveryMaterialFloor = dateOfDeliveryMaterialFloor;
+        this.nameRoomMaterialFloor = nameRoomMaterialFloor;
         this.plannedCPMaterialFloor = plannedCPMaterialFloor;
         this.actualCPMaterialFloor = actualCPMaterialFloor;
         this.accountMaterialFloor = accountMaterialFloor;
@@ -284,6 +286,13 @@ public class MaterialFloor {
 
     public void setDateOfDeliveryMaterialFloor(String dateOfDeliveryMaterialFloor) {
         this.dateOfDeliveryMaterialFloor = dateOfDeliveryMaterialFloor;
+    }
+    public String getNameRoomMaterialFloor() {
+        return nameRoomMaterialFloor;
+    }
+
+    public void setNameRoomMaterialFloor(String nameRoomMaterialFloor) {
+        this.nameRoomMaterialFloor = nameRoomMaterialFloor;
     }
 
     public String getPlannedCPMaterialFloor() {

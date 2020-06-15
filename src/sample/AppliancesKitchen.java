@@ -20,6 +20,7 @@ public class AppliancesKitchen {
     protected double paidAppliancesKitchen;//Оплачено
     protected double residueAppliancesKitchen;//Остаток
     protected String dateOfDeliveryAppliancesKitchen;//Дата поставки
+    protected String nameRoomAppliancesKitchen;//Наименование помещения
     protected String plannedCPAppliancesKitchen;
     protected String actualCPAppliancesKitchen;
     protected String accountAppliancesKitchen;
@@ -31,7 +32,7 @@ public class AppliancesKitchen {
     public AppliancesKitchen(String nameAppliancesKitchen, boolean activePAppliancesKitchen, boolean activeCAppliancesKitchen, String unitAppliancesKitchen, double quantityAppliancesKitchen,
                              double ordinalPriceUnitAppliancesKitchen, double priceCPUnitAppliancesKitchen, double priceCPKeyAppliancesKitchen, double costCPUnitAppliancesKitchen,
                              double priceOrderAppliancesKitchen, double costCPAppliancesKitchen, String productionTimeAppliancesKitchen, double actualCostAppliancesKitchen,
-                             double actualDifferenceAppliancesKitchen, double paidAppliancesKitchen, double residueAppliancesKitchen, String dateOfDeliveryAppliancesKitchen,
+                             double actualDifferenceAppliancesKitchen, double paidAppliancesKitchen, double residueAppliancesKitchen, String dateOfDeliveryAppliancesKitchen,String nameRoomAppliancesKitchen,
                              String plannedCPAppliancesKitchen, String actualCPAppliancesKitchen, String accountAppliancesKitchen, String contactsAppliancesKitchen, String notesAppliancesKitchen,
                              String characteristicsAppliancesKitchen) {
         this.nameAppliancesKitchen = nameAppliancesKitchen;
@@ -51,6 +52,7 @@ public class AppliancesKitchen {
         this.paidAppliancesKitchen = paidAppliancesKitchen;
         this.residueAppliancesKitchen = residueAppliancesKitchen;
         this.dateOfDeliveryAppliancesKitchen = dateOfDeliveryAppliancesKitchen;
+        this.nameRoomAppliancesKitchen = nameRoomAppliancesKitchen;
         this.plannedCPAppliancesKitchen = plannedCPAppliancesKitchen;
         this.actualCPAppliancesKitchen = actualCPAppliancesKitchen;
         this.accountAppliancesKitchen = accountAppliancesKitchen;
@@ -286,6 +288,14 @@ public class AppliancesKitchen {
 
     public void setDateOfDeliveryAppliancesKitchen(String dateOfKitchenAppliancesKitchen) {
         this.dateOfDeliveryAppliancesKitchen = dateOfKitchenAppliancesKitchen;
+    }
+
+    public String getNameRoomAppliancesKitchen() {
+        return nameRoomAppliancesKitchen;
+    }
+
+    public void setNameRoomAppliancesKitchen(String nameRoomAppliancesKitchen) {
+        this.nameRoomAppliancesKitchen = nameRoomAppliancesKitchen;
     }
 
     public String getPlannedCPAppliancesKitchen() {

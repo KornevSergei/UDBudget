@@ -22,6 +22,7 @@ public class AK {
     public void setRateAK(double rateAK) {
         this.rateAK = rateAK;
     }
+
     public void setRateAK(String rateAK) {
         this.rateAK = Double.parseDouble(rateAK);
         Calc();
@@ -34,6 +35,7 @@ public class AK {
     public void setTermAK(double termAK) {
         this.termAK = termAK;
     }
+
     public void setTermAK(String termAK) {
         this.termAK = Double.parseDouble(termAK);
         Calc();
@@ -46,6 +48,7 @@ public class AK {
     public void setCostAK(double costAK) {
         this.costAK = costAK;
     }
+
     public void setCostAK(String costAK) {
         this.costAK = Double.parseDouble(costAK);
     }

@@ -18,6 +18,7 @@ public class AppliancesSuddenly {
     protected double paidAppliancesSuddenly;//Оплачено
     protected double residueAppliancesSuddenly;//Остаток
     protected String dateOfDeliveryAppliancesSuddenly;//Дата поставки
+    protected String nameRoomAppliancesSuddenly;//Наименование помещения
     protected String plannedCPAppliancesSuddenly;
     protected String actualCPAppliancesSuddenly;
     protected String accountAppliancesSuddenly;
@@ -29,7 +30,7 @@ public class AppliancesSuddenly {
     public AppliancesSuddenly(String nameAppliancesSuddenly, boolean activePAppliancesSuddenly, boolean activeCAppliancesSuddenly, String unitAppliancesSuddenly, double quantityAppliancesSuddenly,
                               double ordinalPriceUnitAppliancesSuddenly, double priceCPUnitAppliancesSuddenly, double priceCPKeyAppliancesSuddenly, double costCPUnitAppliancesSuddenly,
                               double priceOrderAppliancesSuddenly, double costCPAppliancesSuddenly, String productionTimeAppliancesSuddenly, double actualCostAppliancesSuddenly,
-                              double actualDifferenceAppliancesSuddenly, double paidAppliancesSuddenly, double residueAppliancesSuddenly, String dateOfDeliveryAppliancesSuddenly,
+                              double actualDifferenceAppliancesSuddenly, double paidAppliancesSuddenly, double residueAppliancesSuddenly, String dateOfDeliveryAppliancesSuddenly,String  nameRoomAppliancesSuddenly,
                               String plannedCPAppliancesSuddenly, String actualCPAppliancesSuddenly, String accountAppliancesSuddenly, String contactsAppliancesSuddenly, String notesAppliancesSuddenly,
                               String characteristicsAppliancesSuddenly) {
         this.nameAppliancesSuddenly = nameAppliancesSuddenly;
@@ -49,6 +50,7 @@ public class AppliancesSuddenly {
         this.paidAppliancesSuddenly = paidAppliancesSuddenly;
         this.residueAppliancesSuddenly = residueAppliancesSuddenly;
         this.dateOfDeliveryAppliancesSuddenly = dateOfDeliveryAppliancesSuddenly;
+        this.nameRoomAppliancesSuddenly = nameRoomAppliancesSuddenly;
         this.plannedCPAppliancesSuddenly = plannedCPAppliancesSuddenly;
         this.actualCPAppliancesSuddenly = actualCPAppliancesSuddenly;
         this.accountAppliancesSuddenly = accountAppliancesSuddenly;
@@ -284,6 +286,14 @@ public class AppliancesSuddenly {
 
     public void setDateOfDeliveryAppliancesSuddenly(String dateOfDeliveryAppliancesSuddenly) {
         this.dateOfDeliveryAppliancesSuddenly = dateOfDeliveryAppliancesSuddenly;
+    }
+
+    public String getNameRoomAppliancesSuddenly() {
+        return nameRoomAppliancesSuddenly;
+    }
+
+    public void setNameRoomAppliancesSuddenly(String nameRoomAppliancesSuddenly) {
+        this.nameRoomAppliancesSuddenly = nameRoomAppliancesSuddenly;
     }
 
     public String getPlannedCPAppliancesSuddenly() {
