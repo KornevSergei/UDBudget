@@ -62,6 +62,14 @@ public class EditProjectController implements Initializable {
 
 
     public ToggleButton showMaterialWallButton;
+    public ToggleButton showMaterialFloorButton;
+    public ToggleButton showMaterialCeilingButton;
+    public ToggleButton showMaterialOtherButton;
+    public ToggleButton showMaterialSuddenlyButton;
+    public ToggleButton showAppliancesKitchenButton;
+    public ToggleButton showAppliancesOtherButton;
+    public ToggleButton showAppliancesDeliveryButton;
+    public ToggleButton showAppliancesSuddenlyButton;
 
 
     public Button saveRoomButton;
@@ -3304,14 +3312,26 @@ public class EditProjectController implements Initializable {
         if (showMaterialWallButton.isSelected()) {
             showMaterialWallButton.setText("Скрыть");
 
-            colNotesMaterialWall.setVisible(true);
-            colCharacteristicsMaterialWall.setVisible(true);
+            colActualCostMaterialWall.setVisible(true);
+            colActualDifferenceMaterialWall.setVisible(true);
+            colPaidMaterialWall.setVisible(true);
+            colResidueMaterialWall.setVisible(true);
+            colDateOfDeliveryMaterialWall.setVisible(true);
+
+            colActualCPMaterialWall.setVisible(true);
+            colAccountMaterialWall.setVisible(true);
 
         } else {
             showMaterialWallButton.setText("Показать");
 
-            colNotesMaterialWall.setVisible(false);
-            colCharacteristicsMaterialWall.setVisible(false);
+            colActualCostMaterialWall.setVisible(false);
+            colActualDifferenceMaterialWall.setVisible(false);
+            colPaidMaterialWall.setVisible(false);
+            colResidueMaterialWall.setVisible(false);
+            colDateOfDeliveryMaterialWall.setVisible(false);
+
+            colActualCPMaterialWall.setVisible(false);
+            colAccountMaterialWall.setVisible(false);
         }
     }
 
@@ -3330,6 +3350,32 @@ public class EditProjectController implements Initializable {
         singleMaterialFloor.forEach(allMaterialFloor::remove);
     }
 
+    public void showMaterialFloor(ActionEvent actionEvent) {
+        if (showMaterialFloorButton.isSelected()) {
+            showMaterialFloorButton.setText("Скрыть");
+
+            colActualCostMaterialFloor.setVisible(true);
+            colActualDifferenceMaterialFloor.setVisible(true);
+            colPaidMaterialFloor.setVisible(true);
+            colResidueMaterialFloor.setVisible(true);
+            colDateOfDeliveryMaterialFloor.setVisible(true);
+
+            colActualCPMaterialFloor.setVisible(true);
+            colAccountMaterialFloor.setVisible(true);
+
+        } else {
+            showMaterialFloorButton.setText("Показать");
+
+            colActualCostMaterialFloor.setVisible(false);
+            colActualDifferenceMaterialFloor.setVisible(false);
+            colPaidMaterialFloor.setVisible(false);
+            colResidueMaterialFloor.setVisible(false);
+            colDateOfDeliveryMaterialFloor.setVisible(false);
+
+            colActualCPMaterialFloor.setVisible(false);
+            colAccountMaterialFloor.setVisible(false);
+        }
+    }
 
     public void On_tabCalculatorClickedActionMaterialCeiling(MouseEvent mouseEvent) {
         if (observableListMaterialCeiling.filtered(x -> "0.0".equals(x.getQuantityMaterialCeiling()) && "0.0".equals(x.getOrdinalPriceUnitMaterialCeiling())).size() == 0) {
@@ -3346,6 +3392,33 @@ public class EditProjectController implements Initializable {
         singleMaterialCeiling.forEach(allMaterialCeiling::remove);
     }
 
+    public void showMaterialCeiling(ActionEvent actionEvent) {
+        if (showMaterialCeilingButton.isSelected()) {
+            showMaterialCeilingButton.setText("Скрыть");
+
+            colActualCostMaterialCeiling.setVisible(true);
+            colActualDifferenceMaterialCeiling.setVisible(true);
+            colPaidMaterialCeiling.setVisible(true);
+            colResidueMaterialCeiling.setVisible(true);
+            colDateOfDeliveryMaterialCeiling.setVisible(true);
+
+            colActualCPMaterialCeiling.setVisible(true);
+            colAccountMaterialCeiling.setVisible(true);
+
+        } else {
+            showMaterialCeilingButton.setText("Показать");
+
+            colActualCostMaterialCeiling.setVisible(false);
+            colActualDifferenceMaterialCeiling.setVisible(false);
+            colPaidMaterialCeiling.setVisible(false);
+            colResidueMaterialCeiling.setVisible(false);
+            colDateOfDeliveryMaterialCeiling.setVisible(false);
+
+            colActualCPMaterialCeiling.setVisible(false);
+            colAccountMaterialCeiling.setVisible(false);
+        }
+    }
+
     public void On_tabCalculatorClickedActionMaterialOther(MouseEvent mouseEvent) {
         if (observableListMaterialOther.filtered(x -> "0.0".equals(x.getQuantityMaterialOther()) && "0.0".equals(x.getOrdinalPriceUnitMaterialOther())).size() == 0) {
             observableListMaterialOther.add(new MaterialOther("", false, false, "", 0, 0,
@@ -3354,13 +3427,38 @@ public class EditProjectController implements Initializable {
         }
     }
 
-
-
     public void deleteElementMaterialOther(ActionEvent actionEvent) {
         ObservableList<MaterialOther> allMaterialOther, singleMaterialOther;
         allMaterialOther = materialTableViewOther.getItems();
         singleMaterialOther = materialTableViewOther.getSelectionModel().getSelectedItems();
         singleMaterialOther.forEach(allMaterialOther::remove);
+    }
+
+    public void showMaterialOther(ActionEvent actionEvent) {
+        if (showMaterialOtherButton.isSelected()) {
+            showMaterialOtherButton.setText("Скрыть");
+
+            colActualCostMaterialOther.setVisible(true);
+            colActualDifferenceMaterialOther.setVisible(true);
+            colPaidMaterialOther.setVisible(true);
+            colResidueMaterialOther.setVisible(true);
+            colDateOfDeliveryMaterialOther.setVisible(true);
+
+            colActualCPMaterialOther.setVisible(true);
+            colAccountMaterialOther.setVisible(true);
+
+        } else {
+            showMaterialOtherButton.setText("Показать");
+
+            colActualCostMaterialOther.setVisible(false);
+            colActualDifferenceMaterialOther.setVisible(false);
+            colPaidMaterialOther.setVisible(false);
+            colResidueMaterialOther.setVisible(false);
+            colDateOfDeliveryMaterialOther.setVisible(false);
+
+            colActualCPMaterialOther.setVisible(false);
+            colAccountMaterialOther.setVisible(false);
+        }
     }
 
     public void On_tabCalculatorClickedActionMaterialSuddenly(MouseEvent mouseEvent) {
@@ -3378,6 +3476,34 @@ public class EditProjectController implements Initializable {
         singleMaterialSuddenly.forEach(allMaterialSuddenly::remove);
     }
 
+    public void showMaterialSuddenly(ActionEvent actionEvent) {
+        if (showMaterialSuddenlyButton.isSelected()) {
+            showMaterialSuddenlyButton.setText("Скрыть");
+
+            colActualCostMaterialSuddenly.setVisible(true);
+            colActualDifferenceMaterialSuddenly.setVisible(true);
+            colPaidMaterialSuddenly.setVisible(true);
+            colResidueMaterialSuddenly.setVisible(true);
+            colDateOfDeliveryMaterialSuddenly.setVisible(true);
+
+            colActualCPMaterialSuddenly.setVisible(true);
+            colAccountMaterialSuddenly.setVisible(true);
+
+        } else {
+            showMaterialSuddenlyButton.setText("Показать");
+
+            colActualCostMaterialSuddenly.setVisible(false);
+            colActualDifferenceMaterialSuddenly.setVisible(false);
+            colPaidMaterialSuddenly.setVisible(false);
+            colResidueMaterialSuddenly.setVisible(false);
+            colDateOfDeliveryMaterialSuddenly.setVisible(false);
+
+            colActualCPMaterialSuddenly.setVisible(false);
+            colAccountMaterialSuddenly.setVisible(false);
+        }
+    }
+
+
     public void On_tabCalculatorClickedActionAppliancesKitchen(MouseEvent mouseEvent) {
         if (observableListAppliancesKitchen.filtered(x -> "0.0".equals(x.getQuantityAppliancesKitchen()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesKitchen())).size() == 0) {
             observableListAppliancesKitchen.add(new AppliancesKitchen("", false, false, "", 0, 0,
@@ -3391,6 +3517,33 @@ public class EditProjectController implements Initializable {
         allAppliancesKitchen = appliancesTableViewKitchen.getItems();
         singleAppliancesKitchen = appliancesTableViewKitchen.getSelectionModel().getSelectedItems();
         singleAppliancesKitchen.forEach(allAppliancesKitchen::remove);
+    }
+
+    public void showAppliancesKitchen(ActionEvent actionEvent) {
+        if (showAppliancesKitchenButton.isSelected()) {
+            showAppliancesKitchenButton.setText("Скрыть");
+
+            colActualCostAppliancesKitchen.setVisible(true);
+            colActualDifferenceAppliancesKitchen.setVisible(true);
+            colPaidAppliancesKitchen.setVisible(true);
+            colResidueAppliancesKitchen.setVisible(true);
+            colDateOfDeliveryAppliancesKitchen.setVisible(true);
+
+            colActualCPAppliancesKitchen.setVisible(true);
+            colAccountAppliancesKitchen.setVisible(true);
+
+        } else {
+            showAppliancesKitchenButton.setText("Показать");
+
+            colActualCostAppliancesKitchen.setVisible(false);
+            colActualDifferenceAppliancesKitchen.setVisible(false);
+            colPaidAppliancesKitchen.setVisible(false);
+            colResidueAppliancesKitchen.setVisible(false);
+            colDateOfDeliveryAppliancesKitchen.setVisible(false);
+
+            colActualCPAppliancesKitchen.setVisible(false);
+            colAccountAppliancesKitchen.setVisible(false);
+        }
     }
 
     public void On_tabCalculatorClickedActionAppliancesOther(MouseEvent mouseEvent) {
@@ -3408,6 +3561,33 @@ public class EditProjectController implements Initializable {
         singleAppliancesOther.forEach(allAppliancesOther::remove);
     }
 
+    public void showAppliancesOther(ActionEvent actionEvent) {
+        if (showAppliancesOtherButton.isSelected()) {
+            showAppliancesOtherButton.setText("Скрыть");
+
+            colActualCostAppliancesOther.setVisible(true);
+            colActualDifferenceAppliancesOther.setVisible(true);
+            colPaidAppliancesOther.setVisible(true);
+            colResidueAppliancesOther.setVisible(true);
+            colDateOfDeliveryAppliancesOther.setVisible(true);
+
+            colActualCPAppliancesOther.setVisible(true);
+            colAccountAppliancesOther.setVisible(true);
+
+        } else {
+            showAppliancesOtherButton.setText("Показать");
+
+            colActualCostAppliancesOther.setVisible(false);
+            colActualDifferenceAppliancesOther.setVisible(false);
+            colPaidAppliancesOther.setVisible(false);
+            colResidueAppliancesOther.setVisible(false);
+            colDateOfDeliveryAppliancesOther.setVisible(false);
+
+            colActualCPAppliancesOther.setVisible(false);
+            colAccountAppliancesOther.setVisible(false);
+        }
+    }
+
     public void On_tabCalculatorClickedActionAppliancesDelivery(MouseEvent mouseEvent) {
         if (observableListAppliancesDelivery.filtered(x -> "0.0".equals(x.getQuantityAppliancesDelivery()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesDelivery())).size() == 0) {
             observableListAppliancesDelivery.add(new AppliancesDelivery("", false, false, "", 0, 0,
@@ -3423,6 +3603,33 @@ public class EditProjectController implements Initializable {
         singleAppliancesDelivery.forEach(allAppliancesDelivery::remove);
     }
 
+    public void showAppliancesDelivery(ActionEvent actionEvent) {
+        if (showAppliancesDeliveryButton.isSelected()) {
+            showAppliancesDeliveryButton.setText("Скрыть");
+
+            colActualCostAppliancesDelivery.setVisible(true);
+            colActualDifferenceAppliancesDelivery.setVisible(true);
+            colPaidAppliancesDelivery.setVisible(true);
+            colResidueAppliancesDelivery.setVisible(true);
+            colDateOfDeliveryAppliancesDelivery.setVisible(true);
+
+            colActualCPAppliancesDelivery.setVisible(true);
+            colAccountAppliancesDelivery.setVisible(true);
+
+        } else {
+            showAppliancesDeliveryButton.setText("Показать");
+
+            colActualCostAppliancesDelivery.setVisible(false);
+            colActualDifferenceAppliancesDelivery.setVisible(false);
+            colPaidAppliancesDelivery.setVisible(false);
+            colResidueAppliancesDelivery.setVisible(false);
+            colDateOfDeliveryAppliancesDelivery.setVisible(false);
+
+            colActualCPAppliancesDelivery.setVisible(false);
+            colAccountAppliancesDelivery.setVisible(false);
+        }
+    }
+
     public void On_tabCalculatorClickedActionAppliancesSuddenly(MouseEvent mouseEvent) {
         if (observableListAppliancesSuddenly.filtered(x -> "0.0".equals(x.getQuantityAppliancesSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesSuddenly())).size() == 0) {
             observableListAppliancesSuddenly.add(new AppliancesSuddenly("", false, false, "", 0, 0,
@@ -3436,5 +3643,32 @@ public class EditProjectController implements Initializable {
         allAppliancesSuddenly = appliancesTableViewSuddenly.getItems();
         singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
         singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
+    }
+
+    public void showAppliancesSuddenly(ActionEvent actionEvent) {
+        if (showAppliancesSuddenlyButton.isSelected()) {
+            showAppliancesSuddenlyButton.setText("Скрыть");
+
+            colActualCostAppliancesSuddenly.setVisible(true);
+            colActualDifferenceAppliancesSuddenly.setVisible(true);
+            colPaidAppliancesSuddenly.setVisible(true);
+            colResidueAppliancesSuddenly.setVisible(true);
+            colDateOfDeliveryAppliancesSuddenly.setVisible(true);
+
+            colActualCPAppliancesSuddenly.setVisible(true);
+            colAccountAppliancesSuddenly.setVisible(true);
+
+        } else {
+            showAppliancesSuddenlyButton.setText("Показать");
+
+            colActualCostAppliancesSuddenly.setVisible(false);
+            colActualDifferenceAppliancesSuddenly.setVisible(false);
+            colPaidAppliancesSuddenly.setVisible(false);
+            colResidueAppliancesSuddenly.setVisible(false);
+            colDateOfDeliveryAppliancesSuddenly.setVisible(false);
+
+            colActualCPAppliancesSuddenly.setVisible(false);
+            colAccountAppliancesSuddenly.setVisible(false);
+        }
     }
 }

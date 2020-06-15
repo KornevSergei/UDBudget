@@ -224,8 +224,8 @@
                                                       <TableColumn fx:id="colActualCPMaterialWall" prefWidth="85.0" text="КП фактическое" />
                                                       <TableColumn fx:id="colAccountMaterialWall" prefWidth="55.0" text="Счет" />
                                                       <TableColumn fx:id="colContactsMaterialWall" prefWidth="85.0" text="Контакты" />
-                                                      <TableColumn fx:id="colNotesMaterialWall" prefWidth="85.0" text="Примечания" visible="false" />
-                                                      <TableColumn fx:id="colCharacteristicsMaterialWall" prefWidth="85.0" text="Характеристики" visible="false" />
+                                                      <TableColumn fx:id="colNotesMaterialWall" prefWidth="85.0" text="Примечания" />
+                                                      <TableColumn fx:id="colCharacteristicsMaterialWall" prefWidth="85.0" text="Характеристики" />
                                                   </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialWall" text="Удалить" />
@@ -273,6 +273,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialFloor" text="Удалить" />
+                                                 <ToggleButton fx:id="showMaterialFloorButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" text="Показать" onAction="#showMaterialFloor" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -317,6 +318,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialCeiling" text="Удалить" />
+                                                 <ToggleButton fx:id="showMaterialCeilingButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" text="Показать" onAction="#showMaterialCeiling" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -361,6 +363,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialOther" text="Удалить" />
+                                                 <ToggleButton fx:id="showMaterialOtherButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" text="Показать" onAction="#showMaterialOther" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -405,6 +408,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialSuddenly" text="Удалить" />
+                                                 <ToggleButton fx:id="showMaterialSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" text="Показать" onAction="#showMaterialSuddenly" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -482,6 +486,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementAppliancesKitchen" text="Удалить" />
+                                                 <ToggleButton fx:id="showAppliancesKitchenButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" text="Показать" onAction="#showAppliancesKitchen" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -526,6 +531,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementAppliancesOther" text="Удалить" />
+                                                 <ToggleButton fx:id="showAppliancesOtherButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" text="Показать" onAction="#showAppliancesOther" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -570,6 +576,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementAppliancesDelivery" text="Удалить" />
+                                                 <ToggleButton fx:id="showAppliancesDeliveryButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" text="Показать" onAction="#showAppliancesDelivery" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -614,6 +621,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementAppliancesSuddenly" text="Удалить" />
+                                                 <ToggleButton fx:id="showAppliancesSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" text="Показать" onAction="#showAppliancesSuddenly" />
                                              </children>
                                           </AnchorPane>
                                        </content>
