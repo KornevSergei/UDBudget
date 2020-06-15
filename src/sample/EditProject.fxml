@@ -146,7 +146,7 @@
                     <children>
                         <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="1272.0">
                             <columns>
-                                <TableColumn prefWidth="157.0" text="Наименование категории" />
+                                <TableColumn prefWidth="157.0" text="Наименование категории"  />
                                 <TableColumn prefWidth="98.0" text="Стоимость плановая" />
                                 <TableColumn prefWidth="43.0" text="Стоимость по КП" />
                                 <TableColumn prefWidth="32.0" text="Стоимость фактическая" />
@@ -198,9 +198,9 @@
                                  <children>
                                     <ScrollPane prefHeight="500.0" prefWidth="1900">
                                       <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="-Infinity">
                                              <children>
-                                                <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="1900.0">
+                                                <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="1900">
                                                   <columns>
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />

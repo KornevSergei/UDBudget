@@ -700,6 +700,18 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+        colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
+        colDateOfDeliveryMaterialWall.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+                        ((MaterialWall) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialWall(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+
         colNameRoomMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialWall"));
         colNameRoomMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
