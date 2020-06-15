@@ -61,6 +61,9 @@ public class EditProjectController implements Initializable {
     public Button deleteProjectButton;
 
 
+    public ToggleButton showMaterialWallButton;
+
+
     public Button saveRoomButton;
 
 
@@ -93,6 +96,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialWall, String> colPaidMaterialWall;
     public TableColumn<MaterialWall, String> colResidueMaterialWall;
     public TableColumn<MaterialWall, String> colDateOfDeliveryMaterialWall;
+    public TableColumn<MaterialWall, String> colNameRoomMaterialWall;
     public TableColumn<MaterialWall, String> colPlannedCPMaterialWall;
     public TableColumn<MaterialWall, String> colActualCPMaterialWall;
     public TableColumn<MaterialWall, String> colAccountMaterialWall;
@@ -613,17 +617,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colProductionTimeMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
-//        colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
-//        colProductionTimeMaterialWall.setOnEditCommit(
-//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
-//                    @Override
-//                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
-//                        ((MaterialWall) t.getTableView().getItems().get(
-//                                t.getTablePosition().getRow())).setProductionTimeMaterialWall(t.getNewValue());
-//                        t.getTableView().refresh();
-//                    }
-//                });
 
         colProductionTimeMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
@@ -687,6 +680,16 @@ public class EditProjectController implements Initializable {
                     public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
                         ((MaterialWall) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setDateOfDeliveryMaterialWall(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNameRoomMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialWall"));
+        colNameRoomMaterialWall.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+                        ((MaterialWall) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setNameRoomMaterialWall(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -756,6 +759,7 @@ public class EditProjectController implements Initializable {
         colUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colProductionTimeMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colDateOfDeliveryMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colAccountMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -3189,7 +3193,7 @@ public class EditProjectController implements Initializable {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
             observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "", "", "", "", "", ""));
+                    0, 0, "", "","", "", "", "", "", ""));
         }
     }
 
@@ -3198,6 +3202,21 @@ public class EditProjectController implements Initializable {
         allMaterialWall = materialTableViewWall.getItems();
         singleMaterialWall = materialTableViewWall.getSelectionModel().getSelectedItems();
         singleMaterialWall.forEach(allMaterialWall::remove);
+    }
+
+    public void showMaterialWall(ActionEvent actionEvent) {
+        if (showMaterialWallButton.isSelected()) {
+            showMaterialWallButton.setText("Скрыть");
+
+            colNotesMaterialWall.setVisible(true);
+            colCharacteristicsMaterialWall.setVisible(true);
+
+        } else {
+            showMaterialWallButton.setText("Показать");
+
+            colNotesMaterialWall.setVisible(false);
+            colCharacteristicsMaterialWall.setVisible(false);
+        }
     }
 
     public void On_tabCalculatorClickedActionMaterialFloor(MouseEvent mouseEvent) {
@@ -3322,11 +3341,4 @@ public class EditProjectController implements Initializable {
         singleAppliancesSuddenly = appliancesTableViewSuddenly.getSelectionModel().getSelectedItems();
         singleAppliancesSuddenly.forEach(allAppliancesSuddenly::remove);
     }
-
-
-//    public void createProject(ActionEvent actionEvent) {
-//    }
-//
-//    public void selectProject(ActionEvent actionEvent) {
-//    }
 }

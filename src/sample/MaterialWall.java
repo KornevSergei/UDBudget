@@ -15,24 +15,25 @@ public class MaterialWall {
     protected double priceOrderMaterialWall;//Порядок цен
     protected double costCPMaterialWall;//Стоимость по КП
     protected String productionTimeMaterialWall;//Срок доставки
-//    protected Date productionTimeMaterialWall;//Срок доставки
+    //    protected Date productionTimeMaterialWall;//Срок доставки
     protected double actualCostMaterialWall;//Стоимость фактическая
     protected double actualDifferenceMaterialWall;//Разница фактическая
     protected double paidMaterialWall;//Оплачено
     protected double residueMaterialWall;//Остаток
     protected String dateOfDeliveryMaterialWall;//Дата поставки
-    protected String plannedCPMaterialWall;
-    protected String actualCPMaterialWall;
-    protected String accountMaterialWall;
-    protected String contactsMaterialWall;
-    protected String notesMaterialWall;
-    protected String characteristicsMaterialWall;
+    protected String nameRoomMaterialWall;//аименование помещения
+    protected String plannedCPMaterialWall;//КП плановое
+    protected String actualCPMaterialWall;//КП фактическое
+    protected String accountMaterialWall;//счёт
+    protected String contactsMaterialWall;//контакты
+    protected String notesMaterialWall;//примечания
+    protected String characteristicsMaterialWall;//характеристики
 
 
     public MaterialWall(String nameMaterialWall, boolean activePMaterialWall, boolean activeCMaterialWall, String unitMaterialWall, double quantityMaterialWall,
                         double ordinalPriceUnitMaterialWall, double priceCPUnitMaterialWall, double priceCPKeyMaterialWall, double costCPUnitMaterialWall,
                         double priceOrderMaterialWall, double costCPMaterialWall, String productionTimeMaterialWall, double actualCostMaterialWall,
-                        double actualDifferenceMaterialWall, double paidMaterialWall, double residueMaterialWall, String dateOfDeliveryMaterialWall,
+                        double actualDifferenceMaterialWall, double paidMaterialWall, double residueMaterialWall, String dateOfDeliveryMaterialWall, String nameRoomMaterialWall,
                         String plannedCPMaterialWall, String actualCPMaterialWall, String accountMaterialWall, String contactsMaterialWall, String notesMaterialWall,
                         String characteristicsMaterialWall) {
         this.nameMaterialWall = nameMaterialWall;
@@ -52,6 +53,7 @@ public class MaterialWall {
         this.paidMaterialWall = paidMaterialWall;
         this.residueMaterialWall = residueMaterialWall;
         this.dateOfDeliveryMaterialWall = dateOfDeliveryMaterialWall;
+        this.nameRoomMaterialWall = nameRoomMaterialWall;
         this.plannedCPMaterialWall = plannedCPMaterialWall;
         this.actualCPMaterialWall = actualCPMaterialWall;
         this.accountMaterialWall = accountMaterialWall;
@@ -294,6 +296,14 @@ public class MaterialWall {
 
     public void setDateOfDeliveryMaterialWall(String dateOfDeliveryMaterialWall) {
         this.dateOfDeliveryMaterialWall = dateOfDeliveryMaterialWall;
+    }
+
+    public String getNameRoomMaterialWall() {
+        return nameRoomMaterialWall;
+    }
+
+    public void setNameRoomMaterialWall(String nameRoomMaterialWall) {
+        this.nameRoomMaterialWall = nameRoomMaterialWall;
     }
 
     public String getPlannedCPMaterialWall() {
