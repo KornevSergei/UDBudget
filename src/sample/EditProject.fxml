@@ -646,9 +646,11 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="testTableView" layoutX="30.0" layoutY="86.0" prefHeight="200.0" prefWidth="536.0">
+                        <TableView fx:id="statisticTableView" layoutX="30.0" layoutY="86.0" prefHeight="200.0" prefWidth="536.0">
                             <columns>
-                                <TableColumn fx:id="colTest" prefWidth="75.0" text="Тест" />
+                                <TableColumn fx:id="colNameCategory" prefWidth="175.0" text="Наименование категории" />
+                                <TableColumn fx:id="colTotalCost" prefWidth="175.0" text="Общая стоимость" />
+                                <TableColumn fx:id="colCostSGM" prefWidth="175.0" text="Стоимость за кв.м." />
                             </columns>
                         </TableView>
                     </children>

@@ -86,9 +86,11 @@ public class EditProjectController implements Initializable {
 
 
 
-    public TableView<Test> testTableView;
-    public TableColumn<Test, String> colTest;
-    private ObservableList<Test> observableListTest = FXCollections.observableArrayList();
+    public TableView<Statistic> statisticTableView;
+    public TableColumn<Statistic, String> colNameCategory;
+    public TableColumn<Statistic, String> colTotalCost;
+    public TableColumn<Statistic, String> colCostSGM;
+    private ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList();
 
 
 
@@ -395,24 +397,6 @@ public class EditProjectController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-//        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        testTableView.setItems(observableListTest);
-        colTest.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
-//        colTest.setOnEditCommit(
-//                new EventHandler<TableColumn.CellEditEvent<Test, String>>() {
-//                    @Override
-//                    public void handle(TableColumn.CellEditEvent<Test, String> t) {
-//                        ((Test) t.getTableView().getItems().get(
-//                                t.getTablePosition().getRow())).setNameTest(t.getNewValue());
-//                    }
-//                });
-//        testTableView.setEditable(true);
-//        colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
-
-
 
 
         colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
