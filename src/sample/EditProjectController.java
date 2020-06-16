@@ -82,8 +82,14 @@ public class EditProjectController implements Initializable {
     public TableColumn<AK, String> colRateAK;
     public TableColumn<AK, String> colTermAK;
     public TableColumn<AK, String> colCostAK;
-
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
+
+
+
+    public TableView<Test> testTableView;
+    public TableColumn<Test, String> colTest;
+    private ObservableList<Test> observableListTest = FXCollections.observableArrayList();
+
 
 
     //Блок материалов
@@ -390,6 +396,23 @@ public class EditProjectController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+//        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        testTableView.setItems(observableListTest);
+        colTest.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
+//        colTest.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<Test, String>>() {
+//                    @Override
+//                    public void handle(TableColumn.CellEditEvent<Test, String> t) {
+//                        ((Test) t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setNameTest(t.getNewValue());
+//                    }
+//                });
+//        testTableView.setEditable(true);
+//        colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
+
 
 
         colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
@@ -416,6 +439,9 @@ public class EditProjectController implements Initializable {
 
         colRateAK.setCellFactory(cellFactoryDoubleAK);
         colRateAK.setCellValueFactory(new PropertyValueFactory<>("rateAK"));
+
+//        colCostAK.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
+
         colRateAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<AK, String> t) {
@@ -549,6 +575,7 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
+//        colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
         colUnitMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
                     @Override
