@@ -18,7 +18,7 @@
     <tabs>
       <Tab fx:id="fileView" text="Файл">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200">
                <children>
                   <Button fx:id="createProjectButton" layoutX="425.0" layoutY="197.0" mnemonicParsing="false" onAction="#createProject" text="Создать проект" />
                   <Button fx:id="selectProjectButton" layoutX="423.0" layoutY="231.0" mnemonicParsing="false" onAction="#selectProject" text="Выбрать проект" />
@@ -26,7 +26,7 @@
                   <Button fx:id="addProjectButton" layoutX="728.0" layoutY="197.0" mnemonicParsing="false" onAction="#addProject" text="Создать" visible="false" />
                   <Button fx:id="startProject" layoutX="728.0" layoutY="231.0" mnemonicParsing="false" text="Выбрать" visible="false" />
                   <Button fx:id="deleteProjectButton" layoutX="730.0" layoutY="273.0" mnemonicParsing="false" onAction="#deleteElementProject" text="Удалить" visible="false" />
-                  <TableView fx:id="projectTableView" layoutX="543.0" layoutY="231.0" prefHeight="200.0" prefWidth="177.0" visible="false">
+                  <TableView fx:id="projectTableView"  layoutX="543.0" layoutY="231.0" prefHeight="200.0" prefWidth="177" visible="false">
                     <columns>
                       <TableColumn fx:id="colNameProject" prefWidth="176.0" text="Проект:" />
                     </columns>
@@ -190,17 +190,17 @@
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900">
+                        <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900" >
                             <panes>
-                                <TitledPane animated="true" prefHeight="280.0" prefWidth="1900" text="Стены">
+                                <TitledPane animated="true"  prefHeight="280.0" prefWidth="1900" text="Стены">
                                     <content>
                                         <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <ScrollPane prefHeight="500.0" prefWidth="1900">
                                       <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="-Infinity">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="2000" >
                                              <children>
-                                                <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="1900">
+                                                <TableView fx:id="materialTableViewWall" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall"  prefHeight="669.0" prefWidth="2000"  >
                                                   <columns>
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />

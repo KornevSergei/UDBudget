@@ -45,6 +45,7 @@ public class EditProjectController implements Initializable {
 
     public TableView<Project> projectTableView;
     public TableColumn<Project, String> colNameProject;
+    private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
 
 
     public TextField createProjectTextField;
@@ -3072,6 +3073,13 @@ public class EditProjectController implements Initializable {
 
 
     }
+
+//    public void On_tabCalculatorClickedProject(MouseEvent mouseEvent) {
+////        if (observableListProject.filtered(x -> "0.0".equals(x.getNameProject()) && "0.0".equals(x.getTermAK())).size() == 0) {
+//        if (observableListProject.filtered(x -> !"".equals(x.getNameProject())) ) {
+//            observableListProject.add(new Project(""));
+//        }
+//    }
 
 
     public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
