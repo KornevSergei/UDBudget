@@ -48,6 +48,13 @@ public class EditProjectController implements Initializable {
     private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
 
 
+    public TableView<Statistic> statisticTableView;
+    public TableColumn<Statistic, String> colNameCategory;
+    public TableColumn<Statistic, String> colTotalCost;
+    public TableColumn<Statistic, String> colCostSGM;
+    private ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList();
+
+
     public TextField createProjectTextField;
     public Button createProjectButton;
     public Button selectProjectButton;
@@ -85,13 +92,6 @@ public class EditProjectController implements Initializable {
     public TableColumn<AK, String> colCostAK;
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
-
-
-    public TableView<Statistic> statisticTableView;
-    public TableColumn<Statistic, String> colNameCategory;
-    public TableColumn<Statistic, String> colTotalCost;
-    public TableColumn<Statistic, String> colCostSGM;
-    private ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList();
 
 
 
@@ -408,6 +408,32 @@ public class EditProjectController implements Initializable {
         );
         projectTableView.setEditable(true);
         projectTableView.setItems(observableListProject);
+
+
+
+        //Статистика
+
+        colNameCategory.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
+        colTotalCost.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
+        colCostSGM.setCellValueFactory(new PropertyValueFactory<>("costSGM"));
+
+        ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
+                new Statistic("Дизайн-проект",0,0),
+                new Statistic("Строители",0,0),
+                new Statistic("Черновые материалы",0,0),
+                new Statistic("Смежники",0,0),
+                new Statistic("Авторский контроль",0,0),
+                new Statistic("Чистовые материалы",0,0),
+                new Statistic("Сантехника",0,0),
+                new Statistic("Мебель",0,0),
+                new Statistic("Освещение",0,0),
+                new Statistic("Техника",0,0),
+                new Statistic("Декор",0,0),
+                new Statistic("ИТОГО:",0,0)
+        );
+
+        statisticTableView.setItems(observableListStatistic);
+        statisticTableView.setEditable(true);
 
 
 

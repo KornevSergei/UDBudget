@@ -27,11 +27,19 @@ public class Statistic {
         this.totalCost = totalCost;
     }
 
+    public void setTotalCost(String totalCost) {
+        this.totalCost = Double.parseDouble(totalCost);
+    }
+
     public double getCostSGM() {
         return costSGM;
     }
 
     public void setCostSGM(double costSGM) {
         this.costSGM = costSGM;
+    }
+
+    public void setCostSGM(String costSGM) {
+        this.costSGM = Double.parseDouble(costSGM);
     }
 }
