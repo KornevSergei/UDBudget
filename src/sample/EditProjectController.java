@@ -411,14 +411,16 @@ public class EditProjectController implements Initializable {
 
 
 
+        //Тест расчетов статистики, не забыть про отдельную переменную!
+        double a = 555.0;
         //Статистика
 
-        colNameCategory.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
+        colNameCategory.setCellValueFactory(new PropertyValueFactory<>("nameCategory"));
         colTotalCost.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
         colCostSGM.setCellValueFactory(new PropertyValueFactory<>("costSGM"));
 
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
-                new Statistic("Дизайн-проект",0,0),
+                new Statistic("Дизайн-проект",a,a / 5),
                 new Statistic("Строители",0,0),
                 new Statistic("Черновые материалы",0,0),
                 new Statistic("Смежники",0,0),

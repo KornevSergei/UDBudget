@@ -5,6 +5,7 @@ public class Statistic {
     protected double totalCost;
     protected double costSGM;
 
+
     public Statistic(String nameCategory, double totalCost, double costSGM) {
         this.nameCategory = nameCategory;
         this.totalCost = totalCost;

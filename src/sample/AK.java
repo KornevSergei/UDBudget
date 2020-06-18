@@ -1,9 +1,9 @@
 package sample;
 
 public class AK {
-    private double rateAK;
-    private double termAK;
-    private double costAK;
+    protected double rateAK;
+    protected double termAK;
+    protected double costAK;
 
     public AK(double rateAK, double termAK, double costAK) {
         this.rateAK = rateAK;
