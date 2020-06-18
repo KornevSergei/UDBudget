@@ -21,7 +21,7 @@ public class MaterialWall {
     protected double paidMaterialWall;//Оплачено
     protected double residueMaterialWall;//Остаток
     protected String dateOfDeliveryMaterialWall;//Дата поставки
-    protected String nameRoomMaterialWall;//аименование помещения
+    protected String nameRoomMaterialWall;//Наименование помещения
     protected String plannedCPMaterialWall;//КП плановое
     protected String actualCPMaterialWall;//КП фактическое
     protected String accountMaterialWall;//счёт

@@ -13,7 +13,6 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -48,13 +47,6 @@ public class EditProjectController implements Initializable {
     private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
 
 
-    public TableView<Statistic> statisticTableView;
-    public TableColumn<Statistic, String> colNameCategory;
-    public TableColumn<Statistic, String> colTotalCost;
-    public TableColumn<Statistic, String> colCostSGM;
-    private ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList();
-
-
     public TextField createProjectTextField;
     public Button createProjectButton;
     public Button selectProjectButton;
@@ -81,18 +73,31 @@ public class EditProjectController implements Initializable {
 
 
     public Button saveRoomButton;
-
-
     public Button addPaymentButton;
-    public int counterPlumping = 0;
+
+
+    public TableView<Subcontractors> subcontractorsTableView;
+    public TableColumn<Subcontractors, String> colNameCategorySubcontractors;
+    public TableColumn<Subcontractors, String> colCostPlannedSubcontractors;
+    public TableColumn<Subcontractors, String> colCostCPSubcontractors;
+    public TableColumn<Subcontractors, String> colCostActualSubcontractors;
+    public TableColumn<Subcontractors, String> colActualDifferenceSubcontractors;
+    public TableColumn<Subcontractors, String> colPaidSubcontractors;
+    public TableColumn<Subcontractors, String> colResidueSubcontractors;
+    public TableColumn<Subcontractors, String> colPlannedCPSubcontractors;
+    public TableColumn<Subcontractors, String> colActualCPSubcontractors;
+    public TableColumn<Subcontractors, String> colAccountSubcontractors;
+    public TableColumn<Subcontractors, String> colContactsSubcontractors;
+    public TableColumn<Subcontractors, String> colNotesSubcontractors;
+    public TableColumn<Subcontractors, String> colCharacteristicsSubcontractors;
+    private ObservableList<Subcontractors> observableListSubcontractors = FXCollections.observableArrayList();
+
 
     public TableView<AK> AKTableView;
     public TableColumn<AK, String> colRateAK;
     public TableColumn<AK, String> colTermAK;
     public TableColumn<AK, String> colCostAK;
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
-
-
 
 
     //Блок материалов
@@ -342,6 +347,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesSuddenly, String> colCharacteristicsAppliancesSuddenly;
     private ObservableList<AppliancesSuddenly> observableListAppliancesSuddenly = FXCollections.observableArrayList();
 
+    public TableView<Statistic> statisticTableView;
+    public TableColumn<Statistic, String> colNameCategory;
+    public TableColumn<Statistic, String> colTotalCost;
+    public TableColumn<Statistic, String> colCostSGM;
+    private ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList();
+
 
     public Button createRoomButton;
 
@@ -409,8 +420,6 @@ public class EditProjectController implements Initializable {
         projectTableView.setEditable(true);
         projectTableView.setItems(observableListProject);
 
-
-
         //Тест расчетов статистики, не забыть про отдельную переменную!
         double a = 555.0;
         //Статистика
@@ -420,22 +429,160 @@ public class EditProjectController implements Initializable {
         colCostSGM.setCellValueFactory(new PropertyValueFactory<>("costSGM"));
 
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
-                new Statistic("Дизайн-проект",a,a / 5),
-                new Statistic("Строители",0,0),
-                new Statistic("Черновые материалы",0,0),
-                new Statistic("Смежники",0,0),
-                new Statistic("Авторский контроль",0,0),
-                new Statistic("Чистовые материалы",0,0),
-                new Statistic("Сантехника",0,0),
-                new Statistic("Мебель",0,0),
-                new Statistic("Освещение",0,0),
-                new Statistic("Техника",0,0),
-                new Statistic("Декор",0,0),
-                new Statistic("ИТОГО:",0,0)
+                new Statistic("Дизайн-проект", a, a / 5),
+                new Statistic("Строители", 0, 0),
+                new Statistic("Черновые материалы", 0, 0),
+                new Statistic("Смежники", 0, 0),
+                new Statistic("Авторский контроль", 0, 0),
+                new Statistic("Чистовые материалы", 0, 0),
+                new Statistic("Сантехника", 0, 0),
+                new Statistic("Мебель", 0, 0),
+                new Statistic("Освещение", 0, 0),
+                new Statistic("Техника", 0, 0),
+                new Statistic("Декор", 0, 0),
+                new Statistic("ИТОГО:", 0, 0)
         );
 
         statisticTableView.setItems(observableListStatistic);
         statisticTableView.setEditable(true);
+
+
+
+
+        //Смежники
+        subcontractorsTableView.setItems(observableListSubcontractors);
+        Callback<TableColumn<Subcontractors, String>, TableCell<Subcontractors, String>> cellFactoryDoubleSubcontractors =
+                new Callback<TableColumn<Subcontractors, String>, TableCell<Subcontractors, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+
+        colNameCategorySubcontractors.setCellValueFactory(new PropertyValueFactory<>("nameCategorySubcontractors"));
+        colNameCategorySubcontractors.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                        ((Subcontractors) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setNameCategorySubcontractors(t.getNewValue());
+                    }
+                });
+
+        colCostPlannedSubcontractors.setCellFactory(cellFactoryDoubleSubcontractors);
+        colCostPlannedSubcontractors.setCellValueFactory(new PropertyValueFactory<>("costPlannedSubcontractors"));
+        colCostPlannedSubcontractors.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                ((Subcontractors) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setCostPlannedSubcontractors(t.getNewValue());
+            }
+        });
+
+        colCostCPSubcontractors.setCellFactory(cellFactoryDoubleSubcontractors);
+        colCostCPSubcontractors.setCellValueFactory(new PropertyValueFactory<>("costCPSubcontractors"));
+        colCostCPSubcontractors.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                ((Subcontractors) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setCostCPSubcontractors(t.getNewValue());
+            }
+        });
+        colCostActualSubcontractors.setCellFactory(cellFactoryDoubleSubcontractors);
+        colCostActualSubcontractors.setCellValueFactory(new PropertyValueFactory<>("costActualSubcontractors"));
+        colCostActualSubcontractors.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                ((Subcontractors) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setCostActualSubcontractors(t.getNewValue());
+            }
+        });
+        colActualDifferenceSubcontractors.setCellFactory(cellFactoryDoubleSubcontractors);
+        colActualDifferenceSubcontractors.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceSubcontractors"));
+        colActualDifferenceSubcontractors.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                ((Subcontractors) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setActualDifferenceSubcontractors(t.getNewValue());
+            }
+        });
+        colPaidSubcontractors.setCellFactory(cellFactoryDoubleSubcontractors);
+        colPaidSubcontractors.setCellValueFactory(new PropertyValueFactory<>("paidSubcontractors"));
+        colPaidSubcontractors.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                ((Subcontractors) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setPaidSubcontractors(t.getNewValue());
+            }
+        });
+        colResidueSubcontractors.setCellFactory(cellFactoryDoubleSubcontractors);
+        colResidueSubcontractors.setCellValueFactory(new PropertyValueFactory<>("residueSubcontractors"));
+        colResidueSubcontractors.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                ((Subcontractors) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setResidueSubcontractors(t.getNewValue());
+            }
+        });
+
+        colPlannedCPSubcontractors.setCellValueFactory(new PropertyValueFactory<>("plannedCPSubcontractors"));
+        colPlannedCPSubcontractors.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                        ((Subcontractors) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setPlannedCPSubcontractors(t.getNewValue());
+                    }
+                });
+        colActualCPSubcontractors.setCellValueFactory(new PropertyValueFactory<>("actualCPSubcontractors"));
+        colActualCPSubcontractors.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                        ((Subcontractors) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setActualCPSubcontractors(t.getNewValue());
+                    }
+                });
+        colAccountSubcontractors.setCellValueFactory(new PropertyValueFactory<>("accountSubcontractors"));
+        colAccountSubcontractors.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                        ((Subcontractors) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setAccountSubcontractors(t.getNewValue());
+                    }
+                });
+        colContactsSubcontractors.setCellValueFactory(new PropertyValueFactory<>("contactsSubcontractors"));
+        colContactsSubcontractors.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                        ((Subcontractors) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setContactsSubcontractors(t.getNewValue());
+                    }
+                });
+        colNotesSubcontractors.setCellValueFactory(new PropertyValueFactory<>("notesSubcontractors"));
+        colNotesSubcontractors.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                        ((Subcontractors) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setNotesSubcontractors(t.getNewValue());
+                    }
+                });
+        colCharacteristicsSubcontractors.setCellValueFactory(new PropertyValueFactory<>("characteristicsSubcontractors"));
+        colCharacteristicsSubcontractors.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Subcontractors, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Subcontractors, String> t) {
+                        ((Subcontractors) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setCharacteristicsSubcontractors(t.getNewValue());
+                    }
+                });
+
+        subcontractorsTableView.setEditable(true);
+
+
+
 
 
 
@@ -452,8 +599,6 @@ public class EditProjectController implements Initializable {
 
         colRateAK.setCellFactory(cellFactoryDoubleAK);
         colRateAK.setCellValueFactory(new PropertyValueFactory<>("rateAK"));
-
-//        colCostAK.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialWall"));
 
         colRateAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
             @Override
@@ -553,7 +698,6 @@ public class EditProjectController implements Initializable {
                         return new EditingCellCheckBox();
                     }
                 };
-
 
 
         colNameMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
@@ -3345,7 +3489,19 @@ public class EditProjectController implements Initializable {
             decorationView.setContent(vBoxDecoration);
 
         }
+
+
+
     }
+
+    public void On_tabCalculatorClickedSubcontractors(MouseEvent mouseEvent) {
+//        if (observableListSubcontractors.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
+        if (observableListSubcontractors.filtered(x ->"0.0".equals(x.getCostPlannedSubcontractors())).size() == 0) {
+            observableListSubcontractors.add(new Subcontractors("",0,0,0,0,
+                    0,0,"","","","","",""));
+        }
+    }
+
 
 
 //    double sum = Arrays.stream(colOrdinalPriceUnitMaterialWall).sum();
@@ -3356,7 +3512,7 @@ public class EditProjectController implements Initializable {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
             observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "","", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
@@ -3398,7 +3554,7 @@ public class EditProjectController implements Initializable {
         if (observableListMaterialFloor.filtered(x -> "0.0".equals(x.getQuantityMaterialFloor()) && "0.0".equals(x.getOrdinalPriceUnitMaterialFloor())).size() == 0) {
             observableListMaterialFloor.add(new MaterialFloor("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "","", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
@@ -3440,7 +3596,7 @@ public class EditProjectController implements Initializable {
         if (observableListMaterialCeiling.filtered(x -> "0.0".equals(x.getQuantityMaterialCeiling()) && "0.0".equals(x.getOrdinalPriceUnitMaterialCeiling())).size() == 0) {
             observableListMaterialCeiling.add(new MaterialCeiling("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "","", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
@@ -3482,7 +3638,7 @@ public class EditProjectController implements Initializable {
         if (observableListMaterialOther.filtered(x -> "0.0".equals(x.getQuantityMaterialOther()) && "0.0".equals(x.getOrdinalPriceUnitMaterialOther())).size() == 0) {
             observableListMaterialOther.add(new MaterialOther("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "","", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
@@ -3524,7 +3680,7 @@ public class EditProjectController implements Initializable {
         if (observableListMaterialSuddenly.filtered(x -> "0.0".equals(x.getQuantityMaterialSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitMaterialSuddenly())).size() == 0) {
             observableListMaterialSuddenly.add(new MaterialSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "","", "", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
@@ -3567,7 +3723,7 @@ public class EditProjectController implements Initializable {
         if (observableListAppliancesKitchen.filtered(x -> "0.0".equals(x.getQuantityAppliancesKitchen()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesKitchen())).size() == 0) {
             observableListAppliancesKitchen.add(new AppliancesKitchen("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "","", "", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
@@ -3609,7 +3765,7 @@ public class EditProjectController implements Initializable {
         if (observableListAppliancesOther.filtered(x -> "0.0".equals(x.getQuantityAppliancesOther()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesOther())).size() == 0) {
             observableListAppliancesOther.add(new AppliancesOther("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "","", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
@@ -3651,7 +3807,7 @@ public class EditProjectController implements Initializable {
         if (observableListAppliancesDelivery.filtered(x -> "0.0".equals(x.getQuantityAppliancesDelivery()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesDelivery())).size() == 0) {
             observableListAppliancesDelivery.add(new AppliancesDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "","", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
@@ -3693,7 +3849,7 @@ public class EditProjectController implements Initializable {
         if (observableListAppliancesSuddenly.filtered(x -> "0.0".equals(x.getQuantityAppliancesSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesSuddenly())).size() == 0) {
             observableListAppliancesSuddenly.add(new AppliancesSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "","", "", "", "", "", ""));
+                    0, 0, "", "", "", "", "", "", "", ""));
         }
     }
 
