@@ -61,6 +61,7 @@ public class EditProjectController implements Initializable {
     public Button deleteProjectButton;
 
 
+    public ToggleButton showSubcontractorsButton;
     public ToggleButton showMaterialWallButton;
     public ToggleButton showMaterialFloorButton;
     public ToggleButton showMaterialCeilingButton;
@@ -3506,6 +3507,41 @@ public class EditProjectController implements Initializable {
         if (observableListSubcontractors.filtered(x -> "0.0".equals(x.getCostPlannedSubcontractors()) && "0.0".equals(x.getCostCPSubcontractors())).size() == 0) {
             observableListSubcontractors.add(new Subcontractors("", 0, 0, 0, 0,
                     0, 0, "", "", "", "", "", ""));
+        }
+    }
+
+    public void deleteElementSubcontractors(ActionEvent actionEvent) {
+        ObservableList<Subcontractors> allSubcontractors, singleSubcontractors;
+        allSubcontractors = subcontractorsTableView.getItems();
+        singleSubcontractors = subcontractorsTableView.getSelectionModel().getSelectedItems();
+        singleSubcontractors.forEach(allSubcontractors::remove);
+    }
+
+    public void showSubcontractors(ActionEvent actionEvent) {
+        if (showSubcontractorsButton.isSelected()) {
+            showSubcontractorsButton.setText("Скрыть");
+            //Доделать
+//            subcontractorsTableView.setMaxWidth(200);
+
+            colCostActualSubcontractors.setVisible(true);
+            colActualDifferenceSubcontractors.setVisible(true);
+            colPaidSubcontractors.setVisible(true);
+            colResidueSubcontractors.setVisible(true);
+
+            colActualCPSubcontractors.setVisible(true);
+            colAccountSubcontractors.setVisible(true);
+
+        } else {
+            showSubcontractorsButton.setText("Показать");
+//            subcontractorsTableView.setMaxWidth(2000);
+
+            colCostActualSubcontractors.setVisible(false);
+            colActualDifferenceSubcontractors.setVisible(false);
+            colPaidSubcontractors.setVisible(false);
+            colResidueSubcontractors.setVisible(false);
+
+            colActualCPSubcontractors.setVisible(false);
+            colAccountSubcontractors.setVisible(false);
         }
     }
 

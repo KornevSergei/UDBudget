@@ -161,8 +161,8 @@
                                 <TableColumn fx:id="colCharacteristicsSubcontractors" prefWidth="100.0" text="Характеристики" />
                             </columns>
                         </TableView>
-                  <Button layoutX="14.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
-                  <ToggleButton layoutX="86.0" layoutY="2.0" mnemonicParsing="false" text="Показать" />
+                  <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementSubcontractors" />
+                  <ToggleButton fx:id="showSubcontractorsButton" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" text="Показать" onAction="#showSubcontractors" />
                     </children>
                 </AnchorPane>
             </content>
