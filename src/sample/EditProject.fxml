@@ -144,7 +144,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="subcontractorsTableView" layoutX="14.0" layoutY="84.0" prefHeight="330.0" prefWidth="1500.0" onMouseClicked="#On_tabCalculatorClickedSubcontractors">
+                        <TableView fx:id="subcontractorsTableView" layoutX="14.0" layoutY="39.0" onMouseClicked="#On_tabCalculatorClickedSubcontractors" prefHeight="330.0" prefWidth="1500.0">
                             <columns>
                                 <TableColumn fx:id="colNameCategorySubcontractors" prefWidth="160.0" text="Наименование категории" />
                                 <TableColumn fx:id="colCostPlannedSubcontractors" prefWidth="100.0" text="Стоимость плановая" />
@@ -161,8 +161,8 @@
                                 <TableColumn fx:id="colCharacteristicsSubcontractors" prefWidth="100.0" text="Характеристики" />
                             </columns>
                         </TableView>
-                  <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" text="Удалить" />
-                  <ToggleButton layoutX="83.0" layoutY="26.0" mnemonicParsing="false" text="Показать" />
+                  <Button layoutX="14.0" layoutY="2.0" mnemonicParsing="false" text="Удалить" />
+                  <ToggleButton layoutX="86.0" layoutY="2.0" mnemonicParsing="false" text="Показать" />
                     </children>
                 </AnchorPane>
             </content>
@@ -650,9 +650,9 @@
                     <children>
                         <TableView fx:id="statisticTableView" layoutX="30.0" layoutY="86.0" prefHeight="325.0" prefWidth="536.0">
                             <columns>
-                                <TableColumn fx:id="colNameCategory" prefWidth="175.0" text="Наименование категории" sortable="false"  />
-                                <TableColumn fx:id="colTotalCost" prefWidth="175.0" text="Общая стоимость" sortable="false" />
-                                <TableColumn fx:id="colCostSGM" prefWidth="175.0" text="Стоимость за кв.м." sortable="false" />
+                                <TableColumn fx:id="colNameCategory" prefWidth="175.0" sortable="false" text="Наименование категории" />
+                                <TableColumn fx:id="colTotalCost" prefWidth="175.0" sortable="false" text="Общая стоимость" />
+                                <TableColumn fx:id="colCostSGM" prefWidth="175.0" sortable="false" text="Стоимость за кв.м." />
                             </columns>
                         </TableView>
                     </children>

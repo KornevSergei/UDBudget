@@ -42,8 +42,8 @@ public class Subcontractors {
         this.nameCategorySubcontractors = nameCategorySubcontractors;
     }
 
-    public double getCostPlannedSubcontractors() {
-        return costPlannedSubcontractors;
+    public String getCostPlannedSubcontractors() {
+        return Double.toString(costPlannedSubcontractors);
     }
 
     public void setCostPlannedSubcontractors(double costPlannedSubcontractors) {
@@ -53,8 +53,8 @@ public class Subcontractors {
         this.costPlannedSubcontractors = Double.parseDouble(costPlannedSubcontractors);
     }
 
-    public double getCostCPSubcontractors() {
-        return costCPSubcontractors;
+    public String getCostCPSubcontractors() {
+        return Double.toString(costCPSubcontractors);
     }
 
     public void setCostCPSubcontractors(double costCPSubcontractors) {
@@ -64,8 +64,8 @@ public class Subcontractors {
         this.costCPSubcontractors = Double.parseDouble(costCPSubcontractors);
     }
 
-    public double getCostActualSubcontractors() {
-        return costActualSubcontractors;
+    public String getCostActualSubcontractors() {
+        return Double.toString(costActualSubcontractors);
     }
 
     public void setCostActualSubcontractors(double costActualSubcontractors) {
@@ -75,8 +75,8 @@ public class Subcontractors {
         this.costActualSubcontractors = Double.parseDouble(costActualSubcontractors);
     }
 
-    public double getActualDifferenceSubcontractors() {
-        return actualDifferenceSubcontractors;
+    public String getActualDifferenceSubcontractors() {
+        return Double.toString(actualDifferenceSubcontractors);
     }
 
     public void setActualDifferenceSubcontractors(double actualDifferenceSubcontractors) {
@@ -87,8 +87,8 @@ public class Subcontractors {
         this.actualDifferenceSubcontractors = Double.parseDouble(actualDifferenceSubcontractors);
     }
 
-    public double getPaidSubcontractors() {
-        return paidSubcontractors;
+    public String getPaidSubcontractors() {
+        return Double.toString(paidSubcontractors);
     }
 
     public void setPaidSubcontractors(double paidSubcontractors) {
@@ -98,8 +98,8 @@ public class Subcontractors {
         this.paidSubcontractors = Double.parseDouble(paidSubcontractors);
     }
 
-    public double getResidueSubcontractors() {
-        return residueSubcontractors;
+    public String getResidueSubcontractors() {
+        return Double.toString(residueSubcontractors);
     }
 
     public void setResidueSubcontractors(double residueSubcontractors) {
