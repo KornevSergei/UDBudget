@@ -20,7 +20,6 @@ public class EditProjectController implements Initializable {
 
     public TabPane tabPane;
 
-    public Tab fileView;
     public Tab plumbingView;
     public Tab furnitureView;
     public Tab lightView;
@@ -42,31 +41,22 @@ public class EditProjectController implements Initializable {
     public TableColumn<Room, Boolean> colSelectBathRoom;
     public ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
 
-    public TableView<Project> projectTableView;
-    public TableColumn<Project, String> colNameProject;
-    private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
-    public TextField createProjectTextField;
-    public Button createProjectButton;
-    public Button selectProjectButton;
-    public Button addProjectButton;
-    public Button startProject;
-    public Button deleteProjectButton;
 
     //Для теста во вкладке Проект
     public TextField totalArea;
     public TextField costDP;
     public TextField discountDP;
-    public TableView<Project> projectTableView2;
-    public TableColumn<Project, String> colNameProject2;
-    private ObservableList<Project> observableListProject2 = FXCollections.observableArrayList();
-    public TextField createProjectTextField2;
+    public TableView<Project> projectTableView;
+    public TableColumn<Project, String> colNameProject;
+    private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
+    public TextField createProjectTextField;
     public Button backRoomButton;
     public Button deleteRoomButton;
-    public Button createProjectButton2;
-    public Button selectProjectButton2;
-    public Button addProjectButton2;
-    public Button startProject2;
-    public Button deleteProjectButton2;
+    public Button createProjectButton;
+    public Button selectProjectButton;
+    public Button addProjectButton;
+    public Button startProject;
+    public Button deleteProjectButton;
 
 
     public TextField roomNameTextField;
@@ -371,13 +361,10 @@ public class EditProjectController implements Initializable {
 
     public Button createRoomButton;
 
+
     public void createProject(ActionEvent actionEvent) {
         createProjectTextField.setVisible(true);
         addProjectButton.setVisible(true);
-    }
-    public void createProject2(ActionEvent actionEvent) {
-        createProjectTextField2.setVisible(true);
-        addProjectButton2.setVisible(true);
     }
 
     public void addProject(ActionEvent actionEvent) {
@@ -390,16 +377,7 @@ public class EditProjectController implements Initializable {
         createProjectTextField.setVisible(false);
         addProjectButton.setVisible(false);
     }
-    public void addProject2(ActionEvent actionEvent) {
-        startProject2.setVisible(true);
-        deleteProjectButton2.setVisible(true);
-        projectTableView2.setVisible(true);
-        Project project = new Project();
-        project.setNameProject(createProjectTextField2.getText());
-        projectTableView2.getItems().add(project);
-        createProjectTextField2.setVisible(false);
-        addProjectButton2.setVisible(false);
-    }
+
 
     public void deleteElementProject(ActionEvent actionEvent) {
         ObservableList<Project> allProject, singleProject;
@@ -407,22 +385,12 @@ public class EditProjectController implements Initializable {
         singleProject = projectTableView.getSelectionModel().getSelectedItems();
         singleProject.forEach(allProject::remove);
     }
-    public void deleteElementProject2(ActionEvent actionEvent) {
-        ObservableList<Project> allProject, singleProject;
-        allProject = projectTableView2.getItems();
-        singleProject = projectTableView2.getSelectionModel().getSelectedItems();
-        singleProject.forEach(allProject::remove);
-    }
+
 
     public void selectProject(ActionEvent actionEvent) {
         startProject.setVisible(true);
         deleteProjectButton.setVisible(true);
         projectTableView.setVisible(true);
-    }
-    public void selectProject2(ActionEvent actionEvent) {
-        startProject2.setVisible(true);
-        deleteProjectButton2.setVisible(true);
-        projectTableView2.setVisible(true);
     }
 
     public void createRoom(ActionEvent actionEvent) {
@@ -440,7 +408,7 @@ public class EditProjectController implements Initializable {
     }
 
     //Для теста, не забыть переделать!!!!!!!!!!!
-    public void selectProject22(ActionEvent actionEvent) {
+    public void chooseProject(ActionEvent actionEvent) {
         totalArea.setVisible(true);
         costDP.setVisible(true);
         discountDP.setVisible(true);
@@ -451,13 +419,13 @@ public class EditProjectController implements Initializable {
         backRoomButton.setVisible(true);
         roomTableView.setVisible(true);
 
-        createProjectButton2.setVisible(false);
-        selectProjectButton2.setVisible(false);
-        createProjectTextField2.setVisible(false);
-        addProjectButton2.setVisible(false);
-        startProject2.setVisible(false);
-        deleteProjectButton2.setVisible(false);
-        projectTableView2.setVisible(false);
+        createProjectButton.setVisible(false);
+        selectProjectButton.setVisible(false);
+        createProjectTextField.setVisible(false);
+        addProjectButton.setVisible(false);
+        startProject.setVisible(false);
+        deleteProjectButton.setVisible(false);
+        projectTableView.setVisible(false);
     }
 
     public void backProject(ActionEvent actionEvent) {
@@ -471,13 +439,13 @@ public class EditProjectController implements Initializable {
         backRoomButton.setVisible(false);
         roomTableView.setVisible(false);
 
-        createProjectButton2.setVisible(true);
-        selectProjectButton2.setVisible(true);
-        createProjectTextField2.setVisible(true);
-        addProjectButton2.setVisible(true);
-        startProject2.setVisible(true);
-        deleteProjectButton2.setVisible(true);
-        projectTableView2.setVisible(true);
+        createProjectButton.setVisible(true);
+        selectProjectButton.setVisible(true);
+        createProjectTextField.setVisible(true);
+        addProjectButton.setVisible(true);
+        startProject.setVisible(true);
+        deleteProjectButton.setVisible(true);
+        projectTableView.setVisible(true);
     }
 
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -490,6 +458,8 @@ public class EditProjectController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
+
+
         colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
         ObservableList<Project> observableListProject = FXCollections.observableArrayList(
                 new Project("Проект 1"),
@@ -498,17 +468,6 @@ public class EditProjectController implements Initializable {
         );
         projectTableView.setEditable(true);
         projectTableView.setItems(observableListProject);
-
-
-
-        colNameProject2.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
-        ObservableList<Project> observableListProject2 = FXCollections.observableArrayList(
-                new Project("Проект 1"),
-                new Project("Проект 2"),
-                new Project("Проект 3")
-        );
-        projectTableView2.setEditable(true);
-        projectTableView2.setItems(observableListProject);
 
 
 
@@ -4020,7 +3979,4 @@ public class EditProjectController implements Initializable {
             colAccountAppliancesSuddenly.setVisible(false);
         }
     }
-
-
-
 }
