@@ -376,6 +376,11 @@ public class EditProjectController implements Initializable {
         projectTableView.getItems().add(project);
         createProjectTextField.setVisible(false);
         addProjectButton.setVisible(false);
+
+//        //Неправильный метод для увелмичение таблицы
+//        if (!createProjectTextField.getText().equals("")) {
+//            projectTableView.setMinHeight(projectTableView.getHeight() + 25);
+//        }
     }
 
 
