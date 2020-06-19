@@ -39,24 +39,37 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TextField layoutX="14.0" layoutY="16.0" prefHeight="26.0" prefWidth="353.0" promptText="Общая площадь" />
-                        <TextField layoutX="14.0" layoutY="51.0" prefHeight="26.0" prefWidth="354.0" promptText="Стоимость ДП за кв.м" />
-                        <TextField layoutX="14.0" layoutY="86.0" prefHeight="26.0" prefWidth="354.0" promptText="Скидка за ДП %" />
-                        <Button fx:id="createRoomButton" layoutX="375.0" layoutY="160.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="26.0" prefWidth="75.0" text="Добавить" />
-                        <Button fx:id="addPaymentButton" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#test" prefHeight="26.0" prefWidth="353.0" text="+ Добавить этап оплаты" />
-                  <Button layoutX="375.0" layoutY="195.0" mnemonicParsing="false" onAction="#deleteRoomElement" prefHeight="25.0" prefWidth="75.0" text="Удалить" />
-                  <Button fx:id="saveRoomButton" layoutX="376.0" layoutY="228.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" />
-                  <TableView fx:id="roomTableView" layoutX="14.0" layoutY="160.0" onMouseClicked="#On_tabCalculatorClickedActionRoom" prefHeight="200.0" prefWidth="353.0">
-                     <columns>
-                        <TableColumn fx:id="colNameRoom" prefWidth="185.0" text="Помещение" />
-                        <TableColumn fx:id="colAreaRoom" prefWidth="88.0" text="Площадь" />
-                        <TableColumn fx:id="colSelectBathRoom" prefWidth="82.0" text="Санузел" />
+                        <TextField fx:id="totalArea" layoutX="14.0" layoutY="16.0" prefHeight="26.0" prefWidth="353.0" promptText="Общая площадь" visible="false" />
+                        <TextField fx:id="costDP" layoutX="14.0" layoutY="51.0" prefHeight="26.0" prefWidth="354.0" promptText="Стоимость ДП за кв.м" visible="false" />
+                        <TextField fx:id="discountDP" layoutX="14.0" layoutY="86.0" prefHeight="26.0" prefWidth="354.0" promptText="Скидка за ДП %" visible="false" />
+                        <Button fx:id="createRoomButton" layoutX="375.0" layoutY="160.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="26.0" prefWidth="75.0" text="Добавить" visible="false" />
+                        <Button fx:id="addPaymentButton" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#test" prefHeight="26.0" prefWidth="353.0" text="+ Добавить этап оплаты" visible="false" />
+                  <Button fx:id="deleteRoomButton" layoutX="375.0" layoutY="195.0" mnemonicParsing="false" onAction="#deleteRoomElement" prefHeight="25.0" prefWidth="75.0" text="Удалить" visible="false" />
+                  <Button fx:id="saveRoomButton" layoutX="376.0" layoutY="228.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" visible="false" />
+                  <Button fx:id="backRoomButton" onAction="#backProject" layoutX="376.0" layoutY="260.0" mnemonicParsing="false" text="Назад" visible="false" />
+                        <TableView fx:id="roomTableView" layoutX="14.0" layoutY="160.0" onMouseClicked="#On_tabCalculatorClickedActionRoom" prefHeight="200.0" prefWidth="353.0" visible="false">
+                      <columns>
+                         <TableColumn fx:id="colNameRoom" prefWidth="185.0" text="Помещение" />
+                         <TableColumn fx:id="colAreaRoom" prefWidth="88.0" text="Площадь" />
+                         <TableColumn fx:id="colSelectBathRoom" prefWidth="82.0" text="Санузел" />
                      </columns>
                   </TableView>
-                  <TextField fx:id="roomNameTextField" layoutX="464.0" layoutY="161.0" prefHeight="25.0" prefWidth="146.0" visible="false" />
-                  <TextField fx:id="roomAreaTextField" layoutX="614.0" layoutY="161.0" prefHeight="25.0" prefWidth="45.0" visible="false" />
-                  <TextField fx:id="roomSelectBathRoomTextField" layoutX="664.0" layoutY="161.0" prefHeight="25.0" prefWidth="42.0" visible="false" />
-                  <Button fx:id="addRoomButton" layoutX="713.0" layoutY="161.0" mnemonicParsing="false" onAction="#addRoom" text="+" visible="false" />
+                        <TextField fx:id="roomNameTextField" layoutX="464.0" layoutY="161.0" prefHeight="25.0" prefWidth="146.0" visible="false" />
+                        <TextField fx:id="roomAreaTextField" layoutX="614.0" layoutY="161.0" prefHeight="25.0" prefWidth="45.0" visible="false" />
+                        <TextField fx:id="roomSelectBathRoomTextField" layoutX="664.0" layoutY="161.0" prefHeight="25.0" prefWidth="42.0" visible="false" />
+                        <Button fx:id="addRoomButton" layoutX="713.0" layoutY="161.0" mnemonicParsing="false" onAction="#addRoom" text="+" visible="false" />
+
+                        <Button fx:id="createProjectButton2" layoutX="425.0" layoutY="197.0" mnemonicParsing="false" onAction="#createProject2" text="Создать проект" />
+                        <Button fx:id="selectProjectButton2" layoutX="423.0" layoutY="231.0" mnemonicParsing="false" onAction="#selectProject2" text="Выбрать проект" />
+                        <TextField fx:id="createProjectTextField2" layoutX="543.0" layoutY="197.0" prefHeight="25.0" prefWidth="177.0" promptText="Название проекта" visible="false" />
+                        <Button fx:id="addProjectButton2" layoutX="728.0" layoutY="197.0" mnemonicParsing="false" onAction="#addProject2" text="Создать" visible="false" />
+                        <Button fx:id="startProject2" layoutX="728.0" onAction="#selectProject22" layoutY="231.0" mnemonicParsing="false" text="Выбрать" visible="false" />
+                        <Button fx:id="deleteProjectButton2" layoutX="730.0" layoutY="273.0" mnemonicParsing="false" onAction="#deleteElementProject2" text="Удалить" visible="false" />
+                        <TableView fx:id="projectTableView2" layoutX="543.0" layoutY="231.0" prefHeight="200.0" prefWidth="177" visible="false">
+                            <columns>
+                                <TableColumn fx:id="colNameProject2" prefWidth="176.0" text="Проект:" />
+                            </columns>
+                        </TableView>
                     </children>
                 </AnchorPane>
             </content>
@@ -161,8 +174,8 @@
                                 <TableColumn fx:id="colCharacteristicsSubcontractors" prefWidth="100.0" text="Характеристики" />
                             </columns>
                         </TableView>
-                  <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" text="Удалить" onAction="#deleteElementSubcontractors" />
-                  <ToggleButton fx:id="showSubcontractorsButton" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" text="Показать" onAction="#showSubcontractors" />
+                  <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteElementSubcontractors" text="Удалить" />
+                  <ToggleButton fx:id="showSubcontractorsButton" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSubcontractors" text="Показать" />
                     </children>
                 </AnchorPane>
             </content>
@@ -659,7 +672,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="diagramView" disable="false" text="Диаграммы">
+        <Tab fx:id="diagramView" disable="true" text="Диаграммы">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
