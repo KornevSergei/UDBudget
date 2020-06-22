@@ -377,7 +377,7 @@ public class EditProjectController implements Initializable {
         createProjectTextField.setVisible(false);
         addProjectButton.setVisible(false);
 
-//        //Неправильный метод для увелмичение таблицы
+//        Неправильный метод для увелмичение таблицы
 //        if (!createProjectTextField.getText().equals("")) {
 //            projectTableView.setMinHeight(projectTableView.getHeight() + 25);
 //        }
@@ -463,8 +463,6 @@ public class EditProjectController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-
-
         colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
         ObservableList<Project> observableListProject = FXCollections.observableArrayList(
                 new Project("Проект 1"),
@@ -473,8 +471,6 @@ public class EditProjectController implements Initializable {
         );
         projectTableView.setEditable(true);
         projectTableView.setItems(observableListProject);
-
-
 
 
         //Тест расчетов статистики, не забыть про отдельную переменную!
