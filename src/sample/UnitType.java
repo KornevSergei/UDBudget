@@ -1,7 +1,15 @@
 package sample;
 
+
 public enum UnitType {
-    THING,
-    SQUAREMETER,
-    RUNNINGMETER
+//    THING ("шт"),
+    шт,
+    квм,
+    пгм,
+    THING (),
+    SQUAREMETER(),
+    RUNNINGMETER();
+
 }
+
+

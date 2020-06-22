@@ -1,12 +1,17 @@
 package sample;
 
+import javafx.beans.property.SimpleObjectProperty;
+
 import java.util.Date;
 
 public class MaterialWall {
     protected String nameMaterialWall;//Наименование
     protected boolean activePMaterialWall;//П
     protected boolean activeCMaterialWall;//С
-    protected String unitMaterialWall;//Ед. изм.
+//    protected String unitMaterialWall;//Ед. изм.
+
+    protected SimpleObjectProperty <UnitType> unitMaterialWall;//Ед. изм.
+
     protected double quantityMaterialWall;//Количество
     protected double ordinalPriceUnitMaterialWall;//Цена порядковая за ед.
     protected double priceCPUnitMaterialWall;//Цена по КП за ед.
@@ -37,7 +42,8 @@ public class MaterialWall {
                         String plannedCPMaterialWall, String actualCPMaterialWall, String accountMaterialWall, String contactsMaterialWall, String notesMaterialWall,
                         String characteristicsMaterialWall) {
         this.nameMaterialWall = nameMaterialWall;
-        this.unitMaterialWall = unitMaterialWall;
+//        this.unitMaterialWall = unitMaterialWall;
+        this.unitMaterialWall = new SimpleObjectProperty<>(UnitType.шт);
         this.activePMaterialWall = activePMaterialWall;
         this.activeCMaterialWall = activeCMaterialWall;
         this.quantityMaterialWall = quantityMaterialWall;
@@ -95,12 +101,21 @@ public class MaterialWall {
         this.nameMaterialWall = nameMaterialWall;
     }
 
-    public String getUnitMaterialWall() {
-        return unitMaterialWall;
+//    public String getUnitMaterialWall() {
+//        return unitMaterialWall;
+//    }
+//
+//    public void setUnitMaterialWall(String unitMaterialWall) {
+//        this.unitMaterialWall = unitMaterialWall;
+//    }
+
+
+    public UnitType getUnitMaterialWall() {
+        return unitMaterialWall.get();
     }
 
-    public void setUnitMaterialWall(String unitMaterialWall) {
-        this.unitMaterialWall = unitMaterialWall;
+    public void setUnitMaterialWall(UnitType unitMaterialWall) {
+        this.unitMaterialWall.set(unitMaterialWall);
     }
 
     //Чекбоксы

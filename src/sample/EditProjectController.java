@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
@@ -17,6 +18,8 @@ import java.util.ResourceBundle;
 
 
 public class EditProjectController implements Initializable {
+
+    String THING = "12345";
 
     public TabPane tabPane;
 
@@ -110,7 +113,8 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialWall, String> colNameMaterialWall;
     public TableColumn<MaterialWall, Boolean> colActivePMaterialWall;
     public TableColumn<MaterialWall, Boolean> colActiveCMaterialWall;
-    public TableColumn<MaterialWall, String> colUnitMaterialWall;
+//    public TableColumn<MaterialWall, String> colUnitMaterialWall;
+    public TableColumn<MaterialWall, UnitType> colUnitMaterialWall;
     public TableColumn<MaterialWall, String> colQuantityMaterialWall;
     public TableColumn<MaterialWall, String> colOrdinalPriceUnitMaterialWall;
     public TableColumn<MaterialWall, String> colPriceCPUnitMaterialWall;
@@ -796,11 +800,23 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+//        colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
+//        colUnitMaterialWall.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+//                    @Override
+//                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+//                        ((MaterialWall) t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setUnitMaterialWall(t.getNewValue());
+//                    }
+//                });
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+
         colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
+        colUnitMaterialWall.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitMaterialWall.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialWall, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialWall, UnitType> t) {
                         ((MaterialWall) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitMaterialWall(t.getNewValue());
                     }
@@ -1033,7 +1049,7 @@ public class EditProjectController implements Initializable {
 
         materialTableViewWall.setEditable(true);
         colNameMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colProductionTimeMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colDateOfDeliveryMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -3418,7 +3434,9 @@ public class EditProjectController implements Initializable {
 
 
             TableView<Plumbing> plumbingTableView = new TableView<>();
-            TableColumn<Plumbing, String> colNamePlumbing = new TableColumn<Plumbing, String>("Наименование");
+            //тест
+//            TableColumn<Plumbing, String> colNamePlumbing = new TableColumn<Plumbing, String>("Наименование");
+            TableColumn<Plumbing, UnitType> colNamePlumbing = new TableColumn<Plumbing, UnitType>("Наименование");
 //            TableColumn<Plumbing, Boolean> colActivePPlumbing = new TableColumn<Plumbing, String>("П");
 //            TableColumn<Plumbing, Boolean> colActiveCPlumbing = new TableColumn<Plumbing, String>("С");
             TableColumn<Plumbing, String> colUnitPlumbing = new TableColumn<Plumbing, String>("Ед. изм.");
