@@ -2,13 +2,9 @@ package sample;
 
 
 public enum UnitType {
-//    THING ("шт"),
-    шт,
-    квм,
-    пгм,
-    THING (),
-    SQUAREMETER(),
-    RUNNINGMETER();
+    THING { @Override public String toString() { return "ШТ"; } },
+    SQUAREMETER { @Override public String toString() { return "КВ.М"; } },
+    RUNNINGMETER{ @Override public String toString() { return "ПГ.М"; } }
 
 }
 

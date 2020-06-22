@@ -201,7 +201,7 @@
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCMaterialWall" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterialWall" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitMaterialWall" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialWall" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialWall" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitMaterialWall" prefWidth="100.0" text="Цена по КП за ед." />
@@ -245,7 +245,7 @@
                                                       <TableColumn fx:id="colNameMaterialFloor" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialFloor" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCMaterialFloor" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterialFloor" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitMaterialFloor" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialFloor" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialFloor" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitMaterialFloor" prefWidth="100.0" text="Цена по КП за ед." />
@@ -290,7 +290,7 @@
                                                       <TableColumn fx:id="colNameMaterialCeiling" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialCeiling" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCMaterialCeiling" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterialCeiling" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitMaterialCeiling" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialCeiling" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialCeiling" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitMaterialCeiling" prefWidth="100.0" text="Цена по КП за ед." />
@@ -335,7 +335,7 @@
                                                       <TableColumn fx:id="colNameMaterialOther" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialOther" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCMaterialOther" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterialOther" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitMaterialOther" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialOther" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialOther" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitMaterialOther" prefWidth="100.0" text="Цена по КП за ед." />
@@ -380,7 +380,7 @@
                                                       <TableColumn fx:id="colNameMaterialSuddenly" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialSuddenly" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCMaterialSuddenly" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterialSuddenly" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitMaterialSuddenly" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialSuddenly" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialSuddenly" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitMaterialSuddenly" prefWidth="100.0" text="Цена по КП за ед." />
@@ -458,7 +458,7 @@
                                                       <TableColumn fx:id="colNameAppliancesKitchen" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePAppliancesKitchen" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCAppliancesKitchen" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitAppliancesKitchen" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitAppliancesKitchen" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityAppliancesKitchen" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitAppliancesKitchen" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitAppliancesKitchen" prefWidth="100.0" text="Цена по КП за ед." />
@@ -503,7 +503,7 @@
                                                       <TableColumn fx:id="colNameAppliancesOther" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePAppliancesOther" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCAppliancesOther" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitAppliancesOther" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitAppliancesOther" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityAppliancesOther" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitAppliancesOther" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitAppliancesOther" prefWidth="100.0" text="Цена по КП за ед." />
@@ -548,7 +548,7 @@
                                                       <TableColumn fx:id="colNameAppliancesDelivery" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePAppliancesDelivery" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCAppliancesDelivery" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitAppliancesDelivery" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitAppliancesDelivery" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityAppliancesDelivery" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitAppliancesDelivery" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitAppliancesDelivery" prefWidth="100.0" text="Цена по КП за ед." />
@@ -593,7 +593,7 @@
                                                       <TableColumn fx:id="colNameAppliancesSuddenly" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePAppliancesSuddenly" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCAppliancesSuddenly" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitAppliancesSuddenly" prefWidth="58.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitAppliancesSuddenly" prefWidth="80.0" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityAppliancesSuddenly" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitAppliancesSuddenly" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitAppliancesSuddenly" prefWidth="100.0" text="Цена по КП за ед." />

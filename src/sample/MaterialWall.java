@@ -8,10 +8,7 @@ public class MaterialWall {
     protected String nameMaterialWall;//Наименование
     protected boolean activePMaterialWall;//П
     protected boolean activeCMaterialWall;//С
-//    protected String unitMaterialWall;//Ед. изм.
-
-    protected SimpleObjectProperty <UnitType> unitMaterialWall;//Ед. изм.
-
+    protected SimpleObjectProperty<UnitType> unitMaterialWall;//Ед. изм.
     protected double quantityMaterialWall;//Количество
     protected double ordinalPriceUnitMaterialWall;//Цена порядковая за ед.
     protected double priceCPUnitMaterialWall;//Цена по КП за ед.
@@ -19,8 +16,7 @@ public class MaterialWall {
     protected double costCPUnitMaterialWall;//Стоимость по КП за ед.
     protected double priceOrderMaterialWall;//Порядок цен
     protected double costCPMaterialWall;//Стоимость по КП
-    protected String productionTimeMaterialWall;//Срок доставки
-    //    protected Date productionTimeMaterialWall;//Срок доставки
+    protected SimpleObjectProperty<TimeProduction> productionTimeMaterialWall;//Срок доставки
     protected double actualCostMaterialWall;//Стоимость фактическая
     protected double actualDifferenceMaterialWall;//Разница фактическая
     protected double paidMaterialWall;//Оплачено
@@ -42,8 +38,7 @@ public class MaterialWall {
                         String plannedCPMaterialWall, String actualCPMaterialWall, String accountMaterialWall, String contactsMaterialWall, String notesMaterialWall,
                         String characteristicsMaterialWall) {
         this.nameMaterialWall = nameMaterialWall;
-//        this.unitMaterialWall = unitMaterialWall;
-        this.unitMaterialWall = new SimpleObjectProperty<>(UnitType.шт);
+        this.unitMaterialWall = new SimpleObjectProperty<>(UnitType.THING);
         this.activePMaterialWall = activePMaterialWall;
         this.activeCMaterialWall = activeCMaterialWall;
         this.quantityMaterialWall = quantityMaterialWall;
@@ -53,7 +48,7 @@ public class MaterialWall {
         this.costCPUnitMaterialWall = costCPUnitMaterialWall;
         this.priceOrderMaterialWall = priceOrderMaterialWall;
         this.costCPMaterialWall = costCPMaterialWall;
-        this.productionTimeMaterialWall = productionTimeMaterialWall;
+        this.productionTimeMaterialWall = new SimpleObjectProperty<>(TimeProduction.INSTOCK);
         this.actualCostMaterialWall = actualCostMaterialWall;
         this.actualDifferenceMaterialWall = actualDifferenceMaterialWall;
         this.paidMaterialWall = paidMaterialWall;
@@ -101,14 +96,6 @@ public class MaterialWall {
         this.nameMaterialWall = nameMaterialWall;
     }
 
-//    public String getUnitMaterialWall() {
-//        return unitMaterialWall;
-//    }
-//
-//    public void setUnitMaterialWall(String unitMaterialWall) {
-//        this.unitMaterialWall = unitMaterialWall;
-//    }
-
 
     public UnitType getUnitMaterialWall() {
         return unitMaterialWall.get();
@@ -118,7 +105,6 @@ public class MaterialWall {
         this.unitMaterialWall.set(unitMaterialWall);
     }
 
-    //Чекбоксы
     public boolean getActivePMaterialWall() {
         return activePMaterialWall;
     }
@@ -143,7 +129,6 @@ public class MaterialWall {
         this.activeCMaterialWall = Boolean.parseBoolean(activeCMaterialWall);
     }
 
-    //Обана
     public String getQuantityMaterialWall() {
         return Double.toString(quantityMaterialWall);
     }
@@ -158,7 +143,6 @@ public class MaterialWall {
         CalculateCostCPMaterialWall();
     }
 
-    //Хуяк
     public String getOrdinalPriceUnitMaterialWall() {
         return Double.toString(ordinalPriceUnitMaterialWall);
     }
@@ -212,7 +196,6 @@ public class MaterialWall {
         this.costCPUnitMaterialWall = Double.parseDouble(costCPUnitMaterialWall);
     }
 
-    //Понеслось
     public String getPriceOrderMaterialWall() {
         return Double.toString(priceOrderMaterialWall);
     }
@@ -238,20 +221,14 @@ public class MaterialWall {
         CalculateActualDifferenceMaterialWall();
     }
 
-    public String getProductionTimeMaterialWall() {
-        return productionTimeMaterialWall;
+
+    public TimeProduction getProductionTimeMaterialWall() {
+        return productionTimeMaterialWall.get();
     }
 
-    public void setProductionTimeMaterialWall(String productionTimeMaterialWall) {
-        this.productionTimeMaterialWall = productionTimeMaterialWall;
+    public void setProductionTimeMaterialWall(TimeProduction productionTimeMaterialWall) {
+        this.productionTimeMaterialWall.set(productionTimeMaterialWall);
     }
-//    public Date getProductionTimeMaterialWall() {
-//        return productionTimeMaterialWall;
-//    }
-//
-//    public void setProductionTimeMaterialWall(Date productionTimeMaterialWall) {
-//        this.productionTimeMaterialWall = productionTimeMaterialWall;
-//    }
 
     public String getActualCostMaterialWall() {
         return Double.toString(actualCostMaterialWall);

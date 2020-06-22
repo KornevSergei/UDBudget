@@ -19,7 +19,6 @@ import java.util.ResourceBundle;
 
 public class EditProjectController implements Initializable {
 
-    String THING = "12345";
 
     public TabPane tabPane;
 
@@ -122,7 +121,8 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialWall, String> colCostCPUnitMaterialWall;
     public TableColumn<MaterialWall, String> colPriceOrderMaterialWall;
     public TableColumn<MaterialWall, String> colCostCPMaterialWall;
-    public TableColumn<MaterialWall, String> colProductionTimeMaterialWall;
+//    public TableColumn<MaterialWall, String> colProductionTimeMaterialWall;
+    public TableColumn<MaterialWall, TimeProduction> colProductionTimeMaterialWall;
     public TableColumn<MaterialWall, String> colActualCostMaterialWall;
     public TableColumn<MaterialWall, String> colActualDifferenceMaterialWall;
     public TableColumn<MaterialWall, String> colPaidMaterialWall;
@@ -800,17 +800,8 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
-//        colUnitMaterialWall.setOnEditCommit(
-//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
-//                    @Override
-//                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
-//                        ((MaterialWall) t.getTableView().getItems().get(
-//                                t.getTablePosition().getRow())).setUnitMaterialWall(t.getNewValue());
-//                    }
-//                });
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
 
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
         colUnitMaterialWall.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitMaterialWall.setOnEditCommit(
@@ -899,17 +890,19 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        colProductionTimeMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
+
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
+        colProductionTimeMaterialWall.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeMaterialWall.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialWall, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialWall, TimeProduction> t) {
                         ((MaterialWall) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeMaterialWall(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
+
         colActualCostMaterialWall.setCellFactory(cellFactoryDoubleMaterialWall);
         colActualCostMaterialWall.setCellValueFactory(new PropertyValueFactory<>("actualCostMaterialWall"));
         colActualCostMaterialWall.setOnEditCommit(
@@ -1050,7 +1043,7 @@ public class EditProjectController implements Initializable {
         materialTableViewWall.setEditable(true);
         colNameMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
 //        colUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colDateOfDeliveryMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
