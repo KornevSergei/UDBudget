@@ -141,7 +141,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialFloor, String> colNameMaterialFloor;
     public TableColumn<MaterialFloor, Boolean> colActivePMaterialFloor;
     public TableColumn<MaterialFloor, Boolean> colActiveCMaterialFloor;
-    public TableColumn<MaterialFloor, String> colUnitMaterialFloor;
+    public TableColumn<MaterialFloor, UnitType> colUnitMaterialFloor;
     public TableColumn<MaterialFloor, String> colQuantityMaterialFloor;
     public TableColumn<MaterialFloor, String> colOrdinalPriceUnitMaterialFloor;
     public TableColumn<MaterialFloor, String> colPriceCPUnitMaterialFloor;
@@ -149,12 +149,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialFloor, String> colCostCPUnitMaterialFloor;
     public TableColumn<MaterialFloor, String> colPriceOrderMaterialFloor;
     public TableColumn<MaterialFloor, String> colCostCPMaterialFloor;
-    public TableColumn<MaterialFloor, String> colProductionTimeMaterialFloor;
+    public TableColumn<MaterialFloor, TimeProduction> colProductionTimeMaterialFloor;
     public TableColumn<MaterialFloor, String> colActualCostMaterialFloor;
     public TableColumn<MaterialFloor, String> colActualDifferenceMaterialFloor;
     public TableColumn<MaterialFloor, String> colPaidMaterialFloor;
     public TableColumn<MaterialFloor, String> colResidueMaterialFloor;
-    public TableColumn<MaterialFloor, String> colDateOfDeliveryMaterialFloor;
+    public TableColumn<MaterialFloor, Date> colDateOfDeliveryMaterialFloor;
     public TableColumn<MaterialFloor, String> colNameRoomMaterialFloor;
     public TableColumn<MaterialFloor, String> colPlannedCPMaterialFloor;
     public TableColumn<MaterialFloor, String> colActualCPMaterialFloor;
@@ -168,7 +168,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialCeiling, String> colNameMaterialCeiling;
     public TableColumn<MaterialCeiling, Boolean> colActivePMaterialCeiling;
     public TableColumn<MaterialCeiling, Boolean> colActiveCMaterialCeiling;
-    public TableColumn<MaterialCeiling, String> colUnitMaterialCeiling;
+    public TableColumn<MaterialCeiling, UnitType> colUnitMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colQuantityMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colOrdinalPriceUnitMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colPriceCPUnitMaterialCeiling;
@@ -176,12 +176,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialCeiling, String> colCostCPUnitMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colPriceOrderMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colCostCPMaterialCeiling;
-    public TableColumn<MaterialCeiling, String> colProductionTimeMaterialCeiling;
+    public TableColumn<MaterialCeiling, TimeProduction> colProductionTimeMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colActualCostMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colActualDifferenceMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colPaidMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colResidueMaterialCeiling;
-    public TableColumn<MaterialCeiling, String> colDateOfDeliveryMaterialCeiling;
+    public TableColumn<MaterialCeiling, Date> colDateOfDeliveryMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colNameRoomMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colPlannedCPMaterialCeiling;
     public TableColumn<MaterialCeiling, String> colActualCPMaterialCeiling;
@@ -195,7 +195,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialOther, String> colNameMaterialOther;
     public TableColumn<MaterialOther, Boolean> colActivePMaterialOther;
     public TableColumn<MaterialOther, Boolean> colActiveCMaterialOther;
-    public TableColumn<MaterialOther, String> colUnitMaterialOther;
+    public TableColumn<MaterialOther, UnitType> colUnitMaterialOther;
     public TableColumn<MaterialOther, String> colQuantityMaterialOther;
     public TableColumn<MaterialOther, String> colOrdinalPriceUnitMaterialOther;
     public TableColumn<MaterialOther, String> colPriceCPUnitMaterialOther;
@@ -203,12 +203,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialOther, String> colCostCPUnitMaterialOther;
     public TableColumn<MaterialOther, String> colPriceOrderMaterialOther;
     public TableColumn<MaterialOther, String> colCostCPMaterialOther;
-    public TableColumn<MaterialOther, String> colProductionTimeMaterialOther;
+    public TableColumn<MaterialOther, TimeProduction> colProductionTimeMaterialOther;
     public TableColumn<MaterialOther, String> colActualCostMaterialOther;
     public TableColumn<MaterialOther, String> colActualDifferenceMaterialOther;
     public TableColumn<MaterialOther, String> colPaidMaterialOther;
     public TableColumn<MaterialOther, String> colResidueMaterialOther;
-    public TableColumn<MaterialOther, String> colDateOfDeliveryMaterialOther;
+    public TableColumn<MaterialOther, Date> colDateOfDeliveryMaterialOther;
     public TableColumn<MaterialOther, String> colNameRoomMaterialOther;
     public TableColumn<MaterialOther, String> colPlannedCPMaterialOther;
     public TableColumn<MaterialOther, String> colActualCPMaterialOther;
@@ -222,7 +222,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialSuddenly, String> colNameMaterialSuddenly;
     public TableColumn<MaterialSuddenly, Boolean> colActivePMaterialSuddenly;
     public TableColumn<MaterialSuddenly, Boolean> colActiveCMaterialSuddenly;
-    public TableColumn<MaterialSuddenly, String> colUnitMaterialSuddenly;
+    public TableColumn<MaterialSuddenly, UnitType> colUnitMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colQuantityMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colOrdinalPriceUnitMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colPriceCPUnitMaterialSuddenly;
@@ -230,12 +230,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialSuddenly, String> colCostCPUnitMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colPriceOrderMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colCostCPMaterialSuddenly;
-    public TableColumn<MaterialSuddenly, String> colProductionTimeMaterialSuddenly;
+    public TableColumn<MaterialSuddenly, TimeProduction> colProductionTimeMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colActualCostMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colActualDifferenceMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colPaidMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colResidueMaterialSuddenly;
-    public TableColumn<MaterialSuddenly, String> colDateOfDeliveryMaterialSuddenly;
+    public TableColumn<MaterialSuddenly, Date> colDateOfDeliveryMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colNameRoomMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colPlannedCPMaterialSuddenly;
     public TableColumn<MaterialSuddenly, String> colActualCPMaterialSuddenly;
@@ -251,7 +251,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesKitchen, String> colNameAppliancesKitchen;
     public TableColumn<AppliancesKitchen, Boolean> colActivePAppliancesKitchen;
     public TableColumn<AppliancesKitchen, Boolean> colActiveCAppliancesKitchen;
-    public TableColumn<AppliancesKitchen, String> colUnitAppliancesKitchen;
+    public TableColumn<AppliancesKitchen, UnitType> colUnitAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colQuantityAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colOrdinalPriceUnitAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colPriceCPUnitAppliancesKitchen;
@@ -259,12 +259,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesKitchen, String> colCostCPUnitAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colPriceOrderAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colCostCPAppliancesKitchen;
-    public TableColumn<AppliancesKitchen, String> colProductionTimeAppliancesKitchen;
+    public TableColumn<AppliancesKitchen, TimeProduction> colProductionTimeAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colActualCostAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colActualDifferenceAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colPaidAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colResidueAppliancesKitchen;
-    public TableColumn<AppliancesKitchen, String> colDateOfDeliveryAppliancesKitchen;
+    public TableColumn<AppliancesKitchen, Date> colDateOfDeliveryAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colNameRoomAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colPlannedCPAppliancesKitchen;
     public TableColumn<AppliancesKitchen, String> colActualCPAppliancesKitchen;
@@ -278,7 +278,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesOther, String> colNameAppliancesOther;
     public TableColumn<AppliancesOther, Boolean> colActivePAppliancesOther;
     public TableColumn<AppliancesOther, Boolean> colActiveCAppliancesOther;
-    public TableColumn<AppliancesOther, String> colUnitAppliancesOther;
+    public TableColumn<AppliancesOther, UnitType> colUnitAppliancesOther;
     public TableColumn<AppliancesOther, String> colQuantityAppliancesOther;
     public TableColumn<AppliancesOther, String> colOrdinalPriceUnitAppliancesOther;
     public TableColumn<AppliancesOther, String> colPriceCPUnitAppliancesOther;
@@ -286,12 +286,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesOther, String> colCostCPUnitAppliancesOther;
     public TableColumn<AppliancesOther, String> colPriceOrderAppliancesOther;
     public TableColumn<AppliancesOther, String> colCostCPAppliancesOther;
-    public TableColumn<AppliancesOther, String> colProductionTimeAppliancesOther;
+    public TableColumn<AppliancesOther, TimeProduction> colProductionTimeAppliancesOther;
     public TableColumn<AppliancesOther, String> colActualCostAppliancesOther;
     public TableColumn<AppliancesOther, String> colActualDifferenceAppliancesOther;
     public TableColumn<AppliancesOther, String> colPaidAppliancesOther;
     public TableColumn<AppliancesOther, String> colResidueAppliancesOther;
-    public TableColumn<AppliancesOther, String> colDateOfDeliveryAppliancesOther;
+    public TableColumn<AppliancesOther, Date> colDateOfDeliveryAppliancesOther;
     public TableColumn<AppliancesOther, String> colNameRoomAppliancesOther;
     public TableColumn<AppliancesOther, String> colPlannedCPAppliancesOther;
     public TableColumn<AppliancesOther, String> colActualCPAppliancesOther;
@@ -305,7 +305,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesDelivery, String> colNameAppliancesDelivery;
     public TableColumn<AppliancesDelivery, Boolean> colActivePAppliancesDelivery;
     public TableColumn<AppliancesDelivery, Boolean> colActiveCAppliancesDelivery;
-    public TableColumn<AppliancesDelivery, String> colUnitAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, UnitType> colUnitAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colQuantityAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colOrdinalPriceUnitAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colPriceCPUnitAppliancesDelivery;
@@ -313,12 +313,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesDelivery, String> colCostCPUnitAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colPriceOrderAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colCostCPAppliancesDelivery;
-    public TableColumn<AppliancesDelivery, String> colProductionTimeAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, TimeProduction> colProductionTimeAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colActualCostAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colActualDifferenceAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colPaidAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colResidueAppliancesDelivery;
-    public TableColumn<AppliancesDelivery, String> colDateOfDeliveryAppliancesDelivery;
+    public TableColumn<AppliancesDelivery, Date> colDateOfDeliveryAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colNameRoomAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colPlannedCPAppliancesDelivery;
     public TableColumn<AppliancesDelivery, String> colActualCPAppliancesDelivery;
@@ -332,7 +332,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesSuddenly, String> colNameAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, Boolean> colActivePAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, Boolean> colActiveCAppliancesSuddenly;
-    public TableColumn<AppliancesSuddenly, String> colUnitAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, UnitType> colUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colQuantityAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colOrdinalPriceUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPriceCPUnitAppliancesSuddenly;
@@ -340,12 +340,12 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesSuddenly, String> colCostCPUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPriceOrderAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colCostCPAppliancesSuddenly;
-    public TableColumn<AppliancesSuddenly, String> colProductionTimeAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, TimeProduction> colProductionTimeAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colActualCostAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colActualDifferenceAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPaidAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colResidueAppliancesSuddenly;
-    public TableColumn<AppliancesSuddenly, String> colDateOfDeliveryAppliancesSuddenly;
+    public TableColumn<AppliancesSuddenly, Date> colDateOfDeliveryAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colNameRoomAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPlannedCPAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colActualCPAppliancesSuddenly;
@@ -1094,15 +1094,19 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("unitMaterialFloor"));
+        colUnitMaterialFloor.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitMaterialFloor.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialFloor, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialFloor, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialFloor, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialFloor, UnitType> t) {
                         ((MaterialFloor) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitMaterialFloor(t.getNewValue());
                     }
                 });
+
         colQuantityMaterialFloor.setCellFactory(cellFactoryDoubleMaterialFloor);
         colQuantityMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("quantityMaterialFloor"));
         colQuantityMaterialFloor.setOnEditCommit(
@@ -1180,15 +1184,15 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colProductionTimeMaterialFloor.setCellFactory(cellFactoryDoubleMaterialFloor);
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialFloor"));
+        colProductionTimeMaterialFloor.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeMaterialFloor.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialFloor, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialFloor, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialFloor, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialFloor, TimeProduction> t) {
                         ((MaterialFloor) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeMaterialFloor(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
         colActualCostMaterialFloor.setCellFactory(cellFactoryDoubleMaterialFloor);
@@ -1236,15 +1240,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colDateOfDeliveryMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialFloor"));
-        colDateOfDeliveryMaterialFloor.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialFloor, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialFloor, String> t) {
-                        ((MaterialFloor) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialFloor(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryMaterialFloor.setCellFactory(p -> {
+            return new  MaterialFloor().DatePickerCell<>();
+        });
         colNameRoomMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialFloor"));
         colNameRoomMaterialFloor.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialFloor, String>>() {
@@ -1318,9 +1316,9 @@ public class EditProjectController implements Initializable {
 
         materialTableViewFloor.setEditable(true);
         colNameMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1377,11 +1375,13 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("unitMaterialCeiling"));
+        colUnitMaterialCeiling.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitMaterialCeiling.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, UnitType> t) {
                         ((MaterialCeiling) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitMaterialCeiling(t.getNewValue());
                     }
@@ -1463,15 +1463,15 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colProductionTimeMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialCeiling"));
+        colProductionTimeMaterialCeiling.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeMaterialCeiling.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, TimeProduction> t) {
                         ((MaterialCeiling) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeMaterialCeiling(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
         colActualCostMaterialCeiling.setCellFactory(cellFactoryDoubleMaterialCeiling);
@@ -1519,15 +1519,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colDateOfDeliveryMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialCeiling"));
-        colDateOfDeliveryMaterialCeiling.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialCeiling, String> t) {
-                        ((MaterialCeiling) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialCeiling(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryMaterialCeiling.setCellFactory(p -> {
+            return new  MaterialCeiling.DatePickerCell<>();
+        });
         colNameRoomMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialCeiling"));
         colNameRoomMaterialCeiling.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, String>>() {
@@ -1601,9 +1595,9 @@ public class EditProjectController implements Initializable {
 
         materialTableViewCeiling.setEditable(true);
         colNameMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1660,11 +1654,13 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("unitMaterialOther"));
+        colUnitMaterialOther.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitMaterialOther.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialOther, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialOther, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialOther, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialOther, UnitType> t) {
                         ((MaterialOther) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitMaterialOther(t.getNewValue());
                     }
@@ -1746,15 +1742,15 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colProductionTimeMaterialOther.setCellFactory(cellFactoryDoubleMaterialOther);
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialOther.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialOther"));
+        colProductionTimeMaterialOther.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeMaterialOther.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialOther, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialOther, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialOther, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialOther, TimeProduction> t) {
                         ((MaterialOther) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeMaterialOther(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
         colActualCostMaterialOther.setCellFactory(cellFactoryDoubleMaterialOther);
@@ -1802,15 +1798,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colDateOfDeliveryMaterialOther.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialOther"));
-        colDateOfDeliveryMaterialOther.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialOther, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialOther, String> t) {
-                        ((MaterialOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialOther(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryMaterialOther.setCellFactory(p -> {
+            return new  MaterialOther.DatePickerCell<>();
+        });
         colNameRoomMaterialOther.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialOther"));
         colNameRoomMaterialOther.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialOther, String>>() {
@@ -1884,9 +1874,9 @@ public class EditProjectController implements Initializable {
 
         materialTableViewOther.setEditable(true);
         colNameMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1943,11 +1933,13 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitMaterialSuddenly"));
+        colUnitMaterialSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitMaterialSuddenly.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialSuddenly, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialSuddenly, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialSuddenly, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialSuddenly, UnitType> t) {
                         ((MaterialSuddenly) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitMaterialSuddenly(t.getNewValue());
                     }
@@ -2029,15 +2021,15 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colProductionTimeMaterialSuddenly.setCellFactory(cellFactoryDoubleMaterialSuddenly);
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialSuddenly"));
+        colProductionTimeMaterialSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeMaterialSuddenly.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialSuddenly, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<MaterialSuddenly, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialSuddenly, String> t) {
+                    public void handle(TableColumn.CellEditEvent<MaterialSuddenly, TimeProduction> t) {
                         ((MaterialSuddenly) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeMaterialSuddenly(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
         colActualCostMaterialSuddenly.setCellFactory(cellFactoryDoubleMaterialSuddenly);
@@ -2085,15 +2077,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colDateOfDeliveryMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialSuddenly"));
-        colDateOfDeliveryMaterialSuddenly.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialSuddenly, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialSuddenly, String> t) {
-                        ((MaterialSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialSuddenly(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryMaterialSuddenly.setCellFactory(p -> {
+            return new  MaterialSuddenly.DatePickerCell<>();
+        });
         colNameMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameMaterialSuddenly"));
         colNameMaterialSuddenly.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialSuddenly, String>>() {
@@ -2166,9 +2152,9 @@ public class EditProjectController implements Initializable {
 
         materialTableViewSuddenly.setEditable(true);
         colNameMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -2225,11 +2211,13 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesKitchen"));
+        colUnitAppliancesKitchen.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitAppliancesKitchen.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesKitchen, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<AppliancesKitchen, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesKitchen, String> t) {
+                    public void handle(TableColumn.CellEditEvent<AppliancesKitchen, UnitType> t) {
                         ((AppliancesKitchen) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitAppliancesKitchen(t.getNewValue());
                     }
@@ -2311,15 +2299,15 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colProductionTimeAppliancesKitchen.setCellFactory(cellFactoryDoubleAppliancesKitchen);
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesKitchen"));
+        colProductionTimeAppliancesKitchen.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeAppliancesKitchen.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesKitchen, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<AppliancesKitchen, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesKitchen, String> t) {
+                    public void handle(TableColumn.CellEditEvent<AppliancesKitchen, TimeProduction> t) {
                         ((AppliancesKitchen) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeAppliancesKitchen(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
         colActualCostAppliancesKitchen.setCellFactory(cellFactoryDoubleAppliancesKitchen);
@@ -2367,15 +2355,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colDateOfDeliveryAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesKitchen"));
-        colDateOfDeliveryAppliancesKitchen.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesKitchen, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesKitchen, String> t) {
-                        ((AppliancesKitchen) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryAppliancesKitchen(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryAppliancesKitchen.setCellFactory(p -> {
+            return new  AppliancesKitchen.DatePickerCell<>();
+        });
         colNameRoomAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("nameRoomAppliancesKitchen"));
         colNameRoomAppliancesKitchen.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesKitchen, String>>() {
@@ -2449,9 +2431,9 @@ public class EditProjectController implements Initializable {
 
         appliancesTableViewKitchen.setEditable(true);
         colNameAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -2508,11 +2490,13 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesOther"));
+        colUnitAppliancesOther.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitAppliancesOther.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<AppliancesOther, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
+                    public void handle(TableColumn.CellEditEvent<AppliancesOther, UnitType> t) {
                         ((AppliancesOther) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitAppliancesOther(t.getNewValue());
                     }
@@ -2594,15 +2578,15 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colProductionTimeAppliancesOther.setCellFactory(cellFactoryDoubleAppliancesOther);
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesOther"));
+        colProductionTimeAppliancesOther.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeAppliancesOther.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<AppliancesOther, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
+                    public void handle(TableColumn.CellEditEvent<AppliancesOther, TimeProduction> t) {
                         ((AppliancesOther) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeAppliancesOther(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
         colActualCostAppliancesOther.setCellFactory(cellFactoryDoubleAppliancesOther);
@@ -2650,15 +2634,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colDateOfDeliveryAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesOther"));
-        colDateOfDeliveryAppliancesOther.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryAppliancesOther(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryAppliancesOther.setCellFactory(p -> {
+            return new  AppliancesOther.DatePickerCell<>();
+        });
         colNameRoomAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("nameRoomAppliancesOther"));
         colNameRoomAppliancesOther.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
@@ -2732,9 +2710,9 @@ public class EditProjectController implements Initializable {
 
         appliancesTableViewOther.setEditable(true);
         colNameAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -2791,11 +2769,13 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesDelivery"));
+        colUnitAppliancesDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitAppliancesDelivery.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
+                    public void handle(TableColumn.CellEditEvent<AppliancesDelivery, UnitType> t) {
                         ((AppliancesDelivery) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitAppliancesDelivery(t.getNewValue());
                     }
@@ -2877,15 +2857,15 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colProductionTimeAppliancesDelivery.setCellFactory(cellFactoryDoubleAppliancesDelivery);
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesDelivery"));
+        colProductionTimeAppliancesDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeAppliancesDelivery.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
+                    public void handle(TableColumn.CellEditEvent<AppliancesDelivery, TimeProduction> t) {
                         ((AppliancesDelivery) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeAppliancesDelivery(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
         colActualCostAppliancesDelivery.setCellFactory(cellFactoryDoubleAppliancesDelivery);
@@ -2933,15 +2913,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colDateOfDeliveryAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesDelivery"));
-        colDateOfDeliveryAppliancesDelivery.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryAppliancesDelivery(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryAppliancesDelivery.setCellFactory(p -> {
+            return new  AppliancesDelivery.DatePickerCell<>();
+        });
         colNameRoomAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("nameRoomAppliancesDelivery"));
         colNameRoomAppliancesDelivery.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
@@ -3015,9 +2989,9 @@ public class EditProjectController implements Initializable {
 
         appliancesTableViewDelivery.setEditable(true);
         colNameAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -3074,11 +3048,13 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
         colUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesSuddenly"));
+        colUnitAppliancesSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitAppliancesSuddenly.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, UnitType>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
+                    public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, UnitType> t) {
                         ((AppliancesSuddenly) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setUnitAppliancesSuddenly(t.getNewValue());
                     }
@@ -3160,15 +3136,15 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colProductionTimeAppliancesSuddenly.setCellFactory(cellFactoryDoubleAppliancesSuddenly);
+        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesSuddenly"));
+        colProductionTimeAppliancesSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeAppliancesSuddenly.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
+                new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, TimeProduction>>() {
                     @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
+                    public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, TimeProduction> t) {
                         ((AppliancesSuddenly) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())).setProductionTimeAppliancesSuddenly(t.getNewValue());
-                        t.getTableView().refresh();
                     }
                 });
         colActualCostAppliancesSuddenly.setCellFactory(cellFactoryDoubleAppliancesSuddenly);
@@ -3216,15 +3192,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colDateOfDeliveryAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesSuddenly"));
-        colDateOfDeliveryAppliancesSuddenly.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryAppliancesSuddenly(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryAppliancesSuddenly.setCellFactory(p -> {
+            return new  AppliancesSuddenly.DatePickerCell<>();
+        });
         colNameRoomAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameRoomAppliancesSuddenly"));
         colNameRoomAppliancesSuddenly.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
@@ -3298,9 +3268,9 @@ public class EditProjectController implements Initializable {
 
         appliancesTableViewSuddenly.setEditable(true);
         colNameAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colProductionTimeAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colProductionTimeAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
