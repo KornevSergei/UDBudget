@@ -113,7 +113,6 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialWall, String> colNameMaterialWall;
     public TableColumn<MaterialWall, Boolean> colActivePMaterialWall;
     public TableColumn<MaterialWall, Boolean> colActiveCMaterialWall;
-//    public TableColumn<MaterialWall, String> colUnitMaterialWall;
     public TableColumn<MaterialWall, UnitType> colUnitMaterialWall;
     public TableColumn<MaterialWall, String> colQuantityMaterialWall;
     public TableColumn<MaterialWall, String> colOrdinalPriceUnitMaterialWall;
@@ -122,13 +121,11 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialWall, String> colCostCPUnitMaterialWall;
     public TableColumn<MaterialWall, String> colPriceOrderMaterialWall;
     public TableColumn<MaterialWall, String> colCostCPMaterialWall;
-//    public TableColumn<MaterialWall, String> colProductionTimeMaterialWall;
     public TableColumn<MaterialWall, TimeProduction> colProductionTimeMaterialWall;
     public TableColumn<MaterialWall, String> colActualCostMaterialWall;
     public TableColumn<MaterialWall, String> colActualDifferenceMaterialWall;
     public TableColumn<MaterialWall, String> colPaidMaterialWall;
     public TableColumn<MaterialWall, String> colResidueMaterialWall;
-//    public TableColumn<MaterialWall, String> colDateOfDeliveryMaterialWall;
     public TableColumn<MaterialWall, Date> colDateOfDeliveryMaterialWall;
     public TableColumn<MaterialWall, String> colNameRoomMaterialWall;
     public TableColumn<MaterialWall, String> colPlannedCPMaterialWall;
@@ -961,7 +958,7 @@ public class EditProjectController implements Initializable {
 //                });
         colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
         colDateOfDeliveryMaterialWall.setCellFactory(p -> {
-            return new DatePickerCell<>();
+            return new  MaterialWall.DatePickerCell<>();
         });
 
 
@@ -3314,13 +3311,6 @@ public class EditProjectController implements Initializable {
 
 
     }
-
-//    public void On_tabCalculatorClickedProject(MouseEvent mouseEvent) {
-////        if (observableListProject.filtered(x -> "0.0".equals(x.getNameProject()) && "0.0".equals(x.getTermAK())).size() == 0) {
-//        if (observableListProject.filtered(x -> !"".equals(x.getNameProject())) ) {
-//            observableListProject.add(new Project(""));
-//        }
-//    }
 
 
     public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {

@@ -1,12 +1,25 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
+import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableCell;
+
+import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 public class AppliancesOther {
     protected String nameAppliancesOther;//Наименование
     protected boolean activePAppliancesOther;//П
     protected boolean activeCAppliancesOther;//С
-    protected String unitAppliancesOther;//Ед. изм.
+    protected SimpleObjectProperty<UnitType> unitAppliancesOther;//Ед. изм.
     protected double quantityAppliancesOther;//Количество
     protected double ordinalPriceUnitAppliancesOther;//Цена порядковая за ед.
     protected double priceCPUnitAppliancesOther;//Цена по КП за ед.
@@ -14,19 +27,19 @@ public class AppliancesOther {
     protected double costCPUnitAppliancesOther;//Стоимость по КП за ед.
     protected double priceOrderAppliancesOther;//Порядок цен
     protected double costCPAppliancesOther;//Стоимость по КП
-    protected String productionTimeAppliancesOther;//Срок доставки
+    protected SimpleObjectProperty<TimeProduction> productionTimeAppliancesOther;//Срок доставки
     protected double actualCostAppliancesOther;//Стоимость фактическая
     protected double actualDifferenceAppliancesOther;//Разница фактическая
     protected double paidAppliancesOther;//Оплачено
     protected double residueAppliancesOther;//Остаток
-    protected String dateOfDeliveryAppliancesOther;//Дата поставки
-    protected String nameRoomAppliancesOther;
-    protected String plannedCPAppliancesOther;
-    protected String actualCPAppliancesOther;
-    protected String accountAppliancesOther;
-    protected String contactsAppliancesOther;
-    protected String notesAppliancesOther;
-    protected String characteristicsAppliancesOther;
+    protected SimpleObjectProperty<Date> dateOfDeliveryAppliancesOther;//Дата поставки
+    protected String nameRoomAppliancesOther;//Наименование помещения
+    protected String plannedCPAppliancesOther;//КП плановое
+    protected String actualCPAppliancesOther;//КП фактическое
+    protected String accountAppliancesOther;//счёт
+    protected String contactsAppliancesOther;//контакты
+    protected String notesAppliancesOther;//примечания
+    protected String characteristicsAppliancesOther;//характеристики
 
 
     public AppliancesOther(String nameAppliancesOther, boolean activePAppliancesOther, boolean activeCAppliancesOther, String unitAppliancesOther, double quantityAppliancesOther,
@@ -36,7 +49,7 @@ public class AppliancesOther {
                            String plannedCPAppliancesOther, String actualCPAppliancesOther, String accountAppliancesOther, String contactsAppliancesOther, String notesAppliancesOther,
                            String characteristicsAppliancesOther) {
         this.nameAppliancesOther = nameAppliancesOther;
-        this.unitAppliancesOther = unitAppliancesOther;
+        this.unitAppliancesOther = new SimpleObjectProperty<>(UnitType.THING);
         this.activePAppliancesOther = activePAppliancesOther;
         this.activeCAppliancesOther = activeCAppliancesOther;
         this.quantityAppliancesOther = quantityAppliancesOther;
@@ -46,12 +59,12 @@ public class AppliancesOther {
         this.costCPUnitAppliancesOther = costCPUnitAppliancesOther;
         this.priceOrderAppliancesOther = priceOrderAppliancesOther;
         this.costCPAppliancesOther = costCPAppliancesOther;
-        this.productionTimeAppliancesOther = productionTimeAppliancesOther;
+        this.productionTimeAppliancesOther = new SimpleObjectProperty<>(TimeProduction.INSTOCK);
         this.actualCostAppliancesOther = actualCostAppliancesOther;
         this.actualDifferenceAppliancesOther = actualDifferenceAppliancesOther;
         this.paidAppliancesOther = paidAppliancesOther;
         this.residueAppliancesOther = residueAppliancesOther;
-        this.dateOfDeliveryAppliancesOther = dateOfDeliveryAppliancesOther;
+        this.dateOfDeliveryAppliancesOther = new SimpleObjectProperty<>(Date.from(Instant.now()));
         this.nameRoomAppliancesOther = nameRoomAppliancesOther;
         this.plannedCPAppliancesOther = plannedCPAppliancesOther;
         this.actualCPAppliancesOther = actualCPAppliancesOther;
@@ -94,15 +107,15 @@ public class AppliancesOther {
         this.nameAppliancesOther = nameAppliancesOther;
     }
 
-    public String getUnitAppliancesOther() {
-        return unitAppliancesOther;
+
+    public UnitType getUnitAppliancesOther() {
+        return unitAppliancesOther.get();
     }
 
-    public void setUnitAppliancesOther(String unitAppliancesOther) {
-        this.unitAppliancesOther = unitAppliancesOther;
+    public void setUnitAppliancesOther(UnitType unitAppliancesOther) {
+        this.unitAppliancesOther.set(unitAppliancesOther);
     }
 
-    //Чекбоксы
     public boolean getActivePAppliancesOther() {
         return activePAppliancesOther;
     }
@@ -127,7 +140,6 @@ public class AppliancesOther {
         this.activeCAppliancesOther = Boolean.parseBoolean(activeCAppliancesOther);
     }
 
-    //Обана
     public String getQuantityAppliancesOther() {
         return Double.toString(quantityAppliancesOther);
     }
@@ -142,7 +154,6 @@ public class AppliancesOther {
         CalculateCostCPAppliancesOther();
     }
 
-    //Хуяк
     public String getOrdinalPriceUnitAppliancesOther() {
         return Double.toString(ordinalPriceUnitAppliancesOther);
     }
@@ -196,7 +207,6 @@ public class AppliancesOther {
         this.costCPUnitAppliancesOther = Double.parseDouble(costCPUnitAppliancesOther);
     }
 
-    //Понеслось
     public String getPriceOrderAppliancesOther() {
         return Double.toString(priceOrderAppliancesOther);
     }
@@ -222,12 +232,13 @@ public class AppliancesOther {
         CalculateActualDifferenceAppliancesOther();
     }
 
-    public String getProductionTimeAppliancesOther() {
-        return productionTimeAppliancesOther;
+
+    public TimeProduction getProductionTimeAppliancesOther() {
+        return productionTimeAppliancesOther.get();
     }
 
-    public void setProductionTimeAppliancesOther(String productionTimeAppliancesOther) {
-        this.productionTimeAppliancesOther = productionTimeAppliancesOther;
+    public void setProductionTimeAppliancesOther(TimeProduction productionTimeAppliancesOther) {
+        this.productionTimeAppliancesOther.set(productionTimeAppliancesOther);
     }
 
     public String getActualCostAppliancesOther() {
@@ -282,13 +293,14 @@ public class AppliancesOther {
         this.residueAppliancesOther = Double.parseDouble(residueAppliancesOther);
     }
 
-    public String getDateOfDeliveryAppliancesOther() {
-        return dateOfDeliveryAppliancesOther;
+    public Date getDateOfDeliveryAppliancesOther() {
+        return dateOfDeliveryAppliancesOther.get();
     }
 
-    public void setDateOfDeliveryAppliancesOther(String dateOfDeliveryAppliancesOther) {
-        this.dateOfDeliveryAppliancesOther = dateOfDeliveryAppliancesOther;
+    public void setDateOfDeliveryAppliancesOther(Date dateOfDeliveryAppliancesOther) {
+        this.dateOfDeliveryAppliancesOther.set(dateOfDeliveryAppliancesOther);
     }
+
 
     public String getNameRoomAppliancesOther() {
         return nameRoomAppliancesOther;
@@ -344,6 +356,120 @@ public class AppliancesOther {
 
     public void setCharacteristicsAppliancesOther(String characteristicsAppliancesOther) {
         this.characteristicsAppliancesOther = characteristicsAppliancesOther;
+    }
+
+
+
+
+    public static class DatePickerCell<S, T> extends TableCell<AppliancesOther, Date> {
+
+        private DatePicker datePicker;
+        private S editedItem;
+
+        public DatePickerCell() {
+            super();
+
+            if (datePicker == null) {
+                createDatePicker();
+            }
+            setGraphic(datePicker);
+            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    datePicker.requestFocus();
+                }
+            });
+        }
+
+        @Override
+        public void updateItem(Date item, boolean empty) {
+
+            super.updateItem(item, empty);
+
+            SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
+
+            if (null == this.datePicker) {
+                System.out.println("datePicker is NULL");
+            }
+
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {
+
+                if (isEditing()) {
+                    setContentDisplay(ContentDisplay.TEXT_ONLY);
+
+                } else {
+                    setDatepikerDate(smp.format(item));
+                    setText(smp.format(item));
+                    setGraphic(this.datePicker);
+                    setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                }
+            }
+        }
+
+        private void setDatepikerDate(String dateAsStr) {
+
+            LocalDate ld = null;
+            int jour, mois, annee;
+
+            jour = mois = annee = 0;
+            try {
+                jour = Integer.parseInt(dateAsStr.substring(0, 2));
+                mois = Integer.parseInt(dateAsStr.substring(3, 5));
+                annee = Integer.parseInt(dateAsStr.substring(6, dateAsStr.length()));
+            } catch (NumberFormatException e) {
+                System.out.println("setDatepikerDate / unexpected error " + e);
+            }
+
+            ld = LocalDate.of(annee, mois, jour);
+            datePicker.setValue(ld);
+        }
+
+        private void createDatePicker() {
+            this.datePicker = new DatePicker();
+            datePicker.setPromptText("jj/mm/aaaa");
+            datePicker.setEditable(true);
+
+            datePicker.setOnAction((EventHandler) t -> {
+                LocalDate date = datePicker.getValue();
+
+                SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.DAY_OF_MONTH, date.getDayOfMonth());
+                cal.set(Calendar.MONTH, date.getMonthValue() - 1);
+                cal.set(Calendar.YEAR, date.getYear());
+
+                setText(smp.format(cal.getTime()));
+                ((AppliancesOther)getTableRow().getItem()).setDateOfDeliveryAppliancesOther(cal.getTime());
+                commitEdit(cal.getTime());
+            });
+
+            setAlignment(Pos.CENTER);
+        }
+
+        @Override
+        public void startEdit() {
+            super.startEdit();
+        }
+
+        @Override
+        public void cancelEdit() {
+            super.cancelEdit();
+            setContentDisplay(ContentDisplay.TEXT_ONLY);
+        }
+
+        public DatePicker getDatePicker() {
+            return datePicker;
+        }
+
+        public void setDatePicker(DatePicker datePicker) {
+            this.datePicker = datePicker;
+        }
+
     }
 }
 

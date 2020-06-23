@@ -1,11 +1,25 @@
 package sample;
 
+import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableCell;
+
+import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MaterialSuddenly {
     protected String nameMaterialSuddenly;//Наименование
     protected boolean activePMaterialSuddenly;//П
     protected boolean activeCMaterialSuddenly;//С
-    protected String unitMaterialSuddenly;//Ед. изм.
+    protected SimpleObjectProperty<UnitType> unitMaterialSuddenly;//Ед. изм.
     protected double quantityMaterialSuddenly;//Количество
     protected double ordinalPriceUnitMaterialSuddenly;//Цена порядковая за ед.
     protected double priceCPUnitMaterialSuddenly;//Цена по КП за ед.
@@ -13,29 +27,29 @@ public class MaterialSuddenly {
     protected double costCPUnitMaterialSuddenly;//Стоимость по КП за ед.
     protected double priceOrderMaterialSuddenly;//Порядок цен
     protected double costCPMaterialSuddenly;//Стоимость по КП
-    protected String productionTimeMaterialSuddenly;//Срок доставки
+    protected SimpleObjectProperty<TimeProduction> productionTimeMaterialSuddenly;//Срок доставки
     protected double actualCostMaterialSuddenly;//Стоимость фактическая
     protected double actualDifferenceMaterialSuddenly;//Разница фактическая
     protected double paidMaterialSuddenly;//Оплачено
     protected double residueMaterialSuddenly;//Остаток
-    protected String dateOfDeliveryMaterialSuddenly;//Дата поставки
-    protected String nameRoomMaterialSuddenly;//аименование помещения
-    protected String plannedCPMaterialSuddenly;
-    protected String actualCPMaterialSuddenly;
-    protected String accountMaterialSuddenly;
-    protected String contactsMaterialSuddenly;
-    protected String notesMaterialSuddenly;
-    protected String characteristicsMaterialSuddenly;
+    protected SimpleObjectProperty<Date> dateOfDeliveryMaterialSuddenly;//Дата поставки
+    protected String nameRoomMaterialSuddenly;//Наименование помещения
+    protected String plannedCPMaterialSuddenly;//КП плановое
+    protected String actualCPMaterialSuddenly;//КП фактическое
+    protected String accountMaterialSuddenly;//счёт
+    protected String contactsMaterialSuddenly;//контакты
+    protected String notesMaterialSuddenly;//примечания
+    protected String characteristicsMaterialSuddenly;//характеристики
 
 
     public MaterialSuddenly(String nameMaterialSuddenly, boolean activePMaterialSuddenly, boolean activeCMaterialSuddenly, String unitMaterialSuddenly, double quantityMaterialSuddenly,
                             double ordinalPriceUnitMaterialSuddenly, double priceCPUnitMaterialSuddenly, double priceCPKeyMaterialSuddenly, double costCPUnitMaterialSuddenly,
                             double priceOrderMaterialSuddenly, double costCPMaterialSuddenly, String productionTimeMaterialSuddenly, double actualCostMaterialSuddenly,
-                            double actualDifferenceMaterialSuddenly, double paidMaterialSuddenly, double residueMaterialSuddenly, String dateOfDeliveryMaterialSuddenly,String nameRoomMaterialSuddenly,
+                            double actualDifferenceMaterialSuddenly, double paidMaterialSuddenly, double residueMaterialSuddenly, String dateOfDeliveryMaterialSuddenly, String nameRoomMaterialSuddenly,
                             String plannedCPMaterialSuddenly, String actualCPMaterialSuddenly, String accountMaterialSuddenly, String contactsMaterialSuddenly, String notesMaterialSuddenly,
                             String characteristicsMaterialSuddenly) {
         this.nameMaterialSuddenly = nameMaterialSuddenly;
-        this.unitMaterialSuddenly = unitMaterialSuddenly;
+        this.unitMaterialSuddenly = new SimpleObjectProperty<>(UnitType.THING);
         this.activePMaterialSuddenly = activePMaterialSuddenly;
         this.activeCMaterialSuddenly = activeCMaterialSuddenly;
         this.quantityMaterialSuddenly = quantityMaterialSuddenly;
@@ -45,12 +59,12 @@ public class MaterialSuddenly {
         this.costCPUnitMaterialSuddenly = costCPUnitMaterialSuddenly;
         this.priceOrderMaterialSuddenly = priceOrderMaterialSuddenly;
         this.costCPMaterialSuddenly = costCPMaterialSuddenly;
-        this.productionTimeMaterialSuddenly = productionTimeMaterialSuddenly;
+        this.productionTimeMaterialSuddenly = new SimpleObjectProperty<>(TimeProduction.INSTOCK);
         this.actualCostMaterialSuddenly = actualCostMaterialSuddenly;
         this.actualDifferenceMaterialSuddenly = actualDifferenceMaterialSuddenly;
         this.paidMaterialSuddenly = paidMaterialSuddenly;
         this.residueMaterialSuddenly = residueMaterialSuddenly;
-        this.dateOfDeliveryMaterialSuddenly = dateOfDeliveryMaterialSuddenly;
+        this.dateOfDeliveryMaterialSuddenly = new SimpleObjectProperty<>(Date.from(Instant.now()));
         this.nameRoomMaterialSuddenly = nameRoomMaterialSuddenly;
         this.plannedCPMaterialSuddenly = plannedCPMaterialSuddenly;
         this.actualCPMaterialSuddenly = actualCPMaterialSuddenly;
@@ -93,15 +107,15 @@ public class MaterialSuddenly {
         this.nameMaterialSuddenly = nameMaterialSuddenly;
     }
 
-    public String getUnitMaterialSuddenly() {
-        return unitMaterialSuddenly;
+
+    public UnitType getUnitMaterialSuddenly() {
+        return unitMaterialSuddenly.get();
     }
 
-    public void setUnitMaterialSuddenly(String unitMaterialSuddenly) {
-        this.unitMaterialSuddenly = unitMaterialSuddenly;
+    public void setUnitMaterialSuddenly(UnitType unitMaterialSuddenly) {
+        this.unitMaterialSuddenly.set(unitMaterialSuddenly);
     }
 
-    //Чекбоксы
     public boolean getActivePMaterialSuddenly() {
         return activePMaterialSuddenly;
     }
@@ -126,7 +140,6 @@ public class MaterialSuddenly {
         this.activeCMaterialSuddenly = Boolean.parseBoolean(activeCMaterialSuddenly);
     }
 
-    //Обана
     public String getQuantityMaterialSuddenly() {
         return Double.toString(quantityMaterialSuddenly);
     }
@@ -141,7 +154,6 @@ public class MaterialSuddenly {
         CalculateCostCPMaterialSuddenly();
     }
 
-    //Хуяк
     public String getOrdinalPriceUnitMaterialSuddenly() {
         return Double.toString(ordinalPriceUnitMaterialSuddenly);
     }
@@ -195,7 +207,6 @@ public class MaterialSuddenly {
         this.costCPUnitMaterialSuddenly = Double.parseDouble(costCPUnitMaterialSuddenly);
     }
 
-    //Понеслось
     public String getPriceOrderMaterialSuddenly() {
         return Double.toString(priceOrderMaterialSuddenly);
     }
@@ -221,12 +232,13 @@ public class MaterialSuddenly {
         CalculateActualDifferenceMaterialSuddenly();
     }
 
-    public String getProductionTimeMaterialSuddenly() {
-        return productionTimeMaterialSuddenly;
+
+    public TimeProduction getProductionTimeMaterialSuddenly() {
+        return productionTimeMaterialSuddenly.get();
     }
 
-    public void setProductionTimeMaterialSuddenly(String productionTimeMaterialSuddenly) {
-        this.productionTimeMaterialSuddenly = productionTimeMaterialSuddenly;
+    public void setProductionTimeMaterialSuddenly(TimeProduction productionTimeMaterialSuddenly) {
+        this.productionTimeMaterialSuddenly.set(productionTimeMaterialSuddenly);
     }
 
     public String getActualCostMaterialSuddenly() {
@@ -281,13 +293,14 @@ public class MaterialSuddenly {
         this.residueMaterialSuddenly = Double.parseDouble(residueMaterialSuddenly);
     }
 
-    public String getDateOfDeliveryMaterialSuddenly() {
-        return dateOfDeliveryMaterialSuddenly;
+    public Date getDateOfDeliveryMaterialSuddenly() {
+        return dateOfDeliveryMaterialSuddenly.get();
     }
 
-    public void setDateOfDeliveryMaterialSuddenly(String dateOfDeliveryMaterialSuddenly) {
-        this.dateOfDeliveryMaterialSuddenly = dateOfDeliveryMaterialSuddenly;
+    public void setDateOfDeliveryMaterialSuddenly(Date dateOfDeliveryMaterialSuddenly) {
+        this.dateOfDeliveryMaterialSuddenly.set(dateOfDeliveryMaterialSuddenly);
     }
+
 
     public String getNameRoomMaterialSuddenly() {
         return nameRoomMaterialSuddenly;
@@ -344,5 +357,118 @@ public class MaterialSuddenly {
     public void setCharacteristicsMaterialSuddenly(String characteristicsMaterialSuddenly) {
         this.characteristicsMaterialSuddenly = characteristicsMaterialSuddenly;
     }
-}
 
+
+
+
+    public static class DatePickerCell<S, T> extends TableCell<MaterialSuddenly, Date> {
+
+        private DatePicker datePicker;
+        private S editedItem;
+
+        public DatePickerCell() {
+            super();
+
+            if (datePicker == null) {
+                createDatePicker();
+            }
+            setGraphic(datePicker);
+            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    datePicker.requestFocus();
+                }
+            });
+        }
+
+        @Override
+        public void updateItem(Date item, boolean empty) {
+
+            super.updateItem(item, empty);
+
+            SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
+
+            if (null == this.datePicker) {
+                System.out.println("datePicker is NULL");
+            }
+
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {
+
+                if (isEditing()) {
+                    setContentDisplay(ContentDisplay.TEXT_ONLY);
+
+                } else {
+                    setDatepikerDate(smp.format(item));
+                    setText(smp.format(item));
+                    setGraphic(this.datePicker);
+                    setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                }
+            }
+        }
+
+        private void setDatepikerDate(String dateAsStr) {
+
+            LocalDate ld = null;
+            int jour, mois, annee;
+
+            jour = mois = annee = 0;
+            try {
+                jour = Integer.parseInt(dateAsStr.substring(0, 2));
+                mois = Integer.parseInt(dateAsStr.substring(3, 5));
+                annee = Integer.parseInt(dateAsStr.substring(6, dateAsStr.length()));
+            } catch (NumberFormatException e) {
+                System.out.println("setDatepikerDate / unexpected error " + e);
+            }
+
+            ld = LocalDate.of(annee, mois, jour);
+            datePicker.setValue(ld);
+        }
+
+        private void createDatePicker() {
+            this.datePicker = new DatePicker();
+            datePicker.setPromptText("jj/mm/aaaa");
+            datePicker.setEditable(true);
+
+            datePicker.setOnAction((EventHandler) t -> {
+                LocalDate date = datePicker.getValue();
+
+                SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.DAY_OF_MONTH, date.getDayOfMonth());
+                cal.set(Calendar.MONTH, date.getMonthValue() - 1);
+                cal.set(Calendar.YEAR, date.getYear());
+
+                setText(smp.format(cal.getTime()));
+                ((MaterialSuddenly)getTableRow().getItem()).setDateOfDeliveryMaterialSuddenly(cal.getTime());
+                commitEdit(cal.getTime());
+            });
+
+            setAlignment(Pos.CENTER);
+        }
+
+        @Override
+        public void startEdit() {
+            super.startEdit();
+        }
+
+        @Override
+        public void cancelEdit() {
+            super.cancelEdit();
+            setContentDisplay(ContentDisplay.TEXT_ONLY);
+        }
+
+        public DatePicker getDatePicker() {
+            return datePicker;
+        }
+
+        public void setDatePicker(DatePicker datePicker) {
+            this.datePicker = datePicker;
+        }
+
+    }
+}

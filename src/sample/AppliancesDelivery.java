@@ -1,11 +1,25 @@
 package sample;
 
+import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableCell;
+
+import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 public class AppliancesDelivery {
     protected String nameAppliancesDelivery;//Наименование
     protected boolean activePAppliancesDelivery;//П
     protected boolean activeCAppliancesDelivery;//С
-    protected String unitAppliancesDelivery;//Ед. изм.
+    protected SimpleObjectProperty<UnitType> unitAppliancesDelivery;//Ед. изм.
     protected double quantityAppliancesDelivery;//Количество
     protected double ordinalPriceUnitAppliancesDelivery;//Цена порядковая за ед.
     protected double priceCPUnitAppliancesDelivery;//Цена по КП за ед.
@@ -13,29 +27,29 @@ public class AppliancesDelivery {
     protected double costCPUnitAppliancesDelivery;//Стоимость по КП за ед.
     protected double priceOrderAppliancesDelivery;//Порядок цен
     protected double costCPAppliancesDelivery;//Стоимость по КП
-    protected String productionTimeAppliancesDelivery;//Срок доставки
+    protected SimpleObjectProperty<TimeProduction> productionTimeAppliancesDelivery;//Срок доставки
     protected double actualCostAppliancesDelivery;//Стоимость фактическая
     protected double actualDifferenceAppliancesDelivery;//Разница фактическая
     protected double paidAppliancesDelivery;//Оплачено
     protected double residueAppliancesDelivery;//Остаток
-    protected String dateOfDeliveryAppliancesDelivery;//Дата поставки
+    protected SimpleObjectProperty<Date> dateOfDeliveryAppliancesDelivery;//Дата поставки
     protected String nameRoomAppliancesDelivery;//Наименование помещения
-    protected String plannedCPAppliancesDelivery;
-    protected String actualCPAppliancesDelivery;
-    protected String accountAppliancesDelivery;
-    protected String contactsAppliancesDelivery;
-    protected String notesAppliancesDelivery;
-    protected String characteristicsAppliancesDelivery;
+    protected String plannedCPAppliancesDelivery;//КП плановое
+    protected String actualCPAppliancesDelivery;//КП фактическое
+    protected String accountAppliancesDelivery;//счёт
+    protected String contactsAppliancesDelivery;//контакты
+    protected String notesAppliancesDelivery;//примечания
+    protected String characteristicsAppliancesDelivery;//характеристики
 
 
     public AppliancesDelivery(String nameAppliancesDelivery, boolean activePAppliancesDelivery, boolean activeCAppliancesDelivery, String unitAppliancesDelivery, double quantityAppliancesDelivery,
                               double ordinalPriceUnitAppliancesDelivery, double priceCPUnitAppliancesDelivery, double priceCPKeyAppliancesDelivery, double costCPUnitAppliancesDelivery,
                               double priceOrderAppliancesDelivery, double costCPAppliancesDelivery, String productionTimeAppliancesDelivery, double actualCostAppliancesDelivery,
-                              double actualDifferenceAppliancesDelivery, double paidAppliancesDelivery, double residueAppliancesDelivery, String dateOfDeliveryAppliancesDelivery,String nameRoomAppliancesDelivery,
+                              double actualDifferenceAppliancesDelivery, double paidAppliancesDelivery, double residueAppliancesDelivery, String dateOfDeliveryAppliancesDelivery, String nameRoomAppliancesDelivery,
                               String plannedCPAppliancesDelivery, String actualCPAppliancesDelivery, String accountAppliancesDelivery, String contactsAppliancesDelivery, String notesAppliancesDelivery,
                               String characteristicsAppliancesDelivery) {
         this.nameAppliancesDelivery = nameAppliancesDelivery;
-        this.unitAppliancesDelivery = unitAppliancesDelivery;
+        this.unitAppliancesDelivery = new SimpleObjectProperty<>(UnitType.THING);
         this.activePAppliancesDelivery = activePAppliancesDelivery;
         this.activeCAppliancesDelivery = activeCAppliancesDelivery;
         this.quantityAppliancesDelivery = quantityAppliancesDelivery;
@@ -45,12 +59,12 @@ public class AppliancesDelivery {
         this.costCPUnitAppliancesDelivery = costCPUnitAppliancesDelivery;
         this.priceOrderAppliancesDelivery = priceOrderAppliancesDelivery;
         this.costCPAppliancesDelivery = costCPAppliancesDelivery;
-        this.productionTimeAppliancesDelivery = productionTimeAppliancesDelivery;
+        this.productionTimeAppliancesDelivery = new SimpleObjectProperty<>(TimeProduction.INSTOCK);
         this.actualCostAppliancesDelivery = actualCostAppliancesDelivery;
         this.actualDifferenceAppliancesDelivery = actualDifferenceAppliancesDelivery;
         this.paidAppliancesDelivery = paidAppliancesDelivery;
         this.residueAppliancesDelivery = residueAppliancesDelivery;
-        this.dateOfDeliveryAppliancesDelivery = dateOfDeliveryAppliancesDelivery;
+        this.dateOfDeliveryAppliancesDelivery = new SimpleObjectProperty<>(Date.from(Instant.now()));
         this.nameRoomAppliancesDelivery = nameRoomAppliancesDelivery;
         this.plannedCPAppliancesDelivery = plannedCPAppliancesDelivery;
         this.actualCPAppliancesDelivery = actualCPAppliancesDelivery;
@@ -93,15 +107,15 @@ public class AppliancesDelivery {
         this.nameAppliancesDelivery = nameAppliancesDelivery;
     }
 
-    public String getUnitAppliancesDelivery() {
-        return unitAppliancesDelivery;
+
+    public UnitType getUnitAppliancesDelivery() {
+        return unitAppliancesDelivery.get();
     }
 
-    public void setUnitAppliancesDelivery(String unitAppliancesDelivery) {
-        this.unitAppliancesDelivery = unitAppliancesDelivery;
+    public void setUnitAppliancesDelivery(UnitType unitAppliancesDelivery) {
+        this.unitAppliancesDelivery.set(unitAppliancesDelivery);
     }
 
-    //Чекбоксы
     public boolean getActivePAppliancesDelivery() {
         return activePAppliancesDelivery;
     }
@@ -126,7 +140,6 @@ public class AppliancesDelivery {
         this.activeCAppliancesDelivery = Boolean.parseBoolean(activeCAppliancesDelivery);
     }
 
-    //Обана
     public String getQuantityAppliancesDelivery() {
         return Double.toString(quantityAppliancesDelivery);
     }
@@ -141,7 +154,6 @@ public class AppliancesDelivery {
         CalculateCostCPAppliancesDelivery();
     }
 
-    //Хуяк
     public String getOrdinalPriceUnitAppliancesDelivery() {
         return Double.toString(ordinalPriceUnitAppliancesDelivery);
     }
@@ -195,7 +207,6 @@ public class AppliancesDelivery {
         this.costCPUnitAppliancesDelivery = Double.parseDouble(costCPUnitAppliancesDelivery);
     }
 
-    //Понеслось
     public String getPriceOrderAppliancesDelivery() {
         return Double.toString(priceOrderAppliancesDelivery);
     }
@@ -221,12 +232,13 @@ public class AppliancesDelivery {
         CalculateActualDifferenceAppliancesDelivery();
     }
 
-    public String getProductionTimeAppliancesDelivery() {
-        return productionTimeAppliancesDelivery;
+
+    public TimeProduction getProductionTimeAppliancesDelivery() {
+        return productionTimeAppliancesDelivery.get();
     }
 
-    public void setProductionTimeAppliancesDelivery(String productionTimeAppliancesDelivery) {
-        this.productionTimeAppliancesDelivery = productionTimeAppliancesDelivery;
+    public void setProductionTimeAppliancesDelivery(TimeProduction productionTimeAppliancesDelivery) {
+        this.productionTimeAppliancesDelivery.set(productionTimeAppliancesDelivery);
     }
 
     public String getActualCostAppliancesDelivery() {
@@ -281,13 +293,14 @@ public class AppliancesDelivery {
         this.residueAppliancesDelivery = Double.parseDouble(residueAppliancesDelivery);
     }
 
-    public String getDateOfDeliveryAppliancesDelivery() {
-        return dateOfDeliveryAppliancesDelivery;
+    public Date getDateOfDeliveryAppliancesDelivery() {
+        return dateOfDeliveryAppliancesDelivery.get();
     }
 
-    public void setDateOfDeliveryAppliancesDelivery(String dateOfDeliveryAppliancesDelivery) {
-        this.dateOfDeliveryAppliancesDelivery = dateOfDeliveryAppliancesDelivery;
+    public void setDateOfDeliveryAppliancesDelivery(Date dateOfDeliveryAppliancesDelivery) {
+        this.dateOfDeliveryAppliancesDelivery.set(dateOfDeliveryAppliancesDelivery);
     }
+
 
     public String getNameRoomAppliancesDelivery() {
         return nameRoomAppliancesDelivery;
@@ -344,5 +357,120 @@ public class AppliancesDelivery {
     public void setCharacteristicsAppliancesDelivery(String characteristicsAppliancesDelivery) {
         this.characteristicsAppliancesDelivery = characteristicsAppliancesDelivery;
     }
+
+
+
+
+    public static class DatePickerCell<S, T> extends TableCell<AppliancesDelivery, Date> {
+
+        private DatePicker datePicker;
+        private S editedItem;
+
+        public DatePickerCell() {
+            super();
+
+            if (datePicker == null) {
+                createDatePicker();
+            }
+            setGraphic(datePicker);
+            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    datePicker.requestFocus();
+                }
+            });
+        }
+
+        @Override
+        public void updateItem(Date item, boolean empty) {
+
+            super.updateItem(item, empty);
+
+            SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
+
+            if (null == this.datePicker) {
+                System.out.println("datePicker is NULL");
+            }
+
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {
+
+                if (isEditing()) {
+                    setContentDisplay(ContentDisplay.TEXT_ONLY);
+
+                } else {
+                    setDatepikerDate(smp.format(item));
+                    setText(smp.format(item));
+                    setGraphic(this.datePicker);
+                    setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                }
+            }
+        }
+
+        private void setDatepikerDate(String dateAsStr) {
+
+            LocalDate ld = null;
+            int jour, mois, annee;
+
+            jour = mois = annee = 0;
+            try {
+                jour = Integer.parseInt(dateAsStr.substring(0, 2));
+                mois = Integer.parseInt(dateAsStr.substring(3, 5));
+                annee = Integer.parseInt(dateAsStr.substring(6, dateAsStr.length()));
+            } catch (NumberFormatException e) {
+                System.out.println("setDatepikerDate / unexpected error " + e);
+            }
+
+            ld = LocalDate.of(annee, mois, jour);
+            datePicker.setValue(ld);
+        }
+
+        private void createDatePicker() {
+            this.datePicker = new DatePicker();
+            datePicker.setPromptText("jj/mm/aaaa");
+            datePicker.setEditable(true);
+
+            datePicker.setOnAction((EventHandler) t -> {
+                LocalDate date = datePicker.getValue();
+
+                SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.DAY_OF_MONTH, date.getDayOfMonth());
+                cal.set(Calendar.MONTH, date.getMonthValue() - 1);
+                cal.set(Calendar.YEAR, date.getYear());
+
+                setText(smp.format(cal.getTime()));
+                ((AppliancesDelivery)getTableRow().getItem()).setDateOfDeliveryAppliancesDelivery(cal.getTime());
+                commitEdit(cal.getTime());
+            });
+
+            setAlignment(Pos.CENTER);
+        }
+
+        @Override
+        public void startEdit() {
+            super.startEdit();
+        }
+
+        @Override
+        public void cancelEdit() {
+            super.cancelEdit();
+            setContentDisplay(ContentDisplay.TEXT_ONLY);
+        }
+
+        public DatePicker getDatePicker() {
+            return datePicker;
+        }
+
+        public void setDatePicker(DatePicker datePicker) {
+            this.datePicker = datePicker;
+        }
+
+    }
 }
+
 
