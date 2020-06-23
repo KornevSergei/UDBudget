@@ -2,6 +2,8 @@ package sample;
 
 import javafx.beans.property.SimpleObjectProperty;
 
+import javax.xml.crypto.Data;
+import java.time.Instant;
 import java.util.Date;
 
 public class MaterialWall {
@@ -21,7 +23,8 @@ public class MaterialWall {
     protected double actualDifferenceMaterialWall;//Разница фактическая
     protected double paidMaterialWall;//Оплачено
     protected double residueMaterialWall;//Остаток
-    protected String dateOfDeliveryMaterialWall;//Дата поставки
+//    protected String dateOfDeliveryMaterialWall;//Дата поставки
+    protected SimpleObjectProperty<Date> dateOfDeliveryMaterialWall;//Дата поставки
     protected String nameRoomMaterialWall;//Наименование помещения
     protected String plannedCPMaterialWall;//КП плановое
     protected String actualCPMaterialWall;//КП фактическое
@@ -53,7 +56,8 @@ public class MaterialWall {
         this.actualDifferenceMaterialWall = actualDifferenceMaterialWall;
         this.paidMaterialWall = paidMaterialWall;
         this.residueMaterialWall = residueMaterialWall;
-        this.dateOfDeliveryMaterialWall = dateOfDeliveryMaterialWall;
+//        this.dateOfDeliveryMaterialWall = dateOfDeliveryMaterialWall;
+        this.dateOfDeliveryMaterialWall = new SimpleObjectProperty<>(Date.from(Instant.now()));;
         this.nameRoomMaterialWall = nameRoomMaterialWall;
         this.plannedCPMaterialWall = plannedCPMaterialWall;
         this.actualCPMaterialWall = actualCPMaterialWall;
@@ -282,13 +286,23 @@ public class MaterialWall {
         this.residueMaterialWall = Double.parseDouble(residueMaterialWall);
     }
 
-    public String getDateOfDeliveryMaterialWall() {
-        return dateOfDeliveryMaterialWall;
+//    public String getDateOfDeliveryMaterialWall() {
+//        return dateOfDeliveryMaterialWall;
+//    }
+//
+//    public void setDateOfDeliveryMaterialWall(String dateOfDeliveryMaterialWall) {
+//        this.dateOfDeliveryMaterialWall = dateOfDeliveryMaterialWall;
+//    }
+
+
+    public Date getDateOfDeliveryMaterialWall() {
+        return dateOfDeliveryMaterialWall.get();
     }
 
-    public void setDateOfDeliveryMaterialWall(String dateOfDeliveryMaterialWall) {
-        this.dateOfDeliveryMaterialWall = dateOfDeliveryMaterialWall;
+    public void setDateOfDeliveryMaterialWall(Date dateOfDeliveryMaterialWall) {
+        this.dateOfDeliveryMaterialWall.set(dateOfDeliveryMaterialWall);
     }
+
 
     public String getNameRoomMaterialWall() {
         return nameRoomMaterialWall;

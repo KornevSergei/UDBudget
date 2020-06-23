@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -127,7 +128,8 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialWall, String> colActualDifferenceMaterialWall;
     public TableColumn<MaterialWall, String> colPaidMaterialWall;
     public TableColumn<MaterialWall, String> colResidueMaterialWall;
-    public TableColumn<MaterialWall, String> colDateOfDeliveryMaterialWall;
+//    public TableColumn<MaterialWall, String> colDateOfDeliveryMaterialWall;
+    public TableColumn<MaterialWall, Date> colDateOfDeliveryMaterialWall;
     public TableColumn<MaterialWall, String> colNameRoomMaterialWall;
     public TableColumn<MaterialWall, String> colPlannedCPMaterialWall;
     public TableColumn<MaterialWall, String> colActualCPMaterialWall;
@@ -947,26 +949,20 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
+//        colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
+//        colDateOfDeliveryMaterialWall.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
+//                    @Override
+//                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
+//                        ((MaterialWall) t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialWall(t.getNewValue());
+//                        t.getTableView().refresh();
+//                    }
+//                });
         colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
-        colDateOfDeliveryMaterialWall.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
-                        ((MaterialWall) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialWall(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
-        colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
-        colDateOfDeliveryMaterialWall.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
-                        ((MaterialWall) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialWall(t.getNewValue());
-                        t.getTableView().refresh();
-                    }
-                });
+        colDateOfDeliveryMaterialWall.setCellFactory(p -> {
+            return new DatePickerCell<>();
+        });
 
 
         colNameRoomMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialWall"));
@@ -1044,7 +1040,7 @@ public class EditProjectController implements Initializable {
         colNameMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
 //        colUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
 //        colProductionTimeMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
-        colDateOfDeliveryMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colDateOfDeliveryMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
