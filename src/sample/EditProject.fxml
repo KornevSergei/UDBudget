@@ -24,7 +24,7 @@
                         <TextField fx:id="costDP" layoutX="14.0" layoutY="51.0" prefHeight="26.0" prefWidth="354.0" promptText="Стоимость ДП за кв.м" visible="false" />
                         <TextField fx:id="discountDP" layoutX="14.0" layoutY="86.0" prefHeight="26.0" prefWidth="354.0" promptText="Скидка за ДП %" visible="false" />
                         <Button fx:id="createRoomButton" layoutX="375.0" layoutY="160.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="26.0" prefWidth="75.0" text="Добавить" visible="false" />
-                        <Button fx:id="addPaymentButton" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#test" prefHeight="26.0" prefWidth="353.0" text="+ Добавить этап оплаты" visible="false" />
+                        <Button fx:id="addPaymentButton" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="353.0" text="+ Добавить этап оплаты" visible="false" />
                   <Button fx:id="deleteRoomButton" layoutX="375.0" layoutY="195.0" mnemonicParsing="false" onAction="#deleteRoomElement" prefHeight="25.0" prefWidth="75.0" text="Удалить" visible="false" />
                   <Button fx:id="saveRoomButton" layoutX="376.0" layoutY="228.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" visible="false" />
                   <Button fx:id="backRoomButton" onAction="#backProject" layoutX="376.0" layoutY="260.0" mnemonicParsing="false" text="На главную" visible="false" />
@@ -165,13 +165,13 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView layoutX="26.0" layoutY="129.0" prefHeight="302.0" prefWidth="150.0">
+                        <TableView layoutX="26.0"  layoutY="129.0" prefHeight="302.0" prefWidth="150.0">
                             <columns>
                                 <TableColumn prefWidth="75.0" text="Дата" />
                                 <TableColumn prefWidth="75.0" text="Оплачено" />
                             </columns>
                         </TableView>
-                        <TableView fx:id="AKTableView" layoutX="26.0" layoutY="25.0" onMouseClicked="#On_tabCalculatorClickedActionAK" prefHeight="58.0" prefWidth="406.0">
+                        <TableView fx:id="AKTableView" editable="true" layoutX="26.0" layoutY="25.0" onMouseClicked="#On_tabCalculatorClickedActionAK" prefHeight="58.0" prefWidth="406.0">
                             <columns>
                                 <TableColumn fx:id="colRateAK" prefWidth="110.0" text="Ставка за месяц" />
                                 <TableColumn fx:id="colTermAK" prefWidth="145.0" text="Плановый срок(мес.)" />
@@ -580,7 +580,7 @@
                                  </children></AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane fx:id="titleAppliancesSuddenly" animated="true" layoutX="10.0" layoutY="60.0" text="Нежданчик">
+                                <TitledPane fx:id="titleAppliancesSuddenly" animated="true" layoutX="10.0" layoutY="60.0" text="Нежданчик" >
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>

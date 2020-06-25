@@ -6,13 +6,17 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Material;
 import javafx.util.Callback;
 
+import javax.xml.crypto.Data;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -389,6 +393,7 @@ public class EditProjectController implements Initializable {
         createProjectTextField.setVisible(false);
         addProjectButton.setVisible(false);
 
+
 //        Неправильный метод для увелмичение таблицы
 //        if (!createProjectTextField.getText().equals("")) {
 //            projectTableView.setMinHeight(projectTableView.getHeight() + 25);
@@ -466,11 +471,6 @@ public class EditProjectController implements Initializable {
     }
 
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public void test(ActionEvent actionEvent) {
-        addPaymentButton.setText("Изменили название кнопки!");
-    }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -542,7 +542,6 @@ public class EditProjectController implements Initializable {
                 t.getTableView().refresh();
             }
         });
-
 
         colCostCPSubcontractors.setCellFactory(cellFactoryDoubleSubcontractors);
         colCostCPSubcontractors.setCellValueFactory(new PropertyValueFactory<>("costCPSubcontractors"));
@@ -672,8 +671,6 @@ public class EditProjectController implements Initializable {
                         return new EditingCellTextBox("\\d.\\d");
                     }
                 };
-
-
         colRateAK.setCellFactory(cellFactoryDoubleAK);
         colRateAK.setCellValueFactory(new PropertyValueFactory<>("rateAK"));
         colRateAK.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AK, String>>() {
@@ -705,8 +702,6 @@ public class EditProjectController implements Initializable {
                         t.getTablePosition().getRow())).setCostAK(t.getNewValue());
             }
         });
-
-        AKTableView.setEditable(true);
 
 
         //Помещения
@@ -3524,15 +3519,29 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    double sumMaterialWall = 66.6;
+    double sumPriceOrderMaterialWall = 0.0;
+    double sumCostCPMaterialWall = 0.0;
+    double sumActualCostMaterialWall = 0.0;
+    double sumActualDifferenceMaterialWall = 0.0;
+    double sumPaidMaterialWall = 0.0;
+    double sumResidueMaterialWall = 0.0;
+
 
     public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
             observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleMaterialWall.setText("Стены        /Порядок цен: " + sumPriceOrderMaterialWall + "        /Стоимость по КП: " + sumCostCPMaterialWall +
+                    "        /Стоимость фактическая: " + sumActualCostMaterialWall + "        /Разница фактическая: " + sumActualDifferenceMaterialWall +
+                    "        /Оплачено: " + sumPaidMaterialWall + "        /Остаток: " + sumResidueMaterialWall );
+
         }
     }
+
+
+
 
     public void deleteElementMaterialWall(ActionEvent actionEvent) {
         ObservableList<MaterialWall> allMaterialWall, singleMaterialWall;
@@ -3545,7 +3554,16 @@ public class EditProjectController implements Initializable {
         if (showMaterialWallButton.isSelected()) {
             showMaterialWallButton.setText("Скрыть");
 
-            titleMaterialWall.setText("Стены   Порядок цен: " + sumMaterialWall + " Стоимость по КП: ");
+
+
+//            //!!!!!!!!!!!!!!!!!!!
+//            for (MaterialWall d : colQuantityMaterialWall) {
+//                sumPriceOrderMaterialWall += d.getQuantityMaterialWall;
+//            }
+//            titleMaterialWall.setText(String.format("%.2f", sumPriceOrderMaterialWall));
+//            //!!!!!!!!!!!!!!!!!!
+
+
 
             colActualCostMaterialWall.setVisible(true);
             colActualDifferenceMaterialWall.setVisible(true);
@@ -3559,8 +3577,6 @@ public class EditProjectController implements Initializable {
         } else {
             showMaterialWallButton.setText("Показать");
 
-            titleMaterialWall.setText("Стены");
-
             colActualCostMaterialWall.setVisible(false);
             colActualDifferenceMaterialWall.setVisible(false);
             colPaidMaterialWall.setVisible(false);
@@ -3572,11 +3588,23 @@ public class EditProjectController implements Initializable {
         }
     }
 
+    double sumPriceOrderMaterialFloor = 0.0;
+    double sumCostCPMaterialFloor = 0.0;
+    double sumActualCostMaterialFloor = 0.0;
+    double sumActualDifferenceMaterialFloor = 0.0;
+    double sumPaidMaterialFloor = 0.0;
+    double sumResidueMaterialFloor = 0.0;
+
     public void On_tabCalculatorClickedActionMaterialFloor(MouseEvent mouseEvent) {
         if (observableListMaterialFloor.filtered(x -> "0.0".equals(x.getQuantityMaterialFloor()) && "0.0".equals(x.getOrdinalPriceUnitMaterialFloor())).size() == 0) {
             observableListMaterialFloor.add(new MaterialFloor("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleMaterialFloor.setText("Пол        /Порядок цен: " + sumPriceOrderMaterialFloor + "        /Стоимость по КП: " + sumCostCPMaterialFloor +
+                    "        /Стоимость фактическая: " + sumActualCostMaterialFloor + "        /Разница фактическая: " + sumActualDifferenceMaterialFloor +
+                    "        /Оплачено: " + sumPaidMaterialFloor + "        /Остаток: " + sumResidueMaterialFloor );
+
         }
     }
 
@@ -3614,11 +3642,22 @@ public class EditProjectController implements Initializable {
         }
     }
 
+    double sumPriceOrderMaterialCeiling = 0.0;
+    double sumCostCPMaterialCeiling = 0.0;
+    double sumActualCostMaterialCeiling = 0.0;
+    double sumActualDifferenceMaterialCeiling = 0.0;
+    double sumPaidMaterialCeiling = 0.0;
+    double sumResidueMaterialCeiling = 0.0;
+
     public void On_tabCalculatorClickedActionMaterialCeiling(MouseEvent mouseEvent) {
         if (observableListMaterialCeiling.filtered(x -> "0.0".equals(x.getQuantityMaterialCeiling()) && "0.0".equals(x.getOrdinalPriceUnitMaterialCeiling())).size() == 0) {
             observableListMaterialCeiling.add(new MaterialCeiling("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleMaterialCeiling.setText("Потолок        /Порядок цен: " + sumPriceOrderMaterialCeiling + "        /Стоимость по КП: " + sumCostCPMaterialCeiling +
+                    "        /Стоимость фактическая: " + sumActualCostMaterialCeiling + "        /Разница фактическая: " + sumActualDifferenceMaterialCeiling +
+                    "        /Оплачено: " + sumPaidMaterialCeiling + "        /Остаток: " + sumResidueMaterialCeiling );
         }
     }
 
@@ -3656,11 +3695,22 @@ public class EditProjectController implements Initializable {
         }
     }
 
+    double sumPriceOrderMaterialOther = 0.0;
+    double sumCostCPMaterialOther = 0.0;
+    double sumActualCostMaterialOther = 0.0;
+    double sumActualDifferenceMaterialOther = 0.0;
+    double sumPaidMaterialOther = 0.0;
+    double sumResidueMaterialOther = 0.0;
+
     public void On_tabCalculatorClickedActionMaterialOther(MouseEvent mouseEvent) {
         if (observableListMaterialOther.filtered(x -> "0.0".equals(x.getQuantityMaterialOther()) && "0.0".equals(x.getOrdinalPriceUnitMaterialOther())).size() == 0) {
             observableListMaterialOther.add(new MaterialOther("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleMaterialOther.setText("Другое        /Порядок цен: " + sumPriceOrderMaterialOther + "        /Стоимость по КП: " + sumCostCPMaterialOther +
+                    "        /Стоимость фактическая: " + sumActualCostMaterialOther + "        /Разница фактическая: " + sumActualDifferenceMaterialOther +
+                    "        /Оплачено: " + sumPaidMaterialOther + "        /Остаток: " + sumResidueMaterialOther );
         }
     }
 
@@ -3698,11 +3748,23 @@ public class EditProjectController implements Initializable {
         }
     }
 
+    double sumPriceOrderMaterialSuddenly = 0.0;
+    double sumCostCPMaterialSuddenly = 0.0;
+    double sumActualCostMaterialSuddenly = 0.0;
+    double sumActualDifferenceMaterialSuddenly = 0.0;
+    double sumPaidMaterialSuddenly = 0.0;
+    double sumResidueMaterialSuddenly = 0.0;
+
     public void On_tabCalculatorClickedActionMaterialSuddenly(MouseEvent mouseEvent) {
         if (observableListMaterialSuddenly.filtered(x -> "0.0".equals(x.getQuantityMaterialSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitMaterialSuddenly())).size() == 0) {
             observableListMaterialSuddenly.add(new MaterialSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleMaterialSuddenly.setText("Нежданчик        /Порядок цен: " + sumPriceOrderMaterialSuddenly + "        /Стоимость по КП: " + sumCostCPMaterialSuddenly +
+                    "        /Стоимость фактическая: " + sumActualCostMaterialSuddenly + "        /Разница фактическая: " + sumActualDifferenceMaterialSuddenly +
+                    "        /Оплачено: " + sumPaidMaterialSuddenly + "        /Остаток: " + sumResidueMaterialSuddenly );
+
         }
     }
 
@@ -3741,11 +3803,22 @@ public class EditProjectController implements Initializable {
     }
 
 
+    double sumPriceOrderAppliancesKitchen = 0.0;
+    double sumCostCPAppliancesKitchen = 0.0;
+    double sumActualCostAppliancesKitchen = 0.0;
+    double sumActualDifferenceAppliancesKitchen = 0.0;
+    double sumPaidAppliancesKitchen = 0.0;
+    double sumResidueAppliancesKitchen = 0.0;
+
     public void On_tabCalculatorClickedActionAppliancesKitchen(MouseEvent mouseEvent) {
         if (observableListAppliancesKitchen.filtered(x -> "0.0".equals(x.getQuantityAppliancesKitchen()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesKitchen())).size() == 0) {
             observableListAppliancesKitchen.add(new AppliancesKitchen("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleAppliancesKitchen.setText("Кухонная техника        /Порядок цен: " + sumPriceOrderAppliancesKitchen + "        /Стоимость по КП: " + sumCostCPAppliancesKitchen +
+                    "        /Стоимость фактическая: " + sumActualCostAppliancesKitchen + "        /Разница фактическая: " + sumActualDifferenceAppliancesKitchen +
+                    "        /Оплачено: " + sumPaidAppliancesKitchen + "        /Остаток: " + sumResidueAppliancesKitchen);
         }
     }
 
@@ -3783,11 +3856,26 @@ public class EditProjectController implements Initializable {
         }
     }
 
+
+    double sumPriceOrderAppliancesOther = 0.0;
+    double sumCostCPAppliancesOther = 0.0;
+    double sumActualCostAppliancesOther = 0.0;
+    double sumActualDifferenceAppliancesOther = 0.0;
+    double sumPaidAppliancesOther = 0.0;
+    double sumResidueAppliancesOther = 0.0;
+
     public void On_tabCalculatorClickedActionAppliancesOther(MouseEvent mouseEvent) {
         if (observableListAppliancesOther.filtered(x -> "0.0".equals(x.getQuantityAppliancesOther()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesOther())).size() == 0) {
             observableListAppliancesOther.add(new AppliancesOther("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleAppliancesOther.setText("Другая техника        /Порядок цен: " + sumPriceOrderAppliancesOther + "        /Стоимость по КП: " + sumCostCPAppliancesOther +
+                    "        /Стоимость фактическая: " + sumActualCostAppliancesOther + "        /Разница фактическая: " + sumActualDifferenceAppliancesOther +
+                    "        /Оплачено: " + sumPaidAppliancesOther + "        /Остаток: " + sumResidueAppliancesOther);
+
+
+
         }
     }
 
@@ -3825,11 +3913,23 @@ public class EditProjectController implements Initializable {
         }
     }
 
+    double sumPriceOrderAppliancesDelivery = 0.0;
+    double sumCostCPAppliancesDelivery = 0.0;
+    double sumActualCostAppliancesDelivery = 0.0;
+    double sumActualDifferenceAppliancesDelivery = 0.0;
+    double sumPaidAppliancesDelivery = 0.0;
+    double sumResidueAppliancesDelivery = 0.0;
+
     public void On_tabCalculatorClickedActionAppliancesDelivery(MouseEvent mouseEvent) {
         if (observableListAppliancesDelivery.filtered(x -> "0.0".equals(x.getQuantityAppliancesDelivery()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesDelivery())).size() == 0) {
             observableListAppliancesDelivery.add(new AppliancesDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleAppliancesDelivery.setText("Доставка/сборка        /Порядок цен: " + sumPriceOrderAppliancesDelivery + "        /Стоимость по КП: " + sumCostCPAppliancesDelivery +
+                    "        /Стоимость фактическая: " + sumActualCostAppliancesDelivery + "        /Разница фактическая: " + sumActualDifferenceAppliancesDelivery +
+                    "        /Оплачено: " + sumPaidAppliancesDelivery + "        /Остаток: " + sumResidueAppliancesDelivery);
+
         }
     }
 
@@ -3867,11 +3967,22 @@ public class EditProjectController implements Initializable {
         }
     }
 
+    double sumPriceOrderAppliancesSuddenly = 0.0;
+    double sumCostCPAppliancesSuddenly = 0.0;
+    double sumActualCostAppliancesSuddenly = 0.0;
+    double sumActualDifferenceAppliancesSuddenly = 0.0;
+    double sumPaidAppliancesSuddenly = 0.0;
+    double sumResidueAppliancesSuddenly = 0.0;
+
     public void On_tabCalculatorClickedActionAppliancesSuddenly(MouseEvent mouseEvent) {
         if (observableListAppliancesSuddenly.filtered(x -> "0.0".equals(x.getQuantityAppliancesSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesSuddenly())).size() == 0) {
             observableListAppliancesSuddenly.add(new AppliancesSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
+
+            titleAppliancesSuddenly.setText("Нежданчик        /Порядок цен: " + sumPriceOrderAppliancesSuddenly + "        /Стоимость по КП: " + sumCostCPAppliancesSuddenly +
+                    "        /Стоимость фактическая: " + sumActualCostAppliancesSuddenly + "        /Разница фактическая: " + sumActualDifferenceAppliancesSuddenly +
+                    "        /Оплачено: " + sumPaidAppliancesSuddenly + "        /Остаток: " + sumResidueAppliancesSuddenly);
         }
     }
 
