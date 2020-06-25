@@ -37,6 +37,15 @@ public class EditProjectController implements Initializable {
     public Tab statisticsView;
     public Tab diagramView;
 
+    public TitledPane titleMaterialWall;
+    public TitledPane titleMaterialFloor;
+    public TitledPane titleMaterialCeiling;
+    public TitledPane titleMaterialOther;
+    public TitledPane titleMaterialSuddenly;
+    public TitledPane titleAppliancesKitchen;
+    public TitledPane titleAppliancesOther;
+    public TitledPane titleAppliancesDelivery;
+    public TitledPane titleAppliancesSuddenly;
 
     public TableView<Room> roomTableView;
     public TableColumn<Room, String> colNameRoom;
@@ -647,7 +656,6 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        subcontractorsTableView.setEditable(true);
         colNameCategorySubcontractors.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPSubcontractors.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPSubcontractors.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -946,22 +954,10 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-//        colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
-//        colDateOfDeliveryMaterialWall.setOnEditCommit(
-//                new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
-//                    @Override
-//                    public void handle(TableColumn.CellEditEvent<MaterialWall, String> t) {
-//                        ((MaterialWall) t.getTableView().getItems().get(
-//                                t.getTablePosition().getRow())).setDateOfDeliveryMaterialWall(t.getNewValue());
-//                        t.getTableView().refresh();
-//                    }
-//                });
         colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
         colDateOfDeliveryMaterialWall.setCellFactory(p -> {
             return new  MaterialWall.DatePickerCell<>();
         });
-
-
         colNameRoomMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialWall"));
         colNameRoomMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, String>>() {
@@ -1033,11 +1029,7 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        materialTableViewWall.setEditable(true);
         colNameMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialWall.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1314,11 +1306,7 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        materialTableViewFloor.setEditable(true);
         colNameMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialFloor.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1593,11 +1581,7 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        materialTableViewCeiling.setEditable(true);
         colNameMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialCeiling.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -1872,11 +1856,7 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        materialTableViewOther.setEditable(true);
         colNameMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialOther.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -2150,11 +2130,7 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        materialTableViewSuddenly.setEditable(true);
         colNameMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -2429,11 +2405,7 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        appliancesTableViewKitchen.setEditable(true);
         colNameAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPAppliancesKitchen.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -2518,8 +2490,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setOrdinalPriceUnitAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2529,8 +2501,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceCPUnitAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2540,8 +2512,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceCPKeyAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2551,8 +2523,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCostCPUnitAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2562,8 +2534,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceOrderAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2573,8 +2545,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCostCPAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2585,8 +2557,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, TimeProduction>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, TimeProduction> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setProductionTimeAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeAppliancesOther(t.getNewValue());
                     }
                 });
         colActualCostAppliancesOther.setCellFactory(cellFactoryDoubleAppliancesOther);
@@ -2595,8 +2567,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualCostAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2606,8 +2578,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualDifferenceAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2617,8 +2589,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPaidAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2628,8 +2600,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setResidueAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2642,8 +2614,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNameRoomAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2652,8 +2624,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPlannedCPAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2662,8 +2634,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualCPAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2672,8 +2644,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setAccountAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2682,8 +2654,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setContactsAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2692,8 +2664,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNotesAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2702,17 +2674,13 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesOther, String> t) {
-                        ((AppliancesOther) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCharacteristicsAppliancesOther(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsAppliancesOther(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
 
-        appliancesTableViewOther.setEditable(true);
         colNameAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPAppliancesOther.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -2743,8 +2711,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNameAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameAppliancesDelivery(t.getNewValue());
                     }
                 });
         colActivePAppliancesDelivery.setCellFactory(cellFactoryCheckboxAppliancesDelivery);
@@ -2753,8 +2721,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, Boolean>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, Boolean> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActivePAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2764,8 +2732,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, Boolean>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, Boolean> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActiveCAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2776,8 +2744,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, UnitType>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, UnitType> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setUnitAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitAppliancesDelivery(t.getNewValue());
                     }
                 });
         colQuantityAppliancesDelivery.setCellFactory(cellFactoryDoubleAppliancesDelivery);
@@ -2786,8 +2754,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setQuantityAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2797,8 +2765,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setOrdinalPriceUnitAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2808,8 +2776,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceCPUnitAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2819,8 +2787,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceCPKeyAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2830,8 +2798,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCostCPUnitAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2841,8 +2809,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceOrderAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2852,8 +2820,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCostCPAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2864,8 +2832,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, TimeProduction>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, TimeProduction> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setProductionTimeAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeAppliancesDelivery(t.getNewValue());
                     }
                 });
         colActualCostAppliancesDelivery.setCellFactory(cellFactoryDoubleAppliancesDelivery);
@@ -2874,8 +2842,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualCostAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2885,8 +2853,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualDifferenceAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2896,8 +2864,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPaidAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2907,8 +2875,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setResidueAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2921,8 +2889,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNameRoomAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2931,8 +2899,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPlannedCPAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2941,8 +2909,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualCPAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2951,8 +2919,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setAccountAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2961,8 +2929,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setContactsAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2971,8 +2939,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNotesAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -2981,17 +2949,13 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesDelivery, String> t) {
-                        ((AppliancesDelivery) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCharacteristicsAppliancesDelivery(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsAppliancesDelivery(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
 
-        appliancesTableViewDelivery.setEditable(true);
         colNameAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -3022,8 +2986,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNameAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameAppliancesSuddenly(t.getNewValue());
                     }
                 });
         colActivePAppliancesSuddenly.setCellFactory(cellFactoryCheckboxAppliancesSuddenly);
@@ -3032,8 +2996,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, Boolean>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, Boolean> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActivePAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3043,8 +3007,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, Boolean>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, Boolean> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActiveCAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3055,8 +3019,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, UnitType>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, UnitType> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setUnitAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitAppliancesSuddenly(t.getNewValue());
                     }
                 });
         colQuantityAppliancesSuddenly.setCellFactory(cellFactoryDoubleAppliancesSuddenly);
@@ -3065,8 +3029,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setQuantityAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3076,8 +3040,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setOrdinalPriceUnitAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3087,8 +3051,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceCPUnitAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3098,8 +3062,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceCPKeyAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3109,8 +3073,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCostCPUnitAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3120,8 +3084,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPriceOrderAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3131,8 +3095,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCostCPAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3143,8 +3107,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, TimeProduction>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, TimeProduction> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setProductionTimeAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeAppliancesSuddenly(t.getNewValue());
                     }
                 });
         colActualCostAppliancesSuddenly.setCellFactory(cellFactoryDoubleAppliancesSuddenly);
@@ -3153,8 +3117,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualCostAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3164,8 +3128,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualDifferenceAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3175,8 +3139,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPaidAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3186,8 +3150,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setResidueAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3200,8 +3164,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNameRoomAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3210,8 +3174,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setPlannedCPAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3220,8 +3184,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setActualCPAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3230,8 +3194,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setAccountAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3240,8 +3204,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setContactsAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3250,8 +3214,8 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNotesAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
@@ -3260,17 +3224,13 @@ public class EditProjectController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-                        ((AppliancesSuddenly) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setCharacteristicsAppliancesSuddenly(t.getNewValue());
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsAppliancesSuddenly(t.getNewValue());
                         t.getTableView().refresh();
                     }
                 });
 
-        appliancesTableViewSuddenly.setEditable(true);
         colNameAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colUnitAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colProductionTimeAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colDateOfDeliveryAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colNameRoomAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colPlannedCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colActualCPAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -3564,10 +3524,7 @@ public class EditProjectController implements Initializable {
         }
     }
 
-
-//    double sum = Arrays.stream(colOrdinalPriceUnitMaterialWall).sum();
-//    double sum = 2 +15;
-
+    double sumMaterialWall = 66.6;
 
     public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
@@ -3588,6 +3545,8 @@ public class EditProjectController implements Initializable {
         if (showMaterialWallButton.isSelected()) {
             showMaterialWallButton.setText("Скрыть");
 
+            titleMaterialWall.setText("Стены   Порядок цен: " + sumMaterialWall + " Стоимость по КП: ");
+
             colActualCostMaterialWall.setVisible(true);
             colActualDifferenceMaterialWall.setVisible(true);
             colPaidMaterialWall.setVisible(true);
@@ -3599,6 +3558,8 @@ public class EditProjectController implements Initializable {
 
         } else {
             showMaterialWallButton.setText("Показать");
+
+            titleMaterialWall.setText("Стены");
 
             colActualCostMaterialWall.setVisible(false);
             colActualDifferenceMaterialWall.setVisible(false);
