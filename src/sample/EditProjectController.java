@@ -347,6 +347,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesSuddenly, Boolean> colActiveCAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, UnitType> colUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colQuantityAppliancesSuddenly;
+//    public TableColumn<AppliancesSuddenly, Double> colQuantityAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colOrdinalPriceUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPriceCPUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPriceCPKeyAppliancesSuddenly;
@@ -2960,6 +2961,7 @@ public class EditProjectController implements Initializable {
         colCharacteristicsAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
+
         //Техника - Нежданчик!
         appliancesTableViewSuddenly.setItems(observableListAppliancesSuddenly);
         Callback<TableColumn<AppliancesSuddenly, String>, TableCell<AppliancesSuddenly, String>> cellFactoryDoubleAppliancesSuddenly =
@@ -3233,9 +3235,10 @@ public class EditProjectController implements Initializable {
         colContactsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
     }
+
+
+
 
 
     public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
@@ -3554,17 +3557,6 @@ public class EditProjectController implements Initializable {
         if (showMaterialWallButton.isSelected()) {
             showMaterialWallButton.setText("Скрыть");
 
-
-
-//            //!!!!!!!!!!!!!!!!!!!
-//            for (MaterialWall d : colQuantityMaterialWall) {
-//                sumPriceOrderMaterialWall += d.getQuantityMaterialWall;
-//            }
-//            titleMaterialWall.setText(String.format("%.2f", sumPriceOrderMaterialWall));
-//            //!!!!!!!!!!!!!!!!!!
-
-
-
             colActualCostMaterialWall.setVisible(true);
             colActualDifferenceMaterialWall.setVisible(true);
             colPaidMaterialWall.setVisible(true);
@@ -3604,7 +3596,6 @@ public class EditProjectController implements Initializable {
             titleMaterialFloor.setText("Пол        /Порядок цен: " + sumPriceOrderMaterialFloor + "        /Стоимость по КП: " + sumCostCPMaterialFloor +
                     "        /Стоимость фактическая: " + sumActualCostMaterialFloor + "        /Разница фактическая: " + sumActualDifferenceMaterialFloor +
                     "        /Оплачено: " + sumPaidMaterialFloor + "        /Остаток: " + sumResidueMaterialFloor );
-
         }
     }
 
@@ -4005,6 +3996,15 @@ public class EditProjectController implements Initializable {
 
             colActualCPAppliancesSuddenly.setVisible(true);
             colAccountAppliancesSuddenly.setVisible(true);
+
+
+//            for (Data d : colQuantityAppliancesSuddenly) {
+//                sumPriceOrderAppliancesSuddenly += d.getQuantityAppliancesSuddenly();
+//            }
+//
+//            titleAppliancesSuddenly.setText(String.format("%.2f", sumPriceOrderAppliancesSuddenly));
+//        }
+
 
         } else {
             showAppliancesSuddenlyButton.setText("Показать");
