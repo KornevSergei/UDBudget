@@ -800,9 +800,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListMaterialWall = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialWall.setCellValueFactory(new PropertyValueFactory<>("unitMaterialWall"));
-        colUnitMaterialWall.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitMaterialWall.setCellFactory(ComboBoxTableCell.forTableColumn(typeListMaterialWall));
         colUnitMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, UnitType>>() {
                     @Override
@@ -890,9 +890,9 @@ public class EditProjectController implements Initializable {
                 });
 
 
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListMaterialWall = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialWall.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialWall"));
-        colProductionTimeMaterialWall.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeMaterialWall.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListMaterialWall));
         colProductionTimeMaterialWall.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialWall, TimeProduction>>() {
                     @Override
@@ -1095,9 +1095,9 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListMaterialFloor = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("unitMaterialFloor"));
-        colUnitMaterialFloor.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitMaterialFloor.setCellFactory(ComboBoxTableCell.forTableColumn(typeListMaterialFloor));
         colUnitMaterialFloor.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialFloor, UnitType>>() {
                     @Override
@@ -1184,9 +1184,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListMaterialFloor = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialFloor"));
-        colProductionTimeMaterialFloor.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeMaterialFloor.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListMaterialFloor));
         colProductionTimeMaterialFloor.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialFloor, TimeProduction>>() {
                     @Override
@@ -1241,7 +1241,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialFloor"));
         colDateOfDeliveryMaterialFloor.setCellFactory(p -> {
-            return new  MaterialFloor().DatePickerCell<>();
+            return new  MaterialFloor.DatePickerCell<>();
         });
         colNameRoomMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialFloor"));
         colNameRoomMaterialFloor.setOnEditCommit(
@@ -1375,9 +1375,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListMaterialCeiling = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("unitMaterialCeiling"));
-        colUnitMaterialCeiling.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitMaterialCeiling.setCellFactory(ComboBoxTableCell.forTableColumn(typeListMaterialCeiling));
         colUnitMaterialCeiling.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, UnitType>>() {
                     @Override
@@ -1463,9 +1463,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListMaterialCeiling = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialCeiling"));
-        colProductionTimeMaterialCeiling.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeMaterialCeiling.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListMaterialCeiling));
         colProductionTimeMaterialCeiling.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialCeiling, TimeProduction>>() {
                     @Override
@@ -1654,9 +1654,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListMaterialOther = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialOther.setCellValueFactory(new PropertyValueFactory<>("unitMaterialOther"));
-        colUnitMaterialOther.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitMaterialOther.setCellFactory(ComboBoxTableCell.forTableColumn(typeListMaterialOther));
         colUnitMaterialOther.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialOther, UnitType>>() {
                     @Override
@@ -1742,9 +1742,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListMaterialOther = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialOther.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialOther"));
-        colProductionTimeMaterialOther.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeMaterialOther.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListMaterialOther));
         colProductionTimeMaterialOther.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialOther, TimeProduction>>() {
                     @Override
@@ -1933,9 +1933,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListMaterialSuddenly = FXCollections.observableArrayList(UnitType.values());
         colUnitMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitMaterialSuddenly"));
-        colUnitMaterialSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitMaterialSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeListMaterialSuddenly));
         colUnitMaterialSuddenly.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialSuddenly, UnitType>>() {
                     @Override
@@ -2021,9 +2021,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListMaterialSuddenly = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeMaterialSuddenly"));
-        colProductionTimeMaterialSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeMaterialSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListMaterialSuddenly));
         colProductionTimeMaterialSuddenly.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<MaterialSuddenly, TimeProduction>>() {
                     @Override
@@ -2211,9 +2211,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListAppliancesKitchen = FXCollections.observableArrayList(UnitType.values());
         colUnitAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesKitchen"));
-        colUnitAppliancesKitchen.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitAppliancesKitchen.setCellFactory(ComboBoxTableCell.forTableColumn(typeListAppliancesKitchen));
         colUnitAppliancesKitchen.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesKitchen, UnitType>>() {
                     @Override
@@ -2299,9 +2299,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListAppliancesKitchen = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesKitchen"));
-        colProductionTimeAppliancesKitchen.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeAppliancesKitchen.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListAppliancesKitchen));
         colProductionTimeAppliancesKitchen.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesKitchen, TimeProduction>>() {
                     @Override
@@ -2490,9 +2490,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListAppliancesOther = FXCollections.observableArrayList(UnitType.values());
         colUnitAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesOther"));
-        colUnitAppliancesOther.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitAppliancesOther.setCellFactory(ComboBoxTableCell.forTableColumn(typeListAppliancesOther));
         colUnitAppliancesOther.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, UnitType>>() {
                     @Override
@@ -2578,9 +2578,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListAppliancesOther = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesOther"));
-        colProductionTimeAppliancesOther.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeAppliancesOther.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListAppliancesOther));
         colProductionTimeAppliancesOther.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesOther, TimeProduction>>() {
                     @Override
@@ -2769,9 +2769,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListAppliancesDelivery = FXCollections.observableArrayList(UnitType.values());
         colUnitAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesDelivery"));
-        colUnitAppliancesDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitAppliancesDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(typeListAppliancesDelivery));
         colUnitAppliancesDelivery.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, UnitType>>() {
                     @Override
@@ -2857,9 +2857,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListAppliancesDelivery = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesDelivery"));
-        colProductionTimeAppliancesDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeAppliancesDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListAppliancesDelivery));
         colProductionTimeAppliancesDelivery.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesDelivery, TimeProduction>>() {
                     @Override
@@ -3048,9 +3048,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<UnitType> typeList = FXCollections.observableArrayList(UnitType.values());
+        ObservableList<UnitType> typeListAppliancesSuddenly = FXCollections.observableArrayList(UnitType.values());
         colUnitAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitAppliancesSuddenly"));
-        colUnitAppliancesSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+        colUnitAppliancesSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeListAppliancesSuddenly));
         colUnitAppliancesSuddenly.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, UnitType>>() {
                     @Override
@@ -3136,9 +3136,9 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        ObservableList<TimeProduction> timeProductionList = FXCollections.observableArrayList(TimeProduction.values());
+        ObservableList<TimeProduction> timeProductionListAppliancesSuddenly = FXCollections.observableArrayList(TimeProduction.values());
         colProductionTimeAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeAppliancesSuddenly"));
-        colProductionTimeAppliancesSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
+        colProductionTimeAppliancesSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListAppliancesSuddenly));
         colProductionTimeAppliancesSuddenly.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, TimeProduction>>() {
                     @Override
