@@ -379,7 +379,10 @@ public class EditProjectController implements Initializable {
     public Button createRoomButton;
 
 
-    public Accordion room_properties;
+    public Accordion roomPlumbing;
+    public Accordion roomFurniture;
+    public Accordion roomLight;
+    public Accordion roomDecoration;
 
 
     public void createProject(ActionEvent actionEvent) {
@@ -723,17 +726,9 @@ public class EditProjectController implements Initializable {
                     }
                 };
 
-
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
-//        colNameRoom.setOnEditCommit(
-//                new EventHandler<TableColumn.CellEditEvent<Room, String>>() {
-//                    @Override
-//                    public void handle(TableColumn.CellEditEvent<Room, String> t) {
-//                        ((Room) t.getTableView().getItems().get(
-//                                t.getTablePosition().getRow())).setNameRoom(t.getNewValue());
-//                    }
-//                });
         colNameRoom.setOnEditCommit(this::onClick);
+
         colAreaRoom.setCellFactory(cellFactoryDoubleRoom);
         colAreaRoom.setCellValueFactory(new PropertyValueFactory<>("areaRoom"));
         colAreaRoom.setOnEditCommit(
@@ -3275,18 +3270,10 @@ public class EditProjectController implements Initializable {
         decorationView.setDisable(false);
         statisticsView.setDisable(false);
         diagramView.setDisable(false);
-
-
-
-        //!!!!!НАЧАЛО Д И !!!!!!
-//        colNameRoom.setOnEditCommit(this::initAccordion);
-//        colNameRoom.setOnEditCommit(this::onClick);
     }
 
+    //!!!!!НАЧАЛО Д И !!!!!!
     private void onClick(TableColumn.CellEditEvent<Room, String> event) {
-
-
-//        observableListRoom.add(new Room("", 0,false));
 
         TablePosition<Room, String> pos = event.getTablePosition();
 
@@ -3298,9 +3285,18 @@ public class EditProjectController implements Initializable {
         updatedRoom.setNameRoom(newName);
 
 
+        //Добавили из цикла во вкладки
+        roomPlumbing.getPanes().clear();
+        initAccordion(roomPlumbing);
 
-        room_properties.getPanes().clear();
-        initAccordion(room_properties);
+        roomFurniture.getPanes().clear();
+        initAccordion(roomFurniture);
+
+        roomLight.getPanes().clear();
+        initAccordion(roomLight);
+
+        roomDecoration.getPanes().clear();
+        initAccordion(roomDecoration);
     }
 
     private void initAccordion(Accordion accordion) {
@@ -3325,18 +3321,43 @@ public class EditProjectController implements Initializable {
 
         tableView.setEditable(true);
 
-        TableColumn<Room, String> commentsColumn = new TableColumn<>("QQQQQQQQQQQ");
+        TableColumn<Room, String> colNamePlumbing = new TableColumn<>("Наименование");
+//        TableColumn<Plumbing, Boolean> colActivePPlumbing = new TableColumn<Plumbing, String>("П");
+//        TableColumn<Plumbing, Boolean> colActiveCPlumbing = new TableColumn<Plumbing, String>("С");
+        TableColumn<Room, String> colUnitPlumbing = new TableColumn<>("Ед. изм.");
+        //делаем фикс на длинну
+        colUnitPlumbing.setMinWidth(200);
+        colUnitPlumbing.setMaxWidth(200);
+        TableColumn<Room, String> colQuantityPlumbing = new TableColumn<>("Количество");
+        TableColumn<Room, String> colOrdinalPriceUnitPlumbing = new TableColumn<>("Цена порядковая за ед.");
+        TableColumn<Room, String> colPriceCPUnitPlumbing = new TableColumn<>("Цена по КП за ед.");
+        TableColumn<Room, String> colPriceCPKeyPlumbing = new TableColumn<>("Цена по КП под ключ");
+        TableColumn<Room, String> colCostCPUnitPlumbing = new TableColumn<>("Стоимость по КП за ед.");
+        TableColumn<Room, String> colPriceOrderPlumbing = new TableColumn<>("Порядок цен");
+        TableColumn<Room, String> colCostCPPlumbing = new TableColumn<>("Стоимость по КП");
+        TableColumn<Room, String> colProductionTimePlumbing = new TableColumn<>("Срок доставки");
+        TableColumn<Room, String> colActualCostPlumbing = new TableColumn<>("Стоимость фактическая");
+        TableColumn<Room, String> colActualDifferencePlumbing = new TableColumn<>("Разница фактическая");
+        TableColumn<Room, String> colPaidPlumbing = new TableColumn<>("Оплачено");
+        TableColumn<Room, String> colResiduePlumbing = new TableColumn<>("Остаток");
+        TableColumn<Room, String> colDateOfDeliveryPlumbing = new TableColumn<>("Дата поставки");
+        TableColumn<Room, String> colPlannedCPPlumbing = new TableColumn<>("КП плановое");
+        TableColumn<Room, String> colActualCPPlumbing = new TableColumn<>("КП фактическое");
+        TableColumn<Room, String> colAccountMPlumbing = new TableColumn<>("Счёт");
+        TableColumn<Room, String> colContactsPlumbing = new TableColumn<>("Контакты");
+        TableColumn<Room, String> colNotesPlumbing = new TableColumn<>("Примечания");
+        TableColumn<Room, String> colCharacteristicsPlumbing = new TableColumn<>("Характеристики");
 
 
 //        initCommentsColumn(commentsColumn);
 
-        tableView.getColumns().addAll(commentsColumn);
+        tableView.getColumns().addAll(colNamePlumbing, colUnitPlumbing, colQuantityPlumbing, colOrdinalPriceUnitPlumbing, colPriceCPUnitPlumbing, colPriceCPKeyPlumbing,
+                colCostCPUnitPlumbing, colPriceOrderPlumbing, colCostCPPlumbing, colProductionTimePlumbing, colActualCostPlumbing, colActualDifferencePlumbing, colPaidPlumbing,
+                colResiduePlumbing, colDateOfDeliveryPlumbing, colPlannedCPPlumbing, colActualCPPlumbing, colAccountMPlumbing, colContactsPlumbing, colNotesPlumbing, colCharacteristicsPlumbing);
 
         return tableView;
     }
-
-
-    //!!!! КОНЕЦ ДИ !!!!!!!
+    //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!
 
 
     public void On_tabCalculatorClickedSubcontractors(MouseEvent mouseEvent) {

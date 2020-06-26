@@ -422,23 +422,27 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <Accordion fx:id="room_properties" prefHeight="372.0" prefWidth="600.0" />
+                        <Accordion fx:id="roomPlumbing" prefHeight="500.0" prefWidth="2000.0" />
                     </children>
                 </AnchorPane>
             </content>
         </Tab>
         <Tab fx:id="furnitureView" disable="false" text="Мебель">
             <content>
-                <VBox minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1000.0">
-
-                </VBox>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Accordion fx:id="roomFurniture" prefHeight="500.0" prefWidth="1900.0" />
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab fx:id="lightView" disable="false" text="Свет">
             <content>
-                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-
-                </VBox>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Accordion fx:id="roomLight" prefHeight="500.0" prefWidth="1900.0" />
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab fx:id="appliancesView" disable="false" text="Техника">
@@ -635,9 +639,11 @@
         </Tab>
         <Tab fx:id="decorationView" disable="false" text="Декор">
             <content>
-                <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-
-                </VBox>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Accordion fx:id="roomDecoration" prefHeight="500.0" prefWidth="1900.0" />
+                    </children>
+                </AnchorPane>
             </content>
         </Tab>
         <Tab fx:id="statisticsView" disable="false" text="Статистика">
