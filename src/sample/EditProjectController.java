@@ -3340,7 +3340,8 @@ public class EditProjectController implements Initializable {
             vBoxDecoration.getChildren().addAll(buttonDeleteDecoration);
 
 
-            TableView<Plumbing> plumbingTableView = new TableView<>();
+            TableView<Plumbing> plumbingTableView = new TableView<Plumbing>();
+            plumbingTableView.setEditable(true);
             //тест
 //            TableColumn<Plumbing, String> colNamePlumbing = new TableColumn<Plumbing, String>("Наименование");
             TableColumn<Plumbing, UnitType> colNamePlumbing = new TableColumn<Plumbing, UnitType>("Наименование");
@@ -3374,6 +3375,7 @@ public class EditProjectController implements Initializable {
                     colResiduePlumbing, colDateOfDeliveryPlumbing, colPlannedCPPlumbing, colActualCPPlumbing, colAccountMPlumbing, colContactsPlumbing, colNotesPlumbing, colCharacteristicsPlumbing);
 
             TableView<Furniture> furnitureTableView = new TableView<>();
+            furnitureTableView.setEditable(true);
             TableColumn<Furniture, String> colNameFurniture = new TableColumn<Furniture, String>("Наименование");
 //            TableColumn<Furniture, Boolean> colActivePFurniture = new TableColumn<Furniture, String>("П");
 //            TableColumn<Furniture, Boolean> colActiveCFurniture = new TableColumn<Furniture, String>("С");
@@ -3403,6 +3405,7 @@ public class EditProjectController implements Initializable {
 
 
             TableView<Light> lightTableView = new TableView<>();
+            lightTableView.setEditable(true);
             TableColumn<Light, String> colNameLight = new TableColumn<Light, String>("Наименование");
 //            TableColumn<Light, Boolean> colActivePLight = new TableColumn<Light, String>("П");
 //            TableColumn<Light, Boolean> colActiveCLight = new TableColumn<Light, String>("С");
@@ -3432,6 +3435,7 @@ public class EditProjectController implements Initializable {
 
 
             TableView<Decoration> decorationTableView = new TableView<>();
+            decorationTableView.setEditable(true);
             TableColumn<Decoration, String> colNameDecoration = new TableColumn<Decoration, String>("Наименование");
 //            TableColumn<Decoration, Boolean> colActivePDecoration = new TableColumn<Decoration, String>("П");
 //            TableColumn<Decoration, Boolean> colActiveCDecoration = new TableColumn<Decoration, String>("С");
@@ -3536,14 +3540,12 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialWall.setText("Стены        /Порядок цен: " + sumPriceOrderMaterialWall + "        /Стоимость по КП: " + sumCostCPMaterialWall +
-                    "        /Стоимость фактическая: " + sumActualCostMaterialWall + "        /Разница фактическая: " + sumActualDifferenceMaterialWall +
-                    "        /Оплачено: " + sumPaidMaterialWall + "        /Остаток: " + sumResidueMaterialWall );
+            titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialWall) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialWall) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialWall) );
 
         }
     }
-
-
 
 
     public void deleteElementMaterialWall(ActionEvent actionEvent) {
@@ -3593,9 +3595,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialFloor.setText("Пол        /Порядок цен: " + sumPriceOrderMaterialFloor + "        /Стоимость по КП: " + sumCostCPMaterialFloor +
-                    "        /Стоимость фактическая: " + sumActualCostMaterialFloor + "        /Разница фактическая: " + sumActualDifferenceMaterialFloor +
-                    "        /Оплачено: " + sumPaidMaterialFloor + "        /Остаток: " + sumResidueMaterialFloor );
+            titleMaterialFloor.setText("Пол        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialFloor) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialFloor) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialFloor) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialFloor) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialFloor) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialFloor) );
         }
     }
 
@@ -3646,9 +3648,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialCeiling.setText("Потолок        /Порядок цен: " + sumPriceOrderMaterialCeiling + "        /Стоимость по КП: " + sumCostCPMaterialCeiling +
-                    "        /Стоимость фактическая: " + sumActualCostMaterialCeiling + "        /Разница фактическая: " + sumActualDifferenceMaterialCeiling +
-                    "        /Оплачено: " + sumPaidMaterialCeiling + "        /Остаток: " + sumResidueMaterialCeiling );
+            titleMaterialCeiling.setText("Потолок        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialCeiling) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialCeiling) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialCeiling) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialCeiling) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialCeiling) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialCeiling) );
         }
     }
 
@@ -3699,9 +3701,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialOther.setText("Другое        /Порядок цен: " + sumPriceOrderMaterialOther + "        /Стоимость по КП: " + sumCostCPMaterialOther +
-                    "        /Стоимость фактическая: " + sumActualCostMaterialOther + "        /Разница фактическая: " + sumActualDifferenceMaterialOther +
-                    "        /Оплачено: " + sumPaidMaterialOther + "        /Остаток: " + sumResidueMaterialOther );
+            titleMaterialOther.setText("Другое        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialOther) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialOther) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialOther) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialOther) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialOther) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialOther) );
         }
     }
 
@@ -3752,10 +3754,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialSuddenly.setText("Нежданчик        /Порядок цен: " + sumPriceOrderMaterialSuddenly + "        /Стоимость по КП: " + sumCostCPMaterialSuddenly +
-                    "        /Стоимость фактическая: " + sumActualCostMaterialSuddenly + "        /Разница фактическая: " + sumActualDifferenceMaterialSuddenly +
-                    "        /Оплачено: " + sumPaidMaterialSuddenly + "        /Остаток: " + sumResidueMaterialSuddenly );
-
+            titleMaterialSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialSuddenly) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialSuddenly) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialSuddenly) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialSuddenly) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialSuddenly) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialSuddenly));
         }
     }
 
@@ -3807,9 +3808,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesKitchen.setText("Кухонная техника        /Порядок цен: " + sumPriceOrderAppliancesKitchen + "        /Стоимость по КП: " + sumCostCPAppliancesKitchen +
-                    "        /Стоимость фактическая: " + sumActualCostAppliancesKitchen + "        /Разница фактическая: " + sumActualDifferenceAppliancesKitchen +
-                    "        /Оплачено: " + sumPaidAppliancesKitchen + "        /Остаток: " + sumResidueAppliancesKitchen);
+            titleAppliancesKitchen.setText("Кухонная техника        /Порядок цен: " + String.format("%.2f",sumPriceOrderAppliancesKitchen) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPAppliancesKitchen) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostAppliancesKitchen) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceAppliancesKitchen) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidAppliancesKitchen) + "        /Остаток: " + String.format("%.2f",sumResidueAppliancesKitchen));
         }
     }
 
@@ -3861,9 +3862,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesOther.setText("Другая техника        /Порядок цен: " + sumPriceOrderAppliancesOther + "        /Стоимость по КП: " + sumCostCPAppliancesOther +
-                    "        /Стоимость фактическая: " + sumActualCostAppliancesOther + "        /Разница фактическая: " + sumActualDifferenceAppliancesOther +
-                    "        /Оплачено: " + sumPaidAppliancesOther + "        /Остаток: " + sumResidueAppliancesOther);
+            titleAppliancesOther.setText("Другая техника        /Порядок цен: " + String.format("%.2f",sumPriceOrderAppliancesOther) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPAppliancesOther) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostAppliancesOther) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceAppliancesOther) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidAppliancesOther) + "        /Остаток: " + String.format("%.2f",sumResidueAppliancesOther));
 
 
 
@@ -3917,9 +3918,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesDelivery.setText("Доставка/сборка        /Порядок цен: " + sumPriceOrderAppliancesDelivery + "        /Стоимость по КП: " + sumCostCPAppliancesDelivery +
-                    "        /Стоимость фактическая: " + sumActualCostAppliancesDelivery + "        /Разница фактическая: " + sumActualDifferenceAppliancesDelivery +
-                    "        /Оплачено: " + sumPaidAppliancesDelivery + "        /Остаток: " + sumResidueAppliancesDelivery);
+            titleAppliancesDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f",sumPriceOrderAppliancesDelivery) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPAppliancesDelivery) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostAppliancesDelivery) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceAppliancesDelivery) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidAppliancesDelivery) + "        /Остаток: " + String.format("%.2f",sumResidueAppliancesDelivery));
 
         }
     }
@@ -3971,9 +3972,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesSuddenly.setText("Нежданчик        /Порядок цен: " + sumPriceOrderAppliancesSuddenly + "        /Стоимость по КП: " + sumCostCPAppliancesSuddenly +
-                    "        /Стоимость фактическая: " + sumActualCostAppliancesSuddenly + "        /Разница фактическая: " + sumActualDifferenceAppliancesSuddenly +
-                    "        /Оплачено: " + sumPaidAppliancesSuddenly + "        /Остаток: " + sumResidueAppliancesSuddenly);
+            titleAppliancesSuddenly.setText("Нежданчик        /Порядок цен: " +  String.format("%.2f",sumPriceOrderAppliancesSuddenly) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPAppliancesSuddenly) +
+                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostAppliancesSuddenly) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceAppliancesSuddenly) +
+                    "        /Оплачено: " + String.format("%.2f",sumPaidAppliancesSuddenly) + "        /Остаток: " + String.format("%.2f",sumResidueAppliancesSuddenly));
         }
     }
 
@@ -3998,13 +3999,25 @@ public class EditProjectController implements Initializable {
             colAccountAppliancesSuddenly.setVisible(true);
 
 
-//            for (Data d : colQuantityAppliancesSuddenly) {
-//                sumPriceOrderAppliancesSuddenly += d.getQuantityAppliancesSuddenly();
+//            for (AppliancesSuddenly d : colQuantityAppliancesSuddenly) {
+//                sumPriceOrderAppliancesSuddenly += Double.parseDouble(d.getQuantityAppliancesSuddenly());
+//                System.out.println("Tect");
 //            }
-//
-//            titleAppliancesSuddenly.setText(String.format("%.2f", sumPriceOrderAppliancesSuddenly));
-//        }
 
+
+
+//            for (TableColumn<AppliancesSuddenly, ?> d : colQuantityAppliancesSuddenly.getColumns()) {
+//            for (AppliancesSuddenly d : colQuantityAppliancesSuddenly.getColumns()) {
+
+//            for (AppliancesSuddenly d : colQuantityAppliancesSuddenly.get) {
+//                System.out.println(d);
+//            }
+
+            System.out.println("Tect");
+
+
+
+//            titleAppliancesSuddenly.setText(String.format("%.2f", sumPriceOrderAppliancesSuddenly));
 
         } else {
             showAppliancesSuddenlyButton.setText("Показать");
