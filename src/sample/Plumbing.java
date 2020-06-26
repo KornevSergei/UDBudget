@@ -1,29 +1,37 @@
 package sample;
 
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+
+import java.time.Instant;
+import java.util.Date;
+
 public class Plumbing {
-    protected String namePlumbing;//Наименование
-    protected boolean activePPlumbing;//П
-    protected boolean activeCPlumbing;//С
-    protected String unitPlumbing;//Ед. изм.
-    protected double quantityPlumbing;//Количество
-    protected double ordinalPriceUnitPlumbing;//Цена порядковая за ед.
-    protected double priceCPUnitPlumbing;//Цена по КП за ед.
-    protected double priceCPKeyPlumbing;//Цена по КП под ключ
-    protected double costCPUnitPlumbing;//Стоимость по КП за ед.
-    protected double priceOrderPlumbing;//Порядок цен
-    protected double costCPPlumbing;//Стоимость по КП
-    protected String productionTimePlumbing;//Срок доставки
-    protected double actualCostPlumbing;//Стоимость фактическая
-    protected double actualDifferencePlumbing;//Разница фактическая
-    protected double paidPlumbing;//Оплачено
-    protected double residuePlumbing;//Остаток
-    protected String dateOfDeliveryPlumbing;//Дата поставки
-    protected String plannedCPPlumbing;
-    protected String actualCPPlumbing;
-    protected String accountPlumbing;
-    protected String contactsPlumbing;
-    protected String notesPlumbing;
-    protected String characteristicsPlumbing;
+    protected SimpleStringProperty namePlumbing;//Наименование
+    protected SimpleBooleanProperty activePPlumbing;//П
+    protected SimpleBooleanProperty activeCPlumbing;//С
+    protected SimpleObjectProperty <UnitType> unitPlumbing;//Ед. изм.
+    protected SimpleDoubleProperty quantityPlumbing;//Количество
+    protected SimpleDoubleProperty ordinalPriceUnitPlumbing;//Цена порядковая за ед.
+    protected SimpleDoubleProperty priceCPUnitPlumbing;//Цена по КП за ед.
+    protected SimpleDoubleProperty priceCPKeyPlumbing;//Цена по КП под ключ
+    protected SimpleDoubleProperty costCPUnitPlumbing;//Стоимость по КП за ед.
+    protected SimpleDoubleProperty priceOrderPlumbing;//Порядок цен
+    protected SimpleDoubleProperty costCPPlumbing;//Стоимость по КП
+    protected SimpleObjectProperty <TimeProduction> productionTimePlumbing;//Срок доставки
+    protected SimpleDoubleProperty actualCostPlumbing;//Стоимость фактическая
+    protected SimpleDoubleProperty actualDifferencePlumbing;//Разница фактическая
+    protected SimpleDoubleProperty paidPlumbing;//Оплачено
+    protected SimpleDoubleProperty residuePlumbing;//Остаток
+    protected SimpleObjectProperty<Date> dateOfDeliveryPlumbing;//Дата поставки
+    protected SimpleStringProperty plannedCPPlumbing;
+    protected SimpleStringProperty actualCPPlumbing;
+    protected SimpleStringProperty accountPlumbing;
+    protected SimpleStringProperty contactsPlumbing;
+    protected SimpleStringProperty notesPlumbing;
+    protected SimpleStringProperty characteristicsPlumbing;
 
 
     public Plumbing(String namePlumbing, boolean activePPlumbing, boolean activeCPlumbing, String unitPlumbing, double quantityPlumbing,
@@ -32,303 +40,331 @@ public class Plumbing {
                     double actualDifferencePlumbing, double paidPlumbing, double residuePlumbing, String dateOfDeliveryPlumbing,
                     String plannedCPPlumbing, String actualCPPlumbing, String accountPlumbing, String contactsPlumbing, String notesPlumbing,
                     String characteristicsPlumbing) {
-        this.namePlumbing = namePlumbing;
-        this.activePPlumbing = activePPlumbing;
-        this.activeCPlumbing = activeCPlumbing;
-        this.unitPlumbing = unitPlumbing;
-        this.quantityPlumbing = quantityPlumbing;
-        this.ordinalPriceUnitPlumbing = ordinalPriceUnitPlumbing;
-        this.priceCPUnitPlumbing = priceCPUnitPlumbing;
-        this.priceCPKeyPlumbing = priceCPKeyPlumbing;
-        this.costCPUnitPlumbing = costCPUnitPlumbing;
-        this.priceOrderPlumbing = priceOrderPlumbing;
-        this.costCPPlumbing = costCPPlumbing;
-        this.productionTimePlumbing = productionTimePlumbing;
-        this.actualCostPlumbing = actualCostPlumbing;
-        this.actualDifferencePlumbing = actualDifferencePlumbing;
-        this.paidPlumbing = paidPlumbing;
-        this.residuePlumbing = residuePlumbing;
-        this.dateOfDeliveryPlumbing = dateOfDeliveryPlumbing;
-        this.plannedCPPlumbing = plannedCPPlumbing;
-        this.actualCPPlumbing = actualCPPlumbing;
-        this.accountPlumbing = accountPlumbing;
-        this.contactsPlumbing = contactsPlumbing;
-        this.notesPlumbing = notesPlumbing;
-        this.characteristicsPlumbing = characteristicsPlumbing;
+        this.namePlumbing = new SimpleStringProperty(namePlumbing);
+        this.activePPlumbing = new SimpleBooleanProperty(false);
+        this.activeCPlumbing = new SimpleBooleanProperty(false);
+        this.unitPlumbing = new SimpleObjectProperty<>(UnitType.THING);
+        this.quantityPlumbing = new SimpleDoubleProperty(quantityPlumbing);
+        this.ordinalPriceUnitPlumbing = new SimpleDoubleProperty(ordinalPriceUnitPlumbing);
+        this.priceCPUnitPlumbing = new SimpleDoubleProperty(priceCPUnitPlumbing);
+        this.priceCPKeyPlumbing = new SimpleDoubleProperty(priceCPKeyPlumbing);
+        this.costCPUnitPlumbing = new SimpleDoubleProperty(costCPUnitPlumbing);
+        this.priceOrderPlumbing = new SimpleDoubleProperty(priceOrderPlumbing);
+        this.costCPPlumbing = new SimpleDoubleProperty(costCPPlumbing);
+        this.productionTimePlumbing = new SimpleObjectProperty<>(TimeProduction.INSTOCK);
+        this.actualCostPlumbing = new SimpleDoubleProperty(actualCostPlumbing);
+        this.actualDifferencePlumbing = new SimpleDoubleProperty(actualDifferencePlumbing);
+        this.paidPlumbing = new SimpleDoubleProperty(paidPlumbing);
+        this.residuePlumbing = new SimpleDoubleProperty(residuePlumbing);
+        this.dateOfDeliveryPlumbing = new SimpleObjectProperty<>(Date.from(Instant.now()));
+        this.plannedCPPlumbing = new SimpleStringProperty(plannedCPPlumbing);
+        this.actualCPPlumbing = new SimpleStringProperty(actualCPPlumbing);
+        this.accountPlumbing = new SimpleStringProperty(accountPlumbing);
+        this.contactsPlumbing = new SimpleStringProperty(contactsPlumbing);
+        this.notesPlumbing = new SimpleStringProperty(notesPlumbing);
+        this.characteristicsPlumbing = new SimpleStringProperty(characteristicsPlumbing);
     }
 
-    public void CalculatePriceOrderPlumbing() {
-        priceOrderPlumbing = quantityPlumbing * ordinalPriceUnitPlumbing;
-    }
 
-    public void CalculateСostCPUnitPlumbing() {
-        if (priceCPKeyPlumbing > 0)
-            costCPUnitPlumbing = priceCPKeyPlumbing / quantityPlumbing;
-        else costCPUnitPlumbing = priceCPUnitPlumbing;
-    }
 
-    public void CalculateCostCPPlumbing() {
-        if (priceCPKeyPlumbing > 0)
-            costCPPlumbing = priceCPKeyPlumbing;
-        else costCPPlumbing = priceCPUnitPlumbing * quantityPlumbing;
-    }
-
-    public void CalculateActualDifferencePlumbing() {
-        actualDifferencePlumbing = costCPPlumbing - actualCostPlumbing;
-    }
-
-    public void CalculateResiduePlumbing() {
-        residuePlumbing = actualCostPlumbing - paidPlumbing;
-    }
+//    public void CalculatePriceOrderPlumbing() {
+//        priceOrderPlumbing = quantityPlumbing * ordinalPriceUnitPlumbing;
+//    }
+//
+//    public void CalculateСostCPUnitPlumbing() {
+//        if (priceCPKeyPlumbing > 0)
+//            costCPUnitPlumbing = priceCPKeyPlumbing / quantityPlumbing;
+//        else costCPUnitPlumbing = priceCPUnitPlumbing;
+//    }
+//
+//    public void CalculateCostCPPlumbing() {
+//        if (priceCPKeyPlumbing > 0)
+//            costCPPlumbing = priceCPKeyPlumbing;
+//        else costCPPlumbing = priceCPUnitPlumbing * quantityPlumbing;
+//    }
+//
+//    public void CalculateActualDifferencePlumbing() {
+//        actualDifferencePlumbing = costCPPlumbing - actualCostPlumbing;
+//    }
+//
+//    public void CalculateResiduePlumbing() {
+//        residuePlumbing = actualCostPlumbing - paidPlumbing;
+//    }
 
 
     public String getNamePlumbing() {
+        return namePlumbing.get();
+    }
+
+    public SimpleStringProperty namePlumbingProperty() {
         return namePlumbing;
     }
 
     public void setNamePlumbing(String namePlumbing) {
-        this.namePlumbing = namePlumbing;
+        this.namePlumbing.set(namePlumbing);
     }
 
-    public String getUnitPlumbing() {
-        return unitPlumbing;
+    public boolean isActivePPlumbing() {
+        return activePPlumbing.get();
     }
 
-    public void setUnitPlumbing(String unitPlumbing) {
-        this.unitPlumbing = unitPlumbing;
-    }
-
-    //Чекбоксы
-    public boolean getActivePPlumbing() {
+    public SimpleBooleanProperty activePPlumbingProperty() {
         return activePPlumbing;
     }
 
     public void setActivePPlumbing(boolean activePPlumbing) {
-        this.activePPlumbing = activePPlumbing;
+        this.activePPlumbing.set(activePPlumbing);
     }
 
-    public void setActivePPlumbing(String activePPlumbing) {
-        this.activePPlumbing = Boolean.parseBoolean(activePPlumbing);
+    public boolean isActiveCPlumbing() {
+        return activeCPlumbing.get();
     }
 
-    public boolean getActiveCPlumbing() {
+    public SimpleBooleanProperty activeCPlumbingProperty() {
         return activeCPlumbing;
     }
 
     public void setActiveCPlumbing(boolean activeCPlumbing) {
-        this.activeCPlumbing = activeCPlumbing;
+        this.activeCPlumbing.set(activeCPlumbing);
     }
 
-    public void setActiveCPlumbing(String activeCPlumbing) {
-        this.activeCPlumbing = Boolean.parseBoolean(activeCPlumbing);
+    public UnitType getUnitPlumbing() {
+        return unitPlumbing.get();
     }
 
-    public String getQuantityPlumbing() {
-        return Double.toString(quantityPlumbing);
+    public SimpleObjectProperty<UnitType> unitPlumbingProperty() {
+        return unitPlumbing;
+    }
+
+    public void setUnitPlumbing(UnitType unitPlumbing) {
+        this.unitPlumbing.set(unitPlumbing);
+    }
+
+    public double getQuantityPlumbing() {
+        return quantityPlumbing.get();
+    }
+
+    public SimpleDoubleProperty quantityPlumbingProperty() {
+        return quantityPlumbing;
     }
 
     public void setQuantityPlumbing(double quantityPlumbing) {
-        this.quantityPlumbing = quantityPlumbing;
+        this.quantityPlumbing.set(quantityPlumbing);
     }
 
-    public void setQuantityPlumbing(String quantityPlumbing) {
-        this.quantityPlumbing = Double.parseDouble(quantityPlumbing);
-        CalculatePriceOrderPlumbing();
-        CalculateCostCPPlumbing();
+    public double getOrdinalPriceUnitPlumbing() {
+        return ordinalPriceUnitPlumbing.get();
     }
 
-    public String getOrdinalPriceUnitPlumbing() {
-        return Double.toString(ordinalPriceUnitPlumbing);
+    public SimpleDoubleProperty ordinalPriceUnitPlumbingProperty() {
+        return ordinalPriceUnitPlumbing;
     }
 
     public void setOrdinalPriceUnitPlumbing(double ordinalPriceUnitPlumbing) {
-        this.ordinalPriceUnitPlumbing = ordinalPriceUnitPlumbing;
+        this.ordinalPriceUnitPlumbing.set(ordinalPriceUnitPlumbing);
     }
 
-    public void setOrdinalPriceUnitPlumbing(String ordinalPriceUnitPlumbing) {
-        this.ordinalPriceUnitPlumbing = Double.parseDouble(ordinalPriceUnitPlumbing);
-        CalculatePriceOrderPlumbing();
+    public double getPriceCPUnitPlumbing() {
+        return priceCPUnitPlumbing.get();
     }
 
-    public String getPriceCPUnitPlumbing() {
-        return Double.toString(priceCPUnitPlumbing);
+    public SimpleDoubleProperty priceCPUnitPlumbingProperty() {
+        return priceCPUnitPlumbing;
     }
 
     public void setPriceCPUnitPlumbing(double priceCPUnitPlumbing) {
-        this.priceCPUnitPlumbing = priceCPUnitPlumbing;
+        this.priceCPUnitPlumbing.set(priceCPUnitPlumbing);
     }
 
-    public void setPriceCPUnitPlumbing(String priceCPUnitPlumbing) {
-        this.priceCPUnitPlumbing = Double.parseDouble(priceCPUnitPlumbing);
-        CalculateСostCPUnitPlumbing();
-        CalculateCostCPPlumbing();
+    public double getPriceCPKeyPlumbing() {
+        return priceCPKeyPlumbing.get();
     }
 
-    public String getPriceCPKeyPlumbing() {
-        return Double.toString(priceCPKeyPlumbing);
+    public SimpleDoubleProperty priceCPKeyPlumbingProperty() {
+        return priceCPKeyPlumbing;
     }
 
     public void setPriceCPKeyPlumbing(double priceCPKeyPlumbing) {
-        this.priceCPKeyPlumbing = priceCPKeyPlumbing;
+        this.priceCPKeyPlumbing.set(priceCPKeyPlumbing);
     }
 
-    public void setPriceCPKeyPlumbing(String priceCPKeyPlumbing) {
-        this.priceCPKeyPlumbing = Double.parseDouble(priceCPKeyPlumbing);
-        CalculateСostCPUnitPlumbing();
-        CalculateCostCPPlumbing();
+    public double getCostCPUnitPlumbing() {
+        return costCPUnitPlumbing.get();
     }
 
-    public String getCostCPUnitPlumbing() {
-        return Double.toString(costCPUnitPlumbing);
+    public SimpleDoubleProperty costCPUnitPlumbingProperty() {
+        return costCPUnitPlumbing;
     }
 
     public void setCostCPUnitPlumbing(double costCPUnitPlumbing) {
-        this.costCPUnitPlumbing = costCPUnitPlumbing;
+        this.costCPUnitPlumbing.set(costCPUnitPlumbing);
     }
 
-    public void setCostCPUnitPlumbing(String costCPUnitPlumbing) {
-        this.costCPUnitPlumbing = Double.parseDouble(costCPUnitPlumbing);
+    public double getPriceOrderPlumbing() {
+        return priceOrderPlumbing.get();
     }
 
-    //Понеслось
-    public String getPriceOrderPlumbing() {
-        return Double.toString(priceOrderPlumbing);
+    public SimpleDoubleProperty priceOrderPlumbingProperty() {
+        return priceOrderPlumbing;
     }
 
     public void setPriceOrderPlumbing(double priceOrderPlumbing) {
-        this.priceOrderPlumbing = priceOrderPlumbing;
+        this.priceOrderPlumbing.set(priceOrderPlumbing);
     }
 
-    public void setPriceOrderPlumbing(String priceOrderPlumbing) {
-        this.priceOrderPlumbing = Double.parseDouble(priceOrderPlumbing);
+    public double getCostCPPlumbing() {
+        return costCPPlumbing.get();
     }
 
-    public String getCostCPPlumbing() {
-        return Double.toString(costCPPlumbing);
+    public SimpleDoubleProperty costCPPlumbingProperty() {
+        return costCPPlumbing;
     }
 
     public void setCostCPPlumbing(double costCPPlumbing) {
-        this.costCPPlumbing = costCPPlumbing;
+        this.costCPPlumbing.set(costCPPlumbing);
     }
 
-    public void setCostCPPlumbing(String costCPPlumbing) {
-        this.costCPPlumbing = Double.parseDouble(costCPPlumbing);
-        CalculateActualDifferencePlumbing();
+    public TimeProduction getProductionTimePlumbing() {
+        return productionTimePlumbing.get();
     }
 
-    public String getProductionTimePlumbing() {
+    public SimpleObjectProperty<TimeProduction> productionTimePlumbingProperty() {
         return productionTimePlumbing;
     }
 
-    public void setProductionTimePlumbing(String productionTimePlumbing) {
-        this.productionTimePlumbing = productionTimePlumbing;
+    public void setProductionTimePlumbing(TimeProduction productionTimePlumbing) {
+        this.productionTimePlumbing.set(productionTimePlumbing);
     }
 
-    public String getActualCostPlumbing() {
-        return Double.toString(actualCostPlumbing);
+    public double getActualCostPlumbing() {
+        return actualCostPlumbing.get();
+    }
+
+    public SimpleDoubleProperty actualCostPlumbingProperty() {
+        return actualCostPlumbing;
     }
 
     public void setActualCostPlumbing(double actualCostPlumbing) {
-        this.actualCostPlumbing = actualCostPlumbing;
+        this.actualCostPlumbing.set(actualCostPlumbing);
     }
 
-    public void setActualCostPlumbing(String actualCostPlumbing) {
-        this.actualCostPlumbing = Double.parseDouble(actualCostPlumbing);
-        CalculateActualDifferencePlumbing();
-        CalculateResiduePlumbing();
-
+    public double getActualDifferencePlumbing() {
+        return actualDifferencePlumbing.get();
     }
 
-    public String getActualDifferencePlumbing() {
-        return Double.toString(actualDifferencePlumbing);
+    public SimpleDoubleProperty actualDifferencePlumbingProperty() {
+        return actualDifferencePlumbing;
     }
 
     public void setActualDifferencePlumbing(double actualDifferencePlumbing) {
-        this.actualDifferencePlumbing = actualDifferencePlumbing;
+        this.actualDifferencePlumbing.set(actualDifferencePlumbing);
     }
 
-    public void setActualDifferencePlumbing(String actualDifferencePlumbing) {
-        this.actualDifferencePlumbing = Double.parseDouble(actualDifferencePlumbing);
+    public double getPaidPlumbing() {
+        return paidPlumbing.get();
     }
 
-    public String getPaidPlumbing() {
-        return Double.toString(paidPlumbing);
+    public SimpleDoubleProperty paidPlumbingProperty() {
+        return paidPlumbing;
     }
 
     public void setPaidPlumbing(double paidPlumbing) {
-        this.paidPlumbing = paidPlumbing;
+        this.paidPlumbing.set(paidPlumbing);
     }
 
-    public void setPaidPlumbing(String paidPlumbing) {
-        this.paidPlumbing = Double.parseDouble(paidPlumbing);
-        CalculateResiduePlumbing();
+    public double getResiduePlumbing() {
+        return residuePlumbing.get();
     }
 
-    public String getResiduePlumbing() {
-        return Double.toString(residuePlumbing);
+    public SimpleDoubleProperty residuePlumbingProperty() {
+        return residuePlumbing;
     }
 
     public void setResiduePlumbing(double residuePlumbing) {
-        this.residuePlumbing = residuePlumbing;
+        this.residuePlumbing.set(residuePlumbing);
     }
 
-    public void setResiduePlumbing(String residuePlumbing) {
-        this.residuePlumbing = Double.parseDouble(residuePlumbing);
+    public Date getDateOfDeliveryPlumbing() {
+        return dateOfDeliveryPlumbing.get();
     }
 
-    public String getDateOfDeliveryPlumbing() {
+    public SimpleObjectProperty<Date> dateOfDeliveryPlumbingProperty() {
         return dateOfDeliveryPlumbing;
     }
 
-    public void setDateOfDeliveryPlumbing(String dateOfDeliveryPlumbing) {
-        this.dateOfDeliveryPlumbing = dateOfDeliveryPlumbing;
+    public void setDateOfDeliveryPlumbing(Date dateOfDeliveryPlumbing) {
+        this.dateOfDeliveryPlumbing.set(dateOfDeliveryPlumbing);
     }
 
     public String getPlannedCPPlumbing() {
+        return plannedCPPlumbing.get();
+    }
+
+    public SimpleStringProperty plannedCPPlumbingProperty() {
         return plannedCPPlumbing;
     }
 
     public void setPlannedCPPlumbing(String plannedCPPlumbing) {
-        this.plannedCPPlumbing = plannedCPPlumbing;
+        this.plannedCPPlumbing.set(plannedCPPlumbing);
     }
 
     public String getActualCPPlumbing() {
+        return actualCPPlumbing.get();
+    }
+
+    public SimpleStringProperty actualCPPlumbingProperty() {
         return actualCPPlumbing;
     }
 
     public void setActualCPPlumbing(String actualCPPlumbing) {
-        this.actualCPPlumbing = actualCPPlumbing;
+        this.actualCPPlumbing.set(actualCPPlumbing);
     }
 
     public String getAccountPlumbing() {
+        return accountPlumbing.get();
+    }
+
+    public SimpleStringProperty accountPlumbingProperty() {
         return accountPlumbing;
     }
 
     public void setAccountPlumbing(String accountPlumbing) {
-        this.accountPlumbing = accountPlumbing;
+        this.accountPlumbing.set(accountPlumbing);
     }
 
     public String getContactsPlumbing() {
+        return contactsPlumbing.get();
+    }
+
+    public SimpleStringProperty contactsPlumbingProperty() {
         return contactsPlumbing;
     }
 
     public void setContactsPlumbing(String contactsPlumbing) {
-        this.contactsPlumbing = contactsPlumbing;
+        this.contactsPlumbing.set(contactsPlumbing);
     }
 
     public String getNotesPlumbing() {
+        return notesPlumbing.get();
+    }
+
+    public SimpleStringProperty notesPlumbingProperty() {
         return notesPlumbing;
     }
 
     public void setNotesPlumbing(String notesPlumbing) {
-        this.notesPlumbing = notesPlumbing;
+        this.notesPlumbing.set(notesPlumbing);
     }
 
     public String getCharacteristicsPlumbing() {
+        return characteristicsPlumbing.get();
+    }
+
+    public SimpleStringProperty characteristicsPlumbingProperty() {
         return characteristicsPlumbing;
     }
 
     public void setCharacteristicsPlumbing(String characteristicsPlumbing) {
-        this.characteristicsPlumbing = characteristicsPlumbing;
+        this.characteristicsPlumbing.set(characteristicsPlumbing);
     }
 }

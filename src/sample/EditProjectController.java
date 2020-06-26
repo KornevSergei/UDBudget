@@ -347,7 +347,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesSuddenly, Boolean> colActiveCAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, UnitType> colUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colQuantityAppliancesSuddenly;
-//    public TableColumn<AppliancesSuddenly, Double> colQuantityAppliancesSuddenly;
+    //    public TableColumn<AppliancesSuddenly, Double> colQuantityAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colOrdinalPriceUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPriceCPUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPriceCPKeyAppliancesSuddenly;
@@ -377,6 +377,9 @@ public class EditProjectController implements Initializable {
 
 
     public Button createRoomButton;
+
+
+    public Accordion room_properties;
 
 
     public void createProject(ActionEvent actionEvent) {
@@ -722,14 +725,15 @@ public class EditProjectController implements Initializable {
 
 
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
-        colNameRoom.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<Room, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<Room, String> t) {
-                        ((Room) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setNameRoom(t.getNewValue());
-                    }
-                });
+//        colNameRoom.setOnEditCommit(
+//                new EventHandler<TableColumn.CellEditEvent<Room, String>>() {
+//                    @Override
+//                    public void handle(TableColumn.CellEditEvent<Room, String> t) {
+//                        ((Room) t.getTableView().getItems().get(
+//                                t.getTablePosition().getRow())).setNameRoom(t.getNewValue());
+//                    }
+//                });
+        colNameRoom.setOnEditCommit(this::onClick);
         colAreaRoom.setCellFactory(cellFactoryDoubleRoom);
         colAreaRoom.setCellValueFactory(new PropertyValueFactory<>("areaRoom"));
         colAreaRoom.setOnEditCommit(
@@ -752,7 +756,6 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        roomTableView.setEditable(true);
         colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
@@ -952,7 +955,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryMaterialWall.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialWall"));
         colDateOfDeliveryMaterialWall.setCellFactory(p -> {
-            return new  MaterialWall.DatePickerCell<>();
+            return new MaterialWall.DatePickerCell<>();
         });
         colNameRoomMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialWall"));
         colNameRoomMaterialWall.setOnEditCommit(
@@ -1229,7 +1232,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialFloor"));
         colDateOfDeliveryMaterialFloor.setCellFactory(p -> {
-            return new  MaterialFloor.DatePickerCell<>();
+            return new MaterialFloor.DatePickerCell<>();
         });
         colNameRoomMaterialFloor.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialFloor"));
         colNameRoomMaterialFloor.setOnEditCommit(
@@ -1504,7 +1507,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialCeiling"));
         colDateOfDeliveryMaterialCeiling.setCellFactory(p -> {
-            return new  MaterialCeiling.DatePickerCell<>();
+            return new MaterialCeiling.DatePickerCell<>();
         });
         colNameRoomMaterialCeiling.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialCeiling"));
         colNameRoomMaterialCeiling.setOnEditCommit(
@@ -1779,7 +1782,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryMaterialOther.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialOther"));
         colDateOfDeliveryMaterialOther.setCellFactory(p -> {
-            return new  MaterialOther.DatePickerCell<>();
+            return new MaterialOther.DatePickerCell<>();
         });
         colNameRoomMaterialOther.setCellValueFactory(new PropertyValueFactory<>("nameRoomMaterialOther"));
         colNameRoomMaterialOther.setOnEditCommit(
@@ -2054,7 +2057,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryMaterialSuddenly"));
         colDateOfDeliveryMaterialSuddenly.setCellFactory(p -> {
-            return new  MaterialSuddenly.DatePickerCell<>();
+            return new MaterialSuddenly.DatePickerCell<>();
         });
         colNameMaterialSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameMaterialSuddenly"));
         colNameMaterialSuddenly.setOnEditCommit(
@@ -2328,7 +2331,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesKitchen"));
         colDateOfDeliveryAppliancesKitchen.setCellFactory(p -> {
-            return new  AppliancesKitchen.DatePickerCell<>();
+            return new AppliancesKitchen.DatePickerCell<>();
         });
         colNameRoomAppliancesKitchen.setCellValueFactory(new PropertyValueFactory<>("nameRoomAppliancesKitchen"));
         colNameRoomAppliancesKitchen.setOnEditCommit(
@@ -2603,7 +2606,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesOther"));
         colDateOfDeliveryAppliancesOther.setCellFactory(p -> {
-            return new  AppliancesOther.DatePickerCell<>();
+            return new AppliancesOther.DatePickerCell<>();
         });
         colNameRoomAppliancesOther.setCellValueFactory(new PropertyValueFactory<>("nameRoomAppliancesOther"));
         colNameRoomAppliancesOther.setOnEditCommit(
@@ -2878,7 +2881,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesDelivery"));
         colDateOfDeliveryAppliancesDelivery.setCellFactory(p -> {
-            return new  AppliancesDelivery.DatePickerCell<>();
+            return new AppliancesDelivery.DatePickerCell<>();
         });
         colNameRoomAppliancesDelivery.setCellValueFactory(new PropertyValueFactory<>("nameRoomAppliancesDelivery"));
         colNameRoomAppliancesDelivery.setOnEditCommit(
@@ -2959,7 +2962,6 @@ public class EditProjectController implements Initializable {
         colContactsAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsAppliancesDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
-
 
 
         //Техника - Нежданчик!
@@ -3154,7 +3156,7 @@ public class EditProjectController implements Initializable {
                 });
         colDateOfDeliveryAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryAppliancesSuddenly"));
         colDateOfDeliveryAppliancesSuddenly.setCellFactory(p -> {
-            return new  AppliancesSuddenly.DatePickerCell<>();
+            return new AppliancesSuddenly.DatePickerCell<>();
         });
         colNameRoomAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameRoomAppliancesSuddenly"));
         colNameRoomAppliancesSuddenly.setOnEditCommit(
@@ -3238,9 +3240,6 @@ public class EditProjectController implements Initializable {
     }
 
 
-
-
-
     public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
         if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
             observableListAK.add(new AK(0, 0, 0));
@@ -3261,6 +3260,7 @@ public class EditProjectController implements Initializable {
     }
 
     public void saveRoomElement(ActionEvent actionEvent) {
+//    public void saveRoomElement(TableColumn.CellEditEvent<Room, String> event) {
 
         totalView.setDisable(false);
         DPView.setDisable(false);
@@ -3277,212 +3277,67 @@ public class EditProjectController implements Initializable {
         diagramView.setDisable(false);
 
 
-//        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
-//            Button newButton = new Button();
-//            newButton.setText(room.getAreaRoom());
-//
-//
-//            VBox layout = new VBox();
-//
-//            layout.getChildren().add(newButton);
-//
-//            Scene newScene = new Scene(layout, 250, 50);
-//
-//            Stage newStage = new Stage();
-//            newStage.setTitle(room.getNameRoom());
-//            newStage.setScene(newScene);
-//
-//            newStage.show();
-//        }
+
+        //!!!!!НАЧАЛО Д И !!!!!!
+//        colNameRoom.setOnEditCommit(this::initAccordion);
+//        colNameRoom.setOnEditCommit(this::onClick);
+    }
+
+    private void onClick(TableColumn.CellEditEvent<Room, String> event) {
 
 
-        for (Room room : observableListRoom.filtered(x -> !"".equals(x.getNameRoom()))) {
+//        observableListRoom.add(new Room("", 0,false));
 
-            Button buttonDeletePlumbing = new Button("Удалить");
-            Button buttonDeleteFurniture = new Button("Удалить");
-            Button buttonDeleteLight = new Button("Удалить");
-            Button buttonDeleteDecoration = new Button("Удалить");
+        TablePosition<Room, String> pos = event.getTablePosition();
 
-            Accordion accordionPlumbing = new Accordion();
-            Accordion accordionFurniture = new Accordion();
-            Accordion accordionLight = new Accordion();
-            Accordion accordionDecoration = new Accordion();
+        String newName = event.getNewValue();
 
-            TitledPane titledPanePlumbing = new TitledPane();
-            TitledPane titledPaneFurniture = new TitledPane();
-            TitledPane titledPaneLight = new TitledPane();
-            TitledPane titledPaneDecoration = new TitledPane();
+        int row = pos.getRow();
+        Room updatedRoom = event.getTableView().getItems().get(row);
 
-            //получаем имя + "ТЕКСТ!"
-            titledPanePlumbing.setText(room.getNameRoom());
-            titledPaneFurniture.setText(room.getNameRoom());
-            titledPaneLight.setText(room.getNameRoom());
-            titledPaneDecoration.setText(room.getNameRoom());
+        updatedRoom.setNameRoom(newName);
 
 
-            //присваиваем имя
-            accordionPlumbing.getPanes().add(titledPanePlumbing);
-            accordionFurniture.getPanes().add(titledPaneFurniture);
-            accordionLight.getPanes().add(titledPaneLight);
-            accordionDecoration.getPanes().add(titledPaneDecoration);
 
+        room_properties.getPanes().clear();
+        initAccordion(room_properties);
+    }
 
-            VBox vBoxPlumbing = new VBox();
-            vBoxPlumbing.getChildren().addAll(buttonDeletePlumbing);
-
-            VBox vBoxFurniture = new VBox();
-            vBoxFurniture.getChildren().addAll(buttonDeleteFurniture);
-
-            VBox vBoxLight = new VBox();
-            vBoxLight.getChildren().addAll(buttonDeleteLight);
-
-            VBox vBoxDecoration = new VBox();
-            vBoxDecoration.getChildren().addAll(buttonDeleteDecoration);
-
-
-            TableView<Plumbing> plumbingTableView = new TableView<Plumbing>();
-            plumbingTableView.setEditable(true);
-            //тест
-//            TableColumn<Plumbing, String> colNamePlumbing = new TableColumn<Plumbing, String>("Наименование");
-            TableColumn<Plumbing, UnitType> colNamePlumbing = new TableColumn<Plumbing, UnitType>("Наименование");
-//            TableColumn<Plumbing, Boolean> colActivePPlumbing = new TableColumn<Plumbing, String>("П");
-//            TableColumn<Plumbing, Boolean> colActiveCPlumbing = new TableColumn<Plumbing, String>("С");
-            TableColumn<Plumbing, String> colUnitPlumbing = new TableColumn<Plumbing, String>("Ед. изм.");
-            //делаем фикс на длинну
-            colUnitPlumbing.setMinWidth(200);
-            colUnitPlumbing.setMaxWidth(200);
-            TableColumn<Plumbing, String> colQuantityPlumbing = new TableColumn<Plumbing, String>("Количество");
-            TableColumn<Plumbing, String> colOrdinalPriceUnitPlumbing = new TableColumn<Plumbing, String>("Цена порядковая за ед.");
-            TableColumn<Plumbing, String> colPriceCPUnitPlumbing = new TableColumn<Plumbing, String>("Цена по КП за ед.");
-            TableColumn<Plumbing, String> colPriceCPKeyPlumbing = new TableColumn<Plumbing, String>("Цена по КП под ключ");
-            TableColumn<Plumbing, String> colCostCPUnitPlumbing = new TableColumn<Plumbing, String>("Стоимость по КП за ед.");
-            TableColumn<Plumbing, String> colPriceOrderPlumbing = new TableColumn<Plumbing, String>("Порядок цен");
-            TableColumn<Plumbing, String> colCostCPPlumbing = new TableColumn<Plumbing, String>("Стоимость по КП");
-            TableColumn<Plumbing, String> colProductionTimePlumbing = new TableColumn<Plumbing, String>("Срок доставки");
-            TableColumn<Plumbing, String> colActualCostPlumbing = new TableColumn<Plumbing, String>("Стоимость фактическая");
-            TableColumn<Plumbing, String> colActualDifferencePlumbing = new TableColumn<Plumbing, String>("Разница фактическая");
-            TableColumn<Plumbing, String> colPaidPlumbing = new TableColumn<Plumbing, String>("Оплачено");
-            TableColumn<Plumbing, String> colResiduePlumbing = new TableColumn<Plumbing, String>("Остаток");
-            TableColumn<Plumbing, String> colDateOfDeliveryPlumbing = new TableColumn<Plumbing, String>("Дата поставки");
-            TableColumn<Plumbing, String> colPlannedCPPlumbing = new TableColumn<Plumbing, String>("КП плановое");
-            TableColumn<Plumbing, String> colActualCPPlumbing = new TableColumn<Plumbing, String>("КП фактическое");
-            TableColumn<Plumbing, String> colAccountMPlumbing = new TableColumn<Plumbing, String>("Счёт");
-            TableColumn<Plumbing, String> colContactsPlumbing = new TableColumn<Plumbing, String>("Контакты");
-            TableColumn<Plumbing, String> colNotesPlumbing = new TableColumn<Plumbing, String>("Примечания");
-            TableColumn<Plumbing, String> colCharacteristicsPlumbing = new TableColumn<Plumbing, String>("Характеристики");
-            plumbingTableView.getColumns().addAll(colNamePlumbing, colUnitPlumbing, colQuantityPlumbing, colOrdinalPriceUnitPlumbing, colPriceCPUnitPlumbing, colPriceCPKeyPlumbing,
-                    colCostCPUnitPlumbing, colPriceOrderPlumbing, colCostCPPlumbing, colProductionTimePlumbing, colActualCostPlumbing, colActualDifferencePlumbing, colPaidPlumbing,
-                    colResiduePlumbing, colDateOfDeliveryPlumbing, colPlannedCPPlumbing, colActualCPPlumbing, colAccountMPlumbing, colContactsPlumbing, colNotesPlumbing, colCharacteristicsPlumbing);
-
-            TableView<Furniture> furnitureTableView = new TableView<>();
-            furnitureTableView.setEditable(true);
-            TableColumn<Furniture, String> colNameFurniture = new TableColumn<Furniture, String>("Наименование");
-//            TableColumn<Furniture, Boolean> colActivePFurniture = new TableColumn<Furniture, String>("П");
-//            TableColumn<Furniture, Boolean> colActiveCFurniture = new TableColumn<Furniture, String>("С");
-            TableColumn<Furniture, String> colUnitFurniture = new TableColumn<Furniture, String>("Ед. изм.");
-            TableColumn<Furniture, String> colQuantityFurniture = new TableColumn<Furniture, String>("Количество");
-            TableColumn<Furniture, String> colOrdinalPriceUnitFurniture = new TableColumn<Furniture, String>("Цена порядковая за ед.");
-            TableColumn<Furniture, String> colPriceCPUnitFurniture = new TableColumn<Furniture, String>("Цена по КП за ед.");
-            TableColumn<Furniture, String> colPriceCPKeyFurniture = new TableColumn<Furniture, String>("Цена по КП под ключ");
-            TableColumn<Furniture, String> colCostCPUnitFurniture = new TableColumn<Furniture, String>("Стоимость по КП за ед.");
-            TableColumn<Furniture, String> colPriceOrderFurniture = new TableColumn<Furniture, String>("Порядок цен");
-            TableColumn<Furniture, String> colCostCPFurniture = new TableColumn<Furniture, String>("Стоимость по КП");
-            TableColumn<Furniture, String> colProductionTimeFurniture = new TableColumn<Furniture, String>("Срок доставки");
-            TableColumn<Furniture, String> colActualCostFurniture = new TableColumn<Furniture, String>("Стоимость фактическая");
-            TableColumn<Furniture, String> colActualDifferenceFurniture = new TableColumn<Furniture, String>("Разница фактическая");
-            TableColumn<Furniture, String> colPaidFurniture = new TableColumn<Furniture, String>("Оплачено");
-            TableColumn<Furniture, String> colResidueFurniture = new TableColumn<Furniture, String>("Остаток");
-            TableColumn<Furniture, String> colDateOfDeliveryFurniture = new TableColumn<Furniture, String>("Дата поставки");
-            TableColumn<Furniture, String> colPlannedCPFurniture = new TableColumn<Furniture, String>("КП плановое");
-            TableColumn<Furniture, String> colActualCPFurniture = new TableColumn<Furniture, String>("КП фактическое");
-            TableColumn<Furniture, String> colAccountMFurniture = new TableColumn<Furniture, String>("Счёт");
-            TableColumn<Furniture, String> colContactsFurniture = new TableColumn<Furniture, String>("Контакты");
-            TableColumn<Furniture, String> colNotesFurniture = new TableColumn<Furniture, String>("Примечания");
-            TableColumn<Furniture, String> colCharacteristicsFurniture = new TableColumn<Furniture, String>("Характеристики");
-            furnitureTableView.getColumns().addAll(colNameFurniture, colUnitFurniture, colQuantityFurniture, colOrdinalPriceUnitFurniture, colPriceCPUnitFurniture, colPriceCPKeyFurniture,
-                    colCostCPUnitFurniture, colPriceOrderFurniture, colCostCPFurniture, colProductionTimeFurniture, colActualCostFurniture, colActualDifferenceFurniture, colPaidFurniture,
-                    colResidueFurniture, colDateOfDeliveryFurniture, colPlannedCPFurniture, colActualCPFurniture, colAccountMFurniture, colContactsFurniture, colNotesFurniture, colCharacteristicsFurniture);
-
-
-            TableView<Light> lightTableView = new TableView<>();
-            lightTableView.setEditable(true);
-            TableColumn<Light, String> colNameLight = new TableColumn<Light, String>("Наименование");
-//            TableColumn<Light, Boolean> colActivePLight = new TableColumn<Light, String>("П");
-//            TableColumn<Light, Boolean> colActiveCLight = new TableColumn<Light, String>("С");
-            TableColumn<Light, String> colUnitLight = new TableColumn<Light, String>("Ед. изм.");
-            TableColumn<Light, String> colQuantityLight = new TableColumn<Light, String>("Количество");
-            TableColumn<Light, String> colOrdinalPriceUnitLight = new TableColumn<Light, String>("Цена порядковая за ед.");
-            TableColumn<Light, String> colPriceCPUnitLight = new TableColumn<Light, String>("Цена по КП за ед.");
-            TableColumn<Light, String> colPriceCPKeyLight = new TableColumn<Light, String>("Цена по КП под ключ");
-            TableColumn<Light, String> colCostCPUnitLight = new TableColumn<Light, String>("Стоимость по КП за ед.");
-            TableColumn<Light, String> colPriceOrderLight = new TableColumn<Light, String>("Порядок цен");
-            TableColumn<Light, String> colCostCPLight = new TableColumn<Light, String>("Стоимость по КП");
-            TableColumn<Light, String> colProductionTimeLight = new TableColumn<Light, String>("Срок доставки");
-            TableColumn<Light, String> colActualCostLight = new TableColumn<Light, String>("Стоимость фактическая");
-            TableColumn<Light, String> colActualDifferenceLight = new TableColumn<Light, String>("Разница фактическая");
-            TableColumn<Light, String> colPaidLight = new TableColumn<Light, String>("Оплачено");
-            TableColumn<Light, String> colResidueLight = new TableColumn<Light, String>("Остаток");
-            TableColumn<Light, String> colDateOfDeliveryLight = new TableColumn<Light, String>("Дата поставки");
-            TableColumn<Light, String> colPlannedCPLight = new TableColumn<Light, String>("КП плановое");
-            TableColumn<Light, String> colActualCPLight = new TableColumn<Light, String>("КП фактическое");
-            TableColumn<Light, String> colAccountMLight = new TableColumn<Light, String>("Счёт");
-            TableColumn<Light, String> colContactsLight = new TableColumn<Light, String>("Контакты");
-            TableColumn<Light, String> colNotesLight = new TableColumn<Light, String>("Примечания");
-            TableColumn<Light, String> colCharacteristicsLight = new TableColumn<Light, String>("Характеристики");
-            lightTableView.getColumns().addAll(colNameLight, colUnitLight, colQuantityLight, colOrdinalPriceUnitLight, colPriceCPUnitLight, colPriceCPKeyLight,
-                    colCostCPUnitLight, colPriceOrderLight, colCostCPLight, colProductionTimeLight, colActualCostLight, colActualDifferenceLight, colPaidLight,
-                    colResidueLight, colDateOfDeliveryLight, colPlannedCPLight, colActualCPLight, colAccountMLight, colContactsLight, colNotesLight, colCharacteristicsLight);
-
-
-            TableView<Decoration> decorationTableView = new TableView<>();
-            decorationTableView.setEditable(true);
-            TableColumn<Decoration, String> colNameDecoration = new TableColumn<Decoration, String>("Наименование");
-//            TableColumn<Decoration, Boolean> colActivePDecoration = new TableColumn<Decoration, String>("П");
-//            TableColumn<Decoration, Boolean> colActiveCDecoration = new TableColumn<Decoration, String>("С");
-            TableColumn<Decoration, String> colUnitDecoration = new TableColumn<Decoration, String>("Ед. изм.");
-            TableColumn<Decoration, String> colQuantityDecoration = new TableColumn<Decoration, String>("Количество");
-            TableColumn<Decoration, String> colOrdinalPriceUnitDecoration = new TableColumn<Decoration, String>("Цена порядковая за ед.");
-            TableColumn<Decoration, String> colPriceCPUnitDecoration = new TableColumn<Decoration, String>("Цена по КП за ед.");
-            TableColumn<Decoration, String> colPriceCPKeyDecoration = new TableColumn<Decoration, String>("Цена по КП под ключ");
-            TableColumn<Decoration, String> colCostCPUnitDecoration = new TableColumn<Decoration, String>("Стоимость по КП за ед.");
-            TableColumn<Decoration, String> colPriceOrderDecoration = new TableColumn<Decoration, String>("Порядок цен");
-            TableColumn<Decoration, String> colCostCPDecoration = new TableColumn<Decoration, String>("Стоимость по КП");
-            TableColumn<Decoration, String> colProductionTimeDecoration = new TableColumn<Decoration, String>("Срок доставки");
-            TableColumn<Decoration, String> colActualCostDecoration = new TableColumn<Decoration, String>("Стоимость фактическая");
-            TableColumn<Decoration, String> colActualDifferenceDecoration = new TableColumn<Decoration, String>("Разница фактическая");
-            TableColumn<Decoration, String> colPaidDecoration = new TableColumn<Decoration, String>("Оплачено");
-            TableColumn<Decoration, String> colResidueDecoration = new TableColumn<Decoration, String>("Остаток");
-            TableColumn<Decoration, String> colDateOfDeliveryDecoration = new TableColumn<Decoration, String>("Дата поставки");
-            TableColumn<Decoration, String> colPlannedCPDecoration = new TableColumn<Decoration, String>("КП плановое");
-            TableColumn<Decoration, String> colActualCPDecoration = new TableColumn<Decoration, String>("КП фактическое");
-            TableColumn<Decoration, String> colAccountMDecoration = new TableColumn<Decoration, String>("Счёт");
-            TableColumn<Decoration, String> colContactsDecoration = new TableColumn<Decoration, String>("Контакты");
-            TableColumn<Decoration, String> colNotesDecoration = new TableColumn<Decoration, String>("Примечания");
-            TableColumn<Decoration, String> colCharacteristicsDecoration = new TableColumn<Decoration, String>("Характеристики");
-            decorationTableView.getColumns().addAll(colNameDecoration, colUnitDecoration, colQuantityDecoration, colOrdinalPriceUnitDecoration, colPriceCPUnitDecoration, colPriceCPKeyDecoration,
-                    colCostCPUnitDecoration, colPriceOrderDecoration, colCostCPDecoration, colProductionTimeDecoration, colActualCostDecoration, colActualDifferenceDecoration, colPaidDecoration,
-                    colResidueDecoration, colDateOfDeliveryDecoration, colPlannedCPDecoration, colActualCPDecoration, colAccountMDecoration, colContactsDecoration, colNotesDecoration, colCharacteristicsDecoration);
-
-
-            vBoxPlumbing.getChildren().add(accordionPlumbing);
-            vBoxFurniture.getChildren().add(accordionFurniture);
-            vBoxLight.getChildren().add(accordionLight);
-            vBoxDecoration.getChildren().add(accordionDecoration);
-
-            //добавляем в аккардион
-            titledPanePlumbing.setContent(plumbingTableView);
-            titledPaneFurniture.setContent(furnitureTableView);
-            titledPaneLight.setContent(lightTableView);
-            titledPaneDecoration.setContent(decorationTableView);
-
-
-            plumbingView.setContent(vBoxPlumbing);
-            furnitureView.setContent(vBoxFurniture);
-            lightView.setContent(vBoxLight);
-            decorationView.setContent(vBoxDecoration);
-
+    private void initAccordion(Accordion accordion) {
+        for (Room room : observableListRoom) {
+            if (!room.getNameRoom().isEmpty()) {
+                accordion.getPanes().add(createTitledPane(room));
+            }
         }
     }
+
+    TitledPane createTitledPane(Room room) {
+        TitledPane titledPane = new TitledPane();
+
+        titledPane.setText(room.getNameRoom());
+        titledPane.setContent(createRoomPropertiesTable(room));
+
+        return  titledPane;
+    }
+
+    TableView<Room> createRoomPropertiesTable(Room room) {
+        TableView<Room> tableView = new TableView<>(FXCollections.observableArrayList(room));
+
+        tableView.setEditable(true);
+
+        TableColumn<Room, String> commentsColumn = new TableColumn<>("QQQQQQQQQQQ");
+
+
+//        initCommentsColumn(commentsColumn);
+
+        tableView.getColumns().addAll(commentsColumn);
+
+        return tableView;
+    }
+
+
+    //!!!! КОНЕЦ ДИ !!!!!!!
+
 
     public void On_tabCalculatorClickedSubcontractors(MouseEvent mouseEvent) {
         if (observableListSubcontractors.filtered(x -> "0.0".equals(x.getCostPlannedSubcontractors()) && "0.0".equals(x.getCostCPSubcontractors())).size() == 0) {
@@ -3540,9 +3395,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialWall) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialWall) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialWall) );
+            titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
 
         }
     }
@@ -3595,9 +3450,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialFloor.setText("Пол        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialFloor) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialFloor) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialFloor) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialFloor) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialFloor) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialFloor) );
+            titleMaterialFloor.setText("Пол        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialFloor) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialFloor) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialFloor) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialFloor) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidMaterialFloor) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialFloor));
         }
     }
 
@@ -3648,9 +3503,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialCeiling.setText("Потолок        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialCeiling) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialCeiling) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialCeiling) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialCeiling) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialCeiling) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialCeiling) );
+            titleMaterialCeiling.setText("Потолок        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialCeiling) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialCeiling) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialCeiling) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialCeiling) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidMaterialCeiling) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialCeiling));
         }
     }
 
@@ -3701,9 +3556,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialOther.setText("Другое        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialOther) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialOther) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialOther) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialOther) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialOther) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialOther) );
+            titleMaterialOther.setText("Другое        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialOther) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialOther) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialOther) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialOther) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidMaterialOther) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialOther));
         }
     }
 
@@ -3754,9 +3609,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleMaterialSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f",sumPriceOrderMaterialSuddenly) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPMaterialSuddenly) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostMaterialSuddenly) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceMaterialSuddenly) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidMaterialSuddenly) + "        /Остаток: " + String.format("%.2f",sumResidueMaterialSuddenly));
+            titleMaterialSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialSuddenly) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialSuddenly) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidMaterialSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialSuddenly));
         }
     }
 
@@ -3808,9 +3663,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesKitchen.setText("Кухонная техника        /Порядок цен: " + String.format("%.2f",sumPriceOrderAppliancesKitchen) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPAppliancesKitchen) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostAppliancesKitchen) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceAppliancesKitchen) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidAppliancesKitchen) + "        /Остаток: " + String.format("%.2f",sumResidueAppliancesKitchen));
+            titleAppliancesKitchen.setText("Кухонная техника        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesKitchen) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesKitchen) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesKitchen) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesKitchen) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesKitchen) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesKitchen));
         }
     }
 
@@ -3862,10 +3717,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesOther.setText("Другая техника        /Порядок цен: " + String.format("%.2f",sumPriceOrderAppliancesOther) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPAppliancesOther) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostAppliancesOther) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceAppliancesOther) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidAppliancesOther) + "        /Остаток: " + String.format("%.2f",sumResidueAppliancesOther));
-
+            titleAppliancesOther.setText("Другая техника        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesOther) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesOther) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesOther) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesOther) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesOther) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesOther));
 
 
         }
@@ -3918,9 +3772,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f",sumPriceOrderAppliancesDelivery) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPAppliancesDelivery) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostAppliancesDelivery) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceAppliancesDelivery) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidAppliancesDelivery) + "        /Остаток: " + String.format("%.2f",sumResidueAppliancesDelivery));
+            titleAppliancesDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesDelivery) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesDelivery) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesDelivery));
 
         }
     }
@@ -3972,9 +3826,9 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesSuddenly.setText("Нежданчик        /Порядок цен: " +  String.format("%.2f",sumPriceOrderAppliancesSuddenly) + "        /Стоимость по КП: " + String.format("%.2f",sumCostCPAppliancesSuddenly) +
-                    "        /Стоимость фактическая: " + String.format("%.2f",sumActualCostAppliancesSuddenly) + "        /Разница фактическая: " + String.format("%.2f",sumActualDifferenceAppliancesSuddenly) +
-                    "        /Оплачено: " + String.format("%.2f",sumPaidAppliancesSuddenly) + "        /Остаток: " + String.format("%.2f",sumResidueAppliancesSuddenly));
+            titleAppliancesSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesSuddenly) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesSuddenly) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesSuddenly));
         }
     }
 
@@ -4005,7 +3859,6 @@ public class EditProjectController implements Initializable {
 //            }
 
 
-
 //            for (TableColumn<AppliancesSuddenly, ?> d : colQuantityAppliancesSuddenly.getColumns()) {
 //            for (AppliancesSuddenly d : colQuantityAppliancesSuddenly.getColumns()) {
 
@@ -4014,7 +3867,6 @@ public class EditProjectController implements Initializable {
 //            }
 
             System.out.println("Tect");
-
 
 
 //            titleAppliancesSuddenly.setText(String.format("%.2f", sumPriceOrderAppliancesSuddenly));
