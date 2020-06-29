@@ -1,14 +1,23 @@
 package sample;
 
+import javafx.beans.property.SimpleObjectProperty;
+
+import java.time.Instant;
+import java.util.Date;
+
 public class Room {
     protected String nameRoom;
     protected double areaRoom;
     protected boolean selectBathRoom;
 
+    protected SimpleObjectProperty<Date> date;
+
     public Room(String nameRoom, double areaRoom, boolean selectBathRoom) {
         this.nameRoom = nameRoom;
         this.areaRoom = areaRoom;
         this.selectBathRoom = selectBathRoom;
+
+        this.date = new SimpleObjectProperty<>(Date.from(Instant.now()));
     }
 
     public String getNameRoom() {
@@ -41,5 +50,17 @@ public class Room {
 
     public void setSelectBathroom(String selectBathRoom) {
         this.selectBathRoom = Boolean.parseBoolean(selectBathRoom);
+    }
+
+
+    public Date getDate() {
+        return date.get();
+    }
+
+    public void setDate(Date date) {
+        this.date.set(date);
+    }
+
+    public SimpleObjectProperty<Date> dateProperty() { return date;
     }
 }
