@@ -3369,13 +3369,18 @@ public class EditProjectController implements Initializable {
     private void initDoubleColumn(TableColumn<Room, Double> colQuantityRoomTransmit, TableColumn<Room, Double> colOrdinalPriceUnitRoomTransmit, TableColumn<Room, Double> colPriceCPUnitRoomTransmit, TableColumn<Room, Double> colPriceCPKeyRoomTransmit, TableColumn<Room, Double> colCostCPUnitRoomTransmit, TableColumn<Room, Double> colPriceOrderRoomTransmit, TableColumn<Room, Double> colCostCPRoomTransmit, TableColumn<Room, Double> colActualCostRoomTransmit, TableColumn<Room, Double> colActualDifferenceRoomTransmit, TableColumn<Room, Double> colPaidRoomTransmit, TableColumn<Room, Double> colResidueRoomTransmit) {
     }
 
-    
+
     private void initBooleanColumn(TableColumn<Room, Boolean> colActivePRoomTransmit, TableColumn<Room, Boolean> colActiveCRoomTransmit) {
         colActivePRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, Boolean>("П"));
         colActivePRoomTransmit.setCellFactory(p -> {
             return new CheckBoxTableCell<Room, Boolean>();
         });
+        colActiveCRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, Boolean>("С"));
+        colActiveCRoomTransmit.setCellFactory(p -> {
+            return new CheckBoxTableCell<Room, Boolean>();
+        });
         colActivePRoomTransmit.setOnEditStart(this::onRoomClick);
+//        colActiveCRoomTransmit.setOnEditStart(this::onRoomClick);
     }
     private void onRoomClick(TableColumn.CellEditEvent<Room, Boolean> event) {
         TablePosition<Room, Boolean> pos = event.getTablePosition();
@@ -3384,8 +3389,7 @@ public class EditProjectController implements Initializable {
         int row = pos.getRow();
         Room updatedRoom = event.getTableView().getItems().get(row);
 
-
-        updatedRoom.setRoom(room);
+//        updatedRoom.setRoom(room);
     }
 
 
