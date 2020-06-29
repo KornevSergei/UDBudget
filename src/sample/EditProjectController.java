@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -3313,50 +3314,90 @@ public class EditProjectController implements Initializable {
         titledPane.setText(room.getNameRoom());
         titledPane.setContent(createRoomPropertiesTable(room));
 
-        return  titledPane;
+        return titledPane;
     }
 
     TableView<Room> createRoomPropertiesTable(Room room) {
-        TableView<Room> tableView = new TableView<>(FXCollections.observableArrayList(room));
+        TableView<Room> tableViewRoomTransmit = new TableView<>(FXCollections.observableArrayList(room));
 
-        tableView.setEditable(true);
+        tableViewRoomTransmit.setEditable(true);
 
-        TableColumn<Room, String> colNamePlumbing = new TableColumn<>("Наименование");
-//        TableColumn<Plumbing, Boolean> colActivePPlumbing = new TableColumn<Plumbing, String>("П");
-//        TableColumn<Plumbing, Boolean> colActiveCPlumbing = new TableColumn<Plumbing, String>("С");
-        TableColumn<Room, String> colUnitPlumbing = new TableColumn<>("Ед. изм.");
-        //делаем фикс на длинну
-        colUnitPlumbing.setMinWidth(200);
-        colUnitPlumbing.setMaxWidth(200);
-        TableColumn<Room, String> colQuantityPlumbing = new TableColumn<>("Количество");
-        TableColumn<Room, String> colOrdinalPriceUnitPlumbing = new TableColumn<>("Цена порядковая за ед.");
-        TableColumn<Room, String> colPriceCPUnitPlumbing = new TableColumn<>("Цена по КП за ед.");
-        TableColumn<Room, String> colPriceCPKeyPlumbing = new TableColumn<>("Цена по КП под ключ");
-        TableColumn<Room, String> colCostCPUnitPlumbing = new TableColumn<>("Стоимость по КП за ед.");
-        TableColumn<Room, String> colPriceOrderPlumbing = new TableColumn<>("Порядок цен");
-        TableColumn<Room, String> colCostCPPlumbing = new TableColumn<>("Стоимость по КП");
-        TableColumn<Room, String> colProductionTimePlumbing = new TableColumn<>("Срок доставки");
-        TableColumn<Room, String> colActualCostPlumbing = new TableColumn<>("Стоимость фактическая");
-        TableColumn<Room, String> colActualDifferencePlumbing = new TableColumn<>("Разница фактическая");
-        TableColumn<Room, String> colPaidPlumbing = new TableColumn<>("Оплачено");
-        TableColumn<Room, String> colResiduePlumbing = new TableColumn<>("Остаток");
-        TableColumn<Room, String> colDateOfDeliveryPlumbing = new TableColumn<>("Дата поставки");
-        TableColumn<Room, String> colPlannedCPPlumbing = new TableColumn<>("КП плановое");
-        TableColumn<Room, String> colActualCPPlumbing = new TableColumn<>("КП фактическое");
-        TableColumn<Room, String> colAccountMPlumbing = new TableColumn<>("Счёт");
-        TableColumn<Room, String> colContactsPlumbing = new TableColumn<>("Контакты");
-        TableColumn<Room, String> colNotesPlumbing = new TableColumn<>("Примечания");
-        TableColumn<Room, String> colCharacteristicsPlumbing = new TableColumn<>("Характеристики");
+        TableColumn<Room, String> colNameRoomTransmit = new TableColumn<>("Наименование");
+        TableColumn<Room, Boolean> colActivePRoomTransmit = new TableColumn<>("П");
+        TableColumn<Room, Boolean> colActiveCRoomTransmit = new TableColumn<>("С");
+        TableColumn<Room, UnitType> colUnitRoomTransmit = new TableColumn<>("Ед. изм.");
+        TableColumn<Room, Double> colQuantityRoomTransmit = new TableColumn<>("Количество");
+        TableColumn<Room, Double> colOrdinalPriceUnitRoomTransmit = new TableColumn<>("Цена порядковая за ед.");
+        TableColumn<Room, Double> colPriceCPUnitRoomTransmit = new TableColumn<>("Цена по КП за ед.");
+        TableColumn<Room, Double> colPriceCPKeyRoomTransmit = new TableColumn<>("Цена по КП под ключ");
+        TableColumn<Room, Double> colCostCPUnitRoomTransmit = new TableColumn<>("Стоимость по КП за ед.");
+        TableColumn<Room, Double> colPriceOrderRoomTransmit = new TableColumn<>("Порядок цен");
+        TableColumn<Room, Double> colCostCPRoomTransmit = new TableColumn<>("Стоимость по КП");
+        TableColumn<Room, TimeProduction> colProductionTimeRoomTransmit = new TableColumn<>("Срок доставки");
+        TableColumn<Room, Double> colActualCostRoomTransmit = new TableColumn<>("Стоимость фактическая");
+        TableColumn<Room, Double> colActualDifferenceRoomTransmit = new TableColumn<>("Разница фактическая");
+        TableColumn<Room, Double> colPaidRoomTransmit = new TableColumn<>("Оплачено");
+        TableColumn<Room, Double> colResidueRoomTransmit = new TableColumn<>("Остаток");
+        TableColumn<Room, Date> colDateOfDeliveryRoomTransmit = new TableColumn<>("Дата поставки");
+        TableColumn<Room, String> colPlannedCPRoomTransmit = new TableColumn<>("КП плановое");
+        TableColumn<Room, String> colActualCPRoomTransmit = new TableColumn<>("КП фактическое");
+        TableColumn<Room, String> colAccountMRoomTransmit = new TableColumn<>("Счёт");
+        TableColumn<Room, String> colContactsRoomTransmit = new TableColumn<>("Контакты");
+        TableColumn<Room, String> colNotesRoomTransmit = new TableColumn<>("Примечания");
+        TableColumn<Room, String> colCharacteristicsRoomTransmit = new TableColumn<>("Характеристики");
 
+//        //Вызоваем методы
+        initStringColumn(colNameRoomTransmit, colPlannedCPRoomTransmit, colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit);
+        initDoubleColumn(colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
+        initBooleanColumn(colActivePRoomTransmit, colActiveCRoomTransmit);
+        initUnitTypeColumn(colUnitRoomTransmit);
+        initTimeProductionColumn(colProductionTimeRoomTransmit);
+        initDataColumn(colDateOfDeliveryRoomTransmit);
 
-//        initCommentsColumn(commentsColumn);
+        tableViewRoomTransmit.getColumns().addAll(colNameRoomTransmit, colActivePRoomTransmit, colActiveCRoomTransmit, colUnitRoomTransmit,
+                colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit,
+                colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colProductionTimeRoomTransmit, colActualCostRoomTransmit,
+                colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit, colDateOfDeliveryRoomTransmit, colPlannedCPRoomTransmit,
+                colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit);
 
-        tableView.getColumns().addAll(colNamePlumbing, colUnitPlumbing, colQuantityPlumbing, colOrdinalPriceUnitPlumbing, colPriceCPUnitPlumbing, colPriceCPKeyPlumbing,
-                colCostCPUnitPlumbing, colPriceOrderPlumbing, colCostCPPlumbing, colProductionTimePlumbing, colActualCostPlumbing, colActualDifferencePlumbing, colPaidPlumbing,
-                colResiduePlumbing, colDateOfDeliveryPlumbing, colPlannedCPPlumbing, colActualCPPlumbing, colAccountMPlumbing, colContactsPlumbing, colNotesPlumbing, colCharacteristicsPlumbing);
-
-        return tableView;
+        return tableViewRoomTransmit;
     }
+
+    private void initStringColumn(TableColumn<Room, String> colNameRoomTransmit, TableColumn<Room, String> colPlannedCPRoomTransmit, TableColumn<Room, String> colActualCPRoomTransmit, TableColumn<Room, String> colAccountMRoomTransmit, TableColumn<Room, String> colContactsRoomTransmit, TableColumn<Room, String> colNotesRoomTransmit, TableColumn<Room, String> colCharacteristicsRoomTransmit) {
+    }
+
+    private void initDoubleColumn(TableColumn<Room, Double> colQuantityRoomTransmit, TableColumn<Room, Double> colOrdinalPriceUnitRoomTransmit, TableColumn<Room, Double> colPriceCPUnitRoomTransmit, TableColumn<Room, Double> colPriceCPKeyRoomTransmit, TableColumn<Room, Double> colCostCPUnitRoomTransmit, TableColumn<Room, Double> colPriceOrderRoomTransmit, TableColumn<Room, Double> colCostCPRoomTransmit, TableColumn<Room, Double> colActualCostRoomTransmit, TableColumn<Room, Double> colActualDifferenceRoomTransmit, TableColumn<Room, Double> colPaidRoomTransmit, TableColumn<Room, Double> colResidueRoomTransmit) {
+    }
+
+    
+    private void initBooleanColumn(TableColumn<Room, Boolean> colActivePRoomTransmit, TableColumn<Room, Boolean> colActiveCRoomTransmit) {
+        colActivePRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, Boolean>("П"));
+        colActivePRoomTransmit.setCellFactory(p -> {
+            return new CheckBoxTableCell<Room, Boolean>();
+        });
+        colActivePRoomTransmit.setOnEditStart(this::onRoomClick);
+    }
+    private void onRoomClick(TableColumn.CellEditEvent<Room, Boolean> event) {
+        TablePosition<Room, Boolean> pos = event.getTablePosition();
+        Boolean room = event.getNewValue();
+
+        int row = pos.getRow();
+        Room updatedRoom = event.getTableView().getItems().get(row);
+
+
+        updatedRoom.setRoom(room);
+    }
+
+
+    private void initUnitTypeColumn(TableColumn<Room, UnitType> colUnitRoomTransmit) {
+    }
+
+    private void initTimeProductionColumn(TableColumn<Room, TimeProduction> colProductionTimeRoomTransmit) {
+    }
+
+    private void initDataColumn(TableColumn<Room, Date> colDateOfDeliveryRoomTransmit) {
+    }
+
     //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!
 
 
@@ -3886,8 +3927,6 @@ public class EditProjectController implements Initializable {
 //            for (AppliancesSuddenly d : colQuantityAppliancesSuddenly.get) {
 //                System.out.println(d);
 //            }
-
-            System.out.println("Tect");
 
 
 //            titleAppliancesSuddenly.setText(String.format("%.2f", sumPriceOrderAppliancesSuddenly));

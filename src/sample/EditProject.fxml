@@ -422,7 +422,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <Accordion fx:id="roomPlumbing" prefHeight="500.0" prefWidth="2000.0" />
+                        <Accordion fx:id="roomPlumbing" prefHeight="500.0" prefWidth="1900.0" />
                     </children>
                 </AnchorPane>
             </content>
