@@ -3470,9 +3470,11 @@ public class EditProjectController implements Initializable {
         String comments = event.getNewValue();
 
         int row = pos.getRow();
-        Room updatedUser = event.getTableView().getItems().get(row);
+        Room updatedRoom = event.getTableView().getItems().get(row);
 
-//        updatedUser.setComments(comments);
+
+        //Дописать стринговые столбцы!
+        updatedRoom.setNameRoomTransmit(comments);
     }
 
 //    //Не забыть доделать!
@@ -3581,7 +3583,7 @@ public class EditProjectController implements Initializable {
         int row = pos.getRow();
         Room updatedRoom = event.getTableView().getItems().get(row);
 
-        updatedRoom.setDate(date);
+        updatedRoom.setDateOfDeliveryRoomTransmit(date);
     }
 
     //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!!!!
@@ -3968,7 +3970,6 @@ public class EditProjectController implements Initializable {
             titleAppliancesOther.setText("Другая техника        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesOther) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesOther) +
                     "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesOther) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesOther) +
                     "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesOther) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesOther));
-
 
         }
     }

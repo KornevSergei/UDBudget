@@ -95,7 +95,7 @@ public class DatePickerCell<S, T> extends TableCell<Room, Date> {
             cal.set(Calendar.YEAR, date.getYear());
 
             setText(smp.format(cal.getTime()));
-            ((Room)getTableRow().getItem()).setDate(cal.getTime());
+            ((Room)getTableRow().getItem()).setDateOfDeliveryRoomTransmit(cal.getTime());
             commitEdit(cal.getTime());
         });
 

@@ -38,7 +38,6 @@ public class Room {
     protected SimpleStringProperty notesRoomTransmit;//примечания
     protected SimpleStringProperty characteristicsRoomTransmit;//характеристики
 
-    protected SimpleObjectProperty<Date> date;
 
     public Room(String nameRoom, double areaRoom, boolean selectBathRoom) {
         this.nameRoom = nameRoom;
@@ -46,7 +45,6 @@ public class Room {
         this.selectBathRoom = selectBathRoom;
 
 
-        
         this.nameRoomTransmit = new SimpleStringProperty("");
         this.activePRoomTransmit = new SimpleBooleanProperty(false);
         this.activeCRoomTransmit = new SimpleBooleanProperty(false);
@@ -109,14 +107,294 @@ public class Room {
 
 
 
-    public Date getDate() {
-        return date.get();
+
+
+    //Тест с Пропертями!!!!!!!!!!!
+    public String getNameRoomTransmit() {
+        return nameRoomTransmit.get();
     }
 
-    public void setDate(Date date) {
-        this.date.set(date);
+    public SimpleStringProperty nameRoomTransmitProperty() {
+        return nameRoomTransmit;
     }
 
-    public SimpleObjectProperty<Date> dateProperty() { return date;
+    public void setNameRoomTransmit(String nameRoomTransmit) {
+        this.nameRoomTransmit.set(nameRoomTransmit);
+    }
+
+    public boolean isActivePRoomTransmit() {
+        return activePRoomTransmit.get();
+    }
+
+    public SimpleBooleanProperty activePRoomTransmitProperty() {
+        return activePRoomTransmit;
+    }
+
+    public void setActivePRoomTransmit(boolean activePRoomTransmit) {
+        this.activePRoomTransmit.set(activePRoomTransmit);
+    }
+
+    public boolean isActiveCRoomTransmit() {
+        return activeCRoomTransmit.get();
+    }
+
+    public SimpleBooleanProperty activeCRoomTransmitProperty() {
+        return activeCRoomTransmit;
+    }
+
+    public void setActiveCRoomTransmit(boolean activeCRoomTransmit) {
+        this.activeCRoomTransmit.set(activeCRoomTransmit);
+    }
+
+    public UnitType getUnitRoomTransmit() {
+        return unitRoomTransmit.get();
+    }
+
+    public SimpleObjectProperty<UnitType> unitRoomTransmitProperty() {
+        return unitRoomTransmit;
+    }
+
+    public void setUnitRoomTransmit(UnitType unitRoomTransmit) {
+        this.unitRoomTransmit.set(unitRoomTransmit);
+    }
+
+    public double getQuantityRoomTransmit() {
+        return quantityRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty quantityRoomTransmitProperty() {
+        return quantityRoomTransmit;
+    }
+
+    public void setQuantityRoomTransmit(double quantityRoomTransmit) {
+        this.quantityRoomTransmit.set(quantityRoomTransmit);
+    }
+
+    public double getOrdinalPriceUnitRoomTransmit() {
+        return ordinalPriceUnitRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty ordinalPriceUnitRoomTransmitProperty() {
+        return ordinalPriceUnitRoomTransmit;
+    }
+
+    public void setOrdinalPriceUnitRoomTransmit(double ordinalPriceUnitRoomTransmit) {
+        this.ordinalPriceUnitRoomTransmit.set(ordinalPriceUnitRoomTransmit);
+    }
+
+    public double getPriceCPUnitRoomTransmit() {
+        return priceCPUnitRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty priceCPUnitRoomTransmitProperty() {
+        return priceCPUnitRoomTransmit;
+    }
+
+    public void setPriceCPUnitRoomTransmit(double priceCPUnitRoomTransmit) {
+        this.priceCPUnitRoomTransmit.set(priceCPUnitRoomTransmit);
+    }
+
+    public double getPriceCPKeyRoomTransmit() {
+        return priceCPKeyRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty priceCPKeyRoomTransmitProperty() {
+        return priceCPKeyRoomTransmit;
+    }
+
+    public void setPriceCPKeyRoomTransmit(double priceCPKeyRoomTransmit) {
+        this.priceCPKeyRoomTransmit.set(priceCPKeyRoomTransmit);
+    }
+
+    public double getCostCPUnitRoomTransmit() {
+        return costCPUnitRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty costCPUnitRoomTransmitProperty() {
+        return costCPUnitRoomTransmit;
+    }
+
+    public void setCostCPUnitRoomTransmit(double costCPUnitRoomTransmit) {
+        this.costCPUnitRoomTransmit.set(costCPUnitRoomTransmit);
+    }
+
+    public double getPriceOrderRoomTransmit() {
+        return priceOrderRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty priceOrderRoomTransmitProperty() {
+        return priceOrderRoomTransmit;
+    }
+
+    public void setPriceOrderRoomTransmit(double priceOrderRoomTransmit) {
+        this.priceOrderRoomTransmit.set(priceOrderRoomTransmit);
+    }
+
+    public double getCostCPRoomTransmit() {
+        return costCPRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty costCPRoomTransmitProperty() {
+        return costCPRoomTransmit;
+    }
+
+    public void setCostCPRoomTransmit(double costCPRoomTransmit) {
+        this.costCPRoomTransmit.set(costCPRoomTransmit);
+    }
+
+    public TimeProduction getProductionTimeRoomTransmit() {
+        return productionTimeRoomTransmit.get();
+    }
+
+    public SimpleObjectProperty<TimeProduction> productionTimeRoomTransmitProperty() {
+        return productionTimeRoomTransmit;
+    }
+
+    public void setProductionTimeRoomTransmit(TimeProduction productionTimeRoomTransmit) {
+        this.productionTimeRoomTransmit.set(productionTimeRoomTransmit);
+    }
+
+    public double getActualCostRoomTransmit() {
+        return actualCostRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty actualCostRoomTransmitProperty() {
+        return actualCostRoomTransmit;
+    }
+
+    public void setActualCostRoomTransmit(double actualCostRoomTransmit) {
+        this.actualCostRoomTransmit.set(actualCostRoomTransmit);
+    }
+
+    public double getActualDifferenceRoomTransmit() {
+        return actualDifferenceRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty actualDifferenceRoomTransmitProperty() {
+        return actualDifferenceRoomTransmit;
+    }
+
+    public void setActualDifferenceRoomTransmit(double actualDifferenceRoomTransmit) {
+        this.actualDifferenceRoomTransmit.set(actualDifferenceRoomTransmit);
+    }
+
+    public double getPaidRoomTransmit() {
+        return paidRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty paidRoomTransmitProperty() {
+        return paidRoomTransmit;
+    }
+
+    public void setPaidRoomTransmit(double paidRoomTransmit) {
+        this.paidRoomTransmit.set(paidRoomTransmit);
+    }
+
+    public double getResidueRoomTransmit() {
+        return residueRoomTransmit.get();
+    }
+
+    public SimpleDoubleProperty residueRoomTransmitProperty() {
+        return residueRoomTransmit;
+    }
+
+    public void setResidueRoomTransmit(double residueRoomTransmit) {
+        this.residueRoomTransmit.set(residueRoomTransmit);
+    }
+
+    public Date getDateOfDeliveryRoomTransmit() {
+        return dateOfDeliveryRoomTransmit.get();
+    }
+
+    public SimpleObjectProperty<Date> dateOfDeliveryRoomTransmitProperty() {
+        return dateOfDeliveryRoomTransmit;
+    }
+
+    public void setDateOfDeliveryRoomTransmit(Date dateOfDeliveryRoomTransmit) {
+        this.dateOfDeliveryRoomTransmit.set(dateOfDeliveryRoomTransmit);
+    }
+
+    public String getNameRoomRoomTransmit() {
+        return nameRoomRoomTransmit.get();
+    }
+
+    public SimpleStringProperty nameRoomRoomTransmitProperty() {
+        return nameRoomRoomTransmit;
+    }
+
+    public void setNameRoomRoomTransmit(String nameRoomRoomTransmit) {
+        this.nameRoomRoomTransmit.set(nameRoomRoomTransmit);
+    }
+
+    public String getPlannedCPRoomTransmit() {
+        return plannedCPRoomTransmit.get();
+    }
+
+    public SimpleStringProperty plannedCPRoomTransmitProperty() {
+        return plannedCPRoomTransmit;
+    }
+
+    public void setPlannedCPRoomTransmit(String plannedCPRoomTransmit) {
+        this.plannedCPRoomTransmit.set(plannedCPRoomTransmit);
+    }
+
+    public String getActualCPRoomTransmit() {
+        return actualCPRoomTransmit.get();
+    }
+
+    public SimpleStringProperty actualCPRoomTransmitProperty() {
+        return actualCPRoomTransmit;
+    }
+
+    public void setActualCPRoomTransmit(String actualCPRoomTransmit) {
+        this.actualCPRoomTransmit.set(actualCPRoomTransmit);
+    }
+
+    public String getAccountRoomTransmit() {
+        return accountRoomTransmit.get();
+    }
+
+    public SimpleStringProperty accountRoomTransmitProperty() {
+        return accountRoomTransmit;
+    }
+
+    public void setAccountRoomTransmit(String accountRoomTransmit) {
+        this.accountRoomTransmit.set(accountRoomTransmit);
+    }
+
+    public String getContactsRoomTransmit() {
+        return contactsRoomTransmit.get();
+    }
+
+    public SimpleStringProperty contactsRoomTransmitProperty() {
+        return contactsRoomTransmit;
+    }
+
+    public void setContactsRoomTransmit(String contactsRoomTransmit) {
+        this.contactsRoomTransmit.set(contactsRoomTransmit);
+    }
+
+    public String getNotesRoomTransmit() {
+        return notesRoomTransmit.get();
+    }
+
+    public SimpleStringProperty notesRoomTransmitProperty() {
+        return notesRoomTransmit;
+    }
+
+    public void setNotesRoomTransmit(String notesRoomTransmit) {
+        this.notesRoomTransmit.set(notesRoomTransmit);
+    }
+
+    public String getCharacteristicsRoomTransmit() {
+        return characteristicsRoomTransmit.get();
+    }
+
+    public SimpleStringProperty characteristicsRoomTransmitProperty() {
+        return characteristicsRoomTransmit;
+    }
+
+    public void setCharacteristicsRoomTransmit(String characteristicsRoomTransmit) {
+        this.characteristicsRoomTransmit.set(characteristicsRoomTransmit);
     }
 }
