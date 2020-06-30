@@ -3317,14 +3317,22 @@ public class EditProjectController implements Initializable {
         titledPane.setText(room.getNameRoom());
         titledPane.setContent(createRoomPropertiesTable(room));
 
+
+
+
+
+
         return titledPane;
     }
 
     TableView<Room> createRoomPropertiesTable(Room room) {
 
+
         //Не забыть доделать кнопки
         Button qwe = new Button("Чего то там");
-//        ToggleButton qwer = new
+        ToggleButton qwer = new ToggleButton("qwertyuiop");
+
+//        titledPane.setContent(qwe);
 
         TableView<Room> tableViewRoomTransmit = new TableView<>(FXCollections.observableArrayList(room));
 

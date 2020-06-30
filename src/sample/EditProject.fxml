@@ -55,7 +55,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="totalView" disable="false" text="Итоговая">
+        <Tab fx:id="totalView" disable="true" text="Итоговая">
             <content>
                 <FlowPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -74,7 +74,7 @@
                 </FlowPane>
             </content>
         </Tab>
-        <Tab fx:id="DPView" disable="false" text="ДП">
+        <Tab fx:id="DPView" disable="true" text="ДП">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -111,7 +111,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="buildersView" disable="false" text="Строители">
+        <Tab fx:id="buildersView" disable="true" text="Строители">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -134,7 +134,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="subcontractorsView" disable="false" text="Смежники">
+        <Tab fx:id="subcontractorsView" disable="true" text="Смежники">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -161,7 +161,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="AKView" disable="false" text="AK">
+        <Tab fx:id="AKView" disable="true" text="AK">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -182,7 +182,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="materialView" disable="false" text="Материалы">
+        <Tab fx:id="materialView" disable="true" text="Материалы">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -418,7 +418,7 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="plumbingView" disable="false" text="Сантехника">
+        <Tab fx:id="plumbingView" disable="true" text="Сантехника">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -427,7 +427,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="furnitureView" disable="false" text="Мебель">
+        <Tab fx:id="furnitureView" disable="true" text="Мебель">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -436,7 +436,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="lightView" disable="false" text="Свет">
+        <Tab fx:id="lightView" disable="true" text="Свет">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -445,7 +445,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="appliancesView" disable="false" text="Техника">
+        <Tab fx:id="appliancesView" disable="true" text="Техника">
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -637,7 +637,7 @@
                 </VBox>
             </content>
         </Tab>
-        <Tab fx:id="decorationView" disable="false" text="Декор">
+        <Tab fx:id="decorationView" disable="true" text="Декор">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -646,7 +646,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="statisticsView" disable="false" text="Статистика">
+        <Tab fx:id="statisticsView" disable="true" text="Статистика">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
