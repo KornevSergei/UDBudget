@@ -2,6 +2,7 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.css.ParsedValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Material;
 import javafx.util.Callback;
+import javafx.util.StringConverter;
 
 import javax.xml.crypto.Data;
 import java.net.URL;
@@ -3273,7 +3275,8 @@ public class EditProjectController implements Initializable {
         diagramView.setDisable(false);
     }
 
-    //!!!!!НАЧАЛО Д И !!!!!!
+
+    //!!!!!НАЧАЛО ДИ !!!!!!
     private void onClick(TableColumn.CellEditEvent<Room, String> event) {
 
         TablePosition<Room, String> pos = event.getTablePosition();
@@ -3318,6 +3321,11 @@ public class EditProjectController implements Initializable {
     }
 
     TableView<Room> createRoomPropertiesTable(Room room) {
+
+        //Не забыть доделать кнопки
+        Button qwe = new Button("Чего то там");
+//        ToggleButton qwer = new
+
         TableView<Room> tableViewRoomTransmit = new TableView<>(FXCollections.observableArrayList(room));
 
         tableViewRoomTransmit.setEditable(true);
@@ -3326,18 +3334,18 @@ public class EditProjectController implements Initializable {
         TableColumn<Room, Boolean> colActivePRoomTransmit = new TableColumn<>("П");
         TableColumn<Room, Boolean> colActiveCRoomTransmit = new TableColumn<>("С");
         TableColumn<Room, UnitType> colUnitRoomTransmit = new TableColumn<>("Ед. изм.");
-        TableColumn<Room, Double> colQuantityRoomTransmit = new TableColumn<>("Количество");
-        TableColumn<Room, Double> colOrdinalPriceUnitRoomTransmit = new TableColumn<>("Цена порядковая за ед.");
-        TableColumn<Room, Double> colPriceCPUnitRoomTransmit = new TableColumn<>("Цена по КП за ед.");
-        TableColumn<Room, Double> colPriceCPKeyRoomTransmit = new TableColumn<>("Цена по КП под ключ");
-        TableColumn<Room, Double> colCostCPUnitRoomTransmit = new TableColumn<>("Стоимость по КП за ед.");
-        TableColumn<Room, Double> colPriceOrderRoomTransmit = new TableColumn<>("Порядок цен");
-        TableColumn<Room, Double> colCostCPRoomTransmit = new TableColumn<>("Стоимость по КП");
+        TableColumn<Room, String> colQuantityRoomTransmit = new TableColumn<>("Количество");
+        TableColumn<Room, String> colOrdinalPriceUnitRoomTransmit = new TableColumn<>("Цена порядковая за ед.");
+        TableColumn<Room, String> colPriceCPUnitRoomTransmit = new TableColumn<>("Цена по КП за ед.");
+        TableColumn<Room, String> colPriceCPKeyRoomTransmit = new TableColumn<>("Цена по КП под ключ");
+        TableColumn<Room, String> colCostCPUnitRoomTransmit = new TableColumn<>("Стоимость по КП за ед.");
+        TableColumn<Room, String> colPriceOrderRoomTransmit = new TableColumn<>("Порядок цен");
+        TableColumn<Room, String> colCostCPRoomTransmit = new TableColumn<>("Стоимость по КП");
         TableColumn<Room, TimeProduction> colProductionTimeRoomTransmit = new TableColumn<>("Срок доставки");
-        TableColumn<Room, Double> colActualCostRoomTransmit = new TableColumn<>("Стоимость фактическая");
-        TableColumn<Room, Double> colActualDifferenceRoomTransmit = new TableColumn<>("Разница фактическая");
-        TableColumn<Room, Double> colPaidRoomTransmit = new TableColumn<>("Оплачено");
-        TableColumn<Room, Double> colResidueRoomTransmit = new TableColumn<>("Остаток");
+        TableColumn<Room, String> colActualCostRoomTransmit = new TableColumn<>("Стоимость фактическая");
+        TableColumn<Room, String> colActualDifferenceRoomTransmit = new TableColumn<>("Разница фактическая");
+        TableColumn<Room, String> colPaidRoomTransmit = new TableColumn<>("Оплачено");
+        TableColumn<Room, String> colResidueRoomTransmit = new TableColumn<>("Остаток");
         TableColumn<Room, Date> colDateOfDeliveryRoomTransmit = new TableColumn<>("Дата поставки");
         TableColumn<Room, String> colPlannedCPRoomTransmit = new TableColumn<>("КП плановое");
         TableColumn<Room, String> colActualCPRoomTransmit = new TableColumn<>("КП фактическое");
@@ -3347,8 +3355,8 @@ public class EditProjectController implements Initializable {
         TableColumn<Room, String> colCharacteristicsRoomTransmit = new TableColumn<>("Характеристики");
 
 //        //Вызоваем методы
-        initStringColumn(colNameRoomTransmit, colPlannedCPRoomTransmit, colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit);
-        initDoubleColumn(colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
+        initStringColumn(colNameRoomTransmit, colPlannedCPRoomTransmit, colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit,colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
+//        initDoubleColumn(colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
         initBooleanColumn(colActivePRoomTransmit, colActiveCRoomTransmit);
         initUnitTypeColumn(colUnitRoomTransmit);
         initTimeProductionColumn(colProductionTimeRoomTransmit);
@@ -3361,13 +3369,19 @@ public class EditProjectController implements Initializable {
                 colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit);
 
 
-
         return tableViewRoomTransmit;
     }
 
     private void initStringColumn(TableColumn<Room, String> colNameRoomTransmit, TableColumn<Room, String> colPlannedCPRoomTransmit, TableColumn<Room, String> colActualCPRoomTransmit,
                                   TableColumn<Room, String> colAccountMRoomTransmit, TableColumn<Room, String> colContactsRoomTransmit, TableColumn<Room, String> colNotesRoomTransmit,
-                                  TableColumn<Room, String> colCharacteristicsRoomTransmit) {
+                                  TableColumn<Room, String> colCharacteristicsRoomTransmit,
+                                  //Пошли дабл!
+                                  TableColumn<Room, String> colQuantityRoomTransmit, TableColumn<Room, String> colOrdinalPriceUnitRoomTransmit,
+                                  TableColumn<Room, String> colPriceCPUnitRoomTransmit, TableColumn<Room, String> colPriceCPKeyRoomTransmit,
+                                  TableColumn<Room, String> colCostCPUnitRoomTransmit, TableColumn<Room, String> colPriceOrderRoomTransmit,
+                                  TableColumn<Room, String> colCostCPRoomTransmit, TableColumn<Room, String> colActualCostRoomTransmit,
+                                  TableColumn<Room, String> colActualDifferenceRoomTransmit, TableColumn<Room, String> colPaidRoomTransmit,
+                                  TableColumn<Room, String> colResidueRoomTransmit) {
         colNameRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Наименование"));
         colNameRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
         colNameRoomTransmit.setOnEditCommit(this::onStringClick);
@@ -3395,6 +3409,51 @@ public class EditProjectController implements Initializable {
         colCharacteristicsRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Характеристики"));
         colCharacteristicsRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
         colCharacteristicsRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        //Дабл
+        colQuantityRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Количество"));
+        colQuantityRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colQuantityRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colOrdinalPriceUnitRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Цена порядковая за ед."));
+        colOrdinalPriceUnitRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colOrdinalPriceUnitRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colPriceCPUnitRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Цена по КП за ед."));
+        colPriceCPUnitRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colPriceCPUnitRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colPriceCPKeyRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Цена по КП под ключ"));
+        colPriceCPKeyRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colPriceCPKeyRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colCostCPUnitRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Стоимость по КП за ед."));
+        colCostCPUnitRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colCostCPUnitRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colPriceOrderRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Порядок цен"));
+        colPriceOrderRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colPriceOrderRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colCostCPRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Стоимость по КП"));
+        colCostCPRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colCostCPRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colActualCostRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Стоимость фактическая"));
+        colActualCostRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colActualCostRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colActualDifferenceRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Разница фактическая"));
+        colActualDifferenceRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colActualDifferenceRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colPaidRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Оплачено"));
+        colPaidRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colPaidRoomTransmit.setOnEditCommit(this::onStringClick);
+
+        colResidueRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Остаток"));
+        colResidueRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colResidueRoomTransmit.setOnEditCommit(this::onStringClick);
     }
 
     private void onStringClick(TableColumn.CellEditEvent<Room, String> event) {
@@ -3408,41 +3467,31 @@ public class EditProjectController implements Initializable {
 //        updatedUser.setComments(comments);
     }
 
-    private void initDoubleColumn(TableColumn<Room, Double> colQuantityRoomTransmit, TableColumn<Room, Double> colOrdinalPriceUnitRoomTransmit,
-                                  TableColumn<Room, Double> colPriceCPUnitRoomTransmit, TableColumn<Room, Double> colPriceCPKeyRoomTransmit,
-                                  TableColumn<Room, Double> colCostCPUnitRoomTransmit, TableColumn<Room, Double> colPriceOrderRoomTransmit,
-                                  TableColumn<Room, Double> colCostCPRoomTransmit, TableColumn<Room, Double> colActualCostRoomTransmit,
-                                  TableColumn<Room, Double> colActualDifferenceRoomTransmit, TableColumn<Room, Double> colPaidRoomTransmit,
-                                  TableColumn<Room, Double> colResidueRoomTransmit) {
+//    //Не забыть доделать!
+//    private void initDoubleColumn(TableColumn<Room, Double> colQuantityRoomTransmit, TableColumn<Room, Double> colOrdinalPriceUnitRoomTransmit,
+//                                  TableColumn<Room, Double> colPriceCPUnitRoomTransmit, TableColumn<Room, Double> colPriceCPKeyRoomTransmit,
+//                                  TableColumn<Room, Double> colCostCPUnitRoomTransmit, TableColumn<Room, Double> colPriceOrderRoomTransmit,
+//                                  TableColumn<Room, Double> colCostCPRoomTransmit, TableColumn<Room, Double> colActualCostRoomTransmit,
+//                                  TableColumn<Room, Double> colActualDifferenceRoomTransmit, TableColumn<Room, Double> colPaidRoomTransmit,
+//                                  TableColumn<Room, Double> colResidueRoomTransmit) {
+//
+//        colQuantityRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, Double>("Количество"));
+////        colQuantityRoomTransmit.setCellFactory(TextFieldTableCell.forTableColumn());
+//
+//        colQuantityRoomTransmit.setOnEditCommit(this::onDoubleClick);
+//    }
+//
+//    private void onDoubleClick(TableColumn.CellEditEvent<Room, Double> event) {
+//        TablePosition<Room, Double> pos = event.getTablePosition();
+//
+//        Double comments = event.getNewValue();
+//
+//        int row = pos.getRow();
+//        Room updatedUser = event.getTableView().getItems().get(row);
+//
+////        updatedUser.setComments(comments);
+//    }
 
-        colQuantityRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, Double>("Количество"));
-        colQuantityRoomTransmit.setCellFactory(TextFieldTableCell.forTableColumn());
-        colQuantityRoomTransmit.setOnEditCommit(this::onDoubleClick);
-    }
-
-    private void onDoubleClick(TableColumn.CellEditEvent<Room, Double> event) {
-        TablePosition<Room, Double> pos = event.getTablePosition();
-
-        Double comments = event.getNewValue();
-
-        int row = pos.getRow();
-        Room updatedUser = event.getTableView().getItems().get(row);
-
-//        updatedUser.setComments(comments);
-    }
-
-
-//        colQuantityAppliancesSuddenly.setCellFactory(cellFactoryDoubleAppliancesSuddenly);
-//        colQuantityAppliancesSuddenly.setCellValueFactory(new PropertyValueFactory<>("quantityAppliancesSuddenly"));
-//        colQuantityAppliancesSuddenly.setOnEditCommit(
-//                new EventHandler<TableColumn.CellEditEvent<AppliancesSuddenly, String>>() {
-//        @Override
-//        public void handle(TableColumn.CellEditEvent<AppliancesSuddenly, String> t) {
-//            t.getTableView().getItems().get(
-//                    t.getTablePosition().getRow()).setQuantityAppliancesSuddenly(t.getNewValue());
-//            t.getTableView().refresh();
-//        }
-//    });
 
 
     private void initBooleanColumn(TableColumn<Room, Boolean> colActivePRoomTransmit, TableColumn<Room, Boolean> colActiveCRoomTransmit) {
@@ -3457,6 +3506,7 @@ public class EditProjectController implements Initializable {
         colActivePRoomTransmit.setOnEditStart(this::onRoomBooleanClick);
 //        colActiveCRoomTransmit.setOnEditStart(this::onRoomClick);
     }
+
     private void onRoomBooleanClick(TableColumn.CellEditEvent<Room, Boolean> event) {
         TablePosition<Room, Boolean> pos = event.getTablePosition();
         Boolean room = event.getNewValue();
@@ -3475,6 +3525,7 @@ public class EditProjectController implements Initializable {
         colUnitRoomTransmit.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
         colUnitRoomTransmit.setOnEditCommit(this::onUnitTypeClick);
     }
+
     private void onUnitTypeClick(TableColumn.CellEditEvent<Room, UnitType> event) {
         TablePosition<Room, UnitType> pos = event.getTablePosition();
 
@@ -3493,6 +3544,7 @@ public class EditProjectController implements Initializable {
         colProductionTimeRoomTransmit.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionList));
         colProductionTimeRoomTransmit.setOnEditCommit(this::onTimeProductionClick);
     }
+
     private void onTimeProductionClick(TableColumn.CellEditEvent<Room, TimeProduction> event) {
         TablePosition<Room, TimeProduction> pos = event.getTablePosition();
 
@@ -3523,7 +3575,6 @@ public class EditProjectController implements Initializable {
 
         updatedRoom.setDate(date);
     }
-
 
     //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!!!!
 
