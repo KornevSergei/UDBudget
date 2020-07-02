@@ -4131,4 +4131,13 @@ public class EditProjectController implements Initializable {
             colAccountAppliancesSuddenly.setVisible(false);
         }
     }
+
+    public void On_tabCalculatorClickedActionDecorationSuddenly(MouseEvent mouseEvent) {
+    }
+
+    public void deleteElementDecorationSuddenly(ActionEvent actionEvent) {
+    }
+
+    public void showDecorationSuddenly(ActionEvent actionEvent) {
+    }
 }
