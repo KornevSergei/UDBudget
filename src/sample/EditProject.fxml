@@ -638,14 +638,11 @@
             </content>
         </Tab>
         <Tab fx:id="decorationView" disable="true" text="Декор">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <children>
-                        <Accordion fx:id="roomDecoration" prefHeight="500.0" prefWidth="1900.0" />
-                        <VBox></VBox>
-                                <TitledPane fx:id="titleDecorationDelivery" animated="true" text="Доставка/сборка">
+            <VBox>
+                <Accordion fx:id="roomDecoration" prefHeight="500.0" prefWidth="1900.0" />
+                    <TitledPane fx:id="titleDecorationDelivery" animated="true" text="Доставка/сборка">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="500.0">
                                             <children>
                                                 <ScrollPane prefHeight="500.0" prefWidth="1900.0">
                                                     <content>
@@ -685,10 +682,11 @@
                                                         </AnchorPane>
                                                     </content>
                                                 </ScrollPane>
-                                            </children></AnchorPane>
+                                            </children>
+                                        </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane fx:id="titleDecorationSuddenly" animated="true" text="Нежданчик">
+                                <TitledPane fx:id="titleDecorationSuddenly" animated="true" text="Нежданчик" >
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
@@ -730,12 +728,11 @@
                                                         </AnchorPane>
                                                     </content>
                                                 </ScrollPane>
-                                            </children></AnchorPane>
+                                            </children>
+                                        </AnchorPane>
                                     </content>
                                 </TitledPane>
-                    </children>
-                </AnchorPane>
-            </content>
+            </VBox>
     </Tab>
         <Tab fx:id="statisticsView" disable="true" text="Статистика">
             <content>
