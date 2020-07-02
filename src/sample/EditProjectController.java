@@ -77,6 +77,10 @@ public class EditProjectController implements Initializable {
     public Button startProject;
     public Button deleteProjectButton;
 
+    //Тест!
+    public TitledPane titleDecorationSuddenly;
+    public TitledPane titleDecorationDelivery;
+
 
     public TextField roomNameTextField;
     public TextField roomAreaTextField;
@@ -478,6 +482,20 @@ public class EditProjectController implements Initializable {
         startProject.setVisible(true);
         deleteProjectButton.setVisible(true);
         projectTableView.setVisible(true);
+
+        totalView.setDisable(true);
+        DPView.setDisable(true);
+        buildersView.setDisable(true);
+        subcontractorsView.setDisable(true);
+        AKView.setDisable(true);
+        materialView.setDisable(true);
+        plumbingView.setDisable(true);
+        furnitureView.setDisable(true);
+        lightView.setDisable(true);
+        appliancesView.setDisable(true);
+        decorationView.setDisable(true);
+        statisticsView.setDisable(true);
+        diagramView.setDisable(true);
     }
 
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -3258,7 +3276,6 @@ public class EditProjectController implements Initializable {
     }
 
     public void saveRoomElement(ActionEvent actionEvent) {
-//    public void saveRoomElement(TableColumn.CellEditEvent<Room, String> event) {
 
         totalView.setDisable(false);
         DPView.setDisable(false);
@@ -3306,7 +3323,9 @@ public class EditProjectController implements Initializable {
     private void initAccordion(Accordion accordion) {
         for (Room room : observableListRoom) {
             if (!room.getNameRoom().isEmpty()) {
+                //Было!
                 accordion.getPanes().add(createTitledPane(room));
+//                accordion.getPanes().addAll(createTitledPane(room), titleDecorationDelivery.);
             }
         }
     }
@@ -3317,16 +3336,10 @@ public class EditProjectController implements Initializable {
         titledPane.setText(room.getNameRoom());
         titledPane.setContent(createRoomPropertiesTable(room));
 
-
-
-
-
-
         return titledPane;
     }
 
     TableView<Room> createRoomPropertiesTable(Room room) {
-
 
         //Не забыть доделать кнопки
         Button qwe = new Button("Чего то там");
@@ -3363,7 +3376,7 @@ public class EditProjectController implements Initializable {
         TableColumn<Room, String> colCharacteristicsRoomTransmit = new TableColumn<>("Характеристики");
 
 //        //Вызоваем методы
-        initStringColumn(colNameRoomTransmit, colPlannedCPRoomTransmit, colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit,colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
+        initStringColumn(colNameRoomTransmit, colPlannedCPRoomTransmit, colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit, colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
 //        initDoubleColumn(colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
         initBooleanColumn(colActivePRoomTransmit, colActiveCRoomTransmit);
         initUnitTypeColumn(colUnitRoomTransmit);
@@ -3375,7 +3388,6 @@ public class EditProjectController implements Initializable {
                 colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colProductionTimeRoomTransmit, colActualCostRoomTransmit,
                 colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit, colDateOfDeliveryRoomTransmit, colPlannedCPRoomTransmit,
                 colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit);
-
 
         return tableViewRoomTransmit;
     }
@@ -3503,7 +3515,6 @@ public class EditProjectController implements Initializable {
 //    }
 
 
-
     private void initBooleanColumn(TableColumn<Room, Boolean> colActivePRoomTransmit, TableColumn<Room, Boolean> colActiveCRoomTransmit) {
         colActivePRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, Boolean>("П"));
         colActivePRoomTransmit.setCellFactory(p -> {
@@ -3524,7 +3535,7 @@ public class EditProjectController implements Initializable {
         int row = pos.getRow();
         Room updatedRoom = event.getTableView().getItems().get(row);
 
-//        updatedRoom.setRoom(room);
+        updatedRoom.setActivePRoomTransmit(room);
     }
 
 
@@ -4130,6 +4141,15 @@ public class EditProjectController implements Initializable {
             colActualCPAppliancesSuddenly.setVisible(false);
             colAccountAppliancesSuddenly.setVisible(false);
         }
+    }
+
+    public void On_tabCalculatorClickedActionDecorationDelivery(MouseEvent mouseEvent) {
+    }
+
+    public void deleteElementDecorationDelivery(ActionEvent actionEvent) {
+    }
+
+    public void showDecorationDelivery(ActionEvent actionEvent) {
     }
 
     public void On_tabCalculatorClickedActionDecorationSuddenly(MouseEvent mouseEvent) {

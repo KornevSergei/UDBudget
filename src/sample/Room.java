@@ -114,20 +114,12 @@ public class Room {
         return nameRoomTransmit.get();
     }
 
-    public SimpleStringProperty nameRoomTransmitProperty() {
-        return nameRoomTransmit;
-    }
-
     public void setNameRoomTransmit(String nameRoomTransmit) {
         this.nameRoomTransmit.set(nameRoomTransmit);
     }
 
     public boolean isActivePRoomTransmit() {
         return activePRoomTransmit.get();
-    }
-
-    public SimpleBooleanProperty activePRoomTransmitProperty() {
-        return activePRoomTransmit;
     }
 
     public void setActivePRoomTransmit(boolean activePRoomTransmit) {
@@ -138,9 +130,6 @@ public class Room {
         return activeCRoomTransmit.get();
     }
 
-    public SimpleBooleanProperty activeCRoomTransmitProperty() {
-        return activeCRoomTransmit;
-    }
 
     public void setActiveCRoomTransmit(boolean activeCRoomTransmit) {
         this.activeCRoomTransmit.set(activeCRoomTransmit);

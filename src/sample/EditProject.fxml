@@ -642,6 +642,97 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <Accordion fx:id="roomDecoration" prefHeight="500.0" prefWidth="1900.0" />
+                        <VBox></VBox>
+                                <TitledPane fx:id="titleDecorationDelivery" animated="true" text="Доставка/сборка">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <ScrollPane prefHeight="500.0" prefWidth="1900.0">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
+                                                            <children>
+                                                                <TableView fx:id="decorationTableViewDelivery" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionDecorationDelivery" prefHeight="669.0" prefWidth="2000.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="colNameDecorationDelivery" prefWidth="108.0" text="Наименование" />
+                                                                        <TableColumn fx:id="colActivePDecorationDelivery" prefWidth="25.0" text="П" />
+                                                                        <TableColumn fx:id="colActiveCDecorationDelivery" prefWidth="25.0" text="С" />
+                                                                        <TableColumn fx:id="colUnitDecorationDelivery" prefWidth="80.0" text="Ед.изм." />
+                                                                        <TableColumn fx:id="colQuantityDecorationDelivery" prefWidth="63.0" text="Кол-во" />
+                                                                        <TableColumn fx:id="colOrdinalPriceUnitDecorationDelivery" prefWidth="125.0" text="Цена порядковая за ед." />
+                                                                        <TableColumn fx:id="colPriceCPUnitDecorationDelivery" prefWidth="100.0" text="Цена по КП за ед." />
+                                                                        <TableColumn fx:id="colPriceCPKeyDecorationDelivery" prefWidth="100.0" text="Цена по КП под ключ" />
+                                                                        <TableColumn fx:id="colCostCPUnitDecorationDelivery" editable="false" prefWidth="100.0" text="Стоимость по КП за ед." />
+                                                                        <TableColumn fx:id="colPriceOrderDecorationDelivery" editable="false" prefWidth="100.0" text="Порядок цен" />
+                                                                        <TableColumn fx:id="colCostCPDecorationDelivery" editable="false" prefWidth="85.0" text="Стоимость по КП" />
+                                                                        <TableColumn fx:id="colProductionTimeDecorationDelivery" prefWidth="85.0" text="Срок изготовления" />
+                                                                        <TableColumn fx:id="colActualCostDecorationDelivery" prefWidth="85.0" text="Стоимость фактическая" visible="false" />
+                                                                        <TableColumn fx:id="colActualDifferenceDecorationDelivery" editable="false" prefWidth="85.0" text="Разница фактическая" visible="false" />
+                                                                        <TableColumn fx:id="colPaidDecorationDelivery" prefWidth="85.0" text="Оплачено" visible="false" />
+                                                                        <TableColumn fx:id="colResidueDecorationDelivery" editable="false" prefWidth="85.0" text="Остаток" visible="false" />
+                                                                        <TableColumn fx:id="colDateOfDeliveryDecorationDelivery" prefWidth="105.0" text="Дата поставки" visible="false" />
+                                                                        <TableColumn fx:id="colNameRoomDecorationDelivery" prefWidth="85.0" text="Наименование помещения" />
+                                                                        <TableColumn fx:id="colPlannedCPDecorationDelivery" prefWidth="85.0" text="КП плановое" />
+                                                                        <TableColumn fx:id="colActualCPDecorationDelivery" prefWidth="85.0" text="КП фактическое" visible="false" />
+                                                                        <TableColumn fx:id="colAccountDecorationDelivery" prefWidth="55.0" text="Счет" visible="false" />
+                                                                        <TableColumn fx:id="colContactsDecorationDelivery" prefWidth="85.0" text="Контакты" />
+                                                                        <TableColumn fx:id="colNotesDecorationDelivery" prefWidth="85.0" text="Примечания" />
+                                                                        <TableColumn fx:id="colCharacteristicsDecorationDelivery" prefWidth="85.0" text="Характеристики" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementDecorationDelivery" text="Удалить" />
+                                                                <ToggleButton fx:id="showDecorationDeliveryButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showDecorationDelivery" text="Показать" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </content>
+                                                </ScrollPane>
+                                            </children></AnchorPane>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane fx:id="titleDecorationSuddenly" animated="true" text="Нежданчик">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <ScrollPane prefHeight="500.0" prefWidth="1900.0">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
+                                                            <children>
+                                                                <TableView fx:id="decorationTableViewSuddenly" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionDecorationSuddenly" prefHeight="669.0" prefWidth="2000.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="colNameDecorationSuddenly" prefWidth="108.0" text="Наименование" />
+                                                                        <TableColumn fx:id="colActivePDecorationSuddenly" prefWidth="25.0" text="П" />
+                                                                        <TableColumn fx:id="colActiveCDecorationSuddenly" prefWidth="25.0" text="С" />
+                                                                        <TableColumn fx:id="colUnitDecorationSuddenly" prefWidth="80.0" text="Ед.изм." />
+                                                                        <TableColumn fx:id="colQuantityDecorationSuddenly" prefWidth="63.0" text="Кол-во" />
+                                                                        <TableColumn fx:id="colOrdinalPriceUnitDecorationSuddenly" prefWidth="125.0" text="Цена порядковая за ед." />
+                                                                        <TableColumn fx:id="colPriceCPUnitDecorationSuddenly" prefWidth="100.0" text="Цена по КП за ед." />
+                                                                        <TableColumn fx:id="colPriceCPKeyDecorationSuddenly" prefWidth="100.0" text="Цена по КП под ключ" />
+                                                                        <TableColumn fx:id="colCostCPUnitDecorationSuddenly" editable="false" prefWidth="100.0" text="Стоимость по КП за ед." />
+                                                                        <TableColumn fx:id="colPriceOrderDecorationSuddenly" editable="false" prefWidth="100.0" text="Порядок цен" />
+                                                                        <TableColumn fx:id="colCostCPDecorationSuddenly" editable="false" prefWidth="85.0" text="Стоимость по КП" />
+                                                                        <TableColumn fx:id="colProductionTimeDecorationSuddenly" prefWidth="85.0" text="Срок изготовления" />
+                                                                        <TableColumn fx:id="colActualCostDecorationSuddenly" prefWidth="85.0" text="Стоимость фактическая" visible="false" />
+                                                                        <TableColumn fx:id="colActualDifferenceDecorationSuddenly" editable="false" prefWidth="85.0" text="Разница фактическая" visible="false" />
+                                                                        <TableColumn fx:id="colPaidDecorationSuddenly" prefWidth="85.0" text="Оплачено" visible="false" />
+                                                                        <TableColumn fx:id="colResidueDecorationSuddenly" editable="false" prefWidth="85.0" text="Остаток" visible="false" />
+                                                                        <TableColumn fx:id="colDateOfSuddenlyDecorationSuddenly" prefWidth="105.0" text="Дата поставки" visible="false" />
+                                                                        <TableColumn fx:id="colNameRoomDecorationSuddenly" prefWidth="85.0" text="Наименование помещения" />
+                                                                        <TableColumn fx:id="colPlannedCPDecorationSuddenly" prefWidth="85.0" text="КП плановое" />
+                                                                        <TableColumn fx:id="colActualCPDecorationSuddenly" prefWidth="85.0" text="КП фактическое" visible="false" />
+                                                                        <TableColumn fx:id="colAccountDecorationSuddenly" prefWidth="55.0" text="Счет" visible="false" />
+                                                                        <TableColumn fx:id="colContactsDecorationSuddenly" prefWidth="85.0" text="Контакты" />
+                                                                        <TableColumn fx:id="colNotesDecorationSuddenly" prefWidth="85.0" text="Примечания" />
+                                                                        <TableColumn fx:id="colCharacteristicsDecorationSuddenly" prefWidth="85.0" text="Характеристики" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementDecorationSuddenly" text="Удалить" />
+                                                                <ToggleButton fx:id="showDecorationSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showDecorationSuddenly" text="Показать" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </content>
+                                                </ScrollPane>
+                                            </children></AnchorPane>
+                                    </content>
+                                </TitledPane>
                     </children>
                 </AnchorPane>
             </content>
