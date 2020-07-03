@@ -20,6 +20,7 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import javax.xml.crypto.Data;
+import java.awt.event.ItemListener;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -127,6 +128,60 @@ public class EditProjectController implements Initializable {
     public TableColumn<AK, String> colCostAK;
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
 
+    //Блок сантехники
+    public TableView<PlumbingDelivery> plumbingTableViewDelivery;
+    public TableColumn<PlumbingDelivery, String> colNamePlumbingDelivery;
+    public TableColumn<PlumbingDelivery, Boolean> colActivePPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, Boolean> colActiveCPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, UnitType> colUnitPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colQuantityPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colOrdinalPriceUnitPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colPriceCPUnitPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colPriceCPKeyPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colCostCPUnitPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colPriceOrderPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colCostCPPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, TimeProduction> colProductionTimePlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colActualCostPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colActualDifferencePlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colPaidPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colResiduePlumbingDelivery;
+    public TableColumn<PlumbingDelivery, Date> colDateOfDeliveryPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colNameRoomPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colPlannedCPPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colActualCPPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colAccountPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colContactsPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colNotesPlumbingDelivery;
+    public TableColumn<PlumbingDelivery, String> colCharacteristicsPlumbingDelivery;
+    private ObservableList<PlumbingDelivery> observableListPlumbingDelivery = FXCollections.observableArrayList();
+
+    public TableView<PlumbingSuddenly> plumbingTableViewSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colNamePlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, Boolean> colActivePPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, Boolean> colActiveCPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, UnitType> colUnitPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colQuantityPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colOrdinalPriceUnitPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colPriceCPUnitPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colPriceCPKeyPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colCostCPUnitPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colPriceOrderPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colCostCPPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, TimeProduction> colProductionTimePlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colActualCostPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colActualDifferencePlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colPaidPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colResiduePlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, Date> colDateOfSuddenlyPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colNameRoomPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colPlannedCPPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colActualCPPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colAccountPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colContactsPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colNotesPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, String> colCharacteristicsPlumbingSuddenly;
+    private ObservableList<PlumbingSuddenly> observableListPlumbingSuddenly = FXCollections.observableArrayList();
 
     //Блок материалов
     public TableView<MaterialWall> materialTableViewWall;
@@ -265,6 +320,118 @@ public class EditProjectController implements Initializable {
     public TableColumn<MaterialSuddenly, String> colCharacteristicsMaterialSuddenly;
     private ObservableList<MaterialSuddenly> observableListMaterialSuddenly = FXCollections.observableArrayList();
 
+    //Блок Мебели
+    public TableView<FurnitureDelivery> furnitureTableViewDelivery;
+    public TableColumn<FurnitureDelivery, String> colNameFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, Boolean> colActivePFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, Boolean> colActiveCFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, UnitType> colUnitFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colQuantityFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colOrdinalPriceUnitFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colPriceCPUnitFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colPriceCPKeyFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colCostCPUnitFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colPriceOrderFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colCostCPFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, TimeProduction> colProductionTimeFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colActualCostFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colActualDifferenceFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colPaidFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colResidueFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, Date> colDateOfDeliveryFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colNameRoomFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colPlannedCPFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colActualCPFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colAccountFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colContactsFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colNotesFurnitureDelivery;
+    public TableColumn<FurnitureDelivery, String> colCharacteristicsFurnitureDelivery;
+    private ObservableList<FurnitureDelivery> observableListFurnitureDelivery = FXCollections.observableArrayList();
+
+    public TableView<FurnitureSuddenly> furnitureTableViewSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colNameFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, Boolean> colActivePFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, Boolean> colActiveCFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, UnitType> colUnitFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colQuantityFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colOrdinalPriceUnitFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colPriceCPUnitFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colPriceCPKeyFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colCostCPUnitFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colPriceOrderFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colCostCPFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, TimeProduction> colProductionTimeFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colActualCostFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colActualDifferenceFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colPaidFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colResidueFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, Date> colDateOfDeliveryFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colNameRoomFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colPlannedCPFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colActualCPFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colAccountFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colContactsFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colNotesFurnitureSuddenly;
+    public TableColumn<FurnitureSuddenly, String> colCharacteristicsFurnitureSuddenly;
+    private ObservableList<FurnitureSuddenly> observableListFurnitureSuddenly = FXCollections.observableArrayList();
+
+
+
+    //Блок Света
+    public TableView<LightDelivery> lightTableViewDelivery;
+    public TableColumn<LightDelivery, String> colNameLightDelivery;
+    public TableColumn<LightDelivery, Boolean> colActivePLightDelivery;
+    public TableColumn<LightDelivery, Boolean> colActiveCLightDelivery;
+    public TableColumn<LightDelivery, UnitType> colUnitLightDelivery;
+    public TableColumn<LightDelivery, String> colQuantityLightDelivery;
+    public TableColumn<LightDelivery, String> colOrdinalPriceUnitLightDelivery;
+    public TableColumn<LightDelivery, String> colPriceCPUnitLightDelivery;
+    public TableColumn<LightDelivery, String> colPriceCPKeyLightDelivery;
+    public TableColumn<LightDelivery, String> colCostCPUnitLightDelivery;
+    public TableColumn<LightDelivery, String> colPriceOrderLightDelivery;
+    public TableColumn<LightDelivery, String> colCostCPLightDelivery;
+    public TableColumn<LightDelivery, TimeProduction> colProductionTimeLightDelivery;
+    public TableColumn<LightDelivery, String> colActualCostLightDelivery;
+    public TableColumn<LightDelivery, String> colActualDifferenceLightDelivery;
+    public TableColumn<LightDelivery, String> colPaidLightDelivery;
+    public TableColumn<LightDelivery, String> colResidueLightDelivery;
+    public TableColumn<LightDelivery, Date> colDateOfDeliveryLightDelivery;
+    public TableColumn<LightDelivery, String> colNameRoomLightDelivery;
+    public TableColumn<LightDelivery, String> colPlannedCPLightDelivery;
+    public TableColumn<LightDelivery, String> colActualCPLightDelivery;
+    public TableColumn<LightDelivery, String> colAccountLightDelivery;
+    public TableColumn<LightDelivery, String> colContactsLightDelivery;
+    public TableColumn<LightDelivery, String> colNotesLightDelivery;
+    public TableColumn<LightDelivery, String> colCharacteristicsLightDelivery;
+    private ObservableList<LightDelivery> observableListLightDelivery = FXCollections.observableArrayList();
+
+    public TableView<LightSuddenly> lightTableViewSuddenly;
+    public TableColumn<LightSuddenly, String> colNameLightSuddenly;
+    public TableColumn<LightSuddenly, Boolean> colActivePLightSuddenly;
+    public TableColumn<LightSuddenly, Boolean> colActiveCLightSuddenly;
+    public TableColumn<LightSuddenly, UnitType> colUnitLightSuddenly;
+    public TableColumn<LightSuddenly, String> colQuantityLightSuddenly;
+    public TableColumn<LightSuddenly, String> colOrdinalPriceUnitLightSuddenly;
+    public TableColumn<LightSuddenly, String> colPriceCPUnitLightSuddenly;
+    public TableColumn<LightSuddenly, String> colPriceCPKeyLightSuddenly;
+    public TableColumn<LightSuddenly, String> colCostCPUnitLightSuddenly;
+    public TableColumn<LightSuddenly, String> colPriceOrderLightSuddenly;
+    public TableColumn<LightSuddenly, String> colCostCPLightSuddenly;
+    public TableColumn<LightSuddenly, TimeProduction> colProductionTimeLightSuddenly;
+    public TableColumn<LightSuddenly, String> colActualCostLightSuddenly;
+    public TableColumn<LightSuddenly, String> colActualDifferenceLightSuddenly;
+    public TableColumn<LightSuddenly, String> colPaidLightSuddenly;
+    public TableColumn<LightSuddenly, String> colResidueLightSuddenly;
+    public TableColumn<LightSuddenly, Date> colDateOfDeliveryLightSuddenly;
+    public TableColumn<LightSuddenly, String> colNameRoomLightSuddenly;
+    public TableColumn<LightSuddenly, String> colPlannedCPLightSuddenly;
+    public TableColumn<LightSuddenly, String> colActualCPLightSuddenly;
+    public TableColumn<LightSuddenly, String> colAccountLightSuddenly;
+    public TableColumn<LightSuddenly, String> colContactsLightSuddenly;
+    public TableColumn<LightSuddenly, String> colNotesLightSuddenly;
+    public TableColumn<LightSuddenly, String> colCharacteristicsLightSuddenly;
+    private ObservableList<LightSuddenly> observableListLightSuddenly = FXCollections.observableArrayList();
+
 
     //Блок Техники
     public TableView<AppliancesKitchen> appliancesTableViewKitchen;
@@ -354,7 +521,6 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesSuddenly, Boolean> colActiveCAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, UnitType> colUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colQuantityAppliancesSuddenly;
-    //    public TableColumn<AppliancesSuddenly, Double> colQuantityAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colOrdinalPriceUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPriceCPUnitAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colPriceCPKeyAppliancesSuddenly;
@@ -375,6 +541,63 @@ public class EditProjectController implements Initializable {
     public TableColumn<AppliancesSuddenly, String> colNotesAppliancesSuddenly;
     public TableColumn<AppliancesSuddenly, String> colCharacteristicsAppliancesSuddenly;
     private ObservableList<AppliancesSuddenly> observableListAppliancesSuddenly = FXCollections.observableArrayList();
+
+    //Блок Декора
+    public TableView<DecorationDelivery> decorationTableViewDelivery;
+    public TableColumn<DecorationDelivery, String> colNameDecorationDelivery;
+    public TableColumn<DecorationDelivery, Boolean> colActivePDecorationDelivery;
+    public TableColumn<DecorationDelivery, Boolean> colActiveCDecorationDelivery;
+    public TableColumn<DecorationDelivery, UnitType> colUnitDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colQuantityDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colOrdinalPriceUnitDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colPriceCPUnitDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colPriceCPKeyDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colCostCPUnitDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colPriceOrderDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colCostCPDecorationDelivery;
+    public TableColumn<DecorationDelivery, TimeProduction> colProductionTimeDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colActualCostDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colActualDifferenceDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colPaidDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colResidueDecorationDelivery;
+    public TableColumn<DecorationDelivery, Date> colDateOfDeliveryDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colNameRoomDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colPlannedCPDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colActualCPDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colAccountDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colContactsDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colNotesDecorationDelivery;
+    public TableColumn<DecorationDelivery, String> colCharacteristicsDecorationDelivery;
+    private ObservableList<DecorationDelivery> observableListDecorationDelivery = FXCollections.observableArrayList();
+
+    public TableView<DecorationSuddenly> decorationTableViewSuddenly;
+    public TableColumn<DecorationSuddenly, String> colNameDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, Boolean> colActivePDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, Boolean> colActiveCDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, UnitType> colUnitDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colQuantityDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colOrdinalPriceUnitDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colPriceCPUnitDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colPriceCPKeyDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colCostCPUnitDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colPriceOrderDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colCostCPDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, TimeProduction> colProductionTimeDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colActualCostDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colActualDifferenceDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colPaidDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colResidueDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, Date> colDateOfDeliveryDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colNameRoomDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colPlannedCPDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colActualCPDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colAccountDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colContactsDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colNotesDecorationSuddenly;
+    public TableColumn<DecorationSuddenly, String> colCharacteristicsDecorationSuddenly;
+    private ObservableList<DecorationSuddenly> observableListDecorationSuddenly = FXCollections.observableArrayList();
+
+
 
     public TableView<Statistic> statisticTableView;
     public TableColumn<Statistic, String> colNameCategory;
@@ -3306,7 +3529,8 @@ public class EditProjectController implements Initializable {
         updatedRoom.setNameRoom(newName);
 
 
-        //Добавили из цикла во вкладки
+        //ешить проблему с сантехникой, должно быть имя + чекбокс
+//        if (colSelectBathRoom.getColumns().isEmpty())
         roomPlumbing.getPanes().clear();
         initAccordion(roomPlumbing);
 
@@ -3323,9 +3547,7 @@ public class EditProjectController implements Initializable {
     private void initAccordion(Accordion accordion) {
         for (Room room : observableListRoom) {
             if (!room.getNameRoom().isEmpty()) {
-                //Было!
                 accordion.getPanes().add(createTitledPane(room));
-//                accordion.getPanes().addAll(createTitledPane(room), titleDecorationDelivery.);
             }
         }
     }

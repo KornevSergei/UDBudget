@@ -108,7 +108,6 @@ public class Room {
 
 
 
-
     //Тест с Пропертями!!!!!!!!!!!
     public String getNameRoomTransmit() {
         return nameRoomTransmit.get();
