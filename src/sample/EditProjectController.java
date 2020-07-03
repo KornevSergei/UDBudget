@@ -597,8 +597,6 @@ public class EditProjectController implements Initializable {
     public TableColumn<DecorationSuddenly, String> colCharacteristicsDecorationSuddenly;
     private ObservableList<DecorationSuddenly> observableListDecorationSuddenly = FXCollections.observableArrayList();
 
-
-
     public TableView<Statistic> statisticTableView;
     public TableColumn<Statistic, String> colNameCategory;
     public TableColumn<Statistic, String> colTotalCost;
@@ -996,6 +994,557 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
+        //Сантехника - Доставка
+        plumbingTableViewDelivery.setItems(observableListPlumbingDelivery);
+        Callback<TableColumn<PlumbingDelivery, String>, TableCell<PlumbingDelivery, String>> cellFactoryDoublePlumbingDelivery =
+                new Callback<TableColumn<PlumbingDelivery, String>, TableCell<PlumbingDelivery, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<PlumbingDelivery, Boolean>, TableCell<PlumbingDelivery, Boolean>> cellFactoryCheckboxPlumbingDelivery =
+                new Callback<TableColumn<PlumbingDelivery, Boolean>, TableCell<PlumbingDelivery, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNamePlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("namePlumbingDelivery"));
+        colNamePlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNamePlumbingDelivery(t.getNewValue());
+                    }
+                });
+        colActivePPlumbingDelivery.setCellFactory(cellFactoryCheckboxPlumbingDelivery);
+        colActivePPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("activePPlumbingDelivery"));
+        colActivePPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCPlumbingDelivery.setCellFactory(cellFactoryCheckboxPlumbingDelivery);
+        colActiveCPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("activeCPlumbingDelivery"));
+        colActiveCPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<UnitType> typeListPlumbingDelivery = FXCollections.observableArrayList(UnitType.values());
+        colUnitPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("unitPlumbingDelivery"));
+        colUnitPlumbingDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(typeListPlumbingDelivery));
+        colUnitPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, UnitType>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, UnitType> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitPlumbingDelivery(t.getNewValue());
+                    }
+                });
+        colQuantityPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colQuantityPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("quantityPlumbingDelivery"));
+        colQuantityPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colOrdinalPriceUnitPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitPlumbingDelivery"));
+        colOrdinalPriceUnitPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colPriceCPUnitPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitPlumbingDelivery"));
+        colPriceCPUnitPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colPriceCPKeyPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyPlumbingDelivery"));
+        colPriceCPKeyPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colCostCPUnitPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPUnitPlumbingDelivery"));
+        colCostCPUnitPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colPriceOrderPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("priceOrderPlumbingDelivery"));
+        colPriceOrderPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colCostCPPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPPlumbingDelivery"));
+        colCostCPPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<TimeProduction> timeProductionListPlumbingDelivery = FXCollections.observableArrayList(TimeProduction.values());
+        colProductionTimePlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("productionTimePlumbingDelivery"));
+        colProductionTimePlumbingDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListPlumbingDelivery));
+        colProductionTimePlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, TimeProduction>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, TimeProduction> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimePlumbingDelivery(t.getNewValue());
+                    }
+                });
+        colActualCostPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colActualCostPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCostPlumbingDelivery"));
+        colActualCostPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferencePlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colActualDifferencePlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("actualDifferencePlumbingDelivery"));
+        colActualDifferencePlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferencePlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidPlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colPaidPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("paidPlumbingDelivery"));
+        colPaidPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResiduePlumbingDelivery.setCellFactory(cellFactoryDoublePlumbingDelivery);
+        colResiduePlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("residuePlumbingDelivery"));
+        colResiduePlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResiduePlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colDateOfDeliveryPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryPlumbingDelivery"));
+        colDateOfDeliveryPlumbingDelivery.setCellFactory(p -> {
+            return new PlumbingDelivery.DatePickerCell<>();
+        });
+        colNameRoomPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("nameRoomPlumbingDelivery"));
+        colNameRoomPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPlannedCPPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("plannedCPPlumbingDelivery"));
+        colPlannedCPPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCPPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCPPlumbingDelivery"));
+        colActualCPPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colAccountPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("accountPlumbingDelivery"));
+        colAccountPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colContactsPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("contactsPlumbingDelivery"));
+        colContactsPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNotesPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("notesPlumbingDelivery"));
+        colNotesPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCharacteristicsPlumbingDelivery.setCellValueFactory(new PropertyValueFactory<>("characteristicsPlumbingDelivery"));
+        colCharacteristicsPlumbingDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsPlumbingDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNamePlumbingDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomPlumbingDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPPlumbingDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPPlumbingDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountPlumbingDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsPlumbingDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesPlumbingDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsPlumbingDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+        //Сантехника- Нежданчик
+        plumbingTableViewSuddenly.setItems(observableListPlumbingSuddenly);
+        Callback<TableColumn<PlumbingSuddenly, String>, TableCell<PlumbingSuddenly, String>> cellFactoryDoublePlumbingSuddenly =
+                new Callback<TableColumn<PlumbingSuddenly, String>, TableCell<PlumbingSuddenly, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<PlumbingSuddenly, Boolean>, TableCell<PlumbingSuddenly, Boolean>> cellFactoryCheckboxPlumbingSuddenly =
+                new Callback<TableColumn<PlumbingSuddenly, Boolean>, TableCell<PlumbingSuddenly, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNamePlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("namePlumbingSuddenly"));
+        colNamePlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNamePlumbingSuddenly(t.getNewValue());
+                    }
+                });
+        colActivePPlumbingSuddenly.setCellFactory(cellFactoryCheckboxPlumbingSuddenly);
+        colActivePPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("activePPlumbingSuddenly"));
+        colActivePPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCPlumbingSuddenly.setCellFactory(cellFactoryCheckboxPlumbingSuddenly);
+        colActiveCPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("activeCPlumbingSuddenly"));
+        colActiveCPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<UnitType> typeListPlumbingSuddenly = FXCollections.observableArrayList(UnitType.values());
+        colUnitPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitPlumbingSuddenly"));
+        colUnitPlumbingSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeListPlumbingSuddenly));
+        colUnitPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, UnitType>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, UnitType> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitPlumbingSuddenly(t.getNewValue());
+                    }
+                });
+        colQuantityPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colQuantityPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("quantityPlumbingSuddenly"));
+        colQuantityPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colOrdinalPriceUnitPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitPlumbingSuddenly"));
+        colOrdinalPriceUnitPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colPriceCPUnitPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitPlumbingSuddenly"));
+        colPriceCPUnitPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colPriceCPKeyPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyPlumbingSuddenly"));
+        colPriceCPKeyPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colCostCPUnitPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPUnitPlumbingSuddenly"));
+        colCostCPUnitPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colPriceOrderPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceOrderPlumbingSuddenly"));
+        colPriceOrderPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colCostCPPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPPlumbingSuddenly"));
+        colCostCPPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<TimeProduction> timeProductionListPlumbingSuddenly = FXCollections.observableArrayList(TimeProduction.values());
+        colProductionTimePlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimePlumbingSuddenly"));
+        colProductionTimePlumbingSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListPlumbingSuddenly));
+        colProductionTimePlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, TimeProduction>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, TimeProduction> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimePlumbingSuddenly(t.getNewValue());
+                    }
+                });
+        colActualCostPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colActualCostPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCostPlumbingSuddenly"));
+        colActualCostPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferencePlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colActualDifferencePlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualDifferencePlumbingSuddenly"));
+        colActualDifferencePlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferencePlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidPlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colPaidPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("paidPlumbingSuddenly"));
+        colPaidPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResiduePlumbingSuddenly.setCellFactory(cellFactoryDoublePlumbingSuddenly);
+        colResiduePlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("residuePlumbingSuddenly"));
+        colResiduePlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResiduePlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colDateOfSuddenlyPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfSuddenlyPlumbingSuddenly"));
+        colDateOfSuddenlyPlumbingSuddenly.setCellFactory(p -> {
+            return new PlumbingSuddenly.DatePickerCell<>();
+        });
+        colNameRoomPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameRoomPlumbingSuddenly"));
+        colNameRoomPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPlannedCPPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("plannedCPPlumbingSuddenly"));
+        colPlannedCPPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCPPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCPPlumbingSuddenly"));
+        colActualCPPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colAccountPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("accountPlumbingSuddenly"));
+        colAccountPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colContactsPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("contactsPlumbingSuddenly"));
+        colContactsPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNotesPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("notesPlumbingSuddenly"));
+        colNotesPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCharacteristicsPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("characteristicsPlumbingSuddenly"));
+        colCharacteristicsPlumbingSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<PlumbingSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<PlumbingSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsPlumbingSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNamePlumbingSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomPlumbingSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPPlumbingSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPPlumbingSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountPlumbingSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsPlumbingSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesPlumbingSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsPlumbingSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
         //Материалы - стена
@@ -2377,6 +2926,1107 @@ public class EditProjectController implements Initializable {
         colNotesMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsMaterialSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
 
+        //Мебель - Доставка
+        furnitureTableViewDelivery.setItems(observableListFurnitureDelivery);
+        Callback<TableColumn<FurnitureDelivery, String>, TableCell<FurnitureDelivery, String>> cellFactoryDoubleFurnitureDelivery =
+                new Callback<TableColumn<FurnitureDelivery, String>, TableCell<FurnitureDelivery, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<FurnitureDelivery, Boolean>, TableCell<FurnitureDelivery, Boolean>> cellFactoryCheckboxFurnitureDelivery =
+                new Callback<TableColumn<FurnitureDelivery, Boolean>, TableCell<FurnitureDelivery, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNameFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("nameFurnitureDelivery"));
+        colNameFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameFurnitureDelivery(t.getNewValue());
+                    }
+                });
+        colActivePFurnitureDelivery.setCellFactory(cellFactoryCheckboxFurnitureDelivery);
+        colActivePFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("activePFurnitureDelivery"));
+        colActivePFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCFurnitureDelivery.setCellFactory(cellFactoryCheckboxFurnitureDelivery);
+        colActiveCFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("activeCFurnitureDelivery"));
+        colActiveCFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<UnitType> typeListFurnitureDelivery = FXCollections.observableArrayList(UnitType.values());
+        colUnitFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("unitFurnitureDelivery"));
+        colUnitFurnitureDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(typeListFurnitureDelivery));
+        colUnitFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, UnitType>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, UnitType> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitFurnitureDelivery(t.getNewValue());
+                    }
+                });
+        colQuantityFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colQuantityFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("quantityFurnitureDelivery"));
+        colQuantityFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colOrdinalPriceUnitFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitFurnitureDelivery"));
+        colOrdinalPriceUnitFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colPriceCPUnitFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitFurnitureDelivery"));
+        colPriceCPUnitFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colPriceCPKeyFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyFurnitureDelivery"));
+        colPriceCPKeyFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colCostCPUnitFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPUnitFurnitureDelivery"));
+        colCostCPUnitFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colPriceOrderFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("priceOrderFurnitureDelivery"));
+        colPriceOrderFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colCostCPFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPFurnitureDelivery"));
+        colCostCPFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<TimeProduction> timeProductionListFurnitureDelivery = FXCollections.observableArrayList(TimeProduction.values());
+        colProductionTimeFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("productionTimeFurnitureDelivery"));
+        colProductionTimeFurnitureDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListFurnitureDelivery));
+        colProductionTimeFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, TimeProduction>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, TimeProduction> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeFurnitureDelivery(t.getNewValue());
+                    }
+                });
+        colActualCostFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colActualCostFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCostFurnitureDelivery"));
+        colActualCostFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferenceFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colActualDifferenceFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceFurnitureDelivery"));
+        colActualDifferenceFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colPaidFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("paidFurnitureDelivery"));
+        colPaidFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResidueFurnitureDelivery.setCellFactory(cellFactoryDoubleFurnitureDelivery);
+        colResidueFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("residueFurnitureDelivery"));
+        colResidueFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colDateOfDeliveryFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryFurnitureDelivery"));
+        colDateOfDeliveryFurnitureDelivery.setCellFactory(p -> {
+            return new FurnitureDelivery.DatePickerCell<>();
+        });
+        colNameRoomFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("nameRoomFurnitureDelivery"));
+        colNameRoomFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPlannedCPFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("plannedCPFurnitureDelivery"));
+        colPlannedCPFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCPFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCPFurnitureDelivery"));
+        colActualCPFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colAccountFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("accountFurnitureDelivery"));
+        colAccountFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colContactsFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("contactsFurnitureDelivery"));
+        colContactsFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNotesFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("notesFurnitureDelivery"));
+        colNotesFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCharacteristicsFurnitureDelivery.setCellValueFactory(new PropertyValueFactory<>("characteristicsFurnitureDelivery"));
+        colCharacteristicsFurnitureDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsFurnitureDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNameFurnitureDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomFurnitureDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPFurnitureDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPFurnitureDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountFurnitureDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsFurnitureDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesFurnitureDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsFurnitureDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+        furnitureTableViewSuddenly.setItems(observableListFurnitureSuddenly);
+        Callback<TableColumn<FurnitureSuddenly, String>, TableCell<FurnitureSuddenly, String>> cellFactoryDoubleFurnitureSuddenly =
+                new Callback<TableColumn<FurnitureSuddenly, String>, TableCell<FurnitureSuddenly, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<FurnitureSuddenly, Boolean>, TableCell<FurnitureSuddenly, Boolean>> cellFactoryCheckboxFurnitureSuddenly =
+                new Callback<TableColumn<FurnitureSuddenly, Boolean>, TableCell<FurnitureSuddenly, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNameFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameFurnitureSuddenly"));
+        colNameFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameFurnitureSuddenly(t.getNewValue());
+                    }
+                });
+        colActivePFurnitureSuddenly.setCellFactory(cellFactoryCheckboxFurnitureSuddenly);
+        colActivePFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("activePFurnitureSuddenly"));
+        colActivePFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCFurnitureSuddenly.setCellFactory(cellFactoryCheckboxFurnitureSuddenly);
+        colActiveCFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("activeCFurnitureSuddenly"));
+        colActiveCFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<UnitType> typeListFurnitureSuddenly = FXCollections.observableArrayList(UnitType.values());
+        colUnitFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitFurnitureSuddenly"));
+        colUnitFurnitureSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeListFurnitureSuddenly));
+        colUnitFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, UnitType>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, UnitType> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitFurnitureSuddenly(t.getNewValue());
+                    }
+                });
+        colQuantityFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colQuantityFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("quantityFurnitureSuddenly"));
+        colQuantityFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colOrdinalPriceUnitFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitFurnitureSuddenly"));
+        colOrdinalPriceUnitFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colPriceCPUnitFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitFurnitureSuddenly"));
+        colPriceCPUnitFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colPriceCPKeyFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyFurnitureSuddenly"));
+        colPriceCPKeyFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colCostCPUnitFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPUnitFurnitureSuddenly"));
+        colCostCPUnitFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colPriceOrderFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceOrderFurnitureSuddenly"));
+        colPriceOrderFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colCostCPFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPFurnitureSuddenly"));
+        colCostCPFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<TimeProduction> timeProductionListFurnitureSuddenly = FXCollections.observableArrayList(TimeProduction.values());
+        colProductionTimeFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeFurnitureSuddenly"));
+        colProductionTimeFurnitureSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListFurnitureSuddenly));
+        colProductionTimeFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, TimeProduction>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, TimeProduction> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeFurnitureSuddenly(t.getNewValue());
+                    }
+                });
+        colActualCostFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colActualCostFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCostFurnitureSuddenly"));
+        colActualCostFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferenceFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colActualDifferenceFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceFurnitureSuddenly"));
+        colActualDifferenceFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colPaidFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("paidFurnitureSuddenly"));
+        colPaidFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResidueFurnitureSuddenly.setCellFactory(cellFactoryDoubleFurnitureSuddenly);
+        colResidueFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("residueFurnitureSuddenly"));
+        colResidueFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colDateOfDeliveryFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryFurnitureSuddenly"));
+        colDateOfDeliveryFurnitureSuddenly.setCellFactory(p -> {
+            return new FurnitureSuddenly.DatePickerCell<>();
+        });
+        colNameRoomFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameRoomFurnitureSuddenly"));
+        colNameRoomFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPlannedCPFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("plannedCPFurnitureSuddenly"));
+        colPlannedCPFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCPFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCPFurnitureSuddenly"));
+        colActualCPFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colAccountFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("accountFurnitureSuddenly"));
+        colAccountFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colContactsFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("contactsFurnitureSuddenly"));
+        colContactsFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNotesFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("notesFurnitureSuddenly"));
+        colNotesFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCharacteristicsFurnitureSuddenly.setCellValueFactory(new PropertyValueFactory<>("characteristicsFurnitureSuddenly"));
+        colCharacteristicsFurnitureSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<FurnitureSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<FurnitureSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsFurnitureSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNameFurnitureSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomFurnitureSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPFurnitureSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPFurnitureSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountFurnitureSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsFurnitureSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesFurnitureSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsFurnitureSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+        //Свет-Доставка
+        lightTableViewDelivery.setItems(observableListLightDelivery);
+        Callback<TableColumn<LightDelivery, String>, TableCell<LightDelivery, String>> cellFactoryDoubleLightDelivery =
+                new Callback<TableColumn<LightDelivery, String>, TableCell<LightDelivery, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<LightDelivery, Boolean>, TableCell<LightDelivery, Boolean>> cellFactoryCheckboxLightDelivery =
+                new Callback<TableColumn<LightDelivery, Boolean>, TableCell<LightDelivery, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNameLightDelivery.setCellValueFactory(new PropertyValueFactory<>("nameLightDelivery"));
+        colNameLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameLightDelivery(t.getNewValue());
+                    }
+                });
+        colActivePLightDelivery.setCellFactory(cellFactoryCheckboxLightDelivery);
+        colActivePLightDelivery.setCellValueFactory(new PropertyValueFactory<>("activePLightDelivery"));
+        colActivePLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCLightDelivery.setCellFactory(cellFactoryCheckboxLightDelivery);
+        colActiveCLightDelivery.setCellValueFactory(new PropertyValueFactory<>("activeCLightDelivery"));
+        colActiveCLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<UnitType> typeListLightDelivery = FXCollections.observableArrayList(UnitType.values());
+        colUnitLightDelivery.setCellValueFactory(new PropertyValueFactory<>("unitLightDelivery"));
+        colUnitLightDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(typeListLightDelivery));
+        colUnitLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, UnitType>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, UnitType> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitLightDelivery(t.getNewValue());
+                    }
+                });
+        colQuantityLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colQuantityLightDelivery.setCellValueFactory(new PropertyValueFactory<>("quantityLightDelivery"));
+        colQuantityLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colOrdinalPriceUnitLightDelivery.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitLightDelivery"));
+        colOrdinalPriceUnitLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colPriceCPUnitLightDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitLightDelivery"));
+        colPriceCPUnitLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colPriceCPKeyLightDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyLightDelivery"));
+        colPriceCPKeyLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colCostCPUnitLightDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPUnitLightDelivery"));
+        colCostCPUnitLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colPriceOrderLightDelivery.setCellValueFactory(new PropertyValueFactory<>("priceOrderLightDelivery"));
+        colPriceOrderLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colCostCPLightDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPLightDelivery"));
+        colCostCPLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<TimeProduction> timeProductionListLightDelivery = FXCollections.observableArrayList(TimeProduction.values());
+        colProductionTimeLightDelivery.setCellValueFactory(new PropertyValueFactory<>("productionTimeLightDelivery"));
+        colProductionTimeLightDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListLightDelivery));
+        colProductionTimeLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, TimeProduction>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, TimeProduction> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeLightDelivery(t.getNewValue());
+                    }
+                });
+        colActualCostLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colActualCostLightDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCostLightDelivery"));
+        colActualCostLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferenceLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colActualDifferenceLightDelivery.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceLightDelivery"));
+        colActualDifferenceLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colPaidLightDelivery.setCellValueFactory(new PropertyValueFactory<>("paidLightDelivery"));
+        colPaidLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResidueLightDelivery.setCellFactory(cellFactoryDoubleLightDelivery);
+        colResidueLightDelivery.setCellValueFactory(new PropertyValueFactory<>("residueLightDelivery"));
+        colResidueLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colDateOfDeliveryLightDelivery.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryLightDelivery"));
+        colDateOfDeliveryLightDelivery.setCellFactory(p -> {
+            return new LightDelivery.DatePickerCell<>();
+        });
+        colNameRoomLightDelivery.setCellValueFactory(new PropertyValueFactory<>("nameRoomLightDelivery"));
+        colNameRoomLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPlannedCPLightDelivery.setCellValueFactory(new PropertyValueFactory<>("plannedCPLightDelivery"));
+        colPlannedCPLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCPLightDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCPLightDelivery"));
+        colActualCPLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colAccountLightDelivery.setCellValueFactory(new PropertyValueFactory<>("accountLightDelivery"));
+        colAccountLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colContactsLightDelivery.setCellValueFactory(new PropertyValueFactory<>("contactsLightDelivery"));
+        colContactsLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNotesLightDelivery.setCellValueFactory(new PropertyValueFactory<>("notesLightDelivery"));
+        colNotesLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCharacteristicsLightDelivery.setCellValueFactory(new PropertyValueFactory<>("characteristicsLightDelivery"));
+        colCharacteristicsLightDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsLightDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNameLightDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomLightDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPLightDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPLightDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountLightDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsLightDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesLightDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsLightDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+        lightTableViewSuddenly.setItems(observableListLightSuddenly);
+        Callback<TableColumn<LightSuddenly, String>, TableCell<LightSuddenly, String>> cellFactoryDoubleLightSuddenly =
+                new Callback<TableColumn<LightSuddenly, String>, TableCell<LightSuddenly, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<LightSuddenly, Boolean>, TableCell<LightSuddenly, Boolean>> cellFactoryCheckboxLightSuddenly =
+                new Callback<TableColumn<LightSuddenly, Boolean>, TableCell<LightSuddenly, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNameLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameLightSuddenly"));
+        colNameLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameLightSuddenly(t.getNewValue());
+                    }
+                });
+        colActivePLightSuddenly.setCellFactory(cellFactoryCheckboxLightSuddenly);
+        colActivePLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("activePLightSuddenly"));
+        colActivePLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCLightSuddenly.setCellFactory(cellFactoryCheckboxLightSuddenly);
+        colActiveCLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("activeCLightSuddenly"));
+        colActiveCLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<UnitType> typeListLightSuddenly = FXCollections.observableArrayList(UnitType.values());
+        colUnitLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitLightSuddenly"));
+        colUnitLightSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeListLightSuddenly));
+        colUnitLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, UnitType>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, UnitType> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitLightSuddenly(t.getNewValue());
+                    }
+                });
+        colQuantityLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colQuantityLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("quantityLightSuddenly"));
+        colQuantityLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colOrdinalPriceUnitLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitLightSuddenly"));
+        colOrdinalPriceUnitLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colPriceCPUnitLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitLightSuddenly"));
+        colPriceCPUnitLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colPriceCPKeyLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyLightSuddenly"));
+        colPriceCPKeyLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colCostCPUnitLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPUnitLightSuddenly"));
+        colCostCPUnitLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colPriceOrderLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceOrderLightSuddenly"));
+        colPriceOrderLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colCostCPLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPLightSuddenly"));
+        colCostCPLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<TimeProduction> timeProductionListLightSuddenly = FXCollections.observableArrayList(TimeProduction.values());
+        colProductionTimeLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeLightSuddenly"));
+        colProductionTimeLightSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListLightSuddenly));
+        colProductionTimeLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, TimeProduction>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, TimeProduction> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeLightSuddenly(t.getNewValue());
+                    }
+                });
+        colActualCostLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colActualCostLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCostLightSuddenly"));
+        colActualCostLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferenceLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colActualDifferenceLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceLightSuddenly"));
+        colActualDifferenceLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colPaidLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("paidLightSuddenly"));
+        colPaidLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResidueLightSuddenly.setCellFactory(cellFactoryDoubleLightSuddenly);
+        colResidueLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("residueLightSuddenly"));
+        colResidueLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colDateOfDeliveryLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryLightSuddenly"));
+        colDateOfDeliveryLightSuddenly.setCellFactory(p -> {
+            return new LightSuddenly.DatePickerCell<>();
+        });
+        colNameRoomLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameRoomLightSuddenly"));
+        colNameRoomLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPlannedCPLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("plannedCPLightSuddenly"));
+        colPlannedCPLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCPLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCPLightSuddenly"));
+        colActualCPLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colAccountLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("accountLightSuddenly"));
+        colAccountLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colContactsLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("contactsLightSuddenly"));
+        colContactsLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNotesLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("notesLightSuddenly"));
+        colNotesLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCharacteristicsLightSuddenly.setCellValueFactory(new PropertyValueFactory<>("characteristicsLightSuddenly"));
+        colCharacteristicsLightSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<LightSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<LightSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsLightSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNameLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
+
+
 
         //Техника - Кухня!
         appliancesTableViewKitchen.setItems(observableListAppliancesKitchen);
@@ -3476,7 +5126,10 @@ public class EditProjectController implements Initializable {
         colContactsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colNotesAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+
     }
+
+
 
 
     public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
