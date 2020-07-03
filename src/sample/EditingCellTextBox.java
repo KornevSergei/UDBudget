@@ -6,6 +6,7 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 
 
 // Обработчик для ячеек (колонок), которые надо обрабатывать как текст
@@ -106,6 +107,7 @@ public class EditingCellTextBox extends TableCell<Object, String> {
         textField.setOnKeyReleased(t -> {
             // При нажатии ENTER введенное значение сохраняется
             if (t.getCode() == KeyCode.ENTER)
+//            if (t.getCode() == MouseEvent.MOUSE_CLICKED)
                 commitEdit(textField.getText());
                 // При нажатии ESCAPE - сбрасывается
             else if (t.getCode() == KeyCode.ESCAPE)

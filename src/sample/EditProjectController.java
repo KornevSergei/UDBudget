@@ -4160,4 +4160,58 @@ public class EditProjectController implements Initializable {
 
     public void showDecorationSuddenly(ActionEvent actionEvent) {
     }
+
+    public void On_tabCalculatorClickedActionPlumbingDelivery(MouseEvent mouseEvent) {
+    }
+
+    public void deleteElementPlumbingDelivery(ActionEvent actionEvent) {
+    }
+
+    public void showPlumbingDelivery(ActionEvent actionEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionPlumbingSuddenly(MouseEvent mouseEvent) {
+    }
+
+    public void deleteElementPlumbingSuddenly(ActionEvent actionEvent) {
+    }
+
+    public void showPlumbingSuddenly(ActionEvent actionEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionFurnitureDelivery(MouseEvent mouseEvent) {
+    }
+
+    public void deleteElementFurnitureDelivery(ActionEvent actionEvent) {
+    }
+
+    public void showFurnitureDelivery(ActionEvent actionEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionFurnitureSuddenly(MouseEvent mouseEvent) {
+    }
+
+    public void deleteElementFurnitureSuddenly(ActionEvent actionEvent) {
+    }
+
+    public void showFurnitureSuddenly(ActionEvent actionEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionLightDelivery(MouseEvent mouseEvent) {
+    }
+
+    public void deleteElementLightDelivery(ActionEvent actionEvent) {
+    }
+
+    public void showLightDelivery(ActionEvent actionEvent) {
+    }
+
+    public void On_tabCalculatorClickedActionLightSuddenly(MouseEvent mouseEvent) {
+    }
+
+    public void deleteElementLightSuddenly(ActionEvent actionEvent) {
+    }
+
+    public void showLightSuddenly(ActionEvent actionEvent) {
+    }
 }
