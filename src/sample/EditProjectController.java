@@ -54,6 +54,15 @@ public class EditProjectController implements Initializable {
     public TitledPane titleAppliancesOther;
     public TitledPane titleAppliancesDelivery;
     public TitledPane titleAppliancesSuddenly;
+    public TitledPane titleDecorationSuddenly;
+    public TitledPane titleDecorationDelivery;
+    public TitledPane titlePlumbingDelivery;
+    public TitledPane titlePlumbingSuddenly;
+    public TitledPane titleFurnitureDelivery;
+    public TitledPane titleFurnitureSuddenly;
+    public TitledPane titleLightDelivery;
+    public TitledPane titleLightSuddenly;
+    
 
     public TableView<Room> roomTableView;
     public TableColumn<Room, String> colNameRoom;
@@ -68,6 +77,7 @@ public class EditProjectController implements Initializable {
     public TextField discountDP;
     public TableView<Project> projectTableView;
     public TableColumn<Project, String> colNameProject;
+
     private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
     public TextField createProjectTextField;
     public Button backRoomButton;
@@ -78,9 +88,8 @@ public class EditProjectController implements Initializable {
     public Button startProject;
     public Button deleteProjectButton;
 
-    //Тест!
-    public TitledPane titleDecorationSuddenly;
-    public TitledPane titleDecorationDelivery;
+
+
 
 
     public TextField roomNameTextField;
@@ -99,6 +108,14 @@ public class EditProjectController implements Initializable {
     public ToggleButton showAppliancesOtherButton;
     public ToggleButton showAppliancesDeliveryButton;
     public ToggleButton showAppliancesSuddenlyButton;
+    public ToggleButton showPlumbingDeliveryButton;
+    public ToggleButton showPlumbingSuddenlyButton;
+    public ToggleButton showFurnitureDeliveryButton;
+    public ToggleButton showFurnitureSuddenlyButton;
+    public ToggleButton showLightDeliveryButton;
+    public ToggleButton showLightSuddenlyButton;
+    public ToggleButton showDecorationDeliveryButton;
+    public ToggleButton showDecorationSuddenlyButton;
 
 
     public Button saveRoomButton;
@@ -5127,6 +5144,561 @@ public class EditProjectController implements Initializable {
         colNotesAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsAppliancesSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
 
+
+        //Декор - Доставка
+        decorationTableViewDelivery.setItems(observableListDecorationDelivery);
+        Callback<TableColumn<DecorationDelivery, String>, TableCell<DecorationDelivery, String>> cellFactoryDoubleDecorationDelivery =
+                new Callback<TableColumn<DecorationDelivery, String>, TableCell<DecorationDelivery, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<DecorationDelivery, Boolean>, TableCell<DecorationDelivery, Boolean>> cellFactoryCheckboxDecorationDelivery =
+                new Callback<TableColumn<DecorationDelivery, Boolean>, TableCell<DecorationDelivery, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNameDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("nameDecorationDelivery"));
+        colNameDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameDecorationDelivery(t.getNewValue());
+                    }
+                });
+        colActivePDecorationDelivery.setCellFactory(cellFactoryCheckboxDecorationDelivery);
+        colActivePDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("activePDecorationDelivery"));
+        colActivePDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCDecorationDelivery.setCellFactory(cellFactoryCheckboxDecorationDelivery);
+        colActiveCDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("activeCDecorationDelivery"));
+        colActiveCDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<UnitType> typeListDecorationDelivery = FXCollections.observableArrayList(UnitType.values());
+        colUnitDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("unitDecorationDelivery"));
+        colUnitDecorationDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(typeListDecorationDelivery));
+        colUnitDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, UnitType>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, UnitType> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitDecorationDelivery(t.getNewValue());
+                    }
+                });
+        colQuantityDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colQuantityDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("quantityDecorationDelivery"));
+        colQuantityDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colOrdinalPriceUnitDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitDecorationDelivery"));
+        colOrdinalPriceUnitDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colPriceCPUnitDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitDecorationDelivery"));
+        colPriceCPUnitDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colPriceCPKeyDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyDecorationDelivery"));
+        colPriceCPKeyDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colCostCPUnitDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPUnitDecorationDelivery"));
+        colCostCPUnitDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colPriceOrderDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("priceOrderDecorationDelivery"));
+        colPriceOrderDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colCostCPDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("costCPDecorationDelivery"));
+        colCostCPDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<TimeProduction> timeProductionListDecorationDelivery = FXCollections.observableArrayList(TimeProduction.values());
+        colProductionTimeDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("productionTimeDecorationDelivery"));
+        colProductionTimeDecorationDelivery.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListDecorationDelivery));
+        colProductionTimeDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, TimeProduction>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, TimeProduction> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeDecorationDelivery(t.getNewValue());
+                    }
+                });
+        colActualCostDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colActualCostDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCostDecorationDelivery"));
+        colActualCostDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferenceDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colActualDifferenceDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceDecorationDelivery"));
+        colActualDifferenceDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colPaidDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("paidDecorationDelivery"));
+        colPaidDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResidueDecorationDelivery.setCellFactory(cellFactoryDoubleDecorationDelivery);
+        colResidueDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("residueDecorationDelivery"));
+        colResidueDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colDateOfDeliveryDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryDecorationDelivery"));
+        colDateOfDeliveryDecorationDelivery.setCellFactory(p -> {
+            return new DecorationDelivery.DatePickerCell<>();
+        });
+        colNameRoomDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("nameRoomDecorationDelivery"));
+        colNameRoomDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPlannedCPDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("plannedCPDecorationDelivery"));
+        colPlannedCPDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCPDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("actualCPDecorationDelivery"));
+        colActualCPDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colAccountDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("accountDecorationDelivery"));
+        colAccountDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colContactsDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("contactsDecorationDelivery"));
+        colContactsDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNotesDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("notesDecorationDelivery"));
+        colNotesDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCharacteristicsDecorationDelivery.setCellValueFactory(new PropertyValueFactory<>("characteristicsDecorationDelivery"));
+        colCharacteristicsDecorationDelivery.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationDelivery, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationDelivery, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsDecorationDelivery(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNameDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
+        //Декор - Нежданчик
+        decorationTableViewSuddenly.setItems(observableListDecorationSuddenly);
+        Callback<TableColumn<DecorationSuddenly, String>, TableCell<DecorationSuddenly, String>> cellFactoryDoubleDecorationSuddenly =
+                new Callback<TableColumn<DecorationSuddenly, String>, TableCell<DecorationSuddenly, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        Callback<TableColumn<DecorationSuddenly, Boolean>, TableCell<DecorationSuddenly, Boolean>> cellFactoryCheckboxDecorationSuddenly =
+                new Callback<TableColumn<DecorationSuddenly, Boolean>, TableCell<DecorationSuddenly, Boolean>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellCheckBox();
+                    }
+                };
+
+
+        colNameDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameDecorationSuddenly"));
+        colNameDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameDecorationSuddenly(t.getNewValue());
+                    }
+                });
+        colActivePDecorationSuddenly.setCellFactory(cellFactoryCheckboxDecorationSuddenly);
+        colActivePDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("activePDecorationSuddenly"));
+        colActivePDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActivePDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActiveCDecorationSuddenly.setCellFactory(cellFactoryCheckboxDecorationSuddenly);
+        colActiveCDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("activeCDecorationSuddenly"));
+        colActiveCDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, Boolean>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, Boolean> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActiveCDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<UnitType> typeListDecorationSuddenly = FXCollections.observableArrayList(UnitType.values());
+        colUnitDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("unitDecorationSuddenly"));
+        colUnitDecorationSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(typeListDecorationSuddenly));
+        colUnitDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, UnitType>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, UnitType> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setUnitDecorationSuddenly(t.getNewValue());
+                    }
+                });
+        colQuantityDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colQuantityDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("quantityDecorationSuddenly"));
+        colQuantityDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setQuantityDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colOrdinalPriceUnitDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colOrdinalPriceUnitDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("ordinalPriceUnitDecorationSuddenly"));
+        colOrdinalPriceUnitDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setOrdinalPriceUnitDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPUnitDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colPriceCPUnitDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPUnitDecorationSuddenly"));
+        colPriceCPUnitDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPUnitDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceCPKeyDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colPriceCPKeyDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceCPKeyDecorationSuddenly"));
+        colPriceCPKeyDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceCPKeyDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPUnitDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colCostCPUnitDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPUnitDecorationSuddenly"));
+        colCostCPUnitDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPUnitDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPriceOrderDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colPriceOrderDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("priceOrderDecorationSuddenly"));
+        colPriceOrderDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPriceOrderDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCostCPDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colCostCPDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("costCPDecorationSuddenly"));
+        colCostCPDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCostCPDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        ObservableList<TimeProduction> timeProductionListDecorationSuddenly = FXCollections.observableArrayList(TimeProduction.values());
+        colProductionTimeDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("productionTimeDecorationSuddenly"));
+        colProductionTimeDecorationSuddenly.setCellFactory(ComboBoxTableCell.forTableColumn(timeProductionListDecorationSuddenly));
+        colProductionTimeDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, TimeProduction>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, TimeProduction> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setProductionTimeDecorationSuddenly(t.getNewValue());
+                    }
+                });
+        colActualCostDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colActualCostDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCostDecorationSuddenly"));
+        colActualCostDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCostDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualDifferenceDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colActualDifferenceDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualDifferenceDecorationSuddenly"));
+        colActualDifferenceDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualDifferenceDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPaidDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colPaidDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("paidDecorationSuddenly"));
+        colPaidDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPaidDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colResidueDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
+        colResidueDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("residueDecorationSuddenly"));
+        colResidueDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setResidueDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colDateOfDeliveryDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfSuddenlyDecorationSuddenly"));
+        colDateOfDeliveryDecorationSuddenly.setCellFactory(p -> {
+            return new DecorationSuddenly.DatePickerCell<>();
+        });
+        colNameRoomDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameRoomDecorationSuddenly"));
+        colNameRoomDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNameRoomDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colPlannedCPDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("plannedCPDecorationSuddenly"));
+        colPlannedCPDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setPlannedCPDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colActualCPDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("actualCPDecorationSuddenly"));
+        colActualCPDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setActualCPDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colAccountDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("accountDecorationSuddenly"));
+        colAccountDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setAccountDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colContactsDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("contactsDecorationSuddenly"));
+        colContactsDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setContactsDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colNotesDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("notesDecorationSuddenly"));
+        colNotesDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setNotesDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+        colCharacteristicsDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("characteristicsDecorationSuddenly"));
+        colCharacteristicsDecorationSuddenly.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DecorationSuddenly, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setCharacteristicsDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNameDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNameRoomDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPlannedCPDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colActualCPDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colAccountDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colContactsDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNotesDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+        colCharacteristicsDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
+
+
     }
 
 
@@ -5516,6 +6088,62 @@ public class EditProjectController implements Initializable {
             colAccountSubcontractors.setVisible(false);
         }
     }
+
+    double sumPriceOrderPlumbingDelivery = 0.0;
+    double sumCostCPPlumbingDelivery = 0.0;
+    double sumActualCostPlumbingDelivery = 0.0;
+    double sumActualDifferencePlumbingDelivery = 0.0;
+    double sumPaidPlumbingDelivery = 0.0;
+    double sumResiduePlumbingDelivery = 0.0;
+
+    public void On_tabCalculatorClickedActionPlumbingDelivery(MouseEvent mouseEvent) {
+        if (observableListPlumbingDelivery.filtered(x -> "0.0".equals(x.getQuantityPlumbingDelivery()) && "0.0".equals(x.getOrdinalPriceUnitPlumbingDelivery())).size() == 0) {
+            observableListPlumbingDelivery.add(new PlumbingDelivery("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titlePlumbingDelivery.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderPlumbingDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPPlumbingDelivery) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostPlumbingDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferencePlumbingDelivery) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidPlumbingDelivery) + "        /Остаток: " + String.format("%.2f", sumResiduePlumbingDelivery));
+        }
+    }
+
+    public void deleteElementPlumbingDelivery(ActionEvent actionEvent) {
+        ObservableList<PlumbingDelivery> allPlumbingDelivery, singlePlumbingDelivery;
+        allPlumbingDelivery = plumbingTableViewDelivery.getItems();
+        singlePlumbingDelivery = plumbingTableViewDelivery.getSelectionModel().getSelectedItems();
+        singlePlumbingDelivery.forEach(allPlumbingDelivery::remove);
+    }
+
+    public void showPlumbingDelivery(ActionEvent actionEvent) {
+        if (showPlumbingDeliveryButton.isSelected()) {
+            showPlumbingDeliveryButton.setText("Скрыть");
+
+            colActualCostPlumbingDelivery.setVisible(true);
+            colActualDifferencePlumbingDelivery.setVisible(true);
+            colPaidPlumbingDelivery.setVisible(true);
+            colResiduePlumbingDelivery.setVisible(true);
+            colDateOfDeliveryPlumbingDelivery.setVisible(true);
+
+            colActualCPPlumbingDelivery.setVisible(true);
+            colAccountPlumbingDelivery.setVisible(true);
+
+        } else {
+            showPlumbingDeliveryButton.setText("Показать");
+
+            colActualCostPlumbingDelivery.setVisible(false);
+            colActualDifferencePlumbingDelivery.setVisible(false);
+            colPaidPlumbingDelivery.setVisible(false);
+            colResiduePlumbingDelivery.setVisible(false);
+            colDateOfDeliveryPlumbingDelivery.setVisible(false);
+
+            colActualCPPlumbingDelivery.setVisible(false);
+            colAccountPlumbingDelivery.setVisible(false);
+        }
+    }
+
+
+
 
     double sumPriceOrderMaterialWall = 0.0;
     double sumCostCPMaterialWall = 0.0;
@@ -6034,15 +6662,6 @@ public class EditProjectController implements Initializable {
     }
 
     public void showDecorationSuddenly(ActionEvent actionEvent) {
-    }
-
-    public void On_tabCalculatorClickedActionPlumbingDelivery(MouseEvent mouseEvent) {
-    }
-
-    public void deleteElementPlumbingDelivery(ActionEvent actionEvent) {
-    }
-
-    public void showPlumbingDelivery(ActionEvent actionEvent) {
     }
 
     public void On_tabCalculatorClickedActionPlumbingSuddenly(MouseEvent mouseEvent) {
