@@ -300,7 +300,6 @@ public class PlumbingSuddenly {
         this.dateOfDeliveryPlumbingSuddenly.set(dateOfDeliveryPlumbingSuddenly);
     }
 
-
     public String getNameRoomPlumbingSuddenly() {
         return nameRoomPlumbingSuddenly;
     }

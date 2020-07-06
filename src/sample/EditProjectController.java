@@ -62,7 +62,7 @@ public class EditProjectController implements Initializable {
     public TitledPane titleFurnitureSuddenly;
     public TitledPane titleLightDelivery;
     public TitledPane titleLightSuddenly;
-    
+
 
     public TableView<Room> roomTableView;
     public TableColumn<Room, String> colNameRoom;
@@ -87,8 +87,6 @@ public class EditProjectController implements Initializable {
     public Button addProjectButton;
     public Button startProject;
     public Button deleteProjectButton;
-
-
 
 
 
@@ -190,7 +188,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<PlumbingSuddenly, String> colActualDifferencePlumbingSuddenly;
     public TableColumn<PlumbingSuddenly, String> colPaidPlumbingSuddenly;
     public TableColumn<PlumbingSuddenly, String> colResiduePlumbingSuddenly;
-    public TableColumn<PlumbingSuddenly, Date> colDateOfSuddenlyPlumbingSuddenly;
+    public TableColumn<PlumbingSuddenly, Date> colDateOfDeliveryPlumbingSuddenly;
     public TableColumn<PlumbingSuddenly, String> colNameRoomPlumbingSuddenly;
     public TableColumn<PlumbingSuddenly, String> colPlannedCPPlumbingSuddenly;
     public TableColumn<PlumbingSuddenly, String> colActualCPPlumbingSuddenly;
@@ -1479,8 +1477,8 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colDateOfSuddenlyPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfSuddenlyPlumbingSuddenly"));
-        colDateOfSuddenlyPlumbingSuddenly.setCellFactory(p -> {
+        colDateOfDeliveryPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryPlumbingSuddenly"));
+        colDateOfDeliveryPlumbingSuddenly.setCellFactory(p -> {
             return new PlumbingSuddenly.DatePickerCell<>();
         });
         colNameRoomPlumbingSuddenly.setCellValueFactory(new PropertyValueFactory<>("nameRoomPlumbingSuddenly"));
@@ -6143,7 +6141,58 @@ public class EditProjectController implements Initializable {
     }
 
 
+    double sumPriceOrderPlumbingSuddenly = 0.0;
+    double sumCostCPPlumbingSuddenly = 0.0;
+    double sumActualCostPlumbingSuddenly = 0.0;
+    double sumActualDifferencePlumbingSuddenly = 0.0;
+    double sumPaidPlumbingSuddenly = 0.0;
+    double sumResiduePlumbingSuddenly = 0.0;
 
+    public void On_tabCalculatorClickedActionPlumbingSuddenly(MouseEvent mouseEvent) {
+        if (observableListPlumbingSuddenly.filtered(x -> "0.0".equals(x.getQuantityPlumbingSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitPlumbingSuddenly())).size() == 0) {
+            observableListPlumbingSuddenly.add(new PlumbingSuddenly("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titlePlumbingSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderPlumbingSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPPlumbingSuddenly) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostPlumbingSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferencePlumbingSuddenly) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidPlumbingSuddenly) + "        /Остаток: " + String.format("%.2f", sumResiduePlumbingSuddenly));
+        }
+    }
+
+    public void deleteElementPlumbingSuddenly(ActionEvent actionEvent) {
+        ObservableList<PlumbingSuddenly> allPlumbingSuddenly, singlePlumbingSuddenly;
+        allPlumbingSuddenly = plumbingTableViewSuddenly.getItems();
+        singlePlumbingSuddenly = plumbingTableViewSuddenly.getSelectionModel().getSelectedItems();
+        singlePlumbingSuddenly.forEach(allPlumbingSuddenly::remove);
+    }
+
+    public void showPlumbingSuddenly(ActionEvent actionEvent) {
+        if (showPlumbingSuddenlyButton.isSelected()) {
+            showPlumbingSuddenlyButton.setText("Скрыть");
+
+            colActualCostPlumbingSuddenly.setVisible(true);
+            colActualDifferencePlumbingSuddenly.setVisible(true);
+            colPaidPlumbingSuddenly.setVisible(true);
+            colResiduePlumbingSuddenly.setVisible(true);
+            colDateOfDeliveryPlumbingSuddenly.setVisible(true);
+
+            colActualCPPlumbingSuddenly.setVisible(true);
+            colAccountPlumbingSuddenly.setVisible(true);
+
+        } else {
+            showPlumbingSuddenlyButton.setText("Показать");
+
+            colActualCostPlumbingSuddenly.setVisible(false);
+            colActualDifferencePlumbingSuddenly.setVisible(false);
+            colPaidPlumbingSuddenly.setVisible(false);
+            colResiduePlumbingSuddenly.setVisible(false);
+            colDateOfDeliveryPlumbingSuddenly.setVisible(false);
+
+            colActualCPPlumbingSuddenly.setVisible(false);
+            colAccountPlumbingSuddenly.setVisible(false);
+        }
+    }
 
     double sumPriceOrderMaterialWall = 0.0;
     double sumCostCPMaterialWall = 0.0;
@@ -6414,6 +6463,218 @@ public class EditProjectController implements Initializable {
     }
 
 
+
+
+    double sumPriceOrderFurnitureDelivery = 0.0;
+    double sumCostCPFurnitureDelivery = 0.0;
+    double sumActualCostFurnitureDelivery = 0.0;
+    double sumActualDifferenceFurnitureDelivery = 0.0;
+    double sumPaidFurnitureDelivery = 0.0;
+    double sumResidueFurnitureDelivery = 0.0;
+
+    public void On_tabCalculatorClickedActionFurnitureDelivery(MouseEvent mouseEvent) {
+        if (observableListFurnitureDelivery.filtered(x -> "0.0".equals(x.getQuantityFurnitureDelivery()) && "0.0".equals(x.getOrdinalPriceUnitFurnitureDelivery())).size() == 0) {
+            observableListFurnitureDelivery.add(new FurnitureDelivery("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titleFurnitureDelivery.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderFurnitureDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPFurnitureDelivery) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostFurnitureDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceFurnitureDelivery) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidFurnitureDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueFurnitureDelivery));
+        }
+    }
+
+    public void deleteElementFurnitureDelivery(ActionEvent actionEvent) {
+        ObservableList<FurnitureDelivery> allFurnitureDelivery, singleFurnitureDelivery;
+        allFurnitureDelivery = furnitureTableViewDelivery.getItems();
+        singleFurnitureDelivery = furnitureTableViewDelivery.getSelectionModel().getSelectedItems();
+        singleFurnitureDelivery.forEach(allFurnitureDelivery::remove);
+    }
+
+    public void showFurnitureDelivery(ActionEvent actionEvent) {
+        if (showFurnitureDeliveryButton.isSelected()) {
+            showFurnitureDeliveryButton.setText("Скрыть");
+
+            colActualCostFurnitureDelivery.setVisible(true);
+            colActualDifferenceFurnitureDelivery.setVisible(true);
+            colPaidFurnitureDelivery.setVisible(true);
+            colResidueFurnitureDelivery.setVisible(true);
+            colDateOfDeliveryFurnitureDelivery.setVisible(true);
+
+            colActualCPFurnitureDelivery.setVisible(true);
+            colAccountFurnitureDelivery.setVisible(true);
+
+        } else {
+            showFurnitureDeliveryButton.setText("Показать");
+
+            colActualCostFurnitureDelivery.setVisible(false);
+            colActualDifferenceFurnitureDelivery.setVisible(false);
+            colPaidFurnitureDelivery.setVisible(false);
+            colResidueFurnitureDelivery.setVisible(false);
+            colDateOfDeliveryFurnitureDelivery.setVisible(false);
+
+            colActualCPFurnitureDelivery.setVisible(false);
+            colAccountFurnitureDelivery.setVisible(false);
+        }
+    }
+
+    double sumPriceOrderFurnitureSuddenly = 0.0;
+    double sumCostCPFurnitureSuddenly = 0.0;
+    double sumActualCostFurnitureSuddenly = 0.0;
+    double sumActualDifferenceFurnitureSuddenly = 0.0;
+    double sumPaidFurnitureSuddenly = 0.0;
+    double sumResidueFurnitureSuddenly = 0.0;
+
+    public void On_tabCalculatorClickedActionFurnitureSuddenly(MouseEvent mouseEvent) {
+        if (observableListFurnitureSuddenly.filtered(x -> "0.0".equals(x.getQuantityFurnitureSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitFurnitureSuddenly())).size() == 0) {
+            observableListFurnitureSuddenly.add(new FurnitureSuddenly("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titleFurnitureSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderFurnitureSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPFurnitureSuddenly) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostFurnitureSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceFurnitureSuddenly) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidFurnitureSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueFurnitureSuddenly));
+        }
+    }
+
+    public void deleteElementFurnitureSuddenly(ActionEvent actionEvent) {
+        ObservableList<FurnitureSuddenly> allFurnitureSuddenly, singleFurnitureSuddenly;
+        allFurnitureSuddenly = furnitureTableViewSuddenly.getItems();
+        singleFurnitureSuddenly = furnitureTableViewSuddenly.getSelectionModel().getSelectedItems();
+        singleFurnitureSuddenly.forEach(allFurnitureSuddenly::remove);
+    }
+
+    public void showFurnitureSuddenly(ActionEvent actionEvent) {
+        if (showFurnitureSuddenlyButton.isSelected()) {
+            showFurnitureSuddenlyButton.setText("Скрыть");
+
+            colActualCostFurnitureSuddenly.setVisible(true);
+            colActualDifferenceFurnitureSuddenly.setVisible(true);
+            colPaidFurnitureSuddenly.setVisible(true);
+            colResidueFurnitureSuddenly.setVisible(true);
+            colDateOfDeliveryFurnitureSuddenly.setVisible(true);
+
+            colActualCPFurnitureSuddenly.setVisible(true);
+            colAccountFurnitureSuddenly.setVisible(true);
+
+        } else {
+            showFurnitureSuddenlyButton.setText("Показать");
+
+            colActualCostFurnitureSuddenly.setVisible(false);
+            colActualDifferenceFurnitureSuddenly.setVisible(false);
+            colPaidFurnitureSuddenly.setVisible(false);
+            colResidueFurnitureSuddenly.setVisible(false);
+            colDateOfDeliveryFurnitureSuddenly.setVisible(false);
+
+            colActualCPFurnitureSuddenly.setVisible(false);
+            colAccountFurnitureSuddenly.setVisible(false);
+        }
+    }
+
+    double sumPriceOrderLightDelivery = 0.0;
+    double sumCostCPLightDelivery = 0.0;
+    double sumActualCostLightDelivery = 0.0;
+    double sumActualDifferenceLightDelivery = 0.0;
+    double sumPaidLightDelivery = 0.0;
+    double sumResidueLightDelivery = 0.0;
+
+    public void On_tabCalculatorClickedActionLightDelivery(MouseEvent mouseEvent) {
+        if (observableListLightDelivery.filtered(x -> "0.0".equals(x.getQuantityLightDelivery()) && "0.0".equals(x.getOrdinalPriceUnitLightDelivery())).size() == 0) {
+            observableListLightDelivery.add(new LightDelivery("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titleLightDelivery.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderLightDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPLightDelivery) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostLightDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceLightDelivery) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidLightDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueLightDelivery));
+        }
+    }
+
+    public void deleteElementLightDelivery(ActionEvent actionEvent) {
+        ObservableList<LightDelivery> allLightDelivery, singleLightDelivery;
+        allLightDelivery = lightTableViewDelivery.getItems();
+        singleLightDelivery = lightTableViewDelivery.getSelectionModel().getSelectedItems();
+        singleLightDelivery.forEach(allLightDelivery::remove);
+    }
+
+    public void showLightDelivery(ActionEvent actionEvent) {
+        if (showLightDeliveryButton.isSelected()) {
+            showLightDeliveryButton.setText("Скрыть");
+
+            colActualCostLightDelivery.setVisible(true);
+            colActualDifferenceLightDelivery.setVisible(true);
+            colPaidLightDelivery.setVisible(true);
+            colResidueLightDelivery.setVisible(true);
+            colDateOfDeliveryLightDelivery.setVisible(true);
+
+            colActualCPLightDelivery.setVisible(true);
+            colAccountLightDelivery.setVisible(true);
+
+        } else {
+            showLightDeliveryButton.setText("Показать");
+
+            colActualCostLightDelivery.setVisible(false);
+            colActualDifferenceLightDelivery.setVisible(false);
+            colPaidLightDelivery.setVisible(false);
+            colResidueLightDelivery.setVisible(false);
+            colDateOfDeliveryLightDelivery.setVisible(false);
+
+            colActualCPLightDelivery.setVisible(false);
+            colAccountLightDelivery.setVisible(false);
+        }
+    }
+    double sumPriceOrderLightSuddenly = 0.0;
+    double sumCostCPLightSuddenly = 0.0;
+    double sumActualCostLightSuddenly = 0.0;
+    double sumActualDifferenceLightSuddenly = 0.0;
+    double sumPaidLightSuddenly = 0.0;
+    double sumResidueLightSuddenly = 0.0;
+
+    public void On_tabCalculatorClickedActionLightSuddenly(MouseEvent mouseEvent) {
+        if (observableListLightSuddenly.filtered(x -> "0.0".equals(x.getQuantityLightSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitLightSuddenly())).size() == 0) {
+            observableListLightSuddenly.add(new LightSuddenly("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titleLightSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderLightSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPLightSuddenly) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostLightSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceLightSuddenly) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidLightSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueLightSuddenly));
+        }
+    }
+
+    public void deleteElementLightSuddenly(ActionEvent actionEvent) {
+        ObservableList<LightSuddenly> allLightSuddenly, singleLightSuddenly;
+        allLightSuddenly = lightTableViewSuddenly.getItems();
+        singleLightSuddenly = lightTableViewSuddenly.getSelectionModel().getSelectedItems();
+        singleLightSuddenly.forEach(allLightSuddenly::remove);
+    }
+
+    public void showLightSuddenly(ActionEvent actionEvent) {
+        if (showLightSuddenlyButton.isSelected()) {
+            showLightSuddenlyButton.setText("Скрыть");
+
+            colActualCostLightSuddenly.setVisible(true);
+            colActualDifferenceLightSuddenly.setVisible(true);
+            colPaidLightSuddenly.setVisible(true);
+            colResidueLightSuddenly.setVisible(true);
+            colDateOfDeliveryLightSuddenly.setVisible(true);
+
+            colActualCPLightSuddenly.setVisible(true);
+            colAccountLightSuddenly.setVisible(true);
+
+        } else {
+            showLightSuddenlyButton.setText("Показать");
+
+            colActualCostLightSuddenly.setVisible(false);
+            colActualDifferenceLightSuddenly.setVisible(false);
+            colPaidLightSuddenly.setVisible(false);
+            colResidueLightSuddenly.setVisible(false);
+            colDateOfDeliveryLightSuddenly.setVisible(false);
+
+            colActualCPLightSuddenly.setVisible(false);
+            colAccountLightSuddenly.setVisible(false);
+        }
+    }
     double sumPriceOrderAppliancesKitchen = 0.0;
     double sumCostCPAppliancesKitchen = 0.0;
     double sumActualCostAppliancesKitchen = 0.0;
@@ -6645,67 +6906,109 @@ public class EditProjectController implements Initializable {
             colAccountAppliancesSuddenly.setVisible(false);
         }
     }
+    double sumPriceOrderDecorationDelivery = 0.0;
+    double sumCostCPDecorationDelivery = 0.0;
+    double sumActualCostDecorationDelivery = 0.0;
+    double sumActualDifferenceDecorationDelivery = 0.0;
+    double sumPaidDecorationDelivery = 0.0;
+    double sumResidueDecorationDelivery = 0.0;
 
     public void On_tabCalculatorClickedActionDecorationDelivery(MouseEvent mouseEvent) {
+        if (observableListDecorationDelivery.filtered(x -> "0.0".equals(x.getQuantityDecorationDelivery()) && "0.0".equals(x.getOrdinalPriceUnitDecorationDelivery())).size() == 0) {
+            observableListDecorationDelivery.add(new DecorationDelivery("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titleDecorationDelivery.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationDelivery) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostDecorationDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceDecorationDelivery) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidDecorationDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueDecorationDelivery));
+        }
     }
 
     public void deleteElementDecorationDelivery(ActionEvent actionEvent) {
+        ObservableList<DecorationDelivery> allDecorationDelivery, singleDecorationDelivery;
+        allDecorationDelivery = decorationTableViewDelivery.getItems();
+        singleDecorationDelivery = decorationTableViewDelivery.getSelectionModel().getSelectedItems();
+        singleDecorationDelivery.forEach(allDecorationDelivery::remove);
     }
 
     public void showDecorationDelivery(ActionEvent actionEvent) {
+        if (showDecorationDeliveryButton.isSelected()) {
+            showDecorationDeliveryButton.setText("Скрыть");
+
+            colActualCostDecorationDelivery.setVisible(true);
+            colActualDifferenceDecorationDelivery.setVisible(true);
+            colPaidDecorationDelivery.setVisible(true);
+            colResidueDecorationDelivery.setVisible(true);
+            colDateOfDeliveryDecorationDelivery.setVisible(true);
+
+            colActualCPDecorationDelivery.setVisible(true);
+            colAccountDecorationDelivery.setVisible(true);
+
+        } else {
+            showDecorationDeliveryButton.setText("Показать");
+
+            colActualCostDecorationDelivery.setVisible(false);
+            colActualDifferenceDecorationDelivery.setVisible(false);
+            colPaidDecorationDelivery.setVisible(false);
+            colResidueDecorationDelivery.setVisible(false);
+            colDateOfDeliveryDecorationDelivery.setVisible(false);
+
+            colActualCPDecorationDelivery.setVisible(false);
+            colAccountDecorationDelivery.setVisible(false);
+        }
     }
 
+    double sumPriceOrderDecorationSuddenly = 0.0;
+    double sumCostCPDecorationSuddenly = 0.0;
+    double sumActualCostDecorationSuddenly = 0.0;
+    double sumActualDifferenceDecorationSuddenly = 0.0;
+    double sumPaidDecorationSuddenly = 0.0;
+    double sumResidueDecorationSuddenly = 0.0;
+
     public void On_tabCalculatorClickedActionDecorationSuddenly(MouseEvent mouseEvent) {
+        if (observableListDecorationSuddenly.filtered(x -> "0.0".equals(x.getQuantityDecorationSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitDecorationSuddenly())).size() == 0) {
+            observableListDecorationSuddenly.add(new DecorationSuddenly("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titleDecorationSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationSuddenly) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostDecorationSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceDecorationSuddenly) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidDecorationSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueDecorationSuddenly));
+        }
     }
 
     public void deleteElementDecorationSuddenly(ActionEvent actionEvent) {
+        ObservableList<DecorationSuddenly> allDecorationSuddenly, singleDecorationSuddenly;
+        allDecorationSuddenly = decorationTableViewSuddenly.getItems();
+        singleDecorationSuddenly = decorationTableViewSuddenly.getSelectionModel().getSelectedItems();
+        singleDecorationSuddenly.forEach(allDecorationSuddenly::remove);
     }
 
     public void showDecorationSuddenly(ActionEvent actionEvent) {
-    }
+        if (showDecorationSuddenlyButton.isSelected()) {
+            showDecorationSuddenlyButton.setText("Скрыть");
 
-    public void On_tabCalculatorClickedActionPlumbingSuddenly(MouseEvent mouseEvent) {
-    }
+            colActualCostDecorationSuddenly.setVisible(true);
+            colActualDifferenceDecorationSuddenly.setVisible(true);
+            colPaidDecorationSuddenly.setVisible(true);
+            colResidueDecorationSuddenly.setVisible(true);
+            colDateOfDeliveryDecorationSuddenly.setVisible(true);
 
-    public void deleteElementPlumbingSuddenly(ActionEvent actionEvent) {
-    }
+            colActualCPDecorationSuddenly.setVisible(true);
+            colAccountDecorationSuddenly.setVisible(true);
 
-    public void showPlumbingSuddenly(ActionEvent actionEvent) {
-    }
+        } else {
+            showDecorationSuddenlyButton.setText("Показать");
 
-    public void On_tabCalculatorClickedActionFurnitureDelivery(MouseEvent mouseEvent) {
-    }
+            colActualCostDecorationSuddenly.setVisible(false);
+            colActualDifferenceDecorationSuddenly.setVisible(false);
+            colPaidDecorationSuddenly.setVisible(false);
+            colResidueDecorationSuddenly.setVisible(false);
+            colDateOfDeliveryDecorationSuddenly.setVisible(false);
 
-    public void deleteElementFurnitureDelivery(ActionEvent actionEvent) {
-    }
-
-    public void showFurnitureDelivery(ActionEvent actionEvent) {
-    }
-
-    public void On_tabCalculatorClickedActionFurnitureSuddenly(MouseEvent mouseEvent) {
-    }
-
-    public void deleteElementFurnitureSuddenly(ActionEvent actionEvent) {
-    }
-
-    public void showFurnitureSuddenly(ActionEvent actionEvent) {
-    }
-
-    public void On_tabCalculatorClickedActionLightDelivery(MouseEvent mouseEvent) {
-    }
-
-    public void deleteElementLightDelivery(ActionEvent actionEvent) {
-    }
-
-    public void showLightDelivery(ActionEvent actionEvent) {
-    }
-
-    public void On_tabCalculatorClickedActionLightSuddenly(MouseEvent mouseEvent) {
-    }
-
-    public void deleteElementLightSuddenly(ActionEvent actionEvent) {
-    }
-
-    public void showLightSuddenly(ActionEvent actionEvent) {
+            colActualCPDecorationSuddenly.setVisible(false);
+            colAccountDecorationSuddenly.setVisible(false);
+        }
     }
 }
