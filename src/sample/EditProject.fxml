@@ -493,7 +493,7 @@
                                                         <TableColumn fx:id="colActualDifferencePlumbingSuddenly" editable="false" prefWidth="85.0" text="Разница фактическая" visible="false" />
                                                         <TableColumn fx:id="colPaidPlumbingSuddenly" prefWidth="85.0" text="Оплачено" visible="false" />
                                                         <TableColumn fx:id="colResiduePlumbingSuddenly" editable="false" prefWidth="85.0" text="Остаток" visible="false" />
-                                                        <TableColumn fx:id="colDateOfSuddenlyPlumbingSuddenly" prefWidth="105.0" text="Дата поставки" visible="false" />
+                                                        <TableColumn fx:id="colDateOfDeliveryPlumbingSuddenly" prefWidth="105.0" text="Дата поставки" visible="false" />
                                                         <TableColumn fx:id="colNameRoomPlumbingSuddenly" prefWidth="85.0" text="Наименование помещения" />
                                                         <TableColumn fx:id="colPlannedCPPlumbingSuddenly" prefWidth="85.0" text="КП плановое" />
                                                         <TableColumn fx:id="colActualCPPlumbingSuddenly" prefWidth="85.0" text="КП фактическое" visible="false" />

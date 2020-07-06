@@ -391,7 +391,6 @@ public class EditProjectController implements Initializable {
     private ObservableList<FurnitureSuddenly> observableListFurnitureSuddenly = FXCollections.observableArrayList();
 
 
-
     //Блок Света
     public TableView<LightDelivery> lightTableViewDelivery;
     public TableColumn<LightDelivery, String> colNameLightDelivery;
@@ -5738,9 +5737,9 @@ public class EditProjectController implements Initializable {
         diagramView.setDisable(false);
     }
 
-
     //!!!!!НАЧАЛО ДИ !!!!!!
     private void onClick(TableColumn.CellEditEvent<Room, String> event) {
+
 
         TablePosition<Room, String> pos = event.getTablePosition();
 
@@ -5932,6 +5931,7 @@ public class EditProjectController implements Initializable {
 
         //Дописать стринговые столбцы!
         updatedRoom.setNameRoomTransmit(comments);
+
     }
 
 //    //Не забыть доделать!
@@ -6463,8 +6463,6 @@ public class EditProjectController implements Initializable {
     }
 
 
-
-
     double sumPriceOrderFurnitureDelivery = 0.0;
     double sumCostCPFurnitureDelivery = 0.0;
     double sumActualCostFurnitureDelivery = 0.0;
@@ -6727,7 +6725,6 @@ public class EditProjectController implements Initializable {
             colAccountAppliancesKitchen.setVisible(false);
         }
     }
-
 
     double sumPriceOrderAppliancesOther = 0.0;
     double sumCostCPAppliancesOther = 0.0;
