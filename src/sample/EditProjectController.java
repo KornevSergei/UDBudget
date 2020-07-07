@@ -6100,7 +6100,7 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titlePlumbingDelivery.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderPlumbingDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPPlumbingDelivery) +
+            titlePlumbingDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f", sumPriceOrderPlumbingDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPPlumbingDelivery) +
                     "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostPlumbingDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferencePlumbingDelivery) +
                     "        /Оплачено: " + String.format("%.2f", sumPaidPlumbingDelivery) + "        /Остаток: " + String.format("%.2f", sumResiduePlumbingDelivery));
         }
@@ -6476,7 +6476,7 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleFurnitureDelivery.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderFurnitureDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPFurnitureDelivery) +
+            titleFurnitureDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f", sumPriceOrderFurnitureDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPFurnitureDelivery) +
                     "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostFurnitureDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceFurnitureDelivery) +
                     "        /Оплачено: " + String.format("%.2f", sumPaidFurnitureDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueFurnitureDelivery));
         }
@@ -6582,7 +6582,7 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleLightDelivery.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderLightDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPLightDelivery) +
+            titleLightDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f", sumPriceOrderLightDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPLightDelivery) +
                     "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostLightDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceLightDelivery) +
                     "        /Оплачено: " + String.format("%.2f", sumPaidLightDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueLightDelivery));
         }
@@ -6916,7 +6916,7 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleDecorationDelivery.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationDelivery) +
+            titleDecorationDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationDelivery) +
                     "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostDecorationDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceDecorationDelivery) +
                     "        /Оплачено: " + String.format("%.2f", sumPaidDecorationDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueDecorationDelivery));
         }
