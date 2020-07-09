@@ -34,6 +34,7 @@
                          <TableColumn fx:id="colAreaRoom" prefWidth="88.0" text="Площадь" />
                          <TableColumn fx:id="colSelectBathRoom" prefWidth="82.0" text="Санузел" />
                      </columns>
+                        <!--Создание и выбор проекта-->
                   </TableView>
                         <TextField fx:id="roomNameTextField" layoutX="464.0" layoutY="161.0" prefHeight="25.0" prefWidth="146.0" visible="false" />
                         <TextField fx:id="roomAreaTextField" layoutX="614.0" layoutY="161.0" prefHeight="25.0" prefWidth="45.0" visible="false" />
@@ -136,7 +137,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="subcontractorsTableView" editable="true" layoutX="14.0" layoutY="39.0" onMouseClicked="#On_tabCalculatorClickedSubcontractors" prefHeight="330.0" prefWidth="1500.0">
+                        <TableView fx:id="subcontractorsTableView" editable="true" layoutX="14.0" layoutY="39.0" prefHeight="330.0" prefWidth="1500.0">
                             <columns>
                                 <TableColumn fx:id="colNameCategorySubcontractors" prefWidth="160.0" text="Наименование категории" />
                                 <TableColumn fx:id="colCostPlannedSubcontractors" prefWidth="100.0" text="Стоимость плановая" />
@@ -154,6 +155,7 @@
                             </columns>
                         </TableView>
                   <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteElementSubcontractors" text="Удалить" />
+                  <Button layoutX="240.0" layoutY="10.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedSubcontractors" text="+" />
                   <ToggleButton fx:id="showSubcontractorsButton" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSubcontractors" text="Показать" />
                     </children>
                 </AnchorPane>
@@ -186,7 +188,7 @@
                     <children>
                         <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900" >
                             <panes>
-                                <TitledPane fx:id="titleMaterialWall" animated="true" prefHeight="280.0" prefWidth="1900" text="Стены" >
+                                <TitledPane fx:id="titleMaterialWall" prefHeight="280.0" prefWidth="1900" text="Стены" >
                                     <content>
                                         <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -194,7 +196,8 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="2000">
                                              <children>
-                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="2000">
+<!--                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="2000">-->
+                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000">
                                                   <columns>
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />
@@ -223,7 +226,7 @@
                                                   </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialWall" text="Удалить" />
-                                                 <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#qwe" text="+" />
+                                                 <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionMaterialWall" text="+" />
                                                 <ToggleButton fx:id="showMaterialWallButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showMaterialWall" text="Показать" />
                                              </children></AnchorPane>
                                       </content>
@@ -239,7 +242,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="2000.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewFloor" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialFloor" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="materialTableViewFloor" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialFloor" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialFloor" prefWidth="25.0" text="П" />
@@ -268,6 +271,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialFloor" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionMaterialFloor" text="+" />
                                                  <ToggleButton fx:id="showMaterialFloorButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showMaterialFloor" text="Показать" />
                                              </children>
                                           </AnchorPane>
@@ -284,7 +288,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="2000.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewCeiling" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialCeiling" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="materialTableViewCeiling" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialCeiling" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialCeiling" prefWidth="25.0" text="П" />
@@ -313,6 +317,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialCeiling" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionMaterialCeiling" text="+" />
                                                  <ToggleButton fx:id="showMaterialCeilingButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showMaterialCeiling" text="Показать" />
                                              </children>
                                           </AnchorPane>
@@ -329,7 +334,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewOther" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialOther" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="materialTableViewOther" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialOther" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialOther" prefWidth="25.0" text="П" />
@@ -358,6 +363,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialOther" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionMaterialOther" text="+" />
                                                  <ToggleButton fx:id="showMaterialOtherButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showMaterialOther" text="Показать" />
                                              </children>
                                           </AnchorPane>
@@ -374,7 +380,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewSuddenly" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialSuddenly" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="materialTableViewSuddenly" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialSuddenly" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialSuddenly" prefWidth="25.0" text="П" />
@@ -403,6 +409,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialSuddenly" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionMaterialSuddenly" text="+" />
                                                  <ToggleButton fx:id="showMaterialSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showMaterialSuddenly" text="Показать" />
                                              </children>
                                           </AnchorPane>
@@ -428,7 +435,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="plumbingTableViewDelivery" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionPlumbingDelivery" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="plumbingTableViewDelivery" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                     <columns>
                                                         <TableColumn fx:id="colNamePlumbingDelivery" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePPlumbingDelivery" prefWidth="25.0" text="П" />
@@ -457,6 +464,7 @@
                                                     </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementPlumbingDelivery" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionPlumbingDelivery" text="+" />
                                                 <ToggleButton fx:id="showPlumbingDeliveryButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showPlumbingDelivery" text="Показать" />
                                             </children>
                                         </AnchorPane>
@@ -474,7 +482,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="plumbingTableViewSuddenly" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionPlumbingSuddenly" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="plumbingTableViewSuddenly" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                     <columns>
                                                         <TableColumn fx:id="colNamePlumbingSuddenly" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePPlumbingSuddenly" prefWidth="25.0" text="П" />
@@ -503,6 +511,7 @@
                                                     </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementPlumbingSuddenly" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionPlumbingSuddenly" text="+" />
                                                 <ToggleButton fx:id="showPlumbingSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showPlumbingSuddenly" text="Показать" />
                                             </children>
                                         </AnchorPane>
@@ -526,7 +535,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="furnitureTableViewDelivery" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionFurnitureDelivery" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="furnitureTableViewDelivery" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
                                                     <columns>
                                                         <TableColumn fx:id="colNameFurnitureDelivery" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePFurnitureDelivery" prefWidth="25.0" text="П" />
@@ -555,6 +564,7 @@
                                                     </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementFurnitureDelivery" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionFurnitureDelivery" text="+" />
                                                 <ToggleButton fx:id="showFurnitureDeliveryButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showFurnitureDelivery" text="Показать" />
                                             </children>
                                         </AnchorPane>
@@ -572,7 +582,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="furnitureTableViewSuddenly" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionFurnitureSuddenly" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="furnitureTableViewSuddenly" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
                                                     <columns>
                                                         <TableColumn fx:id="colNameFurnitureSuddenly" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePFurnitureSuddenly" prefWidth="25.0" text="П" />
@@ -601,6 +611,7 @@
                                                     </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementFurnitureSuddenly" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionFurnitureSuddenly" text="+" />
                                                 <ToggleButton fx:id="showFurnitureSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showFurnitureSuddenly" text="Показать" />
                                             </children>
                                         </AnchorPane>
@@ -624,7 +635,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="lightTableViewDelivery" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionLightDelivery" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="lightTableViewDelivery" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
                                                     <columns>
                                                         <TableColumn fx:id="colNameLightDelivery" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePLightDelivery" prefWidth="25.0" text="П" />
@@ -653,6 +664,7 @@
                                                     </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementLightDelivery" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionLightDelivery" text="+" />
                                                 <ToggleButton fx:id="showLightDeliveryButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showLightDelivery" text="Показать" />
                                             </children>
                                         </AnchorPane>
@@ -670,7 +682,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="lightTableViewSuddenly" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionLightSuddenly" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="lightTableViewSuddenly" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
                                                     <columns>
                                                         <TableColumn fx:id="colNameLightSuddenly" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePLightSuddenly" prefWidth="25.0" text="П" />
@@ -699,6 +711,7 @@
                                                     </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementLightSuddenly" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionLightSuddenly" text="+" />
                                                 <ToggleButton fx:id="showLightSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showLightSuddenly" text="Показать" />
                                             </children>
                                         </AnchorPane>
@@ -725,7 +738,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="appliancesTableViewKitchen" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionAppliancesKitchen" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="appliancesTableViewKitchen" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameAppliancesKitchen" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePAppliancesKitchen" prefWidth="25.0" text="П" />
@@ -754,6 +767,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementAppliancesKitchen" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionAppliancesKitchen" text="+" />
                                                  <ToggleButton fx:id="showAppliancesKitchenButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showAppliancesKitchen" text="Показать" />
                                              </children>
                                           </AnchorPane>
@@ -770,7 +784,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="appliancesTableViewOther" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionAppliancesOther" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="appliancesTableViewOther" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameAppliancesOther" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePAppliancesOther" prefWidth="25.0" text="П" />
@@ -799,6 +813,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementAppliancesOther" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionAppliancesOther" text="+" />
                                                  <ToggleButton fx:id="showAppliancesOtherButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showAppliancesOther" text="Показать" />
                                              </children>
                                           </AnchorPane>
@@ -815,7 +830,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="appliancesTableViewDelivery" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionAppliancesDelivery" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="appliancesTableViewDelivery" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameAppliancesDelivery" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePAppliancesDelivery" prefWidth="25.0" text="П" />
@@ -844,6 +859,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementAppliancesDelivery" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionAppliancesDelivery" text="+" />
                                                  <ToggleButton fx:id="showAppliancesDeliveryButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showAppliancesDelivery" text="Показать" />
                                              </children>
                                           </AnchorPane>
@@ -860,7 +876,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="appliancesTableViewSuddenly" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionAppliancesSuddenly" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="appliancesTableViewSuddenly" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                    <columns>
                                                       <TableColumn fx:id="colNameAppliancesSuddenly" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePAppliancesSuddenly" prefWidth="25.0" text="П" />
@@ -889,6 +905,7 @@
                                                    </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementAppliancesSuddenly" text="Удалить" />
+                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionAppliancesSuddenly" text="+" />
                                                  <ToggleButton fx:id="showAppliancesSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showAppliancesSuddenly" text="Показать" />
                                              </children>
                                           </AnchorPane>
@@ -914,7 +931,7 @@
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                                             <children>
-                                                                <TableView fx:id="decorationTableViewDelivery" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionDecorationDelivery" prefHeight="669.0" prefWidth="2000.0">
+                                                                <TableView fx:id="decorationTableViewDelivery" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="colNameDecorationDelivery" prefWidth="108.0" text="Наименование" />
                                                                         <TableColumn fx:id="colActivePDecorationDelivery" prefWidth="25.0" text="П" />
@@ -943,6 +960,7 @@
                                                                     </columns>
                                                                 </TableView>
                                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementDecorationDelivery" text="Удалить" />
+                                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionDecorationDelivery" text="+" />
                                                                 <ToggleButton fx:id="showDecorationDeliveryButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showDecorationDelivery" text="Показать" />
                                                             </children>
                                                         </AnchorPane>
@@ -960,7 +978,7 @@
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                                             <children>
-                                                                <TableView fx:id="decorationTableViewSuddenly" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionDecorationSuddenly" prefHeight="669.0" prefWidth="2000.0">
+                                                                <TableView fx:id="decorationTableViewSuddenly" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="colNameDecorationSuddenly" prefWidth="108.0" text="Наименование" />
                                                                         <TableColumn fx:id="colActivePDecorationSuddenly" prefWidth="25.0" text="П" />
@@ -989,6 +1007,7 @@
                                                                     </columns>
                                                                 </TableView>
                                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementDecorationSuddenly" text="Удалить" />
+                                                                <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#On_tabCalculatorClickedActionDecorationSuddenly" text="+" />
                                                                 <ToggleButton fx:id="showDecorationSuddenlyButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showDecorationSuddenly" text="Показать" />
                                                             </children>
                                                         </AnchorPane>

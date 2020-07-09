@@ -6042,7 +6042,7 @@ public class EditProjectController implements Initializable {
     //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!!!!
 
 
-    public void On_tabCalculatorClickedSubcontractors(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedSubcontractors(ActionEvent actionEvent) {
         if (observableListSubcontractors.filtered(x -> "0.0".equals(x.getCostPlannedSubcontractors()) && "0.0".equals(x.getCostCPSubcontractors())).size() == 0) {
             observableListSubcontractors.add(new Subcontractors("", 0, 0, 0, 0,
                     0, 0, "", "", "", "", "", ""));
@@ -6091,7 +6091,7 @@ public class EditProjectController implements Initializable {
     double sumPaidPlumbingDelivery = 0.0;
     double sumResiduePlumbingDelivery = 0.0;
 
-    public void On_tabCalculatorClickedActionPlumbingDelivery(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionPlumbingDelivery(ActionEvent actionEvent) {
         if (observableListPlumbingDelivery.filtered(x -> "0.0".equals(x.getQuantityPlumbingDelivery()) && "0.0".equals(x.getOrdinalPriceUnitPlumbingDelivery())).size() == 0) {
             observableListPlumbingDelivery.add(new PlumbingDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6145,7 +6145,7 @@ public class EditProjectController implements Initializable {
     double sumPaidPlumbingSuddenly = 0.0;
     double sumResiduePlumbingSuddenly = 0.0;
 
-    public void On_tabCalculatorClickedActionPlumbingSuddenly(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionPlumbingSuddenly(ActionEvent actionEvent) {
         if (observableListPlumbingSuddenly.filtered(x -> "0.0".equals(x.getQuantityPlumbingSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitPlumbingSuddenly())).size() == 0) {
             observableListPlumbingSuddenly.add(new PlumbingSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6199,7 +6199,8 @@ public class EditProjectController implements Initializable {
     double sumResidueMaterialWall = 0.0;
 
 
-    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
+//    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionMaterialWall(ActionEvent actionEvent) {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
             observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6254,7 +6255,7 @@ public class EditProjectController implements Initializable {
     double sumPaidMaterialFloor = 0.0;
     double sumResidueMaterialFloor = 0.0;
 
-    public void On_tabCalculatorClickedActionMaterialFloor(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionMaterialFloor(ActionEvent actionEvent) {
         if (observableListMaterialFloor.filtered(x -> "0.0".equals(x.getQuantityMaterialFloor()) && "0.0".equals(x.getOrdinalPriceUnitMaterialFloor())).size() == 0) {
             observableListMaterialFloor.add(new MaterialFloor("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6307,7 +6308,7 @@ public class EditProjectController implements Initializable {
     double sumPaidMaterialCeiling = 0.0;
     double sumResidueMaterialCeiling = 0.0;
 
-    public void On_tabCalculatorClickedActionMaterialCeiling(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionMaterialCeiling(ActionEvent actionEvent) {
         if (observableListMaterialCeiling.filtered(x -> "0.0".equals(x.getQuantityMaterialCeiling()) && "0.0".equals(x.getOrdinalPriceUnitMaterialCeiling())).size() == 0) {
             observableListMaterialCeiling.add(new MaterialCeiling("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6360,7 +6361,7 @@ public class EditProjectController implements Initializable {
     double sumPaidMaterialOther = 0.0;
     double sumResidueMaterialOther = 0.0;
 
-    public void On_tabCalculatorClickedActionMaterialOther(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionMaterialOther(ActionEvent actionEvent) {
         if (observableListMaterialOther.filtered(x -> "0.0".equals(x.getQuantityMaterialOther()) && "0.0".equals(x.getOrdinalPriceUnitMaterialOther())).size() == 0) {
             observableListMaterialOther.add(new MaterialOther("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6413,7 +6414,7 @@ public class EditProjectController implements Initializable {
     double sumPaidMaterialSuddenly = 0.0;
     double sumResidueMaterialSuddenly = 0.0;
 
-    public void On_tabCalculatorClickedActionMaterialSuddenly(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionMaterialSuddenly(ActionEvent actionEvent) {
         if (observableListMaterialSuddenly.filtered(x -> "0.0".equals(x.getQuantityMaterialSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitMaterialSuddenly())).size() == 0) {
             observableListMaterialSuddenly.add(new MaterialSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6467,7 +6468,7 @@ public class EditProjectController implements Initializable {
     double sumPaidFurnitureDelivery = 0.0;
     double sumResidueFurnitureDelivery = 0.0;
 
-    public void On_tabCalculatorClickedActionFurnitureDelivery(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionFurnitureDelivery(ActionEvent actionEvent) {
         if (observableListFurnitureDelivery.filtered(x -> "0.0".equals(x.getQuantityFurnitureDelivery()) && "0.0".equals(x.getOrdinalPriceUnitFurnitureDelivery())).size() == 0) {
             observableListFurnitureDelivery.add(new FurnitureDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6520,7 +6521,7 @@ public class EditProjectController implements Initializable {
     double sumPaidFurnitureSuddenly = 0.0;
     double sumResidueFurnitureSuddenly = 0.0;
 
-    public void On_tabCalculatorClickedActionFurnitureSuddenly(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionFurnitureSuddenly(ActionEvent actionEvent) {
         if (observableListFurnitureSuddenly.filtered(x -> "0.0".equals(x.getQuantityFurnitureSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitFurnitureSuddenly())).size() == 0) {
             observableListFurnitureSuddenly.add(new FurnitureSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6573,7 +6574,7 @@ public class EditProjectController implements Initializable {
     double sumPaidLightDelivery = 0.0;
     double sumResidueLightDelivery = 0.0;
 
-    public void On_tabCalculatorClickedActionLightDelivery(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionLightDelivery(ActionEvent actionEvent) {
         if (observableListLightDelivery.filtered(x -> "0.0".equals(x.getQuantityLightDelivery()) && "0.0".equals(x.getOrdinalPriceUnitLightDelivery())).size() == 0) {
             observableListLightDelivery.add(new LightDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6625,7 +6626,7 @@ public class EditProjectController implements Initializable {
     double sumPaidLightSuddenly = 0.0;
     double sumResidueLightSuddenly = 0.0;
 
-    public void On_tabCalculatorClickedActionLightSuddenly(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionLightSuddenly(ActionEvent actionEvent) {
         if (observableListLightSuddenly.filtered(x -> "0.0".equals(x.getQuantityLightSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitLightSuddenly())).size() == 0) {
             observableListLightSuddenly.add(new LightSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6677,7 +6678,7 @@ public class EditProjectController implements Initializable {
     double sumPaidAppliancesKitchen = 0.0;
     double sumResidueAppliancesKitchen = 0.0;
 
-    public void On_tabCalculatorClickedActionAppliancesKitchen(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionAppliancesKitchen(ActionEvent actionEvent) {
         if (observableListAppliancesKitchen.filtered(x -> "0.0".equals(x.getQuantityAppliancesKitchen()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesKitchen())).size() == 0) {
             observableListAppliancesKitchen.add(new AppliancesKitchen("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6730,7 +6731,7 @@ public class EditProjectController implements Initializable {
     double sumPaidAppliancesOther = 0.0;
     double sumResidueAppliancesOther = 0.0;
 
-    public void On_tabCalculatorClickedActionAppliancesOther(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionAppliancesOther(ActionEvent actionEvent) {
         if (observableListAppliancesOther.filtered(x -> "0.0".equals(x.getQuantityAppliancesOther()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesOther())).size() == 0) {
             observableListAppliancesOther.add(new AppliancesOther("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6784,7 +6785,7 @@ public class EditProjectController implements Initializable {
     double sumPaidAppliancesDelivery = 0.0;
     double sumResidueAppliancesDelivery = 0.0;
 
-    public void On_tabCalculatorClickedActionAppliancesDelivery(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionAppliancesDelivery(ActionEvent actionEvent) {
         if (observableListAppliancesDelivery.filtered(x -> "0.0".equals(x.getQuantityAppliancesDelivery()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesDelivery())).size() == 0) {
             observableListAppliancesDelivery.add(new AppliancesDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6838,7 +6839,7 @@ public class EditProjectController implements Initializable {
     double sumPaidAppliancesSuddenly = 0.0;
     double sumResidueAppliancesSuddenly = 0.0;
 
-    public void On_tabCalculatorClickedActionAppliancesSuddenly(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionAppliancesSuddenly(ActionEvent actionEvent) {
         if (observableListAppliancesSuddenly.filtered(x -> "0.0".equals(x.getQuantityAppliancesSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesSuddenly())).size() == 0) {
             observableListAppliancesSuddenly.add(new AppliancesSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6907,7 +6908,7 @@ public class EditProjectController implements Initializable {
     double sumPaidDecorationDelivery = 0.0;
     double sumResidueDecorationDelivery = 0.0;
 
-    public void On_tabCalculatorClickedActionDecorationDelivery(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionDecorationDelivery(ActionEvent actionEvent) {
         if (observableListDecorationDelivery.filtered(x -> "0.0".equals(x.getQuantityDecorationDelivery()) && "0.0".equals(x.getOrdinalPriceUnitDecorationDelivery())).size() == 0) {
             observableListDecorationDelivery.add(new DecorationDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -6960,7 +6961,7 @@ public class EditProjectController implements Initializable {
     double sumPaidDecorationSuddenly = 0.0;
     double sumResidueDecorationSuddenly = 0.0;
 
-    public void On_tabCalculatorClickedActionDecorationSuddenly(MouseEvent mouseEvent) {
+    public void On_tabCalculatorClickedActionDecorationSuddenly(ActionEvent actionEvent) {
         if (observableListDecorationSuddenly.filtered(x -> "0.0".equals(x.getQuantityDecorationSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitDecorationSuddenly())).size() == 0) {
             observableListDecorationSuddenly.add(new DecorationSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
@@ -7005,17 +7006,7 @@ public class EditProjectController implements Initializable {
             colAccountDecorationSuddenly.setVisible(false);
         }
     }
+            //Заложить в кнопки на увеличение и уменьшение высоты таблицы
+//            materialTableViewWall.setMinHeight(materialTableViewWall.getHeight()+ 50.0);
 
-    public void qwe(ActionEvent actionEvent) {
-        if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
-            observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
-                    0, 0, 0, 0, 0, "", 0, 0,
-                    0, 0, "", "", "", "", "", "", "", ""));
-
-            titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
-                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
-                    "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
-
-        }
-    }
 }
