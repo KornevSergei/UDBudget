@@ -642,6 +642,10 @@ public class EditProjectController implements Initializable {
         addProjectButton.setVisible(false);
 
 
+
+        //Заложить в кнопки на увеличение и уменьшение высоты таблицы
+//            materialTableViewWall.setMinHeight(materialTableViewWall.getHeight()+ 50.0);
+
 //        Неправильный метод для увелмичение таблицы
 //        if (!createProjectTextField.getText().equals("")) {
 //            projectTableView.setMinHeight(projectTableView.getHeight() + 25);
@@ -5438,6 +5442,7 @@ public class EditProjectController implements Initializable {
                     public void handle(TableColumn.CellEditEvent<DecorationSuddenly, String> t) {
                         t.getTableView().getItems().get(
                                 t.getTablePosition().getRow()).setNameDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
                     }
                 });
         colActivePDecorationSuddenly.setCellFactory(cellFactoryCheckboxDecorationSuddenly);
@@ -5471,6 +5476,7 @@ public class EditProjectController implements Initializable {
                     public void handle(TableColumn.CellEditEvent<DecorationSuddenly, UnitType> t) {
                         t.getTableView().getItems().get(
                                 t.getTablePosition().getRow()).setUnitDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
                     }
                 });
         colQuantityDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
@@ -5559,6 +5565,7 @@ public class EditProjectController implements Initializable {
                     public void handle(TableColumn.CellEditEvent<DecorationSuddenly, TimeProduction> t) {
                         t.getTableView().getItems().get(
                                 t.getTablePosition().getRow()).setProductionTimeDecorationSuddenly(t.getNewValue());
+                        t.getTableView().refresh();
                     }
                 });
         colActualCostDecorationSuddenly.setCellFactory(cellFactoryDoubleDecorationSuddenly);
@@ -5605,7 +5612,7 @@ public class EditProjectController implements Initializable {
                         t.getTableView().refresh();
                     }
                 });
-        colDateOfDeliveryDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfSuddenlyDecorationSuddenly"));
+        colDateOfDeliveryDecorationSuddenly.setCellValueFactory(new PropertyValueFactory<>("dateOfDeliveryDecorationSuddenly"));
         colDateOfDeliveryDecorationSuddenly.setCellFactory(p -> {
             return new DecorationSuddenly.DatePickerCell<>();
         });
@@ -7006,7 +7013,4 @@ public class EditProjectController implements Initializable {
             colAccountDecorationSuddenly.setVisible(false);
         }
     }
-            //Заложить в кнопки на увеличение и уменьшение высоты таблицы
-//            materialTableViewWall.setMinHeight(materialTableViewWall.getHeight()+ 50.0);
-
 }

@@ -923,7 +923,7 @@
         <Tab fx:id="decorationView" disable="true" text="Декор">
             <VBox>
                 <Accordion fx:id="roomDecoration" prefWidth="1900.0" />
-                    <TitledPane fx:id="titleDecorationDelivery" animated="true" text="Доставка/сборка" expanded="false" >
+                    <TitledPane fx:id="titleDecorationDelivery" text="Доставка/сборка" expanded="false" >
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="500.0">
                                             <children>
@@ -970,7 +970,7 @@
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane fx:id="titleDecorationSuddenly" animated="true" text="Нежданчик" expanded="false"  >
+                                <TitledPane fx:id="titleDecorationSuddenly" text="Нежданчик" expanded="false"  >
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="200.0">
                                             <children>
