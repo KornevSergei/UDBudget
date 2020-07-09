@@ -92,7 +92,6 @@ public class EditProjectController implements Initializable {
 
     public TextField roomNameTextField;
     public TextField roomAreaTextField;
-    public TextField roomSelectBathRoomTextField;
     public Button addRoomButton;
 
 
@@ -667,14 +666,12 @@ public class EditProjectController implements Initializable {
     public void createRoom(ActionEvent actionEvent) {
         roomNameTextField.setVisible(true);
         roomAreaTextField.setVisible(true);
-        roomSelectBathRoomTextField.setVisible(true);
         addRoomButton.setVisible(true);
     }
 
     public void addRoom(ActionEvent actionEvent) {
         roomNameTextField.setVisible(false);
         roomAreaTextField.setVisible(false);
-        roomSelectBathRoomTextField.setVisible(false);
         addRoomButton.setVisible(false);
     }
 
@@ -7006,6 +7003,19 @@ public class EditProjectController implements Initializable {
 
             colActualCPDecorationSuddenly.setVisible(false);
             colAccountDecorationSuddenly.setVisible(false);
+        }
+    }
+
+    public void qwe(ActionEvent actionEvent) {
+        if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
+            observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
+                    0, 0, 0, 0, 0, "", 0, 0,
+                    0, 0, "", "", "", "", "", "", "", ""));
+
+            titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
+                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
+                    "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
+
         }
     }
 }

@@ -37,9 +37,7 @@
                   </TableView>
                         <TextField fx:id="roomNameTextField" layoutX="464.0" layoutY="161.0" prefHeight="25.0" prefWidth="146.0" visible="false" />
                         <TextField fx:id="roomAreaTextField" layoutX="614.0" layoutY="161.0" prefHeight="25.0" prefWidth="45.0" visible="false" />
-                        <TextField fx:id="roomSelectBathRoomTextField" layoutX="664.0" layoutY="161.0" prefHeight="25.0" prefWidth="42.0" visible="false" />
-                        <Button fx:id="addRoomButton" layoutX="713.0" layoutY="161.0" mnemonicParsing="false" onAction="#addRoom" text="+" visible="false" />
-
+                        <Button fx:id="addRoomButton" layoutX="666.0" layoutY="161.0" mnemonicParsing="false" onAction="#addRoom" text="+" visible="false" />
                         <Button fx:id="createProjectButton" layoutX="425.0" layoutY="197.0" mnemonicParsing="false" onAction="#createProject" text="Создать проект" />
                         <Button fx:id="selectProjectButton" layoutX="423.0" layoutY="231.0" mnemonicParsing="false" onAction="#selectProject" text="Выбрать проект" />
                         <TextField fx:id="createProjectTextField" layoutX="543.0" layoutY="197.0" prefHeight="25.0" prefWidth="177.0" promptText="Название проекта" visible="false" />
@@ -186,9 +184,9 @@
             <content>
                 <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900">
+                        <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900" >
                             <panes>
-                                <TitledPane fx:id="titleMaterialWall" animated="true" prefHeight="280.0" prefWidth="1900" text="Стены">
+                                <TitledPane fx:id="titleMaterialWall" animated="true" prefHeight="280.0" prefWidth="1900" text="Стены" >
                                     <content>
                                         <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -225,6 +223,7 @@
                                                   </columns>
                                                 </TableView>
                                                 <Button layoutX="110.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteElementMaterialWall" text="Удалить" />
+                                                 <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#qwe" text="+" />
                                                 <ToggleButton fx:id="showMaterialWallButton" layoutX="191.0" layoutY="2.0" mnemonicParsing="false" onAction="#showMaterialWall" text="Показать" />
                                              </children></AnchorPane>
                                       </content>
