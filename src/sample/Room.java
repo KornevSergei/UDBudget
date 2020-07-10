@@ -13,6 +13,7 @@ public class Room {
     protected double areaRoom;
     protected boolean selectBathRoom;
 
+
     protected SimpleStringProperty nameRoomTransmit;//Наименование
     protected SimpleBooleanProperty activePRoomTransmit;//П
     protected SimpleBooleanProperty activeCRoomTransmit;//С
@@ -45,8 +46,11 @@ public class Room {
         this.selectBathRoom = selectBathRoom;
 
 
+
+
+
         this.nameRoomTransmit = new SimpleStringProperty("");
-        this.activePRoomTransmit = new SimpleBooleanProperty(false);
+        this.activePRoomTransmit = new SimpleBooleanProperty(true);
         this.activeCRoomTransmit = new SimpleBooleanProperty(false);
         this.unitRoomTransmit = new SimpleObjectProperty<>(UnitType.THING);
         this.quantityRoomTransmit = new SimpleDoubleProperty(0.0);
@@ -69,7 +73,6 @@ public class Room {
         this.contactsRoomTransmit = new SimpleStringProperty("");
         this.notesRoomTransmit = new SimpleStringProperty("");
         this.characteristicsRoomTransmit = new SimpleStringProperty("");
-
 
     }
 

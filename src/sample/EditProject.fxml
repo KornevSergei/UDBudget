@@ -188,7 +188,7 @@
                     <children>
                         <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900" >
                             <panes>
-                                <TitledPane fx:id="titleMaterialWall" prefHeight="280.0" prefWidth="1900" text="Стены" >
+                                <TitledPane fx:id="titleMaterialWall" prefHeight="280.0" prefWidth="1900" text="Стены"  >
                                     <content>
                                         <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>

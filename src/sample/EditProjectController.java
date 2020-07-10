@@ -2,7 +2,6 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.css.ParsedValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
@@ -14,13 +13,7 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Material;
 import javafx.util.Callback;
-import javafx.util.StringConverter;
-
-import javax.xml.crypto.Data;
-import java.awt.event.ItemListener;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -87,7 +80,6 @@ public class EditProjectController implements Initializable {
     public Button addProjectButton;
     public Button startProject;
     public Button deleteProjectButton;
-
 
 
     public TextField roomNameTextField;
@@ -1576,7 +1568,6 @@ public class EditProjectController implements Initializable {
                         return new EditingCellCheckBox();
                     }
                 };
-
 
         colNameMaterialWall.setCellValueFactory(new PropertyValueFactory<>("nameMaterialWall"));
         colNameMaterialWall.setOnEditCommit(
@@ -5744,7 +5735,6 @@ public class EditProjectController implements Initializable {
     //!!!!!НАЧАЛО ДИ !!!!!!
     private void onClick(TableColumn.CellEditEvent<Room, String> event) {
 
-
         TablePosition<Room, String> pos = event.getTablePosition();
 
         String newName = event.getNewValue();
@@ -5754,9 +5744,7 @@ public class EditProjectController implements Initializable {
 
         updatedRoom.setNameRoom(newName);
 
-
-        //ешить проблему с сантехникой, должно быть имя + чекбокс
-//        if (colSelectBathRoom.getColumns().isEmpty())
+        //решить проблему с сантехникой, должно быть имя + чекбокс
         roomPlumbing.getPanes().clear();
         initAccordion(roomPlumbing);
 
@@ -5768,6 +5756,7 @@ public class EditProjectController implements Initializable {
 
         roomDecoration.getPanes().clear();
         initAccordion(roomDecoration);
+
     }
 
     private void initAccordion(Accordion accordion) {
@@ -5788,12 +5777,6 @@ public class EditProjectController implements Initializable {
     }
 
     TableView<Room> createRoomPropertiesTable(Room room) {
-
-        //Не забыть доделать кнопки
-        Button qwe = new Button("Чего то там");
-        ToggleButton qwer = new ToggleButton("qwertyuiop");
-
-//        titledPane.setContent(qwe);
 
         TableView<Room> tableViewRoomTransmit = new TableView<>(FXCollections.observableArrayList(room));
 
@@ -5818,13 +5801,13 @@ public class EditProjectController implements Initializable {
         TableColumn<Room, Date> colDateOfDeliveryRoomTransmit = new TableColumn<>("Дата поставки");
         TableColumn<Room, String> colPlannedCPRoomTransmit = new TableColumn<>("КП плановое");
         TableColumn<Room, String> colActualCPRoomTransmit = new TableColumn<>("КП фактическое");
-        TableColumn<Room, String> colAccountMRoomTransmit = new TableColumn<>("Счёт");
+        TableColumn<Room, String> colAccountRoomTransmit = new TableColumn<>("Счёт");
         TableColumn<Room, String> colContactsRoomTransmit = new TableColumn<>("Контакты");
         TableColumn<Room, String> colNotesRoomTransmit = new TableColumn<>("Примечания");
         TableColumn<Room, String> colCharacteristicsRoomTransmit = new TableColumn<>("Характеристики");
 
 //        //Вызоваем методы
-        initStringColumn(colNameRoomTransmit, colPlannedCPRoomTransmit, colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit, colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
+        initStringColumn(colNameRoomTransmit, colPlannedCPRoomTransmit, colActualCPRoomTransmit, colAccountRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit, colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
 //        initDoubleColumn(colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit, colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colActualCostRoomTransmit, colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit);
         initBooleanColumn(colActivePRoomTransmit, colActiveCRoomTransmit);
         initUnitTypeColumn(colUnitRoomTransmit);
@@ -5835,13 +5818,13 @@ public class EditProjectController implements Initializable {
                 colQuantityRoomTransmit, colOrdinalPriceUnitRoomTransmit, colPriceCPUnitRoomTransmit, colPriceCPKeyRoomTransmit,
                 colCostCPUnitRoomTransmit, colPriceOrderRoomTransmit, colCostCPRoomTransmit, colProductionTimeRoomTransmit, colActualCostRoomTransmit,
                 colActualDifferenceRoomTransmit, colPaidRoomTransmit, colResidueRoomTransmit, colDateOfDeliveryRoomTransmit, colPlannedCPRoomTransmit,
-                colActualCPRoomTransmit, colAccountMRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit);
+                colActualCPRoomTransmit, colAccountRoomTransmit, colContactsRoomTransmit, colNotesRoomTransmit, colCharacteristicsRoomTransmit);
 
         return tableViewRoomTransmit;
     }
 
     private void initStringColumn(TableColumn<Room, String> colNameRoomTransmit, TableColumn<Room, String> colPlannedCPRoomTransmit, TableColumn<Room, String> colActualCPRoomTransmit,
-                                  TableColumn<Room, String> colAccountMRoomTransmit, TableColumn<Room, String> colContactsRoomTransmit, TableColumn<Room, String> colNotesRoomTransmit,
+                                  TableColumn<Room, String> colAccountRoomTransmit, TableColumn<Room, String> colContactsRoomTransmit, TableColumn<Room, String> colNotesRoomTransmit,
                                   TableColumn<Room, String> colCharacteristicsRoomTransmit,
                                   //Пошли дабл!
                                   TableColumn<Room, String> colQuantityRoomTransmit, TableColumn<Room, String> colOrdinalPriceUnitRoomTransmit,
@@ -5862,9 +5845,9 @@ public class EditProjectController implements Initializable {
         colActualCPRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
         colActualCPRoomTransmit.setOnEditCommit(this::onStringClick);
 
-        colAccountMRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Счёт"));
-        colAccountMRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
-        colAccountMRoomTransmit.setOnEditCommit(this::onStringClick);
+        colAccountRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Счёт"));
+        colAccountRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
+        colAccountRoomTransmit.setOnEditCommit(this::onStringClick);
 
         colContactsRoomTransmit.setCellValueFactory(new PropertyValueFactory<Room, String>("Контакты"));
         colContactsRoomTransmit.setCellFactory(TextFieldTableCell.<Room>forTableColumn());
@@ -5934,7 +5917,9 @@ public class EditProjectController implements Initializable {
 
 
         //Дописать стринговые столбцы!
+//        updatedRoom.setNameRoomTransmit(comments);
         updatedRoom.setNameRoomTransmit(comments);
+        updatedRoom.setAccountRoomTransmit(comments);
 
     }
 
@@ -6209,6 +6194,8 @@ public class EditProjectController implements Initializable {
 //    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
     public void On_tabCalculatorClickedActionMaterialWall(ActionEvent actionEvent) {
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
+            //фиксируем по названию и цене
+//        if (observableListMaterialWall.filtered(x -> "11".equals(x.getNameMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
             observableListMaterialWall.add(new MaterialWall("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
