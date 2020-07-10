@@ -5745,8 +5745,12 @@ public class EditProjectController implements Initializable {
         updatedRoom.setNameRoom(newName);
 
         //решить проблему с сантехникой, должно быть имя + чекбокс
+//        if(colNameRoom.equals("") && colSelectBathRoom.equals(true)) {
+//        if(colSelectBathRoom.equals(false)) {
+//            if(!colNameRoom.equals("")) {
         roomPlumbing.getPanes().clear();
         initAccordion(roomPlumbing);
+//        }
 
         roomFurniture.getPanes().clear();
         initAccordion(roomFurniture);
@@ -5919,8 +5923,6 @@ public class EditProjectController implements Initializable {
         //Дописать стринговые столбцы!
 //        updatedRoom.setNameRoomTransmit(comments);
         updatedRoom.setNameRoomTransmit(comments);
-        updatedRoom.setAccountRoomTransmit(comments);
-
     }
 
 //    //Не забыть доделать!
@@ -6028,7 +6030,7 @@ public class EditProjectController implements Initializable {
         int row = pos.getRow();
         Room updatedRoom = event.getTableView().getItems().get(row);
 
-        updatedRoom.setDateOfDeliveryRoomTransmit(date);
+//        updatedRoom.setDateOfDeliveryRoomTransmit(date);
     }
 
     //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!!!!
