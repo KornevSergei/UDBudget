@@ -28,7 +28,7 @@
                   <Button fx:id="deleteRoomButton" layoutX="375.0" layoutY="195.0" mnemonicParsing="false" onAction="#deleteRoomElement" prefHeight="25.0" prefWidth="75.0" text="Удалить" visible="false" />
                   <Button fx:id="saveRoomButton" layoutX="376.0" layoutY="228.0" mnemonicParsing="false" onAction="#saveRoomElement" text="Сохранить" visible="false" />
                   <Button fx:id="backRoomButton" onAction="#backProject" layoutX="376.0" layoutY="260.0" mnemonicParsing="false" text="На главную" visible="false" />
-                        <TableView fx:id="roomTableView" editable="true" layoutX="14.0" layoutY="160.0" onMouseClicked="#On_tabCalculatorClickedActionRoom" prefHeight="200.0" prefWidth="353.0" visible="false">
+                        <TableView fx:id="roomTableView" editable="true" layoutX="14.0" layoutY="160.0"  onMouseClicked="#On_tabCalculatorClickedActionRoom" prefHeight="200.0" prefWidth="353.0" visible="false">
                       <columns>
                          <TableColumn fx:id="colNameRoom" prefWidth="185.0" text="Помещение" />
                          <TableColumn fx:id="colAreaRoom" prefWidth="88.0" text="Площадь" />

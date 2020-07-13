@@ -683,13 +683,20 @@ public class EditProjectController implements Initializable {
         colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
         colAreaRoom.setCellValueFactory(new PropertyValueFactory<>("areaRoom"));
         ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
-        roomTableView.setEditable(true);
-        roomTableView.setItems(observableListRoom);
 
         Room room = new Room();
         room.setNameRoom(roomNameTextField.getText());
         room.setAreaRoom(roomAreaTextField.getText());
+
+
+
+        roomTableView.setEditable(true);
+        roomTableView.setItems(observableListRoom);
         roomTableView.getItems().add(room);
+
+
+        colNameRoom.setOnEditCommit(this::onClick);
+
 
 
 
@@ -5727,12 +5734,7 @@ public class EditProjectController implements Initializable {
         colNotesDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
         colCharacteristicsDecorationSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
 
-
-
-
-
     }
-
 
 
 
@@ -6242,6 +6244,15 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
+            for (int i = 0; i < materialTableViewWall.getItems().size(); i++){
+                sumPriceOrderMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
+                sumCostCPMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
+                sumActualCostMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
+                sumActualDifferenceMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
+                sumPaidMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
+                sumResidueMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
+
+            }
             titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
                     "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
                     "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
