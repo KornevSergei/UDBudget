@@ -669,6 +669,37 @@ public class EditProjectController implements Initializable {
         roomNameTextField.setVisible(false);
         roomAreaTextField.setVisible(false);
         addRoomButton.setVisible(false);
+
+
+        colNameRoom.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
+        colAreaRoom.setCellValueFactory(new PropertyValueFactory<>("areaRoom"));
+        ObservableList<Room> observableListRoom = FXCollections.observableArrayList();
+        roomTableView.setEditable(true);
+        roomTableView.setItems(observableListRoom);
+
+        Room room = new Room();
+        room.setNameRoom(roomNameTextField.getText());
+        room.setAreaRoom(roomAreaTextField.getText());
+        roomTableView.getItems().add(room);
+
+
+
+
+
+//        Project project = new Project();
+//        project.setNameProject(createProjectTextField.getText());
+//        projectTableView.getItems().add(project);
+
+
+//        colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
+//        ObservableList<Project> observableListProject = FXCollections.observableArrayList(
+//                new Project("Проект 1"),
+//                new Project("Проект 2"),
+//                new Project("Проект 3")
+//        );
+//        projectTableView.setEditable(true);
+//        projectTableView.setItems(observableListProject);
+
     }
 
     //Для теста, не забыть переделать!!!!!!!!!!!

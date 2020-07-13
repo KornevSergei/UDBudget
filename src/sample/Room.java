@@ -39,13 +39,13 @@ public class Room {
     protected SimpleStringProperty notesRoomTransmit;//примечания
     protected SimpleStringProperty characteristicsRoomTransmit;//характеристики
 
+    public Room() {
+    }
 
     public Room(String nameRoom, double areaRoom, boolean selectBathRoom) {
         this.nameRoom = nameRoom;
         this.areaRoom = areaRoom;
         this.selectBathRoom = selectBathRoom;
-
-
 
 
 
