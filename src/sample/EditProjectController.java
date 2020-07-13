@@ -6227,16 +6227,17 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    double sumPriceOrderMaterialWall = 0.0;
-    double sumCostCPMaterialWall = 0.0;
-    double sumActualCostMaterialWall = 0.0;
-    double sumActualDifferenceMaterialWall = 0.0;
-    double sumPaidMaterialWall = 0.0;
-    double sumResidueMaterialWall = 0.0;
-
 
 //    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
     public void On_tabCalculatorClickedActionMaterialWall(ActionEvent actionEvent) {
+
+        double sumPriceOrderMaterialWall = 0.0;
+        double sumCostCPMaterialWall = 0.0;
+        double sumActualCostMaterialWall = 0.0;
+        double sumActualDifferenceMaterialWall = 0.0;
+        double sumPaidMaterialWall = 0.0;
+        double sumResidueMaterialWall = 0.0;
+
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
             //фиксируем по названию и цене
 //        if (observableListMaterialWall.filtered(x -> "11".equals(x.getNameMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
@@ -6245,12 +6246,12 @@ public class EditProjectController implements Initializable {
                     0, 0, "", "", "", "", "", "", "", ""));
 
             for (int i = 0; i < materialTableViewWall.getItems().size(); i++){
-                sumPriceOrderMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
-                sumCostCPMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
-                sumActualCostMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
-                sumActualDifferenceMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
-                sumPaidMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
-                sumResidueMaterialWall += Double.parseDouble(colQuantityMaterialWall.getCellData(i));
+                sumPriceOrderMaterialWall += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
+                sumCostCPMaterialWall += Double.parseDouble(colCostCPMaterialWall.getCellData(i));
+                sumActualCostMaterialWall += Double.parseDouble(colActualCostMaterialWall.getCellData(i));
+                sumActualDifferenceMaterialWall += Double.parseDouble(colActualDifferenceMaterialWall.getCellData(i));
+                sumPaidMaterialWall += Double.parseDouble(colPaidMaterialWall.getCellData(i));
+                sumResidueMaterialWall += Double.parseDouble(colResidueMaterialWall.getCellData(i));
 
             }
             titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
