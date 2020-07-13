@@ -21,7 +21,6 @@ import java.util.ResourceBundle;
 
 public class EditProjectController implements Initializable {
 
-
     public TabPane tabPane;
 
     public Tab plumbingView;
@@ -71,6 +70,7 @@ public class EditProjectController implements Initializable {
     public TableView<Project> projectTableView;
     public TableColumn<Project, String> colNameProject;
 
+
     private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
     public TextField createProjectTextField;
     public Button backRoomButton;
@@ -109,6 +109,15 @@ public class EditProjectController implements Initializable {
 
     public Button saveRoomButton;
     public Button addPaymentButton;
+
+    public TableView<Total> totalTableView;
+    public TableColumn<Total, String> colCategoryNameTotal;
+    public TableColumn<Total, String>  colPriceOrderTotal;
+    public TableColumn<Total, String>  colPlannedCostTotal;
+    public TableColumn<Total, String>  colActualCostTotal;
+    public TableColumn<Total, String>  colDifferenceTotal;
+    public TableColumn<Total, String>  colPaidTotal;
+    public TableColumn<Total, String>  colResidueTotal;
 
 
     public TableView<Subcontractors> subcontractorsTableView;

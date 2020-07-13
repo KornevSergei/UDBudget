@@ -58,15 +58,15 @@
             <content>
                 <FlowPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView layoutX="54.0" layoutY="50.0" prefHeight="300.0" prefWidth="1000.0">
+                        <TableView fx:id="totalTableView" layoutX="54.0" layoutY="50.0" prefHeight="300.0" prefWidth="1000.0">
                             <columns>
-                                <TableColumn prefWidth="180.0" text="Наименование категории" />
-                                <TableColumn prefWidth="130.0" text="Порядок цен, руб." />
-                                <TableColumn prefWidth="130.0" text="Стоимость плановая, руб." />
-                                <TableColumn prefWidth="130.0" text="Стоимость фактическая, руб." />
-                                <TableColumn prefWidth="130.0" text="Разница, руб." />
-                                <TableColumn prefWidth="130.0" text="Оплачено, руб." />
-                                <TableColumn prefWidth="130.0" text="Остаток, руб." />
+                                <TableColumn fx:id="colCategoryNameTotal" prefWidth="180.0" text="Наименование категории" />
+                                <TableColumn fx:id="colPriceOrderTotal" prefWidth="130.0" text="Порядок цен, руб." />
+                                <TableColumn fx:id="colPlannedCostTotal" prefWidth="130.0" text="Стоимость плановая, руб." />
+                                <TableColumn fx:id="colActualCostTotal" prefWidth="130.0" text="Стоимость фактическая, руб." />
+                                <TableColumn fx:id="colDifferenceTotal" prefWidth="130.0" text="Разница, руб." />
+                                <TableColumn fx:id="colPaidTotal" prefWidth="130.0" text="Оплачено, руб." />
+                                <TableColumn fx:id="colResidueTotal" prefWidth="130.0" text="Остаток, руб." />
                             </columns>
                         </TableView>
                     </children>
