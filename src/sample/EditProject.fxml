@@ -334,7 +334,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewOther" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="materialTableViewOther" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitleMaterialOther">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialOther" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialOther" prefWidth="25.0" text="П" />
@@ -380,7 +380,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewSuddenly" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="materialTableViewSuddenly" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitleMaterialSuddenly">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialSuddenly" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialSuddenly" prefWidth="25.0" text="П" />
@@ -435,7 +435,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="plumbingTableViewDelivery" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="plumbingTableViewDelivery" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitlePlumbingDelivery">
                                                     <columns>
                                                         <TableColumn fx:id="colNamePlumbingDelivery" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePPlumbingDelivery" prefWidth="25.0" text="П" />
@@ -482,7 +482,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="plumbingTableViewSuddenly" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="plumbingTableViewSuddenly" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitlePlumbingSuddenly">
                                                     <columns>
                                                         <TableColumn fx:id="colNamePlumbingSuddenly" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePPlumbingSuddenly" prefWidth="25.0" text="П" />
@@ -535,7 +535,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="furnitureTableViewDelivery" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="furnitureTableViewDelivery" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitleFurnitureDelivery">
                                                     <columns>
                                                         <TableColumn fx:id="colNameFurnitureDelivery" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePFurnitureDelivery" prefWidth="25.0" text="П" />
@@ -582,7 +582,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="furnitureTableViewSuddenly" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="furnitureTableViewSuddenly" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitleFurnitureSuddenly">
                                                     <columns>
                                                         <TableColumn fx:id="colNameFurnitureSuddenly" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePFurnitureSuddenly" prefWidth="25.0" text="П" />
@@ -635,7 +635,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="lightTableViewDelivery" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="lightTableViewDelivery" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitleLightDelivery">
                                                     <columns>
                                                         <TableColumn fx:id="colNameLightDelivery" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePLightDelivery" prefWidth="25.0" text="П" />
@@ -682,7 +682,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1900.0">
                                             <children>
-                                                <TableView fx:id="lightTableViewSuddenly" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="lightTableViewSuddenly" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitleLightSuddenly">
                                                     <columns>
                                                         <TableColumn fx:id="colNameLightSuddenly" prefWidth="108.0" text="Наименование" />
                                                         <TableColumn fx:id="colActivePLightSuddenly" prefWidth="25.0" text="П" />
