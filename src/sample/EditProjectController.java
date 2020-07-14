@@ -6078,6 +6078,9 @@ public class EditProjectController implements Initializable {
         if (observableListSubcontractors.filtered(x -> "0.0".equals(x.getCostPlannedSubcontractors()) && "0.0".equals(x.getCostCPSubcontractors())).size() == 0) {
             observableListSubcontractors.add(new Subcontractors("", 0, 0, 0, 0,
                     0, 0, "", "", "", "", "", ""));
+
+            subcontractorsTableView.setMinHeight(subcontractorsTableView.getHeight()+ 50.0);
+
         }
     }
 
@@ -6861,12 +6864,30 @@ public class EditProjectController implements Initializable {
             colAccountLightSuddenly.setVisible(false);
         }
     }
-    double sumPriceOrderAppliancesKitchen = 0.0;
-    double sumCostCPAppliancesKitchen = 0.0;
-    double sumActualCostAppliancesKitchen = 0.0;
-    double sumActualDifferenceAppliancesKitchen = 0.0;
-    double sumPaidAppliancesKitchen = 0.0;
-    double sumResidueAppliancesKitchen = 0.0;
+
+    public void calcTitleAppliancesKitchen(MouseEvent mouseEvent) {
+        double sumPriceOrderAppliancesKitchen = 0.0;
+        double sumCostCPAppliancesKitchen = 0.0;
+        double sumActualCostAppliancesKitchen = 0.0;
+        double sumActualDifferenceAppliancesKitchen = 0.0;
+        double sumPaidAppliancesKitchen = 0.0;
+        double sumResidueAppliancesKitchen = 0.0;
+
+        for (int i = 0; i < appliancesTableViewKitchen.getItems().size(); i++){
+            sumPriceOrderAppliancesKitchen += Double.parseDouble(colPriceOrderAppliancesKitchen.getCellData(i));
+            sumCostCPAppliancesKitchen += Double.parseDouble(colCostCPAppliancesKitchen.getCellData(i));
+            sumActualCostAppliancesKitchen += Double.parseDouble(colActualCostAppliancesKitchen.getCellData(i));
+            sumActualDifferenceAppliancesKitchen += Double.parseDouble(colActualDifferenceAppliancesKitchen.getCellData(i));
+            sumPaidAppliancesKitchen += Double.parseDouble(colPaidAppliancesKitchen.getCellData(i));
+            sumResidueAppliancesKitchen += Double.parseDouble(colResidueAppliancesKitchen.getCellData(i));
+        }
+
+        titleAppliancesKitchen.setText("Кухонная техника      /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesKitchen) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesKitchen) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesKitchen) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesKitchen) +
+                "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesKitchen) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesKitchen));
+
+    }
+
 
     public void On_tabCalculatorClickedActionAppliancesKitchen(ActionEvent actionEvent) {
         if (observableListAppliancesKitchen.filtered(x -> "0.0".equals(x.getQuantityAppliancesKitchen()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesKitchen())).size() == 0) {
@@ -6874,9 +6895,6 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleAppliancesKitchen.setText("Кухонная техника        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesKitchen) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesKitchen) +
-                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesKitchen) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesKitchen) +
-                    "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesKitchen) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesKitchen));
         }
     }
 
@@ -6914,22 +6932,35 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    double sumPriceOrderAppliancesOther = 0.0;
-    double sumCostCPAppliancesOther = 0.0;
-    double sumActualCostAppliancesOther = 0.0;
-    double sumActualDifferenceAppliancesOther = 0.0;
-    double sumPaidAppliancesOther = 0.0;
-    double sumResidueAppliancesOther = 0.0;
+    public void calcTitleAppliancesOther(MouseEvent mouseEvent) {
+        double sumPriceOrderAppliancesOther = 0.0;
+        double sumCostCPAppliancesOther = 0.0;
+        double sumActualCostAppliancesOther = 0.0;
+        double sumActualDifferenceAppliancesOther = 0.0;
+        double sumPaidAppliancesOther = 0.0;
+        double sumResidueAppliancesOther = 0.0;
+
+        for (int i = 0; i < appliancesTableViewOther.getItems().size(); i++){
+            sumPriceOrderAppliancesOther += Double.parseDouble(colPriceOrderAppliancesOther.getCellData(i));
+            sumCostCPAppliancesOther += Double.parseDouble(colCostCPAppliancesOther.getCellData(i));
+            sumActualCostAppliancesOther += Double.parseDouble(colActualCostAppliancesOther.getCellData(i));
+            sumActualDifferenceAppliancesOther += Double.parseDouble(colActualDifferenceAppliancesOther.getCellData(i));
+            sumPaidAppliancesOther += Double.parseDouble(colPaidAppliancesOther.getCellData(i));
+            sumResidueAppliancesOther += Double.parseDouble(colResidueAppliancesOther.getCellData(i));
+        }
+
+        titleAppliancesOther.setText("Другая техника      /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesOther) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesOther) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesOther) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesOther) +
+                "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesOther) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesOther));
+
+    }
+
 
     public void On_tabCalculatorClickedActionAppliancesOther(ActionEvent actionEvent) {
         if (observableListAppliancesOther.filtered(x -> "0.0".equals(x.getQuantityAppliancesOther()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesOther())).size() == 0) {
             observableListAppliancesOther.add(new AppliancesOther("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
-
-            titleAppliancesOther.setText("Другая техника        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesOther) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesOther) +
-                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesOther) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesOther) +
-                    "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesOther) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesOther));
 
         }
     }
@@ -6968,22 +6999,35 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    double sumPriceOrderAppliancesDelivery = 0.0;
-    double sumCostCPAppliancesDelivery = 0.0;
-    double sumActualCostAppliancesDelivery = 0.0;
-    double sumActualDifferenceAppliancesDelivery = 0.0;
-    double sumPaidAppliancesDelivery = 0.0;
-    double sumResidueAppliancesDelivery = 0.0;
+    public void calcTitleAppliancesDelivery(MouseEvent mouseEvent) {
+        double sumPriceOrderAppliancesDelivery = 0.0;
+        double sumCostCPAppliancesDelivery = 0.0;
+        double sumActualCostAppliancesDelivery = 0.0;
+        double sumActualDifferenceAppliancesDelivery = 0.0;
+        double sumPaidAppliancesDelivery = 0.0;
+        double sumResidueAppliancesDelivery = 0.0;
+
+        for (int i = 0; i < appliancesTableViewDelivery.getItems().size(); i++){
+            sumPriceOrderAppliancesDelivery += Double.parseDouble(colPriceOrderAppliancesDelivery.getCellData(i));
+            sumCostCPAppliancesDelivery += Double.parseDouble(colCostCPAppliancesDelivery.getCellData(i));
+            sumActualCostAppliancesDelivery += Double.parseDouble(colActualCostAppliancesDelivery.getCellData(i));
+            sumActualDifferenceAppliancesDelivery += Double.parseDouble(colActualDifferenceAppliancesDelivery.getCellData(i));
+            sumPaidAppliancesDelivery += Double.parseDouble(colPaidAppliancesDelivery.getCellData(i));
+            sumResidueAppliancesDelivery += Double.parseDouble(colResidueAppliancesDelivery.getCellData(i));
+        }
+
+        titleAppliancesDelivery.setText("Доставка/сборка      /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesDelivery) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesDelivery) +
+                "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesDelivery));
+
+    }
+
 
     public void On_tabCalculatorClickedActionAppliancesDelivery(ActionEvent actionEvent) {
         if (observableListAppliancesDelivery.filtered(x -> "0.0".equals(x.getQuantityAppliancesDelivery()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesDelivery())).size() == 0) {
             observableListAppliancesDelivery.add(new AppliancesDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
-
-            titleAppliancesDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesDelivery) +
-                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesDelivery) +
-                    "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesDelivery));
 
         }
     }
@@ -7022,22 +7066,35 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    double sumPriceOrderAppliancesSuddenly = 0.0;
-    double sumCostCPAppliancesSuddenly = 0.0;
-    double sumActualCostAppliancesSuddenly = 0.0;
-    double sumActualDifferenceAppliancesSuddenly = 0.0;
-    double sumPaidAppliancesSuddenly = 0.0;
-    double sumResidueAppliancesSuddenly = 0.0;
+    public void calcTitleAppliancesSuddenly(MouseEvent mouseEvent) {
+        double sumPriceOrderAppliancesSuddenly = 0.0;
+        double sumCostCPAppliancesSuddenly = 0.0;
+        double sumActualCostAppliancesSuddenly = 0.0;
+        double sumActualDifferenceAppliancesSuddenly = 0.0;
+        double sumPaidAppliancesSuddenly = 0.0;
+        double sumResidueAppliancesSuddenly = 0.0;
+
+        for (int i = 0; i < appliancesTableViewSuddenly.getItems().size(); i++){
+            sumPriceOrderAppliancesSuddenly += Double.parseDouble(colPriceOrderAppliancesSuddenly.getCellData(i));
+            sumCostCPAppliancesSuddenly += Double.parseDouble(colCostCPAppliancesSuddenly.getCellData(i));
+            sumActualCostAppliancesSuddenly += Double.parseDouble(colActualCostAppliancesSuddenly.getCellData(i));
+            sumActualDifferenceAppliancesSuddenly += Double.parseDouble(colActualDifferenceAppliancesSuddenly.getCellData(i));
+            sumPaidAppliancesSuddenly += Double.parseDouble(colPaidAppliancesSuddenly.getCellData(i));
+            sumResidueAppliancesSuddenly += Double.parseDouble(colResidueAppliancesSuddenly.getCellData(i));
+        }
+
+        titleAppliancesSuddenly.setText("Нежданчик      /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesSuddenly) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesSuddenly) +
+                "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesSuddenly));
+
+    }
+
 
     public void On_tabCalculatorClickedActionAppliancesSuddenly(ActionEvent actionEvent) {
         if (observableListAppliancesSuddenly.filtered(x -> "0.0".equals(x.getQuantityAppliancesSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitAppliancesSuddenly())).size() == 0) {
             observableListAppliancesSuddenly.add(new AppliancesSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
-
-            titleAppliancesSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderAppliancesSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPAppliancesSuddenly) +
-                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostAppliancesSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceAppliancesSuddenly) +
-                    "        /Оплачено: " + String.format("%.2f", sumPaidAppliancesSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueAppliancesSuddenly));
         }
     }
 
@@ -7091,22 +7148,35 @@ public class EditProjectController implements Initializable {
             colAccountAppliancesSuddenly.setVisible(false);
         }
     }
-    double sumPriceOrderDecorationDelivery = 0.0;
-    double sumCostCPDecorationDelivery = 0.0;
-    double sumActualCostDecorationDelivery = 0.0;
-    double sumActualDifferenceDecorationDelivery = 0.0;
-    double sumPaidDecorationDelivery = 0.0;
-    double sumResidueDecorationDelivery = 0.0;
+    public void calcTitleDecorationDelivery(MouseEvent mouseEvent) {
+        double sumPriceOrderDecorationDelivery = 0.0;
+        double sumCostCPDecorationDelivery = 0.0;
+        double sumActualCostDecorationDelivery = 0.0;
+        double sumActualDifferenceDecorationDelivery = 0.0;
+        double sumPaidDecorationDelivery = 0.0;
+        double sumResidueDecorationDelivery = 0.0;
+
+        for (int i = 0; i < decorationTableViewDelivery.getItems().size(); i++){
+            sumPriceOrderDecorationDelivery += Double.parseDouble(colPriceOrderDecorationDelivery.getCellData(i));
+            sumCostCPDecorationDelivery += Double.parseDouble(colCostCPDecorationDelivery.getCellData(i));
+            sumActualCostDecorationDelivery += Double.parseDouble(colActualCostDecorationDelivery.getCellData(i));
+            sumActualDifferenceDecorationDelivery += Double.parseDouble(colActualDifferenceDecorationDelivery.getCellData(i));
+            sumPaidDecorationDelivery += Double.parseDouble(colPaidDecorationDelivery.getCellData(i));
+            sumResidueDecorationDelivery += Double.parseDouble(colResidueDecorationDelivery.getCellData(i));
+        }
+
+        titleDecorationDelivery.setText("Нежданчик      /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationDelivery) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostDecorationDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceDecorationDelivery) +
+                "        /Оплачено: " + String.format("%.2f", sumPaidDecorationDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueDecorationDelivery));
+
+    }
+
 
     public void On_tabCalculatorClickedActionDecorationDelivery(ActionEvent actionEvent) {
         if (observableListDecorationDelivery.filtered(x -> "0.0".equals(x.getQuantityDecorationDelivery()) && "0.0".equals(x.getOrdinalPriceUnitDecorationDelivery())).size() == 0) {
             observableListDecorationDelivery.add(new DecorationDelivery("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
-
-            titleDecorationDelivery.setText("Доставка/сборка        /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationDelivery) +
-                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostDecorationDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceDecorationDelivery) +
-                    "        /Оплачено: " + String.format("%.2f", sumPaidDecorationDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueDecorationDelivery));
         }
     }
 
@@ -7144,12 +7214,29 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    double sumPriceOrderDecorationSuddenly = 0.0;
-    double sumCostCPDecorationSuddenly = 0.0;
-    double sumActualCostDecorationSuddenly = 0.0;
-    double sumActualDifferenceDecorationSuddenly = 0.0;
-    double sumPaidDecorationSuddenly = 0.0;
-    double sumResidueDecorationSuddenly = 0.0;
+    public void calcTitleDecorationSuddenly(MouseEvent mouseEvent) {
+        double sumPriceOrderDecorationSuddenly = 0.0;
+        double sumCostCPDecorationSuddenly = 0.0;
+        double sumActualCostDecorationSuddenly = 0.0;
+        double sumActualDifferenceDecorationSuddenly = 0.0;
+        double sumPaidDecorationSuddenly = 0.0;
+        double sumResidueDecorationSuddenly = 0.0;
+
+        for (int i = 0; i < decorationTableViewSuddenly.getItems().size(); i++){
+            sumPriceOrderDecorationSuddenly += Double.parseDouble(colPriceOrderDecorationSuddenly.getCellData(i));
+            sumCostCPDecorationSuddenly += Double.parseDouble(colCostCPDecorationSuddenly.getCellData(i));
+            sumActualCostDecorationSuddenly += Double.parseDouble(colActualCostDecorationSuddenly.getCellData(i));
+            sumActualDifferenceDecorationSuddenly += Double.parseDouble(colActualDifferenceDecorationSuddenly.getCellData(i));
+            sumPaidDecorationSuddenly += Double.parseDouble(colPaidDecorationSuddenly.getCellData(i));
+            sumResidueDecorationSuddenly += Double.parseDouble(colResidueDecorationSuddenly.getCellData(i));
+        }
+
+        titleDecorationSuddenly.setText("Нежданчик      /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationSuddenly) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostDecorationSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceDecorationSuddenly) +
+                "        /Оплачено: " + String.format("%.2f", sumPaidDecorationSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueDecorationSuddenly));
+
+    }
+
 
     public void On_tabCalculatorClickedActionDecorationSuddenly(ActionEvent actionEvent) {
         if (observableListDecorationSuddenly.filtered(x -> "0.0".equals(x.getQuantityDecorationSuddenly()) && "0.0".equals(x.getOrdinalPriceUnitDecorationSuddenly())).size() == 0) {
@@ -7157,9 +7244,6 @@ public class EditProjectController implements Initializable {
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
 
-            titleDecorationSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationSuddenly) +
-                    "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostDecorationSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceDecorationSuddenly) +
-                    "        /Оплачено: " + String.format("%.2f", sumPaidDecorationSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueDecorationSuddenly));
         }
     }
 
