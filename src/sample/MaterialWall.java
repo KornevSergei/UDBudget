@@ -77,6 +77,7 @@ public class MaterialWall {
 
     public void CalculatePriceOrderMaterialWall() {
         priceOrderMaterialWall = quantityMaterialWall * ordinalPriceUnitMaterialWall;
+
     }
 
     public void CalculateСostCPUnitMaterialWall() {

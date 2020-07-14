@@ -188,7 +188,7 @@
                     <children>
                         <Accordion layoutX="5.0" layoutY="5.0" prefHeight="700.0" prefWidth="1900" >
                             <panes>
-                                <TitledPane fx:id="titleMaterialWall" prefHeight="280.0" prefWidth="1900" text="Стены"  >
+                                <TitledPane fx:id="titleMaterialWall" prefHeight="280.0" prefWidth="1900" text="Стены"   >
                                     <content>
                                         <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -197,7 +197,7 @@
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="2000">
                                              <children>
 <!--                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="2000">-->
-                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000">
+                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000" onMouseMoved="#calcTitleMaterialWall">
                                                   <columns>
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />
@@ -242,7 +242,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="2000.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewFloor" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="materialTableViewFloor" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitleMaterialFloor">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialFloor" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialFloor" prefWidth="25.0" text="П" />
@@ -288,7 +288,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="2000.0">
                                              <children>
-                                                <TableView fx:id="materialTableViewCeiling" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0">
+                                                <TableView fx:id="materialTableViewCeiling" editable="true" layoutY="31.0" prefHeight="669.0" prefWidth="2000.0" onMouseMoved="#calcTitleMaterialCeiling">
                                                    <columns>
                                                       <TableColumn fx:id="colNameMaterialCeiling" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialCeiling" prefWidth="25.0" text="П" />
