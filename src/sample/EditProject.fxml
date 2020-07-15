@@ -192,12 +192,12 @@
                                     <content>
                                         <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ScrollPane prefHeight="500.0" prefWidth="1900">
+                                    <ScrollPane prefHeight="500.0" prefWidth="2000">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="2000">
                                              <children>
 <!--                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0" onMouseClicked="#On_tabCalculatorClickedActionMaterialWall" prefHeight="669.0" prefWidth="2000">-->
-                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0"  prefHeight="669.0" prefWidth="2000" onMouseMoved="#calcTitleMaterialWall">
+                                                <TableView fx:id="materialTableViewWall" editable="true" layoutY="31.0"  prefHeight="500.0" prefWidth="2000" onMouseMoved="#calcTitleMaterialWall">
                                                   <columns>
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />

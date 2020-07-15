@@ -769,7 +769,7 @@ public class EditProjectController implements Initializable {
         statisticsView.setDisable(true);
         diagramView.setDisable(true);
     }
-
+    
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -786,17 +786,19 @@ public class EditProjectController implements Initializable {
 
 
         //Тест расчетов статистики, не забыть про отдельную переменную!
-        double a = 555.0;
         //Статистика
+        double statisticMaterial = 111.1;
+
+
 
         colNameCategory.setCellValueFactory(new PropertyValueFactory<>("nameCategory"));
         colTotalCost.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
         colCostSGM.setCellValueFactory(new PropertyValueFactory<>("costSGM"));
 
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
-                new Statistic("Дизайн-проект", 0, a / 5),
+                new Statistic("Дизайн-проект", 0, 0),
                 new Statistic("Строители", 0, 0),
-                new Statistic("Черновые материалы", 0, 0),
+                new Statistic("Черновые материалы", statisticMaterial, 0),
                 new Statistic("Смежники", 0, 0),
                 new Statistic("Авторский контроль", 0, 0),
                 new Statistic("Чистовые материалы", 0, 0),
@@ -6254,7 +6256,9 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    public void calcTitleMaterialWall(MouseEvent mouseEvent) {
+
+
+    public double calcTitleMaterialWall(MouseEvent mouseEvent) {
         double sumPriceOrderMaterialWall = 0.0;
         double sumCostCPMaterialWall = 0.0;
         double sumActualCostMaterialWall = 0.0;
@@ -6262,7 +6266,7 @@ public class EditProjectController implements Initializable {
         double sumPaidMaterialWall = 0.0;
         double sumResidueMaterialWall = 0.0;
 
-        for (int i = 0; i < materialTableViewWall.getItems().size(); i++){
+        for (int i = 0; i < materialTableViewWall.getItems().size(); i++) {
             sumPriceOrderMaterialWall += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
             sumCostCPMaterialWall += Double.parseDouble(colCostCPMaterialWall.getCellData(i));
             sumActualCostMaterialWall += Double.parseDouble(colActualCostMaterialWall.getCellData(i));
@@ -6271,10 +6275,12 @@ public class EditProjectController implements Initializable {
             sumResidueMaterialWall += Double.parseDouble(colResidueMaterialWall.getCellData(i));
         }
 
+
         titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
                 "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
                 "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
 
+        return sumActualCostMaterialWall = 222.2;
     }
 
 
