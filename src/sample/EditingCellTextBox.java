@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.javafx.css.StyleCacheEntry;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.ContentDisplay;
@@ -105,9 +106,14 @@ public class EditingCellTextBox extends TableCell<Object, String> {
 
         // Добавляются обработчики клавиш
         textField.setOnKeyReleased(t -> {
+//        textField.setOnMouseReleased(t -> {
+//        textField.setOnMouseEntered(t -> {
+
             // При нажатии ENTER введенное значение сохраняется
             if (t.getCode() == KeyCode.ENTER)
-//            if (t.getCode() == MouseEvent.MOUSE_CLICKED)
+//            if (t.getCode() == KeyCode.ENTER)
+//            if (t.isDragDetect() == true)
+//            if (t.isShiftDown() == true)
                 commitEdit(textField.getText());
                 // При нажатии ESCAPE - сбрасывается
             else if (t.getCode() == KeyCode.ESCAPE)

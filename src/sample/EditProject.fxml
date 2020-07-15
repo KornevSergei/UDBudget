@@ -137,18 +137,18 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="subcontractorsTableView" editable="true" layoutX="14.0" layoutY="39.0" prefHeight="30.0" prefWidth="1500.0">
+                        <TableView fx:id="subcontractorsTableView" editable="true" layoutX="14.0" layoutY="39.0"  maxHeight="20.0" prefWidth="1500.0">
                             <columns>
                                 <TableColumn fx:id="colNameCategorySubcontractors" prefWidth="160.0" text="Наименование категории" />
                                 <TableColumn fx:id="colCostPlannedSubcontractors" prefWidth="100.0" text="Стоимость плановая" />
                                 <TableColumn fx:id="colCostCPSubcontractors" prefWidth="100.0" text="Стоимость по КП" />
-                                <TableColumn fx:id="colCostActualSubcontractors" prefWidth="100.0" text="Стоимость фактическая" />
-                                <TableColumn fx:id="colActualDifferenceSubcontractors" prefWidth="100.0" text="Разничца фактическая" />
-                                <TableColumn fx:id="colPaidSubcontractors" prefWidth="100.0" text="Оплачено" />
-                                <TableColumn fx:id="colResidueSubcontractors" prefWidth="100.0" text="Остаток" />
+                                <TableColumn fx:id="colCostActualSubcontractors" visible="false" prefWidth="100.0" text="Стоимость фактическая" />
+                                <TableColumn fx:id="colActualDifferenceSubcontractors" visible="false" prefWidth="100.0" text="Разничца фактическая" />
+                                <TableColumn fx:id="colPaidSubcontractors" visible="false" prefWidth="100.0" text="Оплачено" />
+                                <TableColumn fx:id="colResidueSubcontractors" visible="false" prefWidth="100.0" text="Остаток" />
                                 <TableColumn fx:id="colPlannedCPSubcontractors" prefWidth="100.0" text="КП плановое" />
-                                <TableColumn fx:id="colActualCPSubcontractors" prefWidth="100.0" text="КП фактическое" />
-                                <TableColumn fx:id="colAccountSubcontractors" prefWidth="100.0" text="Счет" />
+                                <TableColumn fx:id="colActualCPSubcontractors" visible="false" prefWidth="100.0" text="КП фактическое" />
+                                <TableColumn fx:id="colAccountSubcontractors" visible="false" prefWidth="100.0" text="Счет" />
                                 <TableColumn fx:id="colContactsSubcontractors" prefWidth="100.0" text="Контакты" />
                                 <TableColumn fx:id="colNotesSubcontractors" prefWidth="100.0" text="Примечания" />
                                 <TableColumn fx:id="colCharacteristicsSubcontractors" prefWidth="100.0" text="Характеристики" />

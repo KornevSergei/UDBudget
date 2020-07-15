@@ -6079,7 +6079,7 @@ public class EditProjectController implements Initializable {
             observableListSubcontractors.add(new Subcontractors("", 0, 0, 0, 0,
                     0, 0, "", "", "", "", "", ""));
 
-            subcontractorsTableView.setMinHeight(subcontractorsTableView.getHeight()+ 50.0);
+            subcontractorsTableView.setMinHeight(subcontractorsTableView.getHeight()+ 20.0);
 
         }
     }
@@ -7165,7 +7165,7 @@ public class EditProjectController implements Initializable {
             sumResidueDecorationDelivery += Double.parseDouble(colResidueDecorationDelivery.getCellData(i));
         }
 
-        titleDecorationDelivery.setText("Нежданчик      /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationDelivery) +
+        titleDecorationDelivery.setText("Доставка/сборка      /Порядок цен: " + String.format("%.2f", sumPriceOrderDecorationDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPDecorationDelivery) +
                 "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostDecorationDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceDecorationDelivery) +
                 "        /Оплачено: " + String.format("%.2f", sumPaidDecorationDelivery) + "        /Остаток: " + String.format("%.2f", sumResidueDecorationDelivery));
 
