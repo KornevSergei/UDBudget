@@ -106,19 +106,21 @@ public class EditingCellTextBox extends TableCell<Object, String> {
 
         // Добавляются обработчики клавиш
         textField.setOnKeyReleased(t -> {
-//        textField.setOnMouseReleased(t -> {
-//        textField.setOnMouseEntered(t -> {
 
             // При нажатии ENTER введенное значение сохраняется
             if (t.getCode() == KeyCode.ENTER)
-//            if (t.getCode() == KeyCode.ENTER)
-//            if (t.isDragDetect() == true)
-//            if (t.isShiftDown() == true)
                 commitEdit(textField.getText());
                 // При нажатии ESCAPE - сбрасывается
             else if (t.getCode() == KeyCode.ESCAPE)
                 cancelEdit();
         });
+
+
+//        //Движение мыши
+//        textField.setOnMouseMoved(t -> {
+//            if (t.isDragDetect())
+//                commitEdit(textField.getText());
+//        });
 
     }
 

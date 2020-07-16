@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
+
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -112,12 +113,12 @@ public class EditProjectController implements Initializable {
 
     public TableView<Total> totalTableView;
     public TableColumn<Total, String> colCategoryNameTotal;
-    public TableColumn<Total, String>  colPriceOrderTotal;
-    public TableColumn<Total, String>  colPlannedCostTotal;
-    public TableColumn<Total, String>  colActualCostTotal;
-    public TableColumn<Total, String>  colDifferenceTotal;
-    public TableColumn<Total, String>  colPaidTotal;
-    public TableColumn<Total, String>  colResidueTotal;
+    public TableColumn<Total, String> colPriceOrderTotal;
+    public TableColumn<Total, String> colPlannedCostTotal;
+    public TableColumn<Total, String> colActualCostTotal;
+    public TableColumn<Total, String> colDifferenceTotal;
+    public TableColumn<Total, String> colPaidTotal;
+    public TableColumn<Total, String> colResidueTotal;
 
 
     public TableView<Subcontractors> subcontractorsTableView;
@@ -642,7 +643,6 @@ public class EditProjectController implements Initializable {
         addProjectButton.setVisible(false);
 
 
-
         //Заложить в кнопки на увеличение и уменьшение высоты таблицы
 //            materialTableViewWall.setMinHeight(materialTableViewWall.getHeight()+ 50.0);
 
@@ -694,9 +694,6 @@ public class EditProjectController implements Initializable {
 
 
         colNameRoom.setOnEditCommit(this::onClick);
-
-
-
 
 
 //        Project project = new Project();
@@ -769,7 +766,7 @@ public class EditProjectController implements Initializable {
         statisticsView.setDisable(true);
         diagramView.setDisable(true);
     }
-    
+
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -787,8 +784,6 @@ public class EditProjectController implements Initializable {
 
         //Тест расчетов статистики, не забыть про отдельную переменную!
         //Статистика
-        double statisticMaterial = 111.1;
-
 
 
         colNameCategory.setCellValueFactory(new PropertyValueFactory<>("nameCategory"));
@@ -798,7 +793,7 @@ public class EditProjectController implements Initializable {
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
                 new Statistic("Дизайн-проект", 0, 0),
                 new Statistic("Строители", 0, 0),
-                new Statistic("Черновые материалы", statisticMaterial, 0),
+                new Statistic("Черновые материалы", qqq(), 0),
                 new Statistic("Смежники", 0, 0),
                 new Statistic("Авторский контроль", 0, 0),
                 new Statistic("Чистовые материалы", 0, 0),
@@ -1047,7 +1042,6 @@ public class EditProjectController implements Initializable {
                     }
                 });
         colNameRoom.setCellFactory(TextFieldTableCell.forTableColumn());
-
 
 
         //Сантехника - Доставка
@@ -4076,10 +4070,6 @@ public class EditProjectController implements Initializable {
         colCharacteristicsLightSuddenly.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
-
-
-
-
         //Техника - Кухня!
         appliancesTableViewKitchen.setItems(observableListAppliancesKitchen);
         Callback<TableColumn<AppliancesKitchen, String>, TableCell<AppliancesKitchen, String>> cellFactoryDoubleAppliancesKitchen =
@@ -5455,7 +5445,6 @@ public class EditProjectController implements Initializable {
         colCharacteristicsDecorationDelivery.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
-
         //Декор - Нежданчик
         decorationTableViewSuddenly.setItems(observableListDecorationSuddenly);
         Callback<TableColumn<DecorationSuddenly, String>, TableCell<DecorationSuddenly, String>> cellFactoryDoubleDecorationSuddenly =
@@ -6081,7 +6070,7 @@ public class EditProjectController implements Initializable {
             observableListSubcontractors.add(new Subcontractors("", 0, 0, 0, 0,
                     0, 0, "", "", "", "", "", ""));
 
-            subcontractorsTableView.setMinHeight(subcontractorsTableView.getHeight()+ 20.0);
+            subcontractorsTableView.setMinHeight(subcontractorsTableView.getHeight() + 20.0);
 
         }
     }
@@ -6129,7 +6118,7 @@ public class EditProjectController implements Initializable {
         double sumPaidPlumbingDelivery = 0.0;
         double sumResiduePlumbingDelivery = 0.0;
 
-        for (int i = 0; i < plumbingTableViewDelivery.getItems().size(); i++){
+        for (int i = 0; i < plumbingTableViewDelivery.getItems().size(); i++) {
             sumPriceOrderPlumbingDelivery += Double.parseDouble(colPriceOrderPlumbingDelivery.getCellData(i));
             sumCostCPPlumbingDelivery += Double.parseDouble(colCostCPPlumbingDelivery.getCellData(i));
             sumActualCostPlumbingDelivery += Double.parseDouble(colActualCostPlumbingDelivery.getCellData(i));
@@ -6139,7 +6128,7 @@ public class EditProjectController implements Initializable {
         }
 
         titlePlumbingDelivery.setText("Доставка/сборка      /Порядок цен: " + String.format("%.2f", sumPriceOrderPlumbingDelivery) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPPlumbingDelivery) +
-        "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostPlumbingDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferencePlumbingDelivery) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostPlumbingDelivery) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferencePlumbingDelivery) +
                 "        /Оплачено: " + String.format("%.2f", sumPaidPlumbingDelivery) + "        /Остаток: " + String.format("%.2f", sumResiduePlumbingDelivery));
 
     }
@@ -6197,7 +6186,7 @@ public class EditProjectController implements Initializable {
         double sumPaidPlumbingSuddenly = 0.0;
         double sumResiduePlumbingSuddenly = 0.0;
 
-        for (int i = 0; i < plumbingTableViewSuddenly.getItems().size(); i++){
+        for (int i = 0; i < plumbingTableViewSuddenly.getItems().size(); i++) {
             sumPriceOrderPlumbingSuddenly += Double.parseDouble(colPriceOrderPlumbingSuddenly.getCellData(i));
             sumCostCPPlumbingSuddenly += Double.parseDouble(colCostCPPlumbingSuddenly.getCellData(i));
             sumActualCostPlumbingSuddenly += Double.parseDouble(colActualCostPlumbingSuddenly.getCellData(i));
@@ -6257,8 +6246,9 @@ public class EditProjectController implements Initializable {
     }
 
 
-
-    public double calcTitleMaterialWall(MouseEvent mouseEvent) {
+//    double sumPriceOrderMaterialWall = 1.1;
+    //////////////////////
+    public void calcTitleMaterialWall() {
         double sumPriceOrderMaterialWall = 0.0;
         double sumCostCPMaterialWall = 0.0;
         double sumActualCostMaterialWall = 0.0;
@@ -6275,16 +6265,29 @@ public class EditProjectController implements Initializable {
             sumResidueMaterialWall += Double.parseDouble(colResidueMaterialWall.getCellData(i));
         }
 
-
         titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
                 "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
                 "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
 
-        return sumActualCostMaterialWall = 222.2;
+        qqq();
+//        return sumPriceOrderMaterialWall * 2;
     }
 
 
-//    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
+
+    private double qqq() {
+
+        double sumPriceOrderMaterialWall = 0.0;
+
+        for (int i = 0; i < materialTableViewWall.getItems().size(); i++) {
+            sumPriceOrderMaterialWall += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
+        }
+        return sumPriceOrderMaterialWall;
+
+    }
+
+
+    //    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
     public void On_tabCalculatorClickedActionMaterialWall(ActionEvent actionEvent) {
 
         if (observableListMaterialWall.filtered(x -> "0.0".equals(x.getQuantityMaterialWall()) && "0.0".equals(x.getOrdinalPriceUnitMaterialWall())).size() == 0) {
@@ -6339,7 +6342,7 @@ public class EditProjectController implements Initializable {
         double sumPaidMaterialFloor = 0.0;
         double sumResidueMaterialFloor = 0.0;
 
-        for (int i = 0; i < materialTableViewFloor.getItems().size(); i++){
+        for (int i = 0; i < materialTableViewFloor.getItems().size(); i++) {
             sumPriceOrderMaterialFloor += Double.parseDouble(colPriceOrderMaterialFloor.getCellData(i));
             sumCostCPMaterialFloor += Double.parseDouble(colCostCPMaterialFloor.getCellData(i));
             sumActualCostMaterialFloor += Double.parseDouble(colActualCostMaterialFloor.getCellData(i));
@@ -6407,7 +6410,7 @@ public class EditProjectController implements Initializable {
         double sumResidueMaterialCeiling = 0.0;
 
 
-        for (int i = 0; i < materialTableViewCeiling.getItems().size(); i++){
+        for (int i = 0; i < materialTableViewCeiling.getItems().size(); i++) {
             sumPriceOrderMaterialCeiling += Double.parseDouble(colPriceOrderMaterialCeiling.getCellData(i));
             sumCostCPMaterialCeiling += Double.parseDouble(colCostCPMaterialCeiling.getCellData(i));
             sumActualCostMaterialCeiling += Double.parseDouble(colActualCostMaterialCeiling.getCellData(i));
@@ -6421,8 +6424,6 @@ public class EditProjectController implements Initializable {
                 "        /Оплачено: " + String.format("%.2f", sumPaidMaterialCeiling) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialCeiling));
 
     }
-
-
 
 
     public void On_tabCalculatorClickedActionMaterialCeiling(ActionEvent actionEvent) {
@@ -6475,7 +6476,7 @@ public class EditProjectController implements Initializable {
         double sumPaidMaterialOther = 0.0;
         double sumResidueMaterialOther = 0.0;
 
-        for (int i = 0; i < materialTableViewOther.getItems().size(); i++){
+        for (int i = 0; i < materialTableViewOther.getItems().size(); i++) {
             sumPriceOrderMaterialOther += Double.parseDouble(colPriceOrderMaterialOther.getCellData(i));
             sumCostCPMaterialOther += Double.parseDouble(colCostCPMaterialOther.getCellData(i));
             sumActualCostMaterialOther += Double.parseDouble(colActualCostMaterialOther.getCellData(i));
@@ -6543,7 +6544,7 @@ public class EditProjectController implements Initializable {
         double sumPaidMaterialSuddenly = 0.0;
         double sumResidueMaterialSuddenly = 0.0;
 
-        for (int i = 0; i < materialTableViewSuddenly.getItems().size(); i++){
+        for (int i = 0; i < materialTableViewSuddenly.getItems().size(); i++) {
             sumPriceOrderMaterialSuddenly += Double.parseDouble(colPriceOrderMaterialSuddenly.getCellData(i));
             sumCostCPMaterialSuddenly += Double.parseDouble(colCostCPMaterialSuddenly.getCellData(i));
             sumActualCostMaterialSuddenly += Double.parseDouble(colActualCostMaterialSuddenly.getCellData(i));
@@ -6611,7 +6612,7 @@ public class EditProjectController implements Initializable {
         double sumPaidFurnitureDelivery = 0.0;
         double sumResidueFurnitureDelivery = 0.0;
 
-        for (int i = 0; i < furnitureTableViewDelivery.getItems().size(); i++){
+        for (int i = 0; i < furnitureTableViewDelivery.getItems().size(); i++) {
             sumPriceOrderFurnitureDelivery += Double.parseDouble(colPriceOrderFurnitureDelivery.getCellData(i));
             sumCostCPFurnitureDelivery += Double.parseDouble(colCostCPFurnitureDelivery.getCellData(i));
             sumActualCostFurnitureDelivery += Double.parseDouble(colActualCostFurnitureDelivery.getCellData(i));
@@ -6678,7 +6679,7 @@ public class EditProjectController implements Initializable {
         double sumPaidFurnitureSuddenly = 0.0;
         double sumResidueFurnitureSuddenly = 0.0;
 
-        for (int i = 0; i < furnitureTableViewSuddenly.getItems().size(); i++){
+        for (int i = 0; i < furnitureTableViewSuddenly.getItems().size(); i++) {
             sumPriceOrderFurnitureSuddenly += Double.parseDouble(colPriceOrderFurnitureSuddenly.getCellData(i));
             sumCostCPFurnitureSuddenly += Double.parseDouble(colCostCPFurnitureSuddenly.getCellData(i));
             sumActualCostFurnitureSuddenly += Double.parseDouble(colActualCostFurnitureSuddenly.getCellData(i));
@@ -6745,7 +6746,7 @@ public class EditProjectController implements Initializable {
         double sumPaidLightDelivery = 0.0;
         double sumResidueLightDelivery = 0.0;
 
-        for (int i = 0; i < lightTableViewDelivery.getItems().size(); i++){
+        for (int i = 0; i < lightTableViewDelivery.getItems().size(); i++) {
             sumPriceOrderLightDelivery += Double.parseDouble(colPriceOrderLightDelivery.getCellData(i));
             sumCostCPLightDelivery += Double.parseDouble(colCostCPLightDelivery.getCellData(i));
             sumActualCostLightDelivery += Double.parseDouble(colActualCostLightDelivery.getCellData(i));
@@ -6812,7 +6813,7 @@ public class EditProjectController implements Initializable {
         double sumPaidLightSuddenly = 0.0;
         double sumResidueLightSuddenly = 0.0;
 
-        for (int i = 0; i < lightTableViewSuddenly.getItems().size(); i++){
+        for (int i = 0; i < lightTableViewSuddenly.getItems().size(); i++) {
             sumPriceOrderLightSuddenly += Double.parseDouble(colPriceOrderLightSuddenly.getCellData(i));
             sumCostCPLightSuddenly += Double.parseDouble(colCostCPLightSuddenly.getCellData(i));
             sumActualCostLightSuddenly += Double.parseDouble(colActualCostLightSuddenly.getCellData(i));
@@ -6879,7 +6880,7 @@ public class EditProjectController implements Initializable {
         double sumPaidAppliancesKitchen = 0.0;
         double sumResidueAppliancesKitchen = 0.0;
 
-        for (int i = 0; i < appliancesTableViewKitchen.getItems().size(); i++){
+        for (int i = 0; i < appliancesTableViewKitchen.getItems().size(); i++) {
             sumPriceOrderAppliancesKitchen += Double.parseDouble(colPriceOrderAppliancesKitchen.getCellData(i));
             sumCostCPAppliancesKitchen += Double.parseDouble(colCostCPAppliancesKitchen.getCellData(i));
             sumActualCostAppliancesKitchen += Double.parseDouble(colActualCostAppliancesKitchen.getCellData(i));
@@ -6946,7 +6947,7 @@ public class EditProjectController implements Initializable {
         double sumPaidAppliancesOther = 0.0;
         double sumResidueAppliancesOther = 0.0;
 
-        for (int i = 0; i < appliancesTableViewOther.getItems().size(); i++){
+        for (int i = 0; i < appliancesTableViewOther.getItems().size(); i++) {
             sumPriceOrderAppliancesOther += Double.parseDouble(colPriceOrderAppliancesOther.getCellData(i));
             sumCostCPAppliancesOther += Double.parseDouble(colCostCPAppliancesOther.getCellData(i));
             sumActualCostAppliancesOther += Double.parseDouble(colActualCostAppliancesOther.getCellData(i));
@@ -7013,7 +7014,7 @@ public class EditProjectController implements Initializable {
         double sumPaidAppliancesDelivery = 0.0;
         double sumResidueAppliancesDelivery = 0.0;
 
-        for (int i = 0; i < appliancesTableViewDelivery.getItems().size(); i++){
+        for (int i = 0; i < appliancesTableViewDelivery.getItems().size(); i++) {
             sumPriceOrderAppliancesDelivery += Double.parseDouble(colPriceOrderAppliancesDelivery.getCellData(i));
             sumCostCPAppliancesDelivery += Double.parseDouble(colCostCPAppliancesDelivery.getCellData(i));
             sumActualCostAppliancesDelivery += Double.parseDouble(colActualCostAppliancesDelivery.getCellData(i));
@@ -7080,7 +7081,7 @@ public class EditProjectController implements Initializable {
         double sumPaidAppliancesSuddenly = 0.0;
         double sumResidueAppliancesSuddenly = 0.0;
 
-        for (int i = 0; i < appliancesTableViewSuddenly.getItems().size(); i++){
+        for (int i = 0; i < appliancesTableViewSuddenly.getItems().size(); i++) {
             sumPriceOrderAppliancesSuddenly += Double.parseDouble(colPriceOrderAppliancesSuddenly.getCellData(i));
             sumCostCPAppliancesSuddenly += Double.parseDouble(colCostCPAppliancesSuddenly.getCellData(i));
             sumActualCostAppliancesSuddenly += Double.parseDouble(colActualCostAppliancesSuddenly.getCellData(i));
@@ -7154,6 +7155,7 @@ public class EditProjectController implements Initializable {
             colAccountAppliancesSuddenly.setVisible(false);
         }
     }
+
     public void calcTitleDecorationDelivery(MouseEvent mouseEvent) {
         double sumPriceOrderDecorationDelivery = 0.0;
         double sumCostCPDecorationDelivery = 0.0;
@@ -7162,7 +7164,7 @@ public class EditProjectController implements Initializable {
         double sumPaidDecorationDelivery = 0.0;
         double sumResidueDecorationDelivery = 0.0;
 
-        for (int i = 0; i < decorationTableViewDelivery.getItems().size(); i++){
+        for (int i = 0; i < decorationTableViewDelivery.getItems().size(); i++) {
             sumPriceOrderDecorationDelivery += Double.parseDouble(colPriceOrderDecorationDelivery.getCellData(i));
             sumCostCPDecorationDelivery += Double.parseDouble(colCostCPDecorationDelivery.getCellData(i));
             sumActualCostDecorationDelivery += Double.parseDouble(colActualCostDecorationDelivery.getCellData(i));
@@ -7228,7 +7230,7 @@ public class EditProjectController implements Initializable {
         double sumPaidDecorationSuddenly = 0.0;
         double sumResidueDecorationSuddenly = 0.0;
 
-        for (int i = 0; i < decorationTableViewSuddenly.getItems().size(); i++){
+        for (int i = 0; i < decorationTableViewSuddenly.getItems().size(); i++) {
             sumPriceOrderDecorationSuddenly += Double.parseDouble(colPriceOrderDecorationSuddenly.getCellData(i));
             sumCostCPDecorationSuddenly += Double.parseDouble(colCostCPDecorationSuddenly.getCellData(i));
             sumActualCostDecorationSuddenly += Double.parseDouble(colActualCostDecorationSuddenly.getCellData(i));
