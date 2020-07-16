@@ -793,7 +793,7 @@ public class EditProjectController implements Initializable {
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
                 new Statistic("Дизайн-проект", 0, 0),
                 new Statistic("Строители", 0, 0),
-                new Statistic("Черновые материалы", qqq(), 0),
+                new Statistic("Черновые материалы", 0, 0),
                 new Statistic("Смежники", 0, 0),
                 new Statistic("Авторский контроль", 0, 0),
                 new Statistic("Чистовые материалы", 0, 0),
@@ -6269,22 +6269,21 @@ public class EditProjectController implements Initializable {
                 "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
                 "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
 
-        qqq();
+//        qqq();
 //        return sumPriceOrderMaterialWall * 2;
     }
 
 
 
-    private double qqq() {
-
-        double sumPriceOrderMaterialWall = 0.0;
-
-        for (int i = 0; i < materialTableViewWall.getItems().size(); i++) {
-            sumPriceOrderMaterialWall += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
-        }
-        return sumPriceOrderMaterialWall;
-
-    }
+//    public double qqq() {
+//
+//        double ssumPriceOrderMaterialWall = 0.0;
+//
+//        for (int i = 0; i < materialTableViewWall.getItems().size(); i++) {
+//            sumPriceOrderMaterialWall += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
+//        }
+//        return  sumPriceOrderMaterialWall + sumPriceOrderMaterialWall;
+//    }
 
 
     //    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
