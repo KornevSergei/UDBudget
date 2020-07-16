@@ -18,6 +18,7 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.stream.DoubleStream;
 
 
 public class EditProjectController implements Initializable {
@@ -781,8 +782,6 @@ public class EditProjectController implements Initializable {
         projectTableView.setEditable(true);
         projectTableView.setItems(observableListProject);
 
-
-        //Тест расчетов статистики, не забыть про отдельную переменную!
         //Статистика
 
 
@@ -6207,7 +6206,6 @@ public class EditProjectController implements Initializable {
             observableListPlumbingSuddenly.add(new PlumbingSuddenly("", false, false, "", 0, 0,
                     0, 0, 0, 0, 0, "", 0, 0,
                     0, 0, "", "", "", "", "", "", "", ""));
-
         }
     }
 
@@ -6277,12 +6275,8 @@ public class EditProjectController implements Initializable {
 
 //    public double qqq() {
 //
-//        double ssumPriceOrderMaterialWall = 0.0;
-//
-//        for (int i = 0; i < materialTableViewWall.getItems().size(); i++) {
-//            sumPriceOrderMaterialWall += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
-//        }
-//        return  sumPriceOrderMaterialWall + sumPriceOrderMaterialWall;
+//        double q = DoubleStream.of(Double.parseDouble(colPriceOrderMaterialWall)).sum();
+//        return q;
 //    }
 
 

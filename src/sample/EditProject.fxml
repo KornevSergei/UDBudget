@@ -202,7 +202,7 @@
                                                       <TableColumn fx:id="colNameMaterialWall" prefWidth="108.0" text="Наименование" />
                                                       <TableColumn fx:id="colActivePMaterialWall" prefWidth="25.0" text="П" />
                                                       <TableColumn fx:id="colActiveCMaterialWall" prefWidth="25.0" text="С" />
-                                                      <TableColumn fx:id="colUnitMaterialWall" prefWidth="80.0" text="Ед.изм." />
+                                                      <TableColumn fx:id="colUnitMaterialWall" text="Ед.изм." />
                                                       <TableColumn fx:id="colQuantityMaterialWall" prefWidth="63.0" text="Кол-во" />
                                                       <TableColumn fx:id="colOrdinalPriceUnitMaterialWall" prefWidth="125.0" text="Цена порядковая за ед." />
                                                       <TableColumn fx:id="colPriceCPUnitMaterialWall" prefWidth="100.0" text="Цена по КП за ед." />
