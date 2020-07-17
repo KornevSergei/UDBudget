@@ -18,7 +18,6 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.stream.DoubleStream;
 
 
 public class EditProjectController implements Initializable {
@@ -784,7 +783,6 @@ public class EditProjectController implements Initializable {
 
         //Статистика
 
-
         colNameCategory.setCellValueFactory(new PropertyValueFactory<>("nameCategory"));
         colTotalCost.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
         colCostSGM.setCellValueFactory(new PropertyValueFactory<>("costSGM"));
@@ -792,7 +790,7 @@ public class EditProjectController implements Initializable {
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
                 new Statistic("Дизайн-проект", 0, 0),
                 new Statistic("Строители", 0, 0),
-                new Statistic("Черновые материалы", 0, 0),
+                new Statistic("Черновые материалы", qqq(), 0),
                 new Statistic("Смежники", 0, 0),
                 new Statistic("Авторский контроль", 0, 0),
                 new Statistic("Чистовые материалы", 0, 0),
@@ -6267,17 +6265,31 @@ public class EditProjectController implements Initializable {
                 "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
                 "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
 
-//        qqq();
+        qqq();
 //        return sumPriceOrderMaterialWall * 2;
     }
 
 
+    //КАКАЯ ТО ХУЙНЯ!!!
+//    public void qqq() {
+    public double qqq() {
 
-//    public double qqq() {
-//
-//        double q = DoubleStream.of(Double.parseDouble(colPriceOrderMaterialWall)).sum();
-//        return q;
-//    }
+        double sum = 11.11;
+
+        for (int i = 0; i < materialTableViewWall.getItems().size(); i++) {
+            sum += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
+        }
+
+        double q = sum;
+
+            //Если зацепить к айди
+        titleMaterialFloor.setText(String.valueOf(sum));
+//        titleMaterialFloor.setText(String.valueOf(q));
+
+
+//        return sum;
+        return q;
+    }
 
 
     //    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {

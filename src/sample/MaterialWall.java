@@ -1,7 +1,6 @@
 package sample;
 
 import javafx.application.Platform;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -9,7 +8,6 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;
 
-import javax.xml.crypto.Data;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -77,7 +75,6 @@ public class MaterialWall {
 
     public void CalculatePriceOrderMaterialWall() {
         priceOrderMaterialWall = quantityMaterialWall * ordinalPriceUnitMaterialWall;
-
     }
 
     public void CalculateСostCPUnitMaterialWall() {
