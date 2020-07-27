@@ -13,6 +13,7 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -70,6 +71,9 @@ public class EditProjectController implements Initializable {
     public TextField discountDP;
     public TableView<Project> projectTableView;
     public TableColumn<Project, String> colNameProject;
+    public Text textTotalArea;
+    public Text textCostDP;
+    public Text textDiscountDP;
 
 
     private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
@@ -723,6 +727,10 @@ public class EditProjectController implements Initializable {
         saveRoomButton.setVisible(true);
         backRoomButton.setVisible(true);
         roomTableView.setVisible(true);
+        textTotalArea.setVisible(true);
+        textCostDP.setVisible(true);
+        textDiscountDP.setVisible(true);
+
 
         createProjectButton.setVisible(false);
         selectProjectButton.setVisible(false);
@@ -743,6 +751,9 @@ public class EditProjectController implements Initializable {
         saveRoomButton.setVisible(false);
         backRoomButton.setVisible(false);
         roomTableView.setVisible(false);
+        textTotalArea.setVisible(false);
+        textCostDP.setVisible(false);
+        textDiscountDP.setVisible(false);
 
         createProjectButton.setVisible(true);
         selectProjectButton.setVisible(true);
