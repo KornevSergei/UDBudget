@@ -778,10 +778,9 @@ public class EditProjectController implements Initializable {
         diagramView.setDisable(true);
     }
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
 
         colNameProject.setCellValueFactory(new PropertyValueFactory<>("nameProject"));
         ObservableList<Project> observableListProject = FXCollections.observableArrayList(
@@ -801,7 +800,7 @@ public class EditProjectController implements Initializable {
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
                 new Statistic("Дизайн-проект", 0, 0),
                 new Statistic("Строители", 0, 0),
-                new Statistic("Черновые материалы", qqq(), 0),
+                new Statistic("Черновые материалы", 0, 0),
                 new Statistic("Смежники", 0, 0),
                 new Statistic("Авторский контроль", 0, 0),
                 new Statistic("Чистовые материалы", 0, 0),
@@ -6275,32 +6274,33 @@ public class EditProjectController implements Initializable {
         titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
                 "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
                 "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
-
         qqq();
 //        return sumPriceOrderMaterialWall * 2;
+
     }
 
 
     //КАКАЯ ТО ХУЙНЯ!!!
-//    public void qqq() {
     public double qqq() {
 
-        double sum = 11.11;
+        double sum = 0.01;
 
-        for (int i = 0; i < materialTableViewWall.getItems().size(); i++) {
+        for (int i = 0; i < materialTableViewWall.getItems().size(); i++)
             sum += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
-        }
 
-        double q = sum;
-
-            //Если зацепить к айди
-        titleMaterialFloor.setText(String.valueOf(sum));
-//        titleMaterialFloor.setText(String.valueOf(q));
-
-
-//        return sum;
-        return q;
+        return sum;
     }
+
+
+//        double q = sum;
+//
+//            //Если зацепить к айди то ОК
+////        titleMaterialFloor.setText(String.valueOf(q));
+//          titleMaterialFloor.setText(String.valueOf(sum));
+////        return sum;
+//        return q + 2.29;
+//        return titleMaterialFloor.setText(String.valueOf(sum));
+//    }
 
 
     //    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
