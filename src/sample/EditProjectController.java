@@ -631,7 +631,11 @@ public class EditProjectController implements Initializable {
     public Accordion roomLight;
     public Accordion roomDecoration;
 
-    public double q = 0.0;
+    public double sumPriceOrderMaterialWall = 0.0;
+    public double sumPriceOrderMaterialFloor = 0.0;
+    public double sumPriceOrderMaterialCeiling = 0.0;
+    public double sumPriceOrderMaterialOther = 0.0;
+    public double sumPriceOrderMaterialSuddenly = 0.0;
 
     public void createProject(ActionEvent actionEvent) {
         createProjectTextField.setVisible(true);
@@ -6256,57 +6260,28 @@ public class EditProjectController implements Initializable {
 
     //////////////////////
     public double calcTitleMaterialWall() {
-        double sumPriceOrderMaterialWall = 0.0;
-        double sumCostCPMaterialWall = 0.0;
-        double sumActualCostMaterialWall = 0.0;
-        double sumActualDifferenceMaterialWall = 0.0;
-        double sumPaidMaterialWall = 0.0;
-        double sumResidueMaterialWall = 0.0;
+        double sumLocalPriceOrderMaterialWall = 0.0;
+        double sumLocalCostCPMaterialWall = 0.0;
+        double sumLocalActualCostMaterialWall = 0.0;
+        double sumLocalActualDifferenceMaterialWall = 0.0;
+        double sumLocalPaidMaterialWall = 0.0;
+        double sumLocalResidueMaterialWall = 0.0;
 
         for (int i = 0; i < materialTableViewWall.getItems().size(); i++) {
-            sumPriceOrderMaterialWall += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
-            sumCostCPMaterialWall += Double.parseDouble(colCostCPMaterialWall.getCellData(i));
-            sumActualCostMaterialWall += Double.parseDouble(colActualCostMaterialWall.getCellData(i));
-            sumActualDifferenceMaterialWall += Double.parseDouble(colActualDifferenceMaterialWall.getCellData(i));
-            sumPaidMaterialWall += Double.parseDouble(colPaidMaterialWall.getCellData(i));
-            sumResidueMaterialWall += Double.parseDouble(colResidueMaterialWall.getCellData(i));
+            sumLocalPriceOrderMaterialWall += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
+            sumLocalCostCPMaterialWall += Double.parseDouble(colCostCPMaterialWall.getCellData(i));
+            sumLocalActualCostMaterialWall += Double.parseDouble(colActualCostMaterialWall.getCellData(i));
+            sumLocalActualDifferenceMaterialWall += Double.parseDouble(colActualDifferenceMaterialWall.getCellData(i));
+            sumLocalPaidMaterialWall += Double.parseDouble(colPaidMaterialWall.getCellData(i));
+            sumLocalResidueMaterialWall += Double.parseDouble(colResidueMaterialWall.getCellData(i));
         }
 
-        titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
-                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
-                "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
-//        qqq();
-        System.out.println(sumPriceOrderMaterialWall);
+        titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumLocalPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumLocalCostCPMaterialWall) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumLocalActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumLocalActualDifferenceMaterialWall) +
+                "        /Оплачено: " + String.format("%.2f", sumLocalPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumLocalResidueMaterialWall));
 
-
-        return q = sumPriceOrderMaterialWall;
+        return sumPriceOrderMaterialWall = sumLocalPriceOrderMaterialWall;
     }
-
-
-    //КАКАЯ ТО ХУЙНЯ!!!
-    public double qqq() {
-
-        double q = 0;
-
-        double sum = 0.01;
-
-        for (int i = 0; i < materialTableViewWall.getItems().size(); i++)
-//            sum += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
-            sum += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
-
-        return sum;
-    }
-
-
-//        double q = sum;
-//
-//            //Если зацепить к айди то ОК
-////        titleMaterialFloor.setText(String.valueOf(q));
-//          titleMaterialFloor.setText(String.valueOf(sum));
-////        return sum;
-//        return q + 2.29;
-//        return titleMaterialFloor.setText(String.valueOf(sum));
-//    }
 
 
     //    public void On_tabCalculatorClickedActionMaterialWall(MouseEvent mouseEvent) {
@@ -6356,26 +6331,28 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    public void calcTitleMaterialFloor(MouseEvent mouseEvent) {
-        double sumPriceOrderMaterialFloor = 0.0;
-        double sumCostCPMaterialFloor = 0.0;
-        double sumActualCostMaterialFloor = 0.0;
-        double sumActualDifferenceMaterialFloor = 0.0;
-        double sumPaidMaterialFloor = 0.0;
-        double sumResidueMaterialFloor = 0.0;
+    public double calcTitleMaterialFloor(MouseEvent mouseEvent) {
+        double sumLocalPriceOrderMaterialFloor = 0.0;
+        double sumLocalCostCPMaterialFloor = 0.0;
+        double sumLocalActualCostMaterialFloor = 0.0;
+        double sumLocalActualDifferenceMaterialFloor = 0.0;
+        double sumLocalPaidMaterialFloor = 0.0;
+        double sumLocalResidueMaterialFloor = 0.0;
 
         for (int i = 0; i < materialTableViewFloor.getItems().size(); i++) {
-            sumPriceOrderMaterialFloor += Double.parseDouble(colPriceOrderMaterialFloor.getCellData(i));
-            sumCostCPMaterialFloor += Double.parseDouble(colCostCPMaterialFloor.getCellData(i));
-            sumActualCostMaterialFloor += Double.parseDouble(colActualCostMaterialFloor.getCellData(i));
-            sumActualDifferenceMaterialFloor += Double.parseDouble(colActualDifferenceMaterialFloor.getCellData(i));
-            sumPaidMaterialFloor += Double.parseDouble(colPaidMaterialFloor.getCellData(i));
-            sumResidueMaterialFloor += Double.parseDouble(colResidueMaterialFloor.getCellData(i));
+            sumLocalPriceOrderMaterialFloor += Double.parseDouble(colPriceOrderMaterialFloor.getCellData(i));
+            sumLocalCostCPMaterialFloor += Double.parseDouble(colCostCPMaterialFloor.getCellData(i));
+            sumLocalActualCostMaterialFloor += Double.parseDouble(colActualCostMaterialFloor.getCellData(i));
+            sumLocalActualDifferenceMaterialFloor += Double.parseDouble(colActualDifferenceMaterialFloor.getCellData(i));
+            sumLocalPaidMaterialFloor += Double.parseDouble(colPaidMaterialFloor.getCellData(i));
+            sumLocalResidueMaterialFloor += Double.parseDouble(colResidueMaterialFloor.getCellData(i));
         }
 
-        titleMaterialFloor.setText("Пол        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialFloor) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialFloor) +
-                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialFloor) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialFloor) +
-                "        /Оплачено: " + String.format("%.2f", sumPaidMaterialFloor) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialFloor));
+        titleMaterialFloor.setText("Пол        /Порядок цен: " + String.format("%.2f", sumLocalPriceOrderMaterialFloor) + "        /Стоимость по КП: " + String.format("%.2f", sumLocalCostCPMaterialFloor) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumLocalActualCostMaterialFloor) + "        /Разница фактическая: " + String.format("%.2f", sumLocalActualDifferenceMaterialFloor) +
+                "        /Оплачено: " + String.format("%.2f", sumLocalPaidMaterialFloor) + "        /Остаток: " + String.format("%.2f", sumLocalResidueMaterialFloor));
+
+        return sumPriceOrderMaterialFloor = sumLocalPriceOrderMaterialFloor;
 
     }
 
@@ -6423,28 +6400,28 @@ public class EditProjectController implements Initializable {
     }
 
 
-    public void calcTitleMaterialCeiling(MouseEvent mouseEvent) {
-        double sumPriceOrderMaterialCeiling = 0.0;
-        double sumCostCPMaterialCeiling = 0.0;
-        double sumActualCostMaterialCeiling = 0.0;
-        double sumActualDifferenceMaterialCeiling = 0.0;
-        double sumPaidMaterialCeiling = 0.0;
-        double sumResidueMaterialCeiling = 0.0;
-
+    public double calcTitleMaterialCeiling(MouseEvent mouseEvent) {
+        double sumLocalPriceOrderMaterialCeiling = 0.0;
+        double sumLocalCostCPMaterialCeiling = 0.0;
+        double sumLocalActualCostMaterialCeiling = 0.0;
+        double sumLocalActualDifferenceMaterialCeiling = 0.0;
+        double sumLocalPaidMaterialCeiling = 0.0;
+        double sumLocalResidueMaterialCeiling = 0.0;
 
         for (int i = 0; i < materialTableViewCeiling.getItems().size(); i++) {
-            sumPriceOrderMaterialCeiling += Double.parseDouble(colPriceOrderMaterialCeiling.getCellData(i));
-            sumCostCPMaterialCeiling += Double.parseDouble(colCostCPMaterialCeiling.getCellData(i));
-            sumActualCostMaterialCeiling += Double.parseDouble(colActualCostMaterialCeiling.getCellData(i));
-            sumActualDifferenceMaterialCeiling += Double.parseDouble(colActualDifferenceMaterialCeiling.getCellData(i));
-            sumPaidMaterialCeiling += Double.parseDouble(colPaidMaterialCeiling.getCellData(i));
-            sumResidueMaterialCeiling += Double.parseDouble(colResidueMaterialCeiling.getCellData(i));
+            sumLocalPriceOrderMaterialCeiling += Double.parseDouble(colPriceOrderMaterialCeiling.getCellData(i));
+            sumLocalCostCPMaterialCeiling += Double.parseDouble(colCostCPMaterialCeiling.getCellData(i));
+            sumLocalActualCostMaterialCeiling += Double.parseDouble(colActualCostMaterialCeiling.getCellData(i));
+            sumLocalActualDifferenceMaterialCeiling += Double.parseDouble(colActualDifferenceMaterialCeiling.getCellData(i));
+            sumLocalPaidMaterialCeiling += Double.parseDouble(colPaidMaterialCeiling.getCellData(i));
+            sumLocalResidueMaterialCeiling += Double.parseDouble(colResidueMaterialCeiling.getCellData(i));
         }
 
-        titleMaterialCeiling.setText("Потолок        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialCeiling) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialCeiling) +
-                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialCeiling) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialCeiling) +
-                "        /Оплачено: " + String.format("%.2f", sumPaidMaterialCeiling) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialCeiling));
+        titleMaterialCeiling.setText("Потолок        /Порядок цен: " + String.format("%.2f", sumLocalPriceOrderMaterialCeiling) + "        /Стоимость по КП: " + String.format("%.2f", sumLocalCostCPMaterialCeiling) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumLocalActualCostMaterialCeiling) + "        /Разница фактическая: " + String.format("%.2f", sumLocalActualDifferenceMaterialCeiling) +
+                "        /Оплачено: " + String.format("%.2f", sumLocalPaidMaterialCeiling) + "        /Остаток: " + String.format("%.2f", sumLocalResidueMaterialCeiling));
 
+        return sumPriceOrderMaterialCeiling = sumLocalPriceOrderMaterialCeiling;
     }
 
 
@@ -6490,27 +6467,28 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    public void calcTitleMaterialOther(MouseEvent mouseEvent) {
-        double sumPriceOrderMaterialOther = 0.0;
-        double sumCostCPMaterialOther = 0.0;
-        double sumActualCostMaterialOther = 0.0;
-        double sumActualDifferenceMaterialOther = 0.0;
-        double sumPaidMaterialOther = 0.0;
-        double sumResidueMaterialOther = 0.0;
+    public double calcTitleMaterialOther(MouseEvent mouseEvent) {
+        double sumLocalPriceOrderMaterialOther = 0.0;
+        double sumLocalCostCPMaterialOther = 0.0;
+        double sumLocalActualCostMaterialOther = 0.0;
+        double sumLocalActualDifferenceMaterialOther = 0.0;
+        double sumLocalPaidMaterialOther = 0.0;
+        double sumLocalResidueMaterialOther = 0.0;
 
         for (int i = 0; i < materialTableViewOther.getItems().size(); i++) {
-            sumPriceOrderMaterialOther += Double.parseDouble(colPriceOrderMaterialOther.getCellData(i));
-            sumCostCPMaterialOther += Double.parseDouble(colCostCPMaterialOther.getCellData(i));
-            sumActualCostMaterialOther += Double.parseDouble(colActualCostMaterialOther.getCellData(i));
-            sumActualDifferenceMaterialOther += Double.parseDouble(colActualDifferenceMaterialOther.getCellData(i));
-            sumPaidMaterialOther += Double.parseDouble(colPaidMaterialOther.getCellData(i));
-            sumResidueMaterialOther += Double.parseDouble(colResidueMaterialOther.getCellData(i));
+            sumLocalPriceOrderMaterialOther += Double.parseDouble(colPriceOrderMaterialOther.getCellData(i));
+            sumLocalCostCPMaterialOther += Double.parseDouble(colCostCPMaterialOther.getCellData(i));
+            sumLocalActualCostMaterialOther += Double.parseDouble(colActualCostMaterialOther.getCellData(i));
+            sumLocalActualDifferenceMaterialOther += Double.parseDouble(colActualDifferenceMaterialOther.getCellData(i));
+            sumLocalPaidMaterialOther += Double.parseDouble(colPaidMaterialOther.getCellData(i));
+            sumLocalResidueMaterialOther += Double.parseDouble(colResidueMaterialOther.getCellData(i));
         }
 
-        titleMaterialOther.setText("Другое        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialOther) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialOther) +
-                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialOther) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialOther) +
-                "        /Оплачено: " + String.format("%.2f", sumPaidMaterialOther) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialOther));
+        titleMaterialOther.setText("Другое        /Порядок цен: " + String.format("%.2f", sumLocalPriceOrderMaterialOther) + "        /Стоимость по КП: " + String.format("%.2f", sumLocalCostCPMaterialOther) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumLocalActualCostMaterialOther) + "        /Разница фактическая: " + String.format("%.2f", sumLocalActualDifferenceMaterialOther) +
+                "        /Оплачено: " + String.format("%.2f", sumLocalPaidMaterialOther) + "        /Остаток: " + String.format("%.2f", sumLocalResidueMaterialOther));
 
+        return sumPriceOrderMaterialOther = sumLocalPriceOrderMaterialOther;
     }
 
 
@@ -6558,27 +6536,28 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    public void calcTitleMaterialSuddenly(MouseEvent mouseEvent) {
-        double sumPriceOrderMaterialSuddenly = 0.0;
-        double sumCostCPMaterialSuddenly = 0.0;
-        double sumActualCostMaterialSuddenly = 0.0;
-        double sumActualDifferenceMaterialSuddenly = 0.0;
-        double sumPaidMaterialSuddenly = 0.0;
-        double sumResidueMaterialSuddenly = 0.0;
+    public double calcTitleMaterialSuddenly(MouseEvent mouseEvent) {
+        double sumLocalPriceOrderMaterialSuddenly = 0.0;
+        double sumLocalCostCPMaterialSuddenly = 0.0;
+        double sumLocalActualCostMaterialSuddenly = 0.0;
+        double sumLocalActualDifferenceMaterialSuddenly = 0.0;
+        double sumLocalPaidMaterialSuddenly = 0.0;
+        double sumLocalResidueMaterialSuddenly = 0.0;
 
         for (int i = 0; i < materialTableViewSuddenly.getItems().size(); i++) {
-            sumPriceOrderMaterialSuddenly += Double.parseDouble(colPriceOrderMaterialSuddenly.getCellData(i));
-            sumCostCPMaterialSuddenly += Double.parseDouble(colCostCPMaterialSuddenly.getCellData(i));
-            sumActualCostMaterialSuddenly += Double.parseDouble(colActualCostMaterialSuddenly.getCellData(i));
-            sumActualDifferenceMaterialSuddenly += Double.parseDouble(colActualDifferenceMaterialSuddenly.getCellData(i));
-            sumPaidMaterialSuddenly += Double.parseDouble(colPaidMaterialSuddenly.getCellData(i));
-            sumResidueMaterialSuddenly += Double.parseDouble(colResidueMaterialSuddenly.getCellData(i));
+            sumLocalPriceOrderMaterialSuddenly += Double.parseDouble(colPriceOrderMaterialSuddenly.getCellData(i));
+            sumLocalCostCPMaterialSuddenly += Double.parseDouble(colCostCPMaterialSuddenly.getCellData(i));
+            sumLocalActualCostMaterialSuddenly += Double.parseDouble(colActualCostMaterialSuddenly.getCellData(i));
+            sumLocalActualDifferenceMaterialSuddenly += Double.parseDouble(colActualDifferenceMaterialSuddenly.getCellData(i));
+            sumLocalPaidMaterialSuddenly += Double.parseDouble(colPaidMaterialSuddenly.getCellData(i));
+            sumLocalResidueMaterialSuddenly += Double.parseDouble(colResidueMaterialSuddenly.getCellData(i));
         }
 
-        titleMaterialSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialSuddenly) +
-                "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialSuddenly) +
-                "        /Оплачено: " + String.format("%.2f", sumPaidMaterialSuddenly) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialSuddenly));
+        titleMaterialSuddenly.setText("Нежданчик        /Порядок цен: " + String.format("%.2f", sumLocalPriceOrderMaterialSuddenly) + "        /Стоимость по КП: " + String.format("%.2f", sumLocalCostCPMaterialSuddenly) +
+                "        /Стоимость фактическая: " + String.format("%.2f", sumLocalActualCostMaterialSuddenly) + "        /Разница фактическая: " + String.format("%.2f", sumLocalActualDifferenceMaterialSuddenly) +
+                "        /Оплачено: " + String.format("%.2f", sumLocalPaidMaterialSuddenly) + "        /Остаток: " + String.format("%.2f", sumLocalResidueMaterialSuddenly));
 
+        return sumPriceOrderMaterialSuddenly = sumLocalPriceOrderMaterialSuddenly;
     }
 
 
@@ -7317,7 +7296,7 @@ public class EditProjectController implements Initializable {
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
                 new Statistic("Дизайн-проект", 0, 0),
                 new Statistic("Строители", 0, 0),
-                new Statistic("Черновые материалы", q , 0),
+                new Statistic("Черновые материалы", sumPriceOrderMaterialWall + sumPriceOrderMaterialFloor + sumPriceOrderMaterialCeiling + sumPriceOrderMaterialOther + sumPriceOrderMaterialSuddenly, 0),
                 new Statistic("Смежники", 0, 0),
                 new Statistic("Авторский контроль", 0, 0),
                 new Statistic("Чистовые материалы", 0, 0),
