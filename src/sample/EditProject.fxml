@@ -1023,11 +1023,11 @@
                                 </TitledPane>
             </VBox>
     </Tab>
-        <Tab fx:id="statisticsView" disable="true" text="Статистика">
+        <Tab fx:id="statisticsView" disable="true" text="Статистика" onSelectionChanged="#www">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="statisticTableView" layoutX="30.0" layoutY="86.0" prefHeight="325.0" prefWidth="536.0">
+                        <TableView fx:id="statisticTableView" layoutX="30.0" layoutY="86.0" prefHeight="325.0" prefWidth="536.0" >
                             <columns>
                                 <TableColumn fx:id="colNameCategory" prefWidth="175.0" sortable="false" text="Наименование категории" />
                                 <TableColumn fx:id="colTotalCost" prefWidth="175.0" sortable="false" text="Общая стоимость" />

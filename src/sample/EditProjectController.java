@@ -3,6 +3,7 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -625,11 +626,12 @@ public class EditProjectController implements Initializable {
 
     public Button createRoomButton;
 
-
     public Accordion roomPlumbing;
     public Accordion roomFurniture;
     public Accordion roomLight;
     public Accordion roomDecoration;
+
+    public double q = 0.0;
 
     public void createProject(ActionEvent actionEvent) {
         createProjectTextField.setVisible(true);
@@ -797,23 +799,23 @@ public class EditProjectController implements Initializable {
         colTotalCost.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
         colCostSGM.setCellValueFactory(new PropertyValueFactory<>("costSGM"));
 
-        ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
-                new Statistic("Дизайн-проект", 0, 0),
-                new Statistic("Строители", 0, 0),
-                new Statistic("Черновые материалы", 0, 0),
-                new Statistic("Смежники", 0, 0),
-                new Statistic("Авторский контроль", 0, 0),
-                new Statistic("Чистовые материалы", 0, 0),
-                new Statistic("Сантехника", 0, 0),
-                new Statistic("Мебель", 0, 0),
-                new Statistic("Освещение", 0, 0),
-                new Statistic("Техника", 0, 0),
-                new Statistic("Декор", 0, 0),
-                new Statistic("ИТОГО:", 0, 0)
-        );
-
-        statisticTableView.setItems(observableListStatistic);
-        statisticTableView.setEditable(true);
+//        ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
+//                new Statistic("Дизайн-проект", 0, 0),
+//                new Statistic("Строители", 0, 0),
+//                new Statistic("Черновые материалы", q , 0),
+//                new Statistic("Смежники", 0, 0),
+//                new Statistic("Авторский контроль", 0, 0),
+//                new Statistic("Чистовые материалы", 0, 0),
+//                new Statistic("Сантехника", 0, 0),
+//                new Statistic("Мебель", 0, 0),
+//                new Statistic("Освещение", 0, 0),
+//                new Statistic("Техника", 0, 0),
+//                new Statistic("Декор", 0, 0),
+//                new Statistic("ИТОГО:", 0, 0)
+//        );
+//
+//        statisticTableView.setItems(observableListStatistic);
+//        statisticTableView.setEditable(true);
 
 
         //Смежники
@@ -6252,9 +6254,8 @@ public class EditProjectController implements Initializable {
     }
 
 
-//    double sumPriceOrderMaterialWall = 1.1;
     //////////////////////
-    public void calcTitleMaterialWall() {
+    public double calcTitleMaterialWall() {
         double sumPriceOrderMaterialWall = 0.0;
         double sumCostCPMaterialWall = 0.0;
         double sumActualCostMaterialWall = 0.0;
@@ -6274,18 +6275,23 @@ public class EditProjectController implements Initializable {
         titleMaterialWall.setText("Стены        /Порядок цен: " + String.format("%.2f", sumPriceOrderMaterialWall) + "        /Стоимость по КП: " + String.format("%.2f", sumCostCPMaterialWall) +
                 "        /Стоимость фактическая: " + String.format("%.2f", sumActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumActualDifferenceMaterialWall) +
                 "        /Оплачено: " + String.format("%.2f", sumPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumResidueMaterialWall));
-        qqq();
-//        return sumPriceOrderMaterialWall * 2;
+//        qqq();
+        System.out.println(sumPriceOrderMaterialWall);
 
+
+        return q = sumPriceOrderMaterialWall;
     }
 
 
     //КАКАЯ ТО ХУЙНЯ!!!
     public double qqq() {
 
+        double q = 0;
+
         double sum = 0.01;
 
         for (int i = 0; i < materialTableViewWall.getItems().size(); i++)
+//            sum += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
             sum += Double.parseDouble(colPriceOrderMaterialWall.getCellData(i));
 
         return sum;
@@ -7303,5 +7309,27 @@ public class EditProjectController implements Initializable {
             colActualCPDecorationSuddenly.setVisible(false);
             colAccountDecorationSuddenly.setVisible(false);
         }
+    }
+
+    public void www(Event event) {
+        System.out.println("qwwqdwqdqwdqwd");
+
+        ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
+                new Statistic("Дизайн-проект", 0, 0),
+                new Statistic("Строители", 0, 0),
+                new Statistic("Черновые материалы", q , 0),
+                new Statistic("Смежники", 0, 0),
+                new Statistic("Авторский контроль", 0, 0),
+                new Statistic("Чистовые материалы", 0, 0),
+                new Statistic("Сантехника", 0, 0),
+                new Statistic("Мебель", 0, 0),
+                new Statistic("Освещение", 0, 0),
+                new Statistic("Техника", 0, 0),
+                new Statistic("Декор", 0, 0),
+                new Statistic("ИТОГО:", 0, 0)
+        );
+
+        statisticTableView.setItems(observableListStatistic);
+        statisticTableView.setEditable(true);
     }
 }
