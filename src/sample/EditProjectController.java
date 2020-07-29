@@ -797,8 +797,19 @@ public class EditProjectController implements Initializable {
         projectTableView.setEditable(true);
         projectTableView.setItems(observableListProject);
 
-        //Статистика
 
+        //Итоговая
+        colCategoryNameTotal.setCellValueFactory(new PropertyValueFactory<>("categoryNameTotal"));
+        colPriceOrderTotal.setCellValueFactory(new PropertyValueFactory<>("priceOrderTotal"));
+        colPlannedCostTotal.setCellValueFactory(new PropertyValueFactory<>("plannedCostTotal"));
+        colActualCostTotal.setCellValueFactory(new PropertyValueFactory<>("actualCostTotal"));
+        colDifferenceTotal.setCellValueFactory(new PropertyValueFactory<>("differenceTotal"));
+        colPaidTotal.setCellValueFactory(new PropertyValueFactory<>("paidTotal"));
+        colResidueTotal.setCellValueFactory(new PropertyValueFactory<>("residueTotal"));
+
+
+
+        //Статистика
         colNameCategory.setCellValueFactory(new PropertyValueFactory<>("nameCategory"));
         colTotalCost.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
         colCostSGM.setCellValueFactory(new PropertyValueFactory<>("costSGM"));
@@ -7290,7 +7301,7 @@ public class EditProjectController implements Initializable {
         }
     }
 
-    public void www(Event event) {
+    public void statistics(Event event) {
         System.out.println("qwwqdwqdqwdqwd");
 
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
@@ -7310,5 +7321,28 @@ public class EditProjectController implements Initializable {
 
         statisticTableView.setItems(observableListStatistic);
         statisticTableView.setEditable(true);
+    }
+
+    public void total(Event event) {
+
+        ObservableList<Total> observableListTotal = FXCollections.observableArrayList(
+                new Total("Дизайн-проект", 0, 0,0,0,0,0),
+                new Total("Работа строителей", 0, 0,0,0,0,0),
+                new Total("Черновые материалы", sumPriceOrderMaterialWall + sumPriceOrderMaterialFloor + sumPriceOrderMaterialCeiling + sumPriceOrderMaterialOther + sumPriceOrderMaterialSuddenly, 0,0,0,0,0),
+                new Total("Смежники", 0, 0,0,0,0,0),
+                new Total("Авторский контроль", 0, 0,0,0,0,0),
+                new Total("Чистовые материалы", 0, 0,0,0,0,0),
+                new Total("Сантехника", 0, 0,0,0,0,0),
+                new Total("Мебель", 0, 0,0,0,0,0),
+                new Total("Освещение", 0, 0,0,0,0,0),
+                new Total("Техника", 0, 0,0,0,0,0),
+                new Total("Декор", 0, 0,0,0,0,0),
+                new Total("Наполнение интерьера:", 0, 0,0,0,0,0),
+                new Total("Работа и черновые мат-лы:", 0, 0,0,0,0,0),
+                new Total("Под ключ с работой:", 0, 0,0,0,0,0)
+        );
+
+        totalTableView.setItems(observableListTotal);
+        totalTableView.setEditable(true);
     }
 }
