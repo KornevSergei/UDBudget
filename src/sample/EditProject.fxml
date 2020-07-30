@@ -62,7 +62,7 @@
             <content>
                 <FlowPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="totalTableView" layoutX="54.0" layoutY="50.0" prefHeight="500.0" prefWidth="1000.0">
+                        <TableView fx:id="totalTableView" layoutX="54.0" layoutY="50.0" prefHeight="365.0" prefWidth="1000.0">
                             <columns>
                                 <TableColumn fx:id="colCategoryNameTotal" prefWidth="180.0" text="Наименование категории" />
                                 <TableColumn fx:id="colPriceOrderTotal" prefWidth="130.0" text="Порядок цен, руб." />

@@ -18,7 +18,9 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -637,6 +639,40 @@ public class EditProjectController implements Initializable {
     public double sumPriceOrderMaterialOther = 0.0;
     public double sumPriceOrderMaterialSuddenly = 0.0;
 
+    public double sumCostCPMaterialWall = 0.0;
+    public double sumCostCPMaterialFloor = 0.0;
+    public double sumCostCPMaterialCeiling = 0.0;
+    public double sumCostCPMaterialOther = 0.0;
+    public double sumCostCPMaterialSuddenly = 0.0;
+
+    public double sumActualCostMaterialWall = 0.0;
+    public double sumActualCostMaterialFloor = 0.0;
+    public double sumActualCostMaterialCeiling = 0.0;
+    public double sumActualCostMaterialOther = 0.0;
+    public double sumActualCostMaterialSuddenly = 0.0;
+
+    public double sumActualDifferenceMaterialWall = 0.0;
+    public double sumActualDifferenceMaterialFloor = 0.0;
+    public double sumActualDifferenceMaterialCeiling = 0.0;
+    public double sumActualDifferenceMaterialOther = 0.0;
+    public double sumActualDifferenceMaterialSuddenly = 0.0;
+
+    public double sumPaidMaterialWall = 0.0;
+    public double sumPaidMaterialFloor = 0.0;
+    public double sumPaidMaterialCeiling = 0.0;
+    public double sumPaidMaterialOther = 0.0;
+    public double sumPaidMaterialSuddenly = 0.0;
+
+    public double sumResidueMaterialWall = 0.0;
+    public double sumResidueMaterialFloor = 0.0;
+    public double sumResidueMaterialCeiling = 0.0;
+    public double sumResidueMaterialOther = 0.0;
+    public double sumResidueMaterialSuddenly = 0.0;
+
+
+//    public List<Double> sumMaterialWall;
+
+
     public void createProject(ActionEvent actionEvent) {
         createProjectTextField.setVisible(true);
         addProjectButton.setVisible(true);
@@ -806,7 +842,6 @@ public class EditProjectController implements Initializable {
         colDifferenceTotal.setCellValueFactory(new PropertyValueFactory<>("differenceTotal"));
         colPaidTotal.setCellValueFactory(new PropertyValueFactory<>("paidTotal"));
         colResidueTotal.setCellValueFactory(new PropertyValueFactory<>("residueTotal"));
-
 
 
         //Статистика
@@ -6270,7 +6305,16 @@ public class EditProjectController implements Initializable {
 
 
     //////////////////////
-    public double calcTitleMaterialWall() {
+    public List<Double> calcTitleMaterialWall() {
+
+        List<Double> sumMaterialWall = new ArrayList<>();
+        sumMaterialWall.add(sumPriceOrderMaterialWall);
+        sumMaterialWall.add(sumCostCPMaterialWall);
+        sumMaterialWall.add(sumActualCostMaterialWall);
+        sumMaterialWall.add(sumActualDifferenceMaterialWall);
+        sumMaterialWall.add(sumPaidMaterialWall);
+        sumMaterialWall.add(sumResidueMaterialWall);
+
         double sumLocalPriceOrderMaterialWall = 0.0;
         double sumLocalCostCPMaterialWall = 0.0;
         double sumLocalActualCostMaterialWall = 0.0;
@@ -6291,7 +6335,16 @@ public class EditProjectController implements Initializable {
                 "        /Стоимость фактическая: " + String.format("%.2f", sumLocalActualCostMaterialWall) + "        /Разница фактическая: " + String.format("%.2f", sumLocalActualDifferenceMaterialWall) +
                 "        /Оплачено: " + String.format("%.2f", sumLocalPaidMaterialWall) + "        /Остаток: " + String.format("%.2f", sumLocalResidueMaterialWall));
 
-        return sumPriceOrderMaterialWall = sumLocalPriceOrderMaterialWall;
+        sumPriceOrderMaterialWall = sumLocalPriceOrderMaterialWall;
+        sumCostCPMaterialWall = sumLocalCostCPMaterialWall;
+        sumActualCostMaterialWall = sumLocalActualCostMaterialWall;
+        sumActualDifferenceMaterialWall = sumLocalActualDifferenceMaterialWall;
+        sumPaidMaterialWall = sumLocalPaidMaterialWall;
+        sumResidueMaterialWall = sumLocalResidueMaterialWall;
+
+        return sumMaterialWall;
+
+
     }
 
 
@@ -7323,23 +7376,31 @@ public class EditProjectController implements Initializable {
         statisticTableView.setEditable(true);
     }
 
+
     public void total(Event event) {
+        double priceOrderMaterial = sumPriceOrderMaterialWall + sumPriceOrderMaterialFloor + sumPriceOrderMaterialCeiling + sumPriceOrderMaterialOther + sumPriceOrderMaterialSuddenly;
+        double plannedCostMaterial = sumCostCPMaterialWall + sumCostCPMaterialFloor + sumCostCPMaterialCeiling + sumCostCPMaterialOther + sumCostCPMaterialSuddenly;
+        double actualCostMaterial = sumActualCostMaterialWall + sumActualCostMaterialFloor + sumActualCostMaterialCeiling + sumActualCostMaterialOther + sumActualCostMaterialSuddenly;
+        double actualDifferenceMaterial = plannedCostMaterial - actualCostMaterial;
+        double paidMaterial = sumPaidMaterialWall + sumPaidMaterialFloor + sumPaidMaterialCeiling + sumPaidMaterialOther + sumPaidMaterialSuddenly;
+        double residueMaterial = sumResidueMaterialWall + sumResidueMaterialFloor + sumResidueMaterialCeiling + sumResidueMaterialOther + sumResidueMaterialSuddenly;
+
 
         ObservableList<Total> observableListTotal = FXCollections.observableArrayList(
-                new Total("Дизайн-проект", 0, 0,0,0,0,0),
-                new Total("Работа строителей", 0, 0,0,0,0,0),
-                new Total("Черновые материалы", sumPriceOrderMaterialWall + sumPriceOrderMaterialFloor + sumPriceOrderMaterialCeiling + sumPriceOrderMaterialOther + sumPriceOrderMaterialSuddenly, 0,0,0,0,0),
-                new Total("Смежники", 0, 0,0,0,0,0),
-                new Total("Авторский контроль", 0, 0,0,0,0,0),
-                new Total("Чистовые материалы", 0, 0,0,0,0,0),
-                new Total("Сантехника", 0, 0,0,0,0,0),
-                new Total("Мебель", 0, 0,0,0,0,0),
-                new Total("Освещение", 0, 0,0,0,0,0),
-                new Total("Техника", 0, 0,0,0,0,0),
-                new Total("Декор", 0, 0,0,0,0,0),
-                new Total("Наполнение интерьера:", 0, 0,0,0,0,0),
-                new Total("Работа и черновые мат-лы:", 0, 0,0,0,0,0),
-                new Total("Под ключ с работой:", 0, 0,0,0,0,0)
+                new Total("Дизайн-проект", 0, 0, 0, 0, 0, 0),
+                new Total("Работа строителей", 0, 0, 0, 0, 0, 0),
+                new Total("Черновые материалы", 0, 0, 0, 0, 0, 0),
+                new Total("Смежники", 0, 0, 0, 0, 0, 0),
+                new Total("Авторский контроль", 0, 0, 0, 0, 0, 0),
+                new Total("Чистовые материалы", priceOrderMaterial, plannedCostMaterial, actualCostMaterial, actualDifferenceMaterial, paidMaterial, residueMaterial),
+                new Total("Сантехника", 0, 0, 0, 0, 0, 0),
+                new Total("Мебель", 0, 0, 0, 0, 0, 0),
+                new Total("Освещение", 0, 0, 0, 0, 0, 0),
+                new Total("Техника", 0, 0, 0, 0, 0, 0),
+                new Total("Декор", 0, 0, 0, 0, 0, 0),
+                new Total("Наполнение интерьера:", 0, 0, 0, 0, 0, 0),
+                new Total("Работа и черновые мат-лы:", 0, 0, 0, 0, 0, 0),
+                new Total("Под ключ с работой:", 0, 0, 0, 0, 0, 0)
         );
 
         totalTableView.setItems(observableListTotal);
