@@ -34,6 +34,14 @@ public class Subcontractors {
         this.characteristicsSubcontractors = characteristicsSubcontractors;
     }
 
+    public void CalculateActualDifferenceSubcontractors() {
+        actualDifferenceSubcontractors = costCPSubcontractors - costActualSubcontractors;
+    }
+
+    public void CalculateResidueSubcontractors() {
+        residueSubcontractors = costActualSubcontractors - paidSubcontractors;
+    }
+
     public String getNameCategorySubcontractors() {
         return nameCategorySubcontractors;
     }
@@ -62,6 +70,7 @@ public class Subcontractors {
     }
     public void setCostCPSubcontractors(String costCPSubcontractors) {
         this.costCPSubcontractors = Double.parseDouble(costCPSubcontractors);
+        CalculateActualDifferenceSubcontractors();
     }
 
     public String getCostActualSubcontractors() {
@@ -73,6 +82,8 @@ public class Subcontractors {
     }
     public void setCostActualSubcontractors(String costActualSubcontractors) {
         this.costActualSubcontractors = Double.parseDouble(costActualSubcontractors);
+        CalculateActualDifferenceSubcontractors();
+        CalculateResidueSubcontractors();
     }
 
     public String getActualDifferenceSubcontractors() {
@@ -96,6 +107,7 @@ public class Subcontractors {
     }
     public void setPaidSubcontractors(String paidSubcontractors) {
         this.paidSubcontractors = Double.parseDouble(paidSubcontractors);
+        CalculateResidueSubcontractors();
     }
 
     public String getResidueSubcontractors() {

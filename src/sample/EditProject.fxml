@@ -141,15 +141,15 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="subcontractorsTableView" editable="true" layoutX="14.0" layoutY="39.0" maxHeight="20.0" prefWidth="1500.0">
+                        <TableView fx:id="subcontractorsTableView" editable="true"  layoutY="39.0" prefHeight="300.0" prefWidth="1500.0" onMouseClicked="#calcTitleSubcontractors">
                             <columns>
                                 <TableColumn fx:id="colNameCategorySubcontractors" prefWidth="160.0" text="Наименование категории" />
                                 <TableColumn fx:id="colCostPlannedSubcontractors" prefWidth="100.0" text="Стоимость плановая" />
                                 <TableColumn fx:id="colCostCPSubcontractors" prefWidth="100.0" text="Стоимость по КП" />
                                 <TableColumn fx:id="colCostActualSubcontractors" prefWidth="100.0" text="Стоимость фактическая" visible="false" />
-                                <TableColumn fx:id="colActualDifferenceSubcontractors" prefWidth="100.0" text="Разничца фактическая" visible="false" />
+                                <TableColumn fx:id="colActualDifferenceSubcontractors" prefWidth="100.0" text="Разнича фактическая" visible="false" editable="false" />
                                 <TableColumn fx:id="colPaidSubcontractors" prefWidth="100.0" text="Оплачено" visible="false" />
-                                <TableColumn fx:id="colResidueSubcontractors" prefWidth="100.0" text="Остаток" visible="false" />
+                                <TableColumn fx:id="colResidueSubcontractors" prefWidth="100.0" text="Остаток" visible="false" editable="false" />
                                 <TableColumn fx:id="colPlannedCPSubcontractors" prefWidth="100.0" text="КП плановое" />
                                 <TableColumn fx:id="colActualCPSubcontractors" prefWidth="100.0" text="КП фактическое" visible="false" />
                                 <TableColumn fx:id="colAccountSubcontractors" prefWidth="100.0" text="Счет" visible="false" />
@@ -1027,7 +1027,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="statisticTableView" layoutX="30.0" layoutY="86.0" prefHeight="325.0" prefWidth="536.0" >
+                        <TableView fx:id="statisticTableView" prefHeight="338.0" prefWidth="536.0" >
                             <columns>
                                 <TableColumn fx:id="colNameCategory" prefWidth="175.0" sortable="false" text="Наименование категории" />
                                 <TableColumn fx:id="colTotalCost" prefWidth="175.0" sortable="false" text="Общая стоимость" />
