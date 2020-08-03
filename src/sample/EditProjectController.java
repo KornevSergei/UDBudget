@@ -79,6 +79,7 @@ public class EditProjectController implements Initializable {
     public Text textDiscountDP;
 
 
+
     private ObservableList<Project> observableListProject = FXCollections.observableArrayList();
     public TextField createProjectTextField;
     public Button backRoomButton;
@@ -150,6 +151,16 @@ public class EditProjectController implements Initializable {
     public TableColumn<AK, String> colTermAK;
     public TableColumn<AK, String> colCostAK;
     private ObservableList<AK> observableListAK = FXCollections.observableArrayList();
+
+    public Button addRate;
+    public Button addDatePayment;
+
+
+    public TableView <DatePayment> datePaymentTableView;
+    public TableColumn <DatePayment, String> colDateDatePayment;
+    public TableColumn <DatePayment, String> colPaymentDatePayment;
+    private ObservableList<DatePayment> observableListDatePayment = FXCollections.observableArrayList();
+
 
     //Блок сантехники
     public TableView<PlumbingDelivery> plumbingTableViewDelivery;
@@ -634,6 +645,7 @@ public class EditProjectController implements Initializable {
     public Accordion roomDecoration;
 
     public double sumPriceOrderSubcontractors = 0.0;
+    public double sumPriceOrderAK = 0.0;
     public double sumPriceOrderMaterialWall = 0.0;
     public double sumPriceOrderMaterialFloor = 0.0;
     public double sumPriceOrderMaterialCeiling = 0.0;
@@ -641,6 +653,7 @@ public class EditProjectController implements Initializable {
     public double sumPriceOrderMaterialSuddenly = 0.0;
 
     public double sumCostCPSubcontractors = 0.0;
+    public double sumCostCPAK = 0.0;
     public double sumCostCPMaterialWall = 0.0;
     public double sumCostCPMaterialFloor = 0.0;
     public double sumCostCPMaterialCeiling = 0.0;
@@ -648,6 +661,7 @@ public class EditProjectController implements Initializable {
     public double sumCostCPMaterialSuddenly = 0.0;
 
     public double sumActualCostSubcontractors = 0.0;
+    public double sumActualCostAK = 0.0;
     public double sumActualCostMaterialWall = 0.0;
     public double sumActualCostMaterialFloor = 0.0;
     public double sumActualCostMaterialCeiling = 0.0;
@@ -655,6 +669,7 @@ public class EditProjectController implements Initializable {
     public double sumActualCostMaterialSuddenly = 0.0;
 
     public double sumActualDifferenceSubcontractors = 0.0;
+    public double sumActualDifferenceAK = 0.0;
     public double sumActualDifferenceMaterialWall = 0.0;
     public double sumActualDifferenceMaterialFloor = 0.0;
     public double sumActualDifferenceMaterialCeiling = 0.0;
@@ -662,6 +677,7 @@ public class EditProjectController implements Initializable {
     public double sumActualDifferenceMaterialSuddenly = 0.0;
 
     public double sumPaidSubcontractors = 0.0;
+    public double sumPaidAK = 0.0;
     public double sumPaidMaterialWall = 0.0;
     public double sumPaidMaterialFloor = 0.0;
     public double sumPaidMaterialCeiling = 0.0;
@@ -669,6 +685,7 @@ public class EditProjectController implements Initializable {
     public double sumPaidMaterialSuddenly = 0.0;
 
     public double sumResidueSubcontractors = 0.0;
+    public double sumResidueAK = 0.0;
     public double sumResidueMaterialWall = 0.0;
     public double sumResidueMaterialFloor = 0.0;
     public double sumResidueMaterialCeiling = 0.0;
@@ -1130,6 +1147,37 @@ public class EditProjectController implements Initializable {
                         t.getTablePosition().getRow())).setCostAK(t.getNewValue());
             }
         });
+
+
+        //Даты оплаты АК
+        datePaymentTableView.setItems(observableListDatePayment);
+        Callback<TableColumn<DatePayment, String>, TableCell<DatePayment, String>> cellFactoryDoubleDatePayment =
+                new Callback<TableColumn<DatePayment, String>, TableCell<DatePayment, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+        colDateDatePayment.setCellValueFactory(new PropertyValueFactory<>("dateDatePayment"));
+        colDateDatePayment.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<DatePayment, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<DatePayment, String> t) {
+                        t.getTableView().getItems().get(
+                                t.getTablePosition().getRow()).setDateDatePayment(t.getNewValue());
+                    }
+                });
+
+        colPaymentDatePayment.setCellFactory(cellFactoryDoubleDatePayment);
+        colPaymentDatePayment.setCellValueFactory(new PropertyValueFactory<>("paymentDatePayment"));
+        colPaymentDatePayment.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<DatePayment, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<DatePayment, String> t) {
+                ((DatePayment) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setPaymentDatePayment(t.getNewValue());
+                t.getTableView().refresh();
+            }
+        });
+
 
 
         //Помещения
@@ -5856,11 +5904,7 @@ public class EditProjectController implements Initializable {
     }
 
 
-    public void On_tabCalculatorClickedActionAK(MouseEvent mouseEvent) {
-        if (observableListAK.filtered(x -> "0.0".equals(x.getRateAK()) && "0.0".equals(x.getTermAK())).size() == 0) {
-            observableListAK.add(new AK(0, 0, 0));
-        }
-    }
+
 
     public void On_tabCalculatorClickedActionRoom(MouseEvent mouseEvent) {
         if (observableListRoom.filtered(x -> "".equals(x.getNameRoom()) && "0.0".equals(x.getAreaRoom())).size() == 0) {
@@ -6276,6 +6320,56 @@ public class EditProjectController implements Initializable {
             colAccountSubcontractors.setVisible(false);
         }
     }
+
+    public List<Double> calcTitleAK() {
+
+        List<Double> sumAK = new ArrayList<>();
+        sumAK.add(sumPriceOrderAK);
+        sumAK.add(sumCostCPAK);
+        sumAK.add(sumActualCostAK);
+        sumAK.add(sumActualDifferenceAK);
+        sumAK.add(sumPaidAK);
+        sumAK.add(sumResidueAK);
+
+        double sumLocalPriceOrderAK = 0.0;
+        double sumLocalCostCPAK = 0.0;
+        double sumLocalActualCostAK = 0.0;
+        double sumLocalActualDifferenceAK = 0.0;
+        double sumLocalPaidAK = 0.0;
+        double sumLocalResidueAK = 0.0;
+
+        for (int i = 0; i < AKTableView.getItems().size(); i++) {
+            sumLocalPriceOrderAK += Double.parseDouble(colCostAK.getCellData(i));
+            sumLocalCostCPAK += Double.parseDouble(colCostAK.getCellData(i));
+            sumLocalActualCostAK += Double.parseDouble(colCostAK.getCellData(i));
+            sumLocalActualDifferenceAK += Double.parseDouble(colCostAK.getCellData(i));
+
+            sumLocalPaidAK += Double.parseDouble(colCostAK.getCellData(i));
+            sumLocalResidueAK += Double.parseDouble(colCostAK.getCellData(i));
+        }
+
+        sumPriceOrderAK = sumLocalPriceOrderAK;
+        sumCostCPAK = sumLocalCostCPAK;
+        sumActualCostAK = sumLocalActualCostAK;
+        sumActualDifferenceAK = sumLocalActualDifferenceAK;
+        sumPaidAK = sumLocalPaidAK;
+        sumResidueAK = sumLocalResidueAK;
+
+        return sumAK;
+    }
+
+
+    public void On_tabCalculatorClickedActionAK() {
+        observableListAK.add(new AK(0, 0, 0));
+        addRate.setVisible(false);
+    }
+
+
+    public void On_tabCalculatorClickedActionDatePayment() {
+        observableListDatePayment.add(new DatePayment("",0));
+    }
+
+
 
     public List<Double> calcTitlePlumbingDelivery() {
 
@@ -7731,6 +7825,7 @@ public class EditProjectController implements Initializable {
     public void statistics(Event event) {
 
         double priceOrderSubcontractors = sumPriceOrderSubcontractors;
+        double priceOrderAK = sumPriceOrderAK;
         double priceOrderMaterial =  sumPriceOrderMaterialWall + sumPriceOrderMaterialFloor + sumPriceOrderMaterialCeiling + sumPriceOrderMaterialOther + sumPriceOrderMaterialSuddenly;
         double priceOrderPlumbing = sumPriceOrderPlumbingDelivery + sumPriceOrderPlumbingSuddenly;
         double priceOrderFurniture = sumPriceOrderFurnitureDelivery + sumPriceOrderFurnitureSuddenly;
@@ -7746,7 +7841,7 @@ public class EditProjectController implements Initializable {
                 new Statistic("Строители", 0, 0),
                 new Statistic("Черновые материалы", 0, 0),
                 new Statistic("Смежники", priceOrderSubcontractors, 0),
-                new Statistic("Авторский контроль", 0, 0),
+                new Statistic("Авторский контроль", priceOrderAK, 0),
                 new Statistic("Чистовые материалы", priceOrderMaterial, 0),
                 new Statistic("Сантехника", priceOrderPlumbing, 0),
                 new Statistic("Мебель", priceOrderFurniture, 0),
@@ -7771,6 +7866,13 @@ public class EditProjectController implements Initializable {
         double actualDifferenceSubcontractors = costCPSubcontractors - actualCostSubcontractors;
         double paidSubcontractors = sumPaidSubcontractors;
         double residueSubcontractors = sumResidueSubcontractors;
+
+        double priceOrderAK = sumPriceOrderAK;
+        double costCPAK = sumCostCPAK;
+        double actualCostAK = sumActualCostAK;
+        double actualDifferenceAK = costCPAK - actualCostAK;
+        double paidAK = sumPaidAK;
+        double residueAK = sumResidueAK;
 
         double priceOrderMaterial = sumPriceOrderMaterialWall + sumPriceOrderMaterialFloor + sumPriceOrderMaterialCeiling + sumPriceOrderMaterialOther + sumPriceOrderMaterialSuddenly;
         double costCPMaterial = sumCostCPMaterialWall + sumCostCPMaterialFloor + sumCostCPMaterialCeiling + sumCostCPMaterialOther + sumCostCPMaterialSuddenly;
@@ -7814,12 +7916,12 @@ public class EditProjectController implements Initializable {
         double paidDecoration = sumPaidDecorationDelivery + sumPaidDecorationSuddenly;
         double residueDecoration = sumResidueDecorationDelivery + sumResidueDecorationSuddenly;
 
-        double interiorFillingPriceOrder = priceOrderSubcontractors + priceOrderMaterial + priceOrderPlumbing + priceOrderFurniture + priceOrderLight + priceOrderAppliances + priceOrderDecoration;
-        double interiorFillingCostCP = costCPSubcontractors + costCPMaterial + costCPPlumbing + costCPFurniture + costCPLight + costCPAppliances + costCPDecoration;
-        double interiorFillingActualCost = actualCostSubcontractors + actualCostMaterial + actualCostPlumbing + actualCostFurniture + actualCostLight + actualCostAppliances + actualCostDecoration;
-        double interiorFillingActualDifference = actualDifferenceSubcontractors + actualDifferenceMaterial + actualDifferencePlumbing + actualDifferenceFurniture + actualDifferenceLight + actualDifferenceAppliances + actualDifferenceDecoration;
-        double interiorFillingPaid = paidSubcontractors + paidMaterial + paidPlumbing + paidFurniture + paidLight + paidAppliances + paidDecoration;
-        double interiorFillingResidue = residueSubcontractors + residueMaterial + residuePlumbing + residueFurniture + residueLight + residueAppliances + residueDecoration;
+        double interiorFillingPriceOrder = priceOrderSubcontractors + priceOrderAK + priceOrderMaterial + priceOrderPlumbing + priceOrderFurniture + priceOrderLight + priceOrderAppliances + priceOrderDecoration;
+        double interiorFillingCostCP = costCPSubcontractors + costCPAK + costCPMaterial + costCPPlumbing + costCPFurniture + costCPLight + costCPAppliances + costCPDecoration;
+        double interiorFillingActualCost = actualCostSubcontractors + actualCostAK + actualCostMaterial + actualCostPlumbing + actualCostFurniture + actualCostLight + actualCostAppliances + actualCostDecoration;
+        double interiorFillingActualDifference = actualDifferenceSubcontractors + actualDifferenceAK + actualDifferenceMaterial + actualDifferencePlumbing + actualDifferenceFurniture + actualDifferenceLight + actualDifferenceAppliances + actualDifferenceDecoration;
+        double interiorFillingPaid = paidSubcontractors + paidAK + paidMaterial + paidPlumbing + paidFurniture + paidLight + paidAppliances + paidDecoration;
+        double interiorFillingResidue = residueSubcontractors + residueAK + residueMaterial + residuePlumbing + residueFurniture + residueLight + residueAppliances + residueDecoration;
 
 
         ObservableList<Total> observableListTotal = FXCollections.observableArrayList(
@@ -7827,7 +7929,7 @@ public class EditProjectController implements Initializable {
                 new Total("Работа строителей", 0, 0, 0, 0, 0, 0),
                 new Total("Черновые материалы", 0, 0, 0, 0, 0, 0),
                 new Total("Смежники", priceOrderSubcontractors, costCPSubcontractors, actualCostSubcontractors, actualDifferenceSubcontractors, paidSubcontractors, residueSubcontractors),
-                new Total("Авторский контроль", 0, 0, 0, 0, 0, 0),
+                new Total("Авторский контроль", priceOrderAK, costCPAK, actualCostAK, actualDifferenceAK, paidAK, residueAK),
                 new Total("Чистовые материалы", priceOrderMaterial, costCPMaterial, actualCostMaterial, actualDifferenceMaterial, paidMaterial, residueMaterial),
                 new Total("Сантехника", priceOrderPlumbing, costCPPlumbing, actualCostPlumbing, actualDifferencePlumbing, paidPlumbing, residuePlumbing),
                 new Total("Мебель", priceOrderFurniture, costCPFurniture, actualCostFurniture, actualDifferenceFurniture, paidFurniture, residueFurniture),

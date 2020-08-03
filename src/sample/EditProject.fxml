@@ -21,9 +21,9 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="totalArea" layoutX="14.0" layoutY="41.0" prefHeight="26.0" prefWidth="353.0"  visible="false" />
-                        <TextField fx:id="costDP" layoutX="14.0" layoutY="84.0" prefHeight="26.0" prefWidth="354.0"  visible="false" />
-                        <TextField fx:id="discountDP" layoutX="14.0" layoutY="127.0" prefHeight="26.0" prefWidth="354.0"  visible="false" />
+                        <TextField fx:id="totalArea" layoutX="14.0" layoutY="41.0" prefHeight="26.0" prefWidth="353.0" visible="false" />
+                        <TextField fx:id="costDP" layoutX="14.0" layoutY="84.0" prefHeight="26.0" prefWidth="354.0" visible="false" />
+                        <TextField fx:id="discountDP" layoutX="14.0" layoutY="127.0" prefHeight="26.0" prefWidth="354.0" visible="false" />
                         <Button fx:id="createRoomButton" layoutX="376.0" layoutY="197.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="26.0" prefWidth="75.0" text="Добавить" visible="false" />
                         <Button fx:id="addPaymentButton" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="353.0" text="+ Добавить этап оплаты" visible="false" />
                   <Button fx:id="deleteRoomButton" layoutX="376.0" layoutY="231.0" mnemonicParsing="false" onAction="#deleteRoomElement" prefHeight="25.0" prefWidth="75.0" text="Удалить" visible="false" />
@@ -58,7 +58,7 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="totalView" disable="true" text="Итоговая" onSelectionChanged="#total">
+        <Tab fx:id="totalView" disable="true" onSelectionChanged="#total" text="Итоговая">
             <content>
                 <FlowPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -141,15 +141,15 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="subcontractorsTableView" editable="true" onMouseMoved="#calcTitleSubcontractors"  layoutY="39.0" prefHeight="300.0" prefWidth="1500.0">
+                        <TableView fx:id="subcontractorsTableView" editable="true" layoutY="39.0" onMouseMoved="#calcTitleSubcontractors" prefHeight="300.0" prefWidth="1500.0">
                             <columns>
                                 <TableColumn fx:id="colNameCategorySubcontractors" prefWidth="160.0" text="Наименование категории" />
                                 <TableColumn fx:id="colCostPlannedSubcontractors" prefWidth="100.0" text="Стоимость плановая" />
                                 <TableColumn fx:id="colCostCPSubcontractors" prefWidth="100.0" text="Стоимость по КП" />
                                 <TableColumn fx:id="colCostActualSubcontractors" prefWidth="100.0" text="Стоимость фактическая" visible="false" />
-                                <TableColumn fx:id="colActualDifferenceSubcontractors" prefWidth="100.0" text="Разнича фактическая" visible="false" editable="false" />
+                                <TableColumn fx:id="colActualDifferenceSubcontractors" editable="false" prefWidth="100.0" text="Разнича фактическая" visible="false" />
                                 <TableColumn fx:id="colPaidSubcontractors" prefWidth="100.0" text="Оплачено" visible="false" />
-                                <TableColumn fx:id="colResidueSubcontractors" prefWidth="100.0" text="Остаток" visible="false" editable="false" />
+                                <TableColumn fx:id="colResidueSubcontractors" editable="false" prefWidth="100.0" text="Остаток" visible="false" />
                                 <TableColumn fx:id="colPlannedCPSubcontractors" prefWidth="100.0" text="КП плановое" />
                                 <TableColumn fx:id="colActualCPSubcontractors" prefWidth="100.0" text="КП фактическое" visible="false" />
                                 <TableColumn fx:id="colAccountSubcontractors" prefWidth="100.0" text="Счет" visible="false" />
@@ -169,19 +169,21 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView layoutX="26.0" layoutY="129.0" prefHeight="302.0" prefWidth="150.0">
+                        <TableView fx:id="datePaymentTableView" editable="true"  layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
                             <columns>
-                                <TableColumn prefWidth="75.0" text="Дата" />
-                                <TableColumn prefWidth="75.0" text="Оплачено" />
+                                <TableColumn fx:id="colDateDatePayment" prefWidth="100.0" text="Дата" />
+                                <TableColumn fx:id="colPaymentDatePayment" prefWidth="100.0" text="Оплачено" />
                             </columns>
                         </TableView>
-                        <TableView fx:id="AKTableView" editable="true" layoutX="26.0" layoutY="25.0" onMouseClicked="#On_tabCalculatorClickedActionAK" prefHeight="58.0" prefWidth="406.0">
+                        <TableView fx:id="AKTableView" editable="true"  prefHeight="58.0" prefWidth="406.0" onMouseMoved="#calcTitleAK">
                             <columns>
                                 <TableColumn fx:id="colRateAK" prefWidth="110.0" text="Ставка за месяц" />
                                 <TableColumn fx:id="colTermAK" prefWidth="145.0" text="Плановый срок(мес.)" />
-                                <TableColumn fx:id="colCostAK" prefWidth="135.0" text="Стоимость плановая" />
+                                <TableColumn fx:id="colCostAK" prefWidth="135.0" text="Стоимость плановая" editable="false" />
                             </columns>
                         </TableView>
+                  <Button fx:id="addRate" layoutX="406.0"  mnemonicParsing="false" text="Добавить" onAction="#On_tabCalculatorClickedActionAK" />
+                  <Button fx:id="addDatePayment" layoutX="300.0" layoutY="129.0" mnemonicParsing="false" text="+" onAction="#On_tabCalculatorClickedActionDatePayment" />
                     </children>
                 </AnchorPane>
             </content>
@@ -1023,11 +1025,11 @@
                                 </TitledPane>
             </VBox>
     </Tab>
-        <Tab fx:id="statisticsView" disable="true" text="Статистика" onSelectionChanged="#statistics">
+        <Tab fx:id="statisticsView" disable="true" onSelectionChanged="#statistics" text="Статистика">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="statisticTableView" prefHeight="338.0" prefWidth="536.0" >
+                        <TableView fx:id="statisticTableView" prefHeight="338.0" prefWidth="536.0">
                             <columns>
                                 <TableColumn fx:id="colNameCategory" prefWidth="175.0" sortable="false" text="Наименование категории" />
                                 <TableColumn fx:id="colTotalCost" prefWidth="175.0" sortable="false" text="Общая стоимость" />
