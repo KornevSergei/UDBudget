@@ -141,7 +141,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView fx:id="subcontractorsTableView" editable="true"  layoutY="39.0" prefHeight="300.0" prefWidth="1500.0" onMouseClicked="#calcTitleSubcontractors">
+                        <TableView fx:id="subcontractorsTableView" editable="true" onMouseMoved="#calcTitleSubcontractors"  layoutY="39.0" prefHeight="300.0" prefWidth="1500.0">
                             <columns>
                                 <TableColumn fx:id="colNameCategorySubcontractors" prefWidth="160.0" text="Наименование категории" />
                                 <TableColumn fx:id="colCostPlannedSubcontractors" prefWidth="100.0" text="Стоимость плановая" />
