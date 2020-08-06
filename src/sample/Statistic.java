@@ -1,15 +1,17 @@
 package sample;
 
 public class Statistic {
-    protected String nameCategory;
-    protected double totalCost;
-    protected double costSGM;
+    public String nameCategory;
+    public double totalCost;
+    public double costSGM;
+    public boolean activeStatistic;
 
 
-    public Statistic(String nameCategory, double totalCost, double costSGM) {
+    public Statistic(String nameCategory, double totalCost, double costSGM, boolean activeStatistic) {
         this.nameCategory = nameCategory;
         this.totalCost = totalCost;
         this.costSGM = costSGM;
+        this.activeStatistic = activeStatistic;
     }
 
     public String getNameCategory() {
@@ -42,5 +44,17 @@ public class Statistic {
 
     public void setCostSGM(String costSGM) {
         this.costSGM = Double.parseDouble(costSGM);
+    }
+
+    public boolean getActiveStatistic() {
+        return activeStatistic;
+    }
+
+    public void setActiveStatistic(boolean activeStatistic) {
+        this.activeStatistic = activeStatistic;
+    }
+
+    public void setActiveStatistic(String activeStatistic) {
+        this.activeStatistic = Boolean.parseBoolean(activeStatistic);
     }
 }
