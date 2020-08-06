@@ -154,7 +154,7 @@ public class EditProjectController implements Initializable {
 
     public Button addRate;
     public Button addDatePayment;
-
+    public Button deleteDatePayment;
 
     public TableView <DatePayment> datePaymentTableView;
     public TableColumn <DatePayment, String> colDateDatePayment;
@@ -779,6 +779,8 @@ public class EditProjectController implements Initializable {
     public double sumResidueDecorationDelivery = 0.0;
     public double sumResidueDecorationSuddenly = 0.0;
 
+    public double sumPriceOrderDatePayment = 0.0;
+
 
     public void createProject(ActionEvent actionEvent) {
         createProjectTextField.setVisible(true);
@@ -1167,16 +1169,19 @@ public class EditProjectController implements Initializable {
                     }
                 });
 
+
         colPaymentDatePayment.setCellFactory(cellFactoryDoubleDatePayment);
         colPaymentDatePayment.setCellValueFactory(new PropertyValueFactory<>("paymentDatePayment"));
         colPaymentDatePayment.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<DatePayment, String>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<DatePayment, String> t) {
-                ((DatePayment) t.getTableView().getItems().get(
-                        t.getTablePosition().getRow())).setPaymentDatePayment(t.getNewValue());
+                 t.getTableView().getItems().get(
+                        t.getTablePosition().getRow()).setPaymentDatePayment(t.getNewValue());
                 t.getTableView().refresh();
             }
         });
+
+        colDateDatePayment.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
 
@@ -6328,15 +6333,12 @@ public class EditProjectController implements Initializable {
         sumAK.add(sumCostCPAK);
         sumAK.add(sumActualCostAK);
         sumAK.add(sumActualDifferenceAK);
-        sumAK.add(sumPaidAK);
-        sumAK.add(sumResidueAK);
 
         double sumLocalPriceOrderAK = 0.0;
         double sumLocalCostCPAK = 0.0;
         double sumLocalActualCostAK = 0.0;
         double sumLocalActualDifferenceAK = 0.0;
-        double sumLocalPaidAK = 0.0;
-        double sumLocalResidueAK = 0.0;
+
 
         for (int i = 0; i < AKTableView.getItems().size(); i++) {
             sumLocalPriceOrderAK += Double.parseDouble(colCostAK.getCellData(i));
@@ -6344,16 +6346,12 @@ public class EditProjectController implements Initializable {
             sumLocalActualCostAK += Double.parseDouble(colCostAK.getCellData(i));
             sumLocalActualDifferenceAK += Double.parseDouble(colCostAK.getCellData(i));
 
-            sumLocalPaidAK += Double.parseDouble(colCostAK.getCellData(i));
-            sumLocalResidueAK += Double.parseDouble(colCostAK.getCellData(i));
         }
 
         sumPriceOrderAK = sumLocalPriceOrderAK;
         sumCostCPAK = sumLocalCostCPAK;
         sumActualCostAK = sumLocalActualCostAK;
         sumActualDifferenceAK = sumLocalActualDifferenceAK;
-        sumPaidAK = sumLocalPaidAK;
-        sumResidueAK = sumLocalResidueAK;
 
         return sumAK;
     }
@@ -6365,9 +6363,35 @@ public class EditProjectController implements Initializable {
     }
 
 
+    public List<Double> calcTitleDatePayment() {
+        List<Double> sumDatePayment = new ArrayList<>();
+        sumDatePayment.add(sumPriceOrderDatePayment);
+
+        double sumLocalPriceOrderDatePayment = 0.0;
+
+        for (int i = 0; i < datePaymentTableView.getItems().size(); i++) {
+            sumLocalPriceOrderDatePayment += Double.parseDouble(colPaymentDatePayment.getCellData(i));
+        }
+
+        sumPriceOrderDatePayment = sumLocalPriceOrderDatePayment;
+
+        return sumDatePayment;
+    }
+
     public void On_tabCalculatorClickedActionDatePayment() {
         observableListDatePayment.add(new DatePayment("",0));
     }
+
+    public void deleteElementDatePayment(ActionEvent actionEvent) {
+        ObservableList<DatePayment> allDatePayment, singleDatePayment;
+        allDatePayment = datePaymentTableView.getItems();
+        singleDatePayment = datePaymentTableView.getSelectionModel().getSelectedItems();
+        singleDatePayment.forEach(allDatePayment::remove);
+
+        calcTitleDatePayment();
+    }
+
+
 
 
 
@@ -7871,8 +7895,8 @@ public class EditProjectController implements Initializable {
         double costCPAK = sumCostCPAK;
         double actualCostAK = sumActualCostAK;
         double actualDifferenceAK = costCPAK - actualCostAK;
-        double paidAK = sumPaidAK;
-        double residueAK = sumResidueAK;
+        double paidAK = sumPriceOrderDatePayment;
+        double residueAK = sumActualCostAK - sumPriceOrderDatePayment;
 
         double priceOrderMaterial = sumPriceOrderMaterialWall + sumPriceOrderMaterialFloor + sumPriceOrderMaterialCeiling + sumPriceOrderMaterialOther + sumPriceOrderMaterialSuddenly;
         double costCPMaterial = sumCostCPMaterialWall + sumCostCPMaterialFloor + sumCostCPMaterialCeiling + sumCostCPMaterialOther + sumCostCPMaterialSuddenly;
@@ -7944,4 +7968,6 @@ public class EditProjectController implements Initializable {
         totalTableView.setItems(observableListTotal);
         totalTableView.setEditable(true);
     }
+
+
 }

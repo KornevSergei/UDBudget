@@ -17,8 +17,8 @@ public class DatePayment {
         this.dateDatePayment = dateDatePayment;
     }
 
-    public double getPaymentDatePayment() {
-        return paymentDatePayment;
+    public String getPaymentDatePayment() {
+        return Double.toString(paymentDatePayment);
     }
 
     public void setPaymentDatePayment(double paymentDatePayment) {
