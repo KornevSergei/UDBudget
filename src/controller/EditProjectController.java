@@ -133,6 +133,19 @@ public class EditProjectController implements Initializable {
     public TableColumn<Total, String> colResidueTotal;
 
 
+    public TableView<BuildersCategory> categoryBuildersTableView;
+    public TableColumn<BuildersCategory, String> colCategoryBuildersCategory;
+    public TableColumn<BuildersCategory, String> colConstructionWorksBuildersCategory;
+    public TableColumn<BuildersCategory, String> colDraftMaterialBuildersCategory;
+
+    public TableView<BuildersStage> stageBuildersTableView;
+    public TableColumn<BuildersStage, Date> colDateBuildersStage;
+    public TableColumn<BuildersStage, String> colPaymentWorkBuildersStage;
+    public TableColumn<BuildersStage, String> colPaymentDraftMaterialBuildersStage;
+    public TableColumn<BuildersStage, String> colNoteBuildersStage;
+    private ObservableList<BuildersStage> observableListBuildersStage = FXCollections.observableArrayList();
+
+
     public TableView<Subcontractors> subcontractorsTableView;
     public TableColumn<Subcontractors, String> colNameCategorySubcontractors;
     public TableColumn<Subcontractors, String> colCostPlannedSubcontractors;
@@ -956,6 +969,60 @@ public class EditProjectController implements Initializable {
         colDifferenceTotal.setCellValueFactory(new PropertyValueFactory<>("differenceTotal"));
         colPaidTotal.setCellValueFactory(new PropertyValueFactory<>("paidTotal"));
         colResidueTotal.setCellValueFactory(new PropertyValueFactory<>("residueTotal"));
+
+
+
+        //ДП
+        stageBuildersTableView.setItems(observableListBuildersStage);
+        Callback<TableColumn<BuildersStage, String>, TableCell<BuildersStage, String>> cellFactoryDoubleBuildersStage =
+                new Callback<TableColumn<BuildersStage, String>, TableCell<BuildersStage, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+
+        colDateBuildersStage.setCellValueFactory(new PropertyValueFactory<>("dateBuildersStage"));
+        colDateBuildersStage.setCellFactory(p -> {
+            return new BuildersStage.DatePickerCell<>();
+        });
+
+        colPaymentWorkBuildersStage.setCellFactory(cellFactoryDoubleBuildersStage);
+        colPaymentWorkBuildersStage.setCellValueFactory(new PropertyValueFactory<>("paymentWorkBuildersStage"));
+        colPaymentWorkBuildersStage.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<BuildersStage, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<BuildersStage, String> t) {
+                ((BuildersStage) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setPaymentWorkBuildersStage(t.getNewValue());
+                t.getTableView().refresh();
+            }
+        });
+
+        colPaymentDraftMaterialBuildersStage.setCellFactory(cellFactoryDoubleBuildersStage);
+        colPaymentDraftMaterialBuildersStage.setCellValueFactory(new PropertyValueFactory<>("paymentDraftMaterialBuildersStage"));
+        colPaymentDraftMaterialBuildersStage.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<BuildersStage, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<BuildersStage, String> t) {
+                ((BuildersStage) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setPaymentDraftMaterialBuildersStage(t.getNewValue());
+                t.getTableView().refresh();
+            }
+        });
+
+        colNoteBuildersStage.setCellValueFactory(new PropertyValueFactory<>("noteBuildersStage"));
+        colNoteBuildersStage.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<BuildersStage, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<BuildersStage, String> t) {
+                        ((BuildersStage) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setNoteBuildersStage(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colNoteBuildersStage.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
 
 
         //Статистика
@@ -6247,6 +6314,39 @@ public class EditProjectController implements Initializable {
     //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!!!!
 
 
+    public List<Double> calcTitleBuildersStage() {
+
+        List<Double> sumBuildersStage = new ArrayList<>();
+        sumSubcontractors.add(sumPriceOrderSubcontractors);
+        sumSubcontractors.add(sumCostCPSubcontractors);
+
+
+        double sumLocalPriceOrderSubcontractors = 0.0;
+        double sumLocalCostCPSubcontractors = 0.0;
+
+
+        for (int i = 0; i < stageBuildersTableView.getItems().size(); i++) {
+            sumLocalPriceOrderSubcontractors += Double.parseDouble(colCostPlannedSubcontractors.getCellData(i));
+            sumLocalCostCPSubcontractors += Double.parseDouble(colCostCPSubcontractors.getCellData(i));
+
+        }
+
+        sumPriceOrderSubcontractors = sumLocalPriceOrderSubcontractors;
+        sumCostCPSubcontractors = sumLocalCostCPSubcontractors;
+
+
+        return sumBuildersStage;
+    }
+
+
+    public void On_tabCalculatorClickedActionBuildersStage() {
+        observableListBuildersStage.add(new BuildersStage("", 0, 0,""));
+    }
+
+
+
+
+
     public List<Double> calcTitleSubcontractors() {
 
         List<Double> sumSubcontractors = new ArrayList<>();
@@ -7646,23 +7746,6 @@ public class EditProjectController implements Initializable {
 
             colActualCPAppliancesSuddenly.setVisible(true);
             colAccountAppliancesSuddenly.setVisible(true);
-
-
-//            for (AppliancesSuddenly d : colQuantityAppliancesSuddenly) {
-//                sumPriceOrderAppliancesSuddenly += Double.parseDouble(d.getQuantityAppliancesSuddenly());
-//                System.out.println("Tect");
-//            }
-
-
-//            for (TableColumn<AppliancesSuddenly, ?> d : colQuantityAppliancesSuddenly.getColumns()) {
-//            for (AppliancesSuddenly d : colQuantityAppliancesSuddenly.getColumns()) {
-
-//            for (AppliancesSuddenly d : colQuantityAppliancesSuddenly.get) {
-//                System.out.println(d);
-//            }
-
-
-//            titleAppliancesSuddenly.setText(String.format("%.2f", sumPriceOrderAppliancesSuddenly));
 
         } else {
             showAppliancesSuddenlyButton.setText("Показать");
