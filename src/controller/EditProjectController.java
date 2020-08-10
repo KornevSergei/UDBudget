@@ -804,6 +804,14 @@ public class EditProjectController implements Initializable {
     public double sumPaymentWorkBuildersStage = 0.0;
     public double sumPaymentDraftMaterialBuildersStage = 0.0;
 
+    public double constructionWorkPlannedCost = 0.0;
+    public double constructionWorkCostCP = 0.0;
+    public double draftMaterialPlannedCost = 0.0;
+    public double draftMaterialCostCP = 0.0;
+
+    public double actualCostWorkBuilders;
+    public double actualCostDraftMaterials;
+
 
     public void createProject(ActionEvent actionEvent) {
         createProjectTextField.setVisible(true);
@@ -976,7 +984,7 @@ public class EditProjectController implements Initializable {
         colResidueTotal.setCellValueFactory(new PropertyValueFactory<>("residueTotal"));
 
 
-        //ДП
+        //Строители Стадии
         stageBuildersTableView.setItems(observableListBuildersStage);
         Callback<TableColumn<BuildersStage, String>, TableCell<BuildersStage, String>> cellFactoryDoubleBuildersStage =
                 new Callback<TableColumn<BuildersStage, String>, TableCell<BuildersStage, String>>() {
@@ -1024,6 +1032,50 @@ public class EditProjectController implements Initializable {
                 });
 
         colNoteBuildersStage.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+        //Строители Категории
+        categoryBuildersTableView.setItems(observableListBuildersCategory);
+        Callback<TableColumn<BuildersCategory, String>, TableCell<BuildersCategory, String>> cellFactoryDoubleBuildersCategory =
+                new Callback<TableColumn<BuildersCategory, String>, TableCell<BuildersCategory, String>>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCellTextBox("\\d.\\d");
+                    }
+                };
+
+        colCategoryBuildersCategory.setCellValueFactory(new PropertyValueFactory<>("categoryBuildersCategory"));
+        colCategoryBuildersCategory.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<BuildersCategory, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<BuildersCategory, String> t) {
+                        ((BuildersCategory) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())).setCategoryBuildersCategory(t.getNewValue());
+                        t.getTableView().refresh();
+                    }
+                });
+
+        colConstructionWorksBuildersCategory.setCellFactory(cellFactoryDoubleBuildersCategory);
+        colConstructionWorksBuildersCategory.setCellValueFactory(new PropertyValueFactory<>("constructionWorksBuildersCategory"));
+        colConstructionWorksBuildersCategory.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<BuildersCategory, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<BuildersCategory, String> t) {
+                ((BuildersCategory) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setConstructionWorksBuildersCategory(t.getNewValue());
+                t.getTableView().refresh();
+            }
+        });
+
+        colDraftMaterialBuildersCategory.setCellFactory(cellFactoryDoubleBuildersCategory);
+        colDraftMaterialBuildersCategory.setCellValueFactory(new PropertyValueFactory<>("draftMaterialBuildersCategory"));
+        colDraftMaterialBuildersCategory.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<BuildersCategory, String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<BuildersCategory, String> t) {
+                ((BuildersCategory) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())).setDraftMaterialBuildersCategory(t.getNewValue());
+                t.getTableView().refresh();
+            }
+        });
+
 
 
         //Статистика
@@ -6316,13 +6368,49 @@ public class EditProjectController implements Initializable {
 
     //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!!!!
 
-    public void calcTitleBuildersCategory(MouseEvent mouseEvent) {
+    public List<Double> calcTitleBuildersCategory() {
 
+        List<Double> sumBuildersCategory = new ArrayList<>();
+        sumBuildersCategory.add(constructionWorkPlannedCost);
+        sumBuildersCategory.add(constructionWorkCostCP);
+        sumBuildersCategory.add(draftMaterialPlannedCost );
+        sumBuildersCategory.add(draftMaterialCostCP);
+
+        double localConstructionWorkPlannedCost = 0.0;
+        double localConstructionWorkCostCP = 0.0;
+        double localDraftMaterialPlannedCost = 0.0;
+        double localDraftMaterialCostCP= 0.0;
+
+        for (int i = 0; i < categoryBuildersTableView.getItems().size(); i = i + 2) {
+            localConstructionWorkPlannedCost += Double.parseDouble(colConstructionWorksBuildersCategory.getCellData(i));
+            localConstructionWorkCostCP += Double.parseDouble(colDraftMaterialBuildersCategory.getCellData(i));
+        }
+
+        for (int i = 1; i < categoryBuildersTableView.getItems().size(); i++) {
+            localDraftMaterialPlannedCost += Double.parseDouble(colConstructionWorksBuildersCategory.getCellData(i));
+            localDraftMaterialCostCP += Double.parseDouble(colDraftMaterialBuildersCategory.getCellData(i));
+        }
+
+
+        constructionWorkPlannedCost = localConstructionWorkPlannedCost;
+        constructionWorkCostCP = localConstructionWorkCostCP;
+        draftMaterialPlannedCost = localDraftMaterialPlannedCost;
+        draftMaterialCostCP = localDraftMaterialCostCP;
+
+        return sumBuildersCategory;
     }
 
     public void On_tabCalculatorClickedActionBuildersCategory() {
-        observableListBuildersCategory.add(new BuildersCategory("",0,0));
         System.out.println("фццфп");
+
+        ObservableList<BuildersCategory> observableListBuildersCategory = FXCollections.observableArrayList(
+                new BuildersCategory("Плановая стоимость", 0, 0),
+                new BuildersCategory("Стоимость по КП", 0, 0)
+        );
+
+        categoryBuildersTableView.setItems(observableListBuildersCategory);
+        categoryBuildersTableView.setEditable(true);
+
     }
 
 
@@ -8050,6 +8138,19 @@ public class EditProjectController implements Initializable {
         double residueDecoration = sumResidueDecorationDelivery + sumResidueDecorationSuddenly;
 
 
+        if (sumPaymentWorkBuildersStage > draftMaterialPlannedCost ){
+            actualCostWorkBuilders = sumPaymentWorkBuildersStage;
+        }
+        else actualCostWorkBuilders = draftMaterialPlannedCost;
+
+
+        if (sumPaymentDraftMaterialBuildersStage > draftMaterialCostCP ){
+            actualCostDraftMaterials = sumPaymentDraftMaterialBuildersStage;
+        }
+        else actualCostDraftMaterials = draftMaterialCostCP;
+
+
+
         double interiorFillingPriceOrder = priceOrderMaterial + priceOrderPlumbing + priceOrderFurniture + priceOrderLight + priceOrderAppliances + priceOrderDecoration;
         double interiorFillingCostCP = costCPMaterial + costCPPlumbing + costCPFurniture + costCPLight + costCPAppliances + costCPDecoration;
         double interiorFillingActualCost = actualCostMaterial + actualCostPlumbing + actualCostFurniture + actualCostLight + actualCostAppliances + actualCostDecoration;
@@ -8057,8 +8158,18 @@ public class EditProjectController implements Initializable {
         double interiorFillingPaid = paidMaterial + paidPlumbing + paidFurniture + paidLight + paidAppliances + paidDecoration;
         double interiorFillingResidue = residueMaterial + residuePlumbing + residueFurniture + residueLight + residueAppliances + residueDecoration;
 
+//        public double constructionWorkPlannedCost = 0.0;
+//        public double constructionWorkCostCP = 0.0;
+//        public double draftMaterialPlannedCost = 0.0;
+//        public double draftMaterialCostCP = 0.0;
 
-        double paidWorkDraftMaterial = sumPaymentWorkBuildersStage + sumPaymentDraftMaterialBuildersStage + paidSubcontractors;
+
+        double workDraftMaterialPriceOrder ;
+        double workDraftMaterialCostCP ;
+        double workDraftMaterialActualCost;
+        double workDraftMaterialActualDifference;
+        double workDraftMaterialPaid = sumPaymentWorkBuildersStage + sumPaymentDraftMaterialBuildersStage + paidSubcontractors;
+        double workDraftMaterialResidue;
 
 
         double fullWorkKeyPriceOrder = interiorFillingPriceOrder;
@@ -8070,16 +8181,16 @@ public class EditProjectController implements Initializable {
 
 
         //Тесты округления = 1й - ок, 2й - не ок
-        double newKB1 = Math.round(paidWorkDraftMaterial * 100.0) / 100.0;
+        double newKB1 = Math.round(workDraftMaterialPaid * 100.0) / 100.0;
         System.out.println(newKB1);
         DecimalFormat newKB2 = new DecimalFormat("###.##");
-        System.out.println(newKB2.format(paidWorkDraftMaterial));
+        System.out.println(newKB2.format(workDraftMaterialPaid));
 
 
         ObservableList<Total> observableListTotal = FXCollections.observableArrayList(
                 new Total("Дизайн-проект", 0, 0, 0, 0, 0, 0),
-                new Total("Работа строителей", 0, 0, 0, 0, sumPaymentWorkBuildersStage, 0),
-                new Total("Черновые материалы", 0, 0, 0, 0, sumPaymentDraftMaterialBuildersStage, 0),
+                new Total("Работа строителей", constructionWorkPlannedCost, draftMaterialPlannedCost,actualCostWorkBuilders, 0, sumPaymentWorkBuildersStage, 0),
+                new Total("Черновые материалы", constructionWorkCostCP, draftMaterialCostCP, actualCostDraftMaterials, 0, sumPaymentDraftMaterialBuildersStage, 0),
                 new Total("Смежники", priceOrderSubcontractors, costCPSubcontractors, actualCostSubcontractors, actualDifferenceSubcontractors, paidSubcontractors, residueSubcontractors),
                 new Total("Авторский контроль", priceOrderAK, costCPAK, actualCostAK, actualDifferenceAK, paidAK, residueAK),
                 new Total("Чистовые материалы", priceOrderMaterial, costCPMaterial, actualCostMaterial, actualDifferenceMaterial, paidMaterial, residueMaterial),
@@ -8089,7 +8200,7 @@ public class EditProjectController implements Initializable {
                 new Total("Техника", priceOrderAppliances, costCPAppliances, actualCostAppliances, actualDifferenceAppliances, paidAppliances, residueAppliances),
                 new Total("Декор", priceOrderDecoration, costCPDecoration, actualCostDecoration, actualDifferenceDecoration, paidDecoration, residueDecoration),
                 new Total("Наполнение интерьера:", interiorFillingPriceOrder, interiorFillingCostCP, interiorFillingActualCost, interiorFillingActualDifference, interiorFillingPaid, interiorFillingResidue),
-                new Total("Работа и черновые мат-лы:", 0, 0, 0, 0, paidWorkDraftMaterial, 0),
+                new Total("Работа и черновые мат-лы:", 0, 0, 0, 0, workDraftMaterialPaid, 0),
                 new Total("Под ключ с работой:", fullWorkKeyPriceOrder, fullWorkKeyCostCP, fullWorkKeyActualCost, fullWorkKeyActualDifference, fullWorkKeyPaid, fullWorkKeyResidue)
         );
 

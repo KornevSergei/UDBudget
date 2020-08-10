@@ -11,27 +11,35 @@ public class BuildersCategory {
         this.draftMaterialBuildersCategory = draftMaterialBuildersCategory;
     }
 
+
     public String getCategoryBuildersCategory() {
         return categoryBuildersCategory;
     }
-
     public void setCategoryBuildersCategory(String categoryBuildersCategory) {
         this.categoryBuildersCategory = categoryBuildersCategory;
     }
 
-    public double getConstructionWorksBuildersCategory() {
-        return constructionWorksBuildersCategory;
-    }
 
+
+    public String getConstructionWorksBuildersCategory() {
+        return Double.toString(constructionWorksBuildersCategory);
+    }
     public void setConstructionWorksBuildersCategory(double constructionWorksBuildersCategory) {
         this.constructionWorksBuildersCategory = constructionWorksBuildersCategory;
     }
-
-    public double getDraftMaterialBuildersCategory() {
-        return draftMaterialBuildersCategory;
+    public void setConstructionWorksBuildersCategory(String constructionWorksBuildersCategory) {
+        this.constructionWorksBuildersCategory = Double.parseDouble(constructionWorksBuildersCategory);
     }
 
+
+
+    public String getDraftMaterialBuildersCategory() {
+        return Double.toString(draftMaterialBuildersCategory);
+    }
     public void setDraftMaterialBuildersCategory(double draftMaterialBuildersCategory) {
         this.draftMaterialBuildersCategory = draftMaterialBuildersCategory;
+    }
+    public void setDraftMaterialBuildersCategory(String draftMaterialBuildersCategory) {
+        this.draftMaterialBuildersCategory = Double.parseDouble(draftMaterialBuildersCategory);
     }
 }
