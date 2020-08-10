@@ -23,6 +23,7 @@ import javafx.util.Callback;
 import tables.*;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -137,6 +138,7 @@ public class EditProjectController implements Initializable {
     public TableColumn<BuildersCategory, String> colCategoryBuildersCategory;
     public TableColumn<BuildersCategory, String> colConstructionWorksBuildersCategory;
     public TableColumn<BuildersCategory, String> colDraftMaterialBuildersCategory;
+    private ObservableList<BuildersCategory> observableListBuildersCategory = FXCollections.observableArrayList();
 
     public TableView<BuildersStage> stageBuildersTableView;
     public TableColumn<BuildersStage, Date> colDateBuildersStage;
@@ -799,6 +801,9 @@ public class EditProjectController implements Initializable {
 
     public double sumPriceOrderDatePayment = 0.0;
 
+    public double sumPaymentWorkBuildersStage = 0.0;
+    public double sumPaymentDraftMaterialBuildersStage = 0.0;
+
 
     public void createProject(ActionEvent actionEvent) {
         createProjectTextField.setVisible(true);
@@ -971,7 +976,6 @@ public class EditProjectController implements Initializable {
         colResidueTotal.setCellValueFactory(new PropertyValueFactory<>("residueTotal"));
 
 
-
         //ДП
         stageBuildersTableView.setItems(observableListBuildersStage);
         Callback<TableColumn<BuildersStage, String>, TableCell<BuildersStage, String>> cellFactoryDoubleBuildersStage =
@@ -1020,9 +1024,6 @@ public class EditProjectController implements Initializable {
                 });
 
         colNoteBuildersStage.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
-
 
 
         //Статистика
@@ -6008,6 +6009,8 @@ public class EditProjectController implements Initializable {
         decorationView.setDisable(false);
         statisticsView.setDisable(false);
         diagramView.setDisable(false);
+
+        On_tabCalculatorClickedActionBuildersCategory();
     }
 
     //!!!!!НАЧАЛО ДИ !!!!!!
@@ -6313,38 +6316,42 @@ public class EditProjectController implements Initializable {
 
     //!!!!!!!!!! КОНЕЦ ДИ !!!!!!!!!!
 
+    public void calcTitleBuildersCategory(MouseEvent mouseEvent) {
+
+    }
+
+    public void On_tabCalculatorClickedActionBuildersCategory() {
+        observableListBuildersCategory.add(new BuildersCategory("",0,0));
+        System.out.println("фццфп");
+    }
+
+
 
     public List<Double> calcTitleBuildersStage() {
 
         List<Double> sumBuildersStage = new ArrayList<>();
-        sumSubcontractors.add(sumPriceOrderSubcontractors);
-        sumSubcontractors.add(sumCostCPSubcontractors);
+        sumBuildersStage.add(sumPaymentWorkBuildersStage);
+        sumBuildersStage.add(sumPaymentDraftMaterialBuildersStage);
 
-
-        double sumLocalPriceOrderSubcontractors = 0.0;
-        double sumLocalCostCPSubcontractors = 0.0;
-
+        double sumLocalPaymentWorkBuildersStage = 0.0;
+        double sumLocalPaymentDraftMaterialBuildersStage = 0.0;
 
         for (int i = 0; i < stageBuildersTableView.getItems().size(); i++) {
-            sumLocalPriceOrderSubcontractors += Double.parseDouble(colCostPlannedSubcontractors.getCellData(i));
-            sumLocalCostCPSubcontractors += Double.parseDouble(colCostCPSubcontractors.getCellData(i));
-
+//        for (int i = 1; i < stageBuildersTableView.getItems().size(); i = i + 2) {
+            sumLocalPaymentWorkBuildersStage += Double.parseDouble(colPaymentWorkBuildersStage.getCellData(i));
+            sumLocalPaymentDraftMaterialBuildersStage += Double.parseDouble(colPaymentDraftMaterialBuildersStage.getCellData(i));
         }
 
-        sumPriceOrderSubcontractors = sumLocalPriceOrderSubcontractors;
-        sumCostCPSubcontractors = sumLocalCostCPSubcontractors;
-
+        sumPaymentWorkBuildersStage = sumLocalPaymentWorkBuildersStage;
+        sumPaymentDraftMaterialBuildersStage = sumLocalPaymentDraftMaterialBuildersStage;
 
         return sumBuildersStage;
     }
 
 
     public void On_tabCalculatorClickedActionBuildersStage() {
-        observableListBuildersStage.add(new BuildersStage("", 0, 0,""));
+        observableListBuildersStage.add(new BuildersStage("", 0, 0, ""));
     }
-
-
-
 
 
     public List<Double> calcTitleSubcontractors() {
@@ -7938,14 +7945,15 @@ public class EditProjectController implements Initializable {
         double priceOrderLight = sumPriceOrderLightDelivery + sumPriceOrderLightSuddenly;
         double priceOrderAppliances = sumPriceOrderAppliancesKitchen + sumPriceOrderAppliancesOther + sumPriceOrderAppliancesDelivery + sumPriceOrderAppliancesSuddenly;
         double priceOrderDecoration = sumPriceOrderDecorationDelivery + sumPriceOrderDecorationSuddenly;
+        double priceDraftMaterial = sumPaymentDraftMaterialBuildersStage;
 
-        double statisticPriceOrder = priceOrderSubcontractors + priceOrderAK + priceOrderMaterial + priceOrderPlumbing + priceOrderFurniture + priceOrderLight + priceOrderAppliances + priceOrderDecoration;
+        double statisticPriceOrder = priceOrderSubcontractors + priceOrderAK + priceOrderMaterial + priceOrderPlumbing + priceOrderFurniture + priceOrderLight + priceOrderAppliances + priceOrderDecoration + priceDraftMaterial;
 
 
         ObservableList<Statistic> observableListStatistic = FXCollections.observableArrayList(
                 new Statistic("Дизайн-проект", 0, 0, true),
                 new Statistic("Строители", 0, 0, true),
-                new Statistic("Черновые материалы", 0, 0, true),
+                new Statistic("Черновые материалы", priceDraftMaterial, 0, true),
                 new Statistic("Смежники", priceOrderSubcontractors, 0, true),
                 new Statistic("Авторский контроль", priceOrderAK, 0, true),
                 new Statistic("Чистовые материалы", priceOrderMaterial, 0, true),
@@ -7983,6 +7991,7 @@ public class EditProjectController implements Initializable {
 
     public void total(Event event) {
         System.out.println("Что то происходит...");
+
 
         double priceOrderSubcontractors = sumPriceOrderSubcontractors;
         double costCPSubcontractors = sumCostCPSubcontractors;
@@ -8040,6 +8049,7 @@ public class EditProjectController implements Initializable {
         double paidDecoration = sumPaidDecorationDelivery + sumPaidDecorationSuddenly;
         double residueDecoration = sumResidueDecorationDelivery + sumResidueDecorationSuddenly;
 
+
         double interiorFillingPriceOrder = priceOrderMaterial + priceOrderPlumbing + priceOrderFurniture + priceOrderLight + priceOrderAppliances + priceOrderDecoration;
         double interiorFillingCostCP = costCPMaterial + costCPPlumbing + costCPFurniture + costCPLight + costCPAppliances + costCPDecoration;
         double interiorFillingActualCost = actualCostMaterial + actualCostPlumbing + actualCostFurniture + actualCostLight + actualCostAppliances + actualCostDecoration;
@@ -8048,10 +8058,28 @@ public class EditProjectController implements Initializable {
         double interiorFillingResidue = residueMaterial + residuePlumbing + residueFurniture + residueLight + residueAppliances + residueDecoration;
 
 
+        double paidWorkDraftMaterial = sumPaymentWorkBuildersStage + sumPaymentDraftMaterialBuildersStage + paidSubcontractors;
+
+
+        double fullWorkKeyPriceOrder = interiorFillingPriceOrder;
+        double fullWorkKeyCostCP = interiorFillingCostCP;
+        double fullWorkKeyActualCost = interiorFillingActualCost;
+        double fullWorkKeyActualDifference = interiorFillingActualDifference;
+        double fullWorkKeyPaid = interiorFillingPaid + sumPaymentWorkBuildersStage + sumPaymentDraftMaterialBuildersStage;
+        double fullWorkKeyResidue = interiorFillingResidue;
+
+
+        //Тесты округления = 1й - ок, 2й - не ок
+        double newKB1 = Math.round(paidWorkDraftMaterial * 100.0) / 100.0;
+        System.out.println(newKB1);
+        DecimalFormat newKB2 = new DecimalFormat("###.##");
+        System.out.println(newKB2.format(paidWorkDraftMaterial));
+
+
         ObservableList<Total> observableListTotal = FXCollections.observableArrayList(
                 new Total("Дизайн-проект", 0, 0, 0, 0, 0, 0),
-                new Total("Работа строителей", 0, 0, 0, 0, 0, 0),
-                new Total("Черновые материалы", 0, 0, 0, 0, 0, 0),
+                new Total("Работа строителей", 0, 0, 0, 0, sumPaymentWorkBuildersStage, 0),
+                new Total("Черновые материалы", 0, 0, 0, 0, sumPaymentDraftMaterialBuildersStage, 0),
                 new Total("Смежники", priceOrderSubcontractors, costCPSubcontractors, actualCostSubcontractors, actualDifferenceSubcontractors, paidSubcontractors, residueSubcontractors),
                 new Total("Авторский контроль", priceOrderAK, costCPAK, actualCostAK, actualDifferenceAK, paidAK, residueAK),
                 new Total("Чистовые материалы", priceOrderMaterial, costCPMaterial, actualCostMaterial, actualDifferenceMaterial, paidMaterial, residueMaterial),
@@ -8061,12 +8089,13 @@ public class EditProjectController implements Initializable {
                 new Total("Техника", priceOrderAppliances, costCPAppliances, actualCostAppliances, actualDifferenceAppliances, paidAppliances, residueAppliances),
                 new Total("Декор", priceOrderDecoration, costCPDecoration, actualCostDecoration, actualDifferenceDecoration, paidDecoration, residueDecoration),
                 new Total("Наполнение интерьера:", interiorFillingPriceOrder, interiorFillingCostCP, interiorFillingActualCost, interiorFillingActualDifference, interiorFillingPaid, interiorFillingResidue),
-                new Total("Работа и черновые мат-лы:", 0, 0, 0, 0, 0, 0),
-                new Total("Под ключ с работой:", 0, 0, 0, 0, 0, 0)
+                new Total("Работа и черновые мат-лы:", 0, 0, 0, 0, paidWorkDraftMaterial, 0),
+                new Total("Под ключ с работой:", fullWorkKeyPriceOrder, fullWorkKeyCostCP, fullWorkKeyActualCost, fullWorkKeyActualDifference, fullWorkKeyPaid, fullWorkKeyResidue)
         );
 
         totalTableView.setItems(observableListTotal);
         totalTableView.setEditable(true);
     }
+
 
 }
