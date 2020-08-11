@@ -1077,7 +1077,6 @@ public class EditProjectController implements Initializable {
         });
 
 
-
         //Статистика
         colNameCategory.setCellValueFactory(new PropertyValueFactory<>("nameCategory"));
         colTotalCost.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
@@ -6373,13 +6372,13 @@ public class EditProjectController implements Initializable {
         List<Double> sumBuildersCategory = new ArrayList<>();
         sumBuildersCategory.add(constructionWorkPlannedCost);
         sumBuildersCategory.add(constructionWorkCostCP);
-        sumBuildersCategory.add(draftMaterialPlannedCost );
+        sumBuildersCategory.add(draftMaterialPlannedCost);
         sumBuildersCategory.add(draftMaterialCostCP);
 
         double localConstructionWorkPlannedCost = 0.0;
         double localConstructionWorkCostCP = 0.0;
         double localDraftMaterialPlannedCost = 0.0;
-        double localDraftMaterialCostCP= 0.0;
+        double localDraftMaterialCostCP = 0.0;
 
         for (int i = 0; i < categoryBuildersTableView.getItems().size(); i = i + 2) {
             localConstructionWorkPlannedCost += Double.parseDouble(colConstructionWorksBuildersCategory.getCellData(i));
@@ -6412,7 +6411,6 @@ public class EditProjectController implements Initializable {
         categoryBuildersTableView.setEditable(true);
 
     }
-
 
 
     public List<Double> calcTitleBuildersStage() {
@@ -8080,6 +8078,27 @@ public class EditProjectController implements Initializable {
     public void total(Event event) {
         System.out.println("Что то происходит...");
 
+//        public double constructionWorkPlannedCost = 0.0;
+//        public double constructionWorkCostCP = 0.0;
+//        public double draftMaterialPlannedCost = 0.0;
+//        public double draftMaterialCostCP = 0.0;
+
+        if (sumPaymentWorkBuildersStage > draftMaterialPlannedCost) {
+            actualCostWorkBuilders = sumPaymentWorkBuildersStage;
+        } else actualCostWorkBuilders = draftMaterialPlannedCost;
+
+
+        if (sumPaymentDraftMaterialBuildersStage > draftMaterialCostCP) {
+            actualCostDraftMaterials = sumPaymentDraftMaterialBuildersStage;
+        } else actualCostDraftMaterials = draftMaterialCostCP;
+
+
+        double actualDifferenceWorkBuilders = draftMaterialPlannedCost - actualCostWorkBuilders;
+        double actualDifferenceDraftMaterials = draftMaterialCostCP - actualCostDraftMaterials;
+
+        double residueWorkBuilders = actualCostWorkBuilders - sumPaymentWorkBuildersStage;
+        double residueDraftMaterials = actualCostDraftMaterials - sumPaymentDraftMaterialBuildersStage;
+
 
         double priceOrderSubcontractors = sumPriceOrderSubcontractors;
         double costCPSubcontractors = sumCostCPSubcontractors;
@@ -8138,19 +8157,6 @@ public class EditProjectController implements Initializable {
         double residueDecoration = sumResidueDecorationDelivery + sumResidueDecorationSuddenly;
 
 
-        if (sumPaymentWorkBuildersStage > draftMaterialPlannedCost ){
-            actualCostWorkBuilders = sumPaymentWorkBuildersStage;
-        }
-        else actualCostWorkBuilders = draftMaterialPlannedCost;
-
-
-        if (sumPaymentDraftMaterialBuildersStage > draftMaterialCostCP ){
-            actualCostDraftMaterials = sumPaymentDraftMaterialBuildersStage;
-        }
-        else actualCostDraftMaterials = draftMaterialCostCP;
-
-
-
         double interiorFillingPriceOrder = priceOrderMaterial + priceOrderPlumbing + priceOrderFurniture + priceOrderLight + priceOrderAppliances + priceOrderDecoration;
         double interiorFillingCostCP = costCPMaterial + costCPPlumbing + costCPFurniture + costCPLight + costCPAppliances + costCPDecoration;
         double interiorFillingActualCost = actualCostMaterial + actualCostPlumbing + actualCostFurniture + actualCostLight + actualCostAppliances + actualCostDecoration;
@@ -8158,26 +8164,21 @@ public class EditProjectController implements Initializable {
         double interiorFillingPaid = paidMaterial + paidPlumbing + paidFurniture + paidLight + paidAppliances + paidDecoration;
         double interiorFillingResidue = residueMaterial + residuePlumbing + residueFurniture + residueLight + residueAppliances + residueDecoration;
 
-//        public double constructionWorkPlannedCost = 0.0;
-//        public double constructionWorkCostCP = 0.0;
-//        public double draftMaterialPlannedCost = 0.0;
-//        public double draftMaterialCostCP = 0.0;
 
-
-        double workDraftMaterialPriceOrder ;
-        double workDraftMaterialCostCP ;
-        double workDraftMaterialActualCost;
-        double workDraftMaterialActualDifference;
+        double workDraftMaterialPriceOrder = constructionWorkPlannedCost + constructionWorkCostCP + priceOrderSubcontractors;
+        double workDraftMaterialCostCP = draftMaterialPlannedCost + draftMaterialCostCP + costCPSubcontractors;
+        double workDraftMaterialActualCost = actualCostWorkBuilders + actualCostDraftMaterials + actualCostSubcontractors;
+        double workDraftMaterialActualDifference = actualDifferenceWorkBuilders + actualDifferenceDraftMaterials + actualDifferenceSubcontractors;
         double workDraftMaterialPaid = sumPaymentWorkBuildersStage + sumPaymentDraftMaterialBuildersStage + paidSubcontractors;
-        double workDraftMaterialResidue;
+        double workDraftMaterialResidue = residueWorkBuilders + residueDraftMaterials + residueSubcontractors;
 
 
-        double fullWorkKeyPriceOrder = interiorFillingPriceOrder;
-        double fullWorkKeyCostCP = interiorFillingCostCP;
-        double fullWorkKeyActualCost = interiorFillingActualCost;
-        double fullWorkKeyActualDifference = interiorFillingActualDifference;
-        double fullWorkKeyPaid = interiorFillingPaid + sumPaymentWorkBuildersStage + sumPaymentDraftMaterialBuildersStage;
-        double fullWorkKeyResidue = interiorFillingResidue;
+        double fullWorkKeyPriceOrder = interiorFillingPriceOrder + constructionWorkPlannedCost + constructionWorkCostCP + priceOrderAK + priceOrderSubcontractors;
+        double fullWorkKeyCostCP = interiorFillingCostCP + draftMaterialPlannedCost + draftMaterialCostCP + costCPAK + costCPSubcontractors;
+        double fullWorkKeyActualCost = interiorFillingActualCost + actualCostWorkBuilders + actualCostDraftMaterials + actualCostAK + actualCostSubcontractors;
+        double fullWorkKeyActualDifference = interiorFillingActualDifference + actualDifferenceWorkBuilders + actualDifferenceDraftMaterials + actualDifferenceAK + actualDifferenceSubcontractors;
+        double fullWorkKeyPaid = interiorFillingPaid + sumPaymentWorkBuildersStage + sumPaymentDraftMaterialBuildersStage + paidAK + paidSubcontractors;
+        double fullWorkKeyResidue = interiorFillingResidue + residueWorkBuilders + residueDraftMaterials + residueAK + residueSubcontractors;
 
 
         //Тесты округления = 1й - ок, 2й - не ок
@@ -8189,8 +8190,8 @@ public class EditProjectController implements Initializable {
 
         ObservableList<Total> observableListTotal = FXCollections.observableArrayList(
                 new Total("Дизайн-проект", 0, 0, 0, 0, 0, 0),
-                new Total("Работа строителей", constructionWorkPlannedCost, draftMaterialPlannedCost,actualCostWorkBuilders, 0, sumPaymentWorkBuildersStage, 0),
-                new Total("Черновые материалы", constructionWorkCostCP, draftMaterialCostCP, actualCostDraftMaterials, 0, sumPaymentDraftMaterialBuildersStage, 0),
+                new Total("Работа строителей", constructionWorkPlannedCost, draftMaterialPlannedCost, actualCostWorkBuilders, actualDifferenceWorkBuilders, sumPaymentWorkBuildersStage, residueWorkBuilders),
+                new Total("Черновые материалы", constructionWorkCostCP, draftMaterialCostCP, actualCostDraftMaterials, actualDifferenceDraftMaterials, sumPaymentDraftMaterialBuildersStage, residueDraftMaterials),
                 new Total("Смежники", priceOrderSubcontractors, costCPSubcontractors, actualCostSubcontractors, actualDifferenceSubcontractors, paidSubcontractors, residueSubcontractors),
                 new Total("Авторский контроль", priceOrderAK, costCPAK, actualCostAK, actualDifferenceAK, paidAK, residueAK),
                 new Total("Чистовые материалы", priceOrderMaterial, costCPMaterial, actualCostMaterial, actualDifferenceMaterial, paidMaterial, residueMaterial),
@@ -8200,7 +8201,7 @@ public class EditProjectController implements Initializable {
                 new Total("Техника", priceOrderAppliances, costCPAppliances, actualCostAppliances, actualDifferenceAppliances, paidAppliances, residueAppliances),
                 new Total("Декор", priceOrderDecoration, costCPDecoration, actualCostDecoration, actualDifferenceDecoration, paidDecoration, residueDecoration),
                 new Total("Наполнение интерьера:", interiorFillingPriceOrder, interiorFillingCostCP, interiorFillingActualCost, interiorFillingActualDifference, interiorFillingPaid, interiorFillingResidue),
-                new Total("Работа и черновые мат-лы:", 0, 0, 0, 0, workDraftMaterialPaid, 0),
+                new Total("Работа и черновые мат-лы:", workDraftMaterialPriceOrder, workDraftMaterialCostCP, workDraftMaterialActualCost, workDraftMaterialActualDifference, workDraftMaterialPaid, workDraftMaterialResidue),
                 new Total("Под ключ с работой:", fullWorkKeyPriceOrder, fullWorkKeyCostCP, fullWorkKeyActualCost, fullWorkKeyActualDifference, fullWorkKeyPaid, fullWorkKeyResidue)
         );
 
